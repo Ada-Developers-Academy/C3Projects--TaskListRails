@@ -1,0 +1,23 @@
+  # cd to one step ABOVE your project root folder.
+$ echo '<GemsetName>' > <project_root>/.ruby-gemset
+$ echo '2.2.2' > <project_root>/.ruby-version
+$ cd <project_root>
+  # NOTE: Terminal should show that the wrapper was created
+$ rvm gemset list
+  # NOTE: confirm that the new gemset is the one that's being used
+$ gem install rails --no-rdoc --no-ri
+  # NOTE: If you want to install a specific version of rails, you can do this like this: `gem install rails --no-rdoc --no-ri`
+$ rails new . -T
+  # NOTE: `.` creates the rails project with the current working directory as the project root.
+
+$ rails generate scaffold task name:string description:string completed_on:datetime
+$ rake db:create
+$ rake db:migrate
+
+$ rails destroy scaffold task
+$ rake db:drop
+
+$ rails generate model Task name:string description:string completed_on:datetime
+$ rake db:migrate
+
+$ rails generate migration change_table
