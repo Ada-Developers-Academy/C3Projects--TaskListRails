@@ -1,5 +1,5 @@
 class CreateTasks < ActiveRecord::Migration
-  def change
+  def change    
     create_table :tasks do |t|
       t.string :name
       t.string :description

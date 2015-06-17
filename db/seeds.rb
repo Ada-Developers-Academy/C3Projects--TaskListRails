@@ -6,14 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# tasks = [
-#   {name: "Bobbi", description: "Laundry", date: "06/17/2015"},
-#   {name: "Tami", description: "Dishes"},
-#   {name: "Joaquin", description: "Dusting"},
-#   {name: "Phoenix", description: "Polishing"},
-#   {name: "Xavier", description: "Groceries"},
-# ]
-#
-# tasks.each do |task|
-#   Task.create(task)
-# end
+tasks = [
+  {name: "Bobbi", description: "Laundry", date: "06/17/2015", completed: "Yes"},
+  {name: "Tami", description: "Dishes", completed: "No"},
+  {name: "Joaquin", description: "Dusting", completed: "No"},
+  {name: "Phoenix", description: "Polishing", date: "01/01/2015", completed: "Yes"},
+  {name: "Xavier", description: "Groceries", completed: "No"},
+]
+
+tasks.each do |task|
+  Task.create(task)
+end
