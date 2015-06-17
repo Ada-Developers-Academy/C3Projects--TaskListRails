@@ -1,0 +1,2 @@
+class CarlTasksController < ApplicationController
+end
