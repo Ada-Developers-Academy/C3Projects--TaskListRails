@@ -1,3 +1,96 @@
 // Place all the styles related to the carlTasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* layout & general styles */
+
+body {
+  width: 960px;
+  background: #ccc;
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+  margin: 2% auto;
+  text-align: center;
+}
+
+h1 {
+  padding: 0;
+  margin: 0 0 5px 0;
+}
+
+main {
+  padding: 20px 0;
+}
+
+nav {
+  font-size: 28px;
+}
+
+nav a {
+  padding: 20px;
+}
+
+a:link, a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: #33c;
+}
+
+/* home page styles */
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+#id {
+  width: 100px;
+}
+
+#name {
+  width: 150px;
+}
+
+#description {
+  width: 350px;
+}
+
+#date {
+  width: 150px;
+}
+
+
+/* form styles */
+
+label {
+  display: block;
+  margin: 10px;
+}
+
+form {
+  display: block;
+  text-align: left;
+  width: 500px;
+  margin: auto;
+}
+
+#error {
+  color: #c00;
+}
+
+
+/* about page styles */
+
+article p {
+  font-size: 22px;
+  text-align: justify;
+}

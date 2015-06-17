@@ -3,12 +3,34 @@
 <head>
   <title>C3ProjectsTasklistrails</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Indie+Flower" />
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header id="top">
+    <nav>
+      <a href="/" title="Carl's Taskmaster">Taskmaster</a>
+      <a href="/about" title="Learn more about Carl.">About</a>
+      <!-- <a href="/create" title="Create a new task.">Create</a>
+      <a href="/complete" title="Mark a task complete. FINISH HIM!">Mark Complete</a>
+      <a href="/delete" title="Destroy some task that no longer brings joy to your life.">Delete</a> -->
+    </nav>
+  </header>
 
-<%= yield %>
+  <main>
+    <%= yield %>
+  </main>
 
+  <footer>
+    <nav>
+      <a href="#top" title="Jump to the top of the page!">Top</a>
+      <a href="/" title="Carl's Taskmaster">Taskmaster</a>
+      <a href="/about" title="Learn more about Carl.">About</a>
+      <!-- <a href="/create" title="Create a new task!">Create</a>
+      <a href="/complete" title="Mark a task complete!">Mark Complete</a>
+      <a href="/delete" title="Delete a task that no longer brings joy to your life!">Delete</a> -->
+    </nav>
+  </footer>
 </body>
 </html>
