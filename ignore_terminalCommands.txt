@@ -25,3 +25,7 @@ $ rake db:migrate
 
 $ rails generate migration change_column_null
 $ rake db:migrate
+
+$ rails generate controller task
+
+$ rails generate resource_route task
