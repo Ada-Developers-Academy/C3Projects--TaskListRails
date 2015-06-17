@@ -1,0 +1,18 @@
+
+<h1>To Do List</h1>
+
+<table>
+
+  <tr>
+    <th>Task Name</th>
+    <th>Completed Date</th>
+  </tr>
+
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task[:name] %></td>
+      <td><%= task[:completed_at] %></td>
+    </tr>
+  <% end %>
+
+</table>

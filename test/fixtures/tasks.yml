@@ -3,9 +3,9 @@
 one:
   name: MyString
   description: MyString
-  complete_by: 2015-06-17 11:57:24
+  completed_at: 2015-06-17 15:05:55
 
 two:
   name: MyString
   description: MyString
-  complete_by: 2015-06-17 11:57:24
+  completed_at: 2015-06-17 15:05:55
