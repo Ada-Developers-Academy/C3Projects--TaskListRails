@@ -21,7 +21,7 @@ $ rails generate model Task name:string description:string completed_on:datetime
 $ rake db:migrate
 
 $ rails generate migration change_table
+$ rake db:migrate
 
 $ rails generate migration change_column_null
-
-
+$ rake db:migrate
