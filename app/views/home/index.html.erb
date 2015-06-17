@@ -8,6 +8,9 @@
     <th>
       Completed?
     </th>
+    <th>
+      Show
+    </th>
   </tr>
   <tbody>
     <% @all_tasks.each do |data| %>
@@ -16,9 +19,13 @@
         <%= data.name %>
       </td>
       <td>
-        <%= "COMPLETED" %>
+        <%= data.completed_date ? "Completed" : "Not Completed"%>
+      </td>
+      <td>
+        SHOW
       </td>
     </tr>
     <% end %>
+
   </tbody>
 </table>
