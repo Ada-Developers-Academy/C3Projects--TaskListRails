@@ -1,0 +1,15 @@
+<header>
+<h1>Task List</h1>
+</header>
+
+<section>
+<ul>
+<% @tasks.each do |task| %>
+  <% if task[:completed_date] == nil %>
+      <li id='completed'><%= task[:name] %></li>
+    <% else %>
+      <li><%= task[:name] %></li>
+      <% end %>
+  <% end %>
+</ul>
+</section>
