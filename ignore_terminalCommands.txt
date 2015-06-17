@@ -1,4 +1,4 @@
-  # cd to one step ABOVE your project root folder.
+  # cd <root>/..
 $ echo '<GemsetName>' > <project_root>/.ruby-gemset
 $ echo '2.2.2' > <project_root>/.ruby-version
 $ cd <project_root>
@@ -21,3 +21,7 @@ $ rails generate model Task name:string description:string completed_on:datetime
 $ rake db:migrate
 
 $ rails generate migration change_table
+
+$ rails generate migration change_column_null
+
+
