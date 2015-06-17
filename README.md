@@ -1,3 +1,4 @@
+Corinne Pingul
 # Task List Rails
 
 We are going to build the task list using our new rails knowledge. This project will enable us to keep track of and persist, add, edit and remove tasks.
@@ -12,7 +13,7 @@ This project...
 - requires you to create a Rails 4.2.2 application
   - create and run a model and migration for a `Task` model
   - conform to Rails conventions on naming and inflection
-    
+
 ## Wave 1
 This wave is where we will introduce the view layer where we begin interacting with our application via the browser.
 
