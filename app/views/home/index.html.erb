@@ -1,0 +1,24 @@
+<h1>Task List (Rails!)</h1>
+
+<table>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Completed?
+    </th>
+  </tr>
+  <tbody>
+    <% @all_tasks.each do |data| %>
+    <tr>
+      <td>
+        <%= data.name %>
+      </td>
+      <td>
+        <%= "COMPLETED" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
