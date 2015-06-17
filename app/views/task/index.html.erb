@@ -1,1 +1,20 @@
-<h1><%= @displaytasks %></h1>
+<h1>Getting' Shiz Done!</h1>
+
+<table>
+  <tr class="header">
+  <td>Name</td>
+  <td>Description</td>
+  <td>Completion Status</td>
+  <td>Completion Date</td>
+  </tr>
+
+  <% @displaytasks.each do |task| %>
+  <tr>
+    <td><%= task[:taskname] %></td>
+    <td><%= task[:description] %></td>
+    <td><%= task[:datecomp] %></td>
+    <td><%= task[:taskname] %></td>
+  </tr>
+  <% end %>
+
+<table>
