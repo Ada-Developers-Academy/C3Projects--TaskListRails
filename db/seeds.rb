@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# tasks = [
+#   {name: "Bobbi", description: "Laundry", date: "06/17/2015"},
+#   {name: "Tami", description: "Dishes"},
+#   {name: "Joaquin", description: "Dusting"},
+#   {name: "Phoenix", description: "Polishing"},
+#   {name: "Xavier", description: "Groceries"},
+# ]
+#
+# tasks.each do |task|
+#   Task.create(task)
+# end
