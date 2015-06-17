@@ -1,0 +1,23 @@
+<h1>Task List</h1>
+<h3>Get 'er done.</h3>
+
+<table>
+  <thead>
+  	<tr>
+  	  <th>Task</th>
+  	  <th>Completed?</th>
+  	</tr>
+  </thead>
+  <tbody>
+    <% @all_tasks.each do |task| %>
+      <tr>
+      	<td><%= task.name %></td>
+      	<% if task.completed? %>
+		  <td>yes</td>
+		<% else %>
+		  <td>no</td>
+		<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
