@@ -11,12 +11,8 @@
   <tbody>
     <% @all_tasks.each do |task| %>
       <tr>
-      	<td><%= task.name %></td>
-      	<% if task.completed? %>
-		  <td>yes</td>
-		<% else %>
-		  <td>no</td>
-		<% end %>
+      	<td><%= link_to task.name, task_path(task) %></td>
+      	<td><%= task.completed? %></td>
       </tr>
     <% end %>
   </tbody>

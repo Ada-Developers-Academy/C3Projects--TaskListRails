@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Completed?</th>
+      <th>Date Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @task.name %></td>
+      <td><%= @task.description %></td>
+      <td><%= @task.completed? %></td>
+      <td><%= @task.date_completed %></td>
+    </tr>
+  </tbody>
+</table>
