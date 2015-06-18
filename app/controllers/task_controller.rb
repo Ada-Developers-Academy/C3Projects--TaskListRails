@@ -26,4 +26,13 @@ class TaskController < ApplicationController
     params.permit(task: [:name, :description, :date, :completed, :created_at, :updated_at])
   end
 
+  def delete
+    @id = params[:id]
+    @task = Task.find(@id)
+    @task.destroy
+      redirect_to "/"
+  end
+
+  
+
 end
