@@ -2,6 +2,7 @@
   <tr="table_headers">
     <th>Task Name</th>
     <th>Completed?</th>
+    <th>Delete Task?</th>
   </tr>
 
   <% @all_tasks.each_with_index do |task, index| %>
@@ -13,6 +14,7 @@
             Yes!
           <% end %>
       </td>
+      <td><%= link_to "Delete this task", "/delete/#{task.id}"%></td>
     </tr>
   <% end %>
 </table>
