@@ -8,18 +8,25 @@ table {
 
 table, th, td {
   border: 1px solid #000;
+  background-color: #F5F4FB; /* white */
 }
 
 th {
-  background-color: #8CB5D9;
-}
-th:first-child {
-  text-align: center;
-}
-td:first-child {
-  text-align: center;
+  height: 40px;
+  vertical-align: bottom;
 }
 
 th, td {
   padding: 5px;
+}
+
+th:first-child, td:first-child {
+  border-right: 1px solid #E2A7B5; /* pink */
+}
+
+th, td {
+  border-bottom: 1px solid #75BCD1; /* blue */
+}
+tr:last-child td {
+  border-bottom: 1px solid #000;
 }
