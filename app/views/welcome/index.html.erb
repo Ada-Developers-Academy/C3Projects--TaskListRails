@@ -6,6 +6,9 @@
     <th>
       <h3>Task</h3>
     </th>
+    <th>
+      <!-- empty space -->
+    </th>
   </tr>
 
   <% @tasks.each do |task| %>
@@ -18,7 +21,14 @@
     <td>
       <%= link_to task.name, "/show/" + task.id.to_s %>
     </td>
+    <td>
+      <%= button_to "/delete/" + task.id.to_s, data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
+        Delete
+      <% end %>
+    </td>
   </tr>
   <% end %>
 
 </table>
+
+<%= link_to "Create a New Task", "/new" %>
