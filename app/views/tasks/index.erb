@@ -10,6 +10,10 @@
     <% else %>
       <li><%= link_to "#{task[:name]}", "/tasks/#{task[:id]}"%></li>
       <% end %>
+     <%= button_to "Delete Task", "tasks/#{task[:id]}", method: :delete, data: { confirm: "Are you sure you want to delete this task?" } %>
   <% end %>
 </ul>
 </section>
+
+<%= link_to "Add a New Task", "/tasks/new" %>
+
