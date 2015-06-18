@@ -25,6 +25,7 @@ This wave is where we will introduce the view layer where we begin interacting w
       - The `show` view should include the complete information about the task: name, description, completion status, and completion date.
   - All markup in all views should have semantic relevance.
   - Add some basic styles to your task list.
+
 ## Wave 2
 
 In this wave we will add the first set of user interactivity and persistence.
