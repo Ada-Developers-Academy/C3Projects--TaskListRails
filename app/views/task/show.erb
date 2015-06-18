@@ -11,7 +11,7 @@
   <tr>
     <td><%= @task[:name] %></tb>
     <td><%= @task[:description] %></td>
-    <td><%= @task[:completed_on] ? "Yes" : "No" %></td>
+    <td><%= @task[:completed_on] ? "√" : " " %></td>
     <td><% if @task[:completed_on] == nil %>
         <%= ' ' %>
         <% else %>

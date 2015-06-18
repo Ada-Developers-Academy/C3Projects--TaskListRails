@@ -2,12 +2,12 @@
 <table>
   <tr>
     <th>Task</th>
-    <th>Completed_on</th>
+    <th>Completed?</th>
     <th>See the task<th>
   <tr>
     <% @tasks.each do |task| %>
     <td><%= task[:name] %></tb>
-    <td><%= task[:completed_on] ? "Yes" : "No" %></td>
+    <td><%= task[:completed_on] ? "√" : "" %></td>
     <td><%= link_to "About task", "/show/#{task[:id]}" %></td>
   </tr>
     <% end %>
