@@ -15,6 +15,7 @@ class TasksController < ApplicationController
     render :new
   end
 
+  # Add and save a new task to db
   def create
     @task = Task.new(task_params[:task])
     @task.save
@@ -22,6 +23,7 @@ class TasksController < ApplicationController
     index
   end
 
+  # Delete a task from db
   def destroy
     @task = Task.find(params[:id])
     @task.destroy.save
@@ -29,11 +31,15 @@ class TasksController < ApplicationController
     redirect_to '/'
   end
 
+  def update
+    @task = Task.find(params[:id])
+    @task.update.save
+  end
+
   private
 
   def task_params
     params.permit(task: [:name, :desc, :comp_date])
-    # params.require(:task).permit(task: [:name, :desc, :comp_date])
   end
 
 end
