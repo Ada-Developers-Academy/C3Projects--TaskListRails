@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'tasks#index'
+  get 'tasks/new' => 'tasks#new'
 
   get 'tasks/:id' => 'tasks#show'
+
+  post 'tasks' => 'tasks#create'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
