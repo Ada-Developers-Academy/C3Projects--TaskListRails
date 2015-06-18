@@ -16,10 +16,11 @@ h1, .comp_date, .desc, .create_task_link, .delete_task_link {
   text-align: center;
 }
 
-table, th, tr, td {
+table, th, tr, {
   border: 1px solid #000;
   border-collapse: collapse;
   padding: 13px;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
 th {
@@ -27,8 +28,13 @@ th {
   font-size: 1.3em;
 }
 
-td {
-  background-color: rgba(255, 255, 255, 0.85);
+.task td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+tr, td {
+  padding: 10px;
 }
 
 .comp_status {
@@ -46,19 +52,16 @@ td {
   font-size: 1.6em;
 }
 
-.delete a:link {
-  color: #BABABA;
-}
-
-.delete a:hover {
-  color: #000;
-}
-
 /* Form */
 .form {
   padding-top: 30px;
   width: 600px;
   margin: 0 auto;
+}
+
+.name_form, .desc_form, .comp_date_form {
+  display: block;
+  margin: 30px;
 }
 
 /* Links */
@@ -74,4 +77,14 @@ a:hover {
 .return_home {
   text-align: center;
   margin: 30px;
+}
+
+/* Delete */
+
+.delete a:link {
+  color: #BABABA;
+}
+
+.delete a:hover {
+  color: #000;
 }
