@@ -1,13 +1,29 @@
-<h1>Task List</h1>
+<h1>Task Master!</h1>
+<% completed_tasks = [] %>
+<% incomplete_tasks = [] %>
 <% @tasks.each do |task| %>
-<ul>
-    <% if task[:date_completed] != nil %>
-    <% completed = "(completed)" %>
-    <% else %>
-    <% completed = "(active)" %>
-    <% end %>
-    <li><p><%= task[:task_name] %> <%= completed %> <%= button_to "Show Details", "/show/#{task.id}", class: "button" %></p>
-</ul>
-
-
+<%   if task[:date_completed] != nil %>
+<%     completed_tasks.push(task) %>
+<%   else %>
+<%     incomplete_tasks.push(task) %>
+<%   end %>
 <% end %>
+
+<section>
+<h3>Active Tasks (not yet complete):</h3>
+<ol>
+  <% incomplete_tasks.each do |task| %>
+  <li><p><%= task[:task_name] %> (active) <%= button_to "Show Details", "/show/#{task.id}", class: "button" %></li></p>
+  <% end %>
+</ol>
+</section>
+
+<section>
+<h3>Completed Tasks:</h3>
+<ol>
+  <% completed_tasks.each do |task| %>
+  <!-- <% completed = "(active)" %> -->
+  <li><p><%= task[:task_name] %> (completed) <%= button_to "Show Details", "/show/#{task.id}", class: "button" %></li></p>
+  <% end %>
+</ol>
+</section>

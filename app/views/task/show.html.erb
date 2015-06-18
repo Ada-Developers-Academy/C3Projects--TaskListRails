@@ -1,21 +1,20 @@
 <h1>Task Details</h1>
 
-<h3>Name: <%= @task.task_name %></h3>
-<h3>Description: <%= @task.description %></h3>
-<h3>Completed?
+<h2>Name: <%= @task.task_name %></h2>
+<h2>Description: <%= @task.description %></h2>
+<h2>Completed?
   <% if @task.date_completed == nil %>
   <%   completed = "No" %>
   <% else %>
   <%   completed = "Yes" %>
   <% end %>
-  <%= completed %>
-</h3>
-<h3>Completion Date:
+  <%= completed %></h2>
+
+<h2>Completion Date:
 
   <% if @task.date_completed == nil %>
   <%   date_completed = "(incomplete)" %>
   <% else %>
   <%   date_completed = @task.date_completed %>
   <% end %>
-
-  <%= date_completed %></h3>
+  <%= date_completed %></h2>

@@ -1,7 +1,8 @@
 class TaskController < ApplicationController
 
   def index
-    @tasks = Task.all   # now we can use this instance var in our views
+    @tasks = Task.all
+    # Task.set_completion(@tasks)
     render :index
   end
 
