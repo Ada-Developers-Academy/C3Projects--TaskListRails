@@ -1,3 +1,28 @@
 // Place all the styles related to the task controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.completed_task .task_name {
+  text-decoration: line-through;
+}
+
+.completed_task .task_descr {
+  text-decoration: line-through;
+}
+
+.task_name {
+
+}
+
+.complete_date {
+  text-decoration: none;
+  color: red;
+}
+
+.task_descr {
+  padding-left: 2em;
+}
+
+.complete_date {
+  margin-left: 2em;
+}

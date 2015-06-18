@@ -1,0 +1,5 @@
+<main>
+  <% @all_tasks.each_with_index do |task, i| %>
+    <%= format_task(task, i) %>
+  <% end %>
+</main>

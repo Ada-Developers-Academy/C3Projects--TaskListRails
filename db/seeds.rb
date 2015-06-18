@@ -11,13 +11,13 @@ def random_time
 end
 
 seed_tasks = [
-  { name: "Breakfast", description: "", completed_at: random_time },
-  { name: "Second breakfast", description: "" },
+  { name: "Breakfast", completed_at: random_time },
+  { name: "Second breakfast"},
   { name: "Elevenses", description: "Comes after 2nd breakfast but before lunch"},
-  { name: "Luncheon", description: "", completed_at: random_time},
-  { name: "Afternoon tea", description: ""},
-  { name: "Dinner", description: "", completed_at: random_time },
-  { name: "Supper", description: "" },
+  { name: "Luncheon", completed_at: random_time},
+  { name: "Afternoon tea"},
+  { name: "Dinner", completed_at: random_time },
+  { name: "Supper"},
   { name: "Call Mom", description: "wish her a happy birthday", completed_at: random_time },
   { name: "Walk Bentley", description: "Loring Park" },
 ]
