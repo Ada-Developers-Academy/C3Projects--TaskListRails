@@ -2,13 +2,15 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'tasks#index'   # NOTE TO SELF: see 'tasks_controller.rb' for method 'index'
-
   get '/tasks' => 'tasks#index'
-
-  # get '/tasks/:id' => 'tasks#show'
 
   get '/tasks/new' => 'tasks#new'
   post '/tasks' => 'tasks#create'
+
+  # NOTE: I had to move this down so it wouldn't think "new" was the :id.
+  # Is there another way to do this, or ordering the operations a good way to manage loading priority?
+  get '/tasks/:id' => 'tasks#show'
+
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
