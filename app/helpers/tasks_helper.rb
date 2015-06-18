@@ -1,4 +1,4 @@
-module TaskHelper
+module TasksHelper
   def format_task_for_list(task, i)
     html = ""
     html << "<div"
