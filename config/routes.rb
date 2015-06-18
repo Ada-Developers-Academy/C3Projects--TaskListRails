@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get 'tasks/new' => 'home#new'
   post 'tasks' => 'home#create'
   get 'tasks/:id' => 'home#show'
-  get 'tasks/:id/confirm_remove' => 'home#confirm_remove'
-  delete 'tasks/:id/' => 'home#delete'
+  get '/delete_task/:id' => 'home#confirm_remove'
+  delete '/delete_task/:id' => 'home#delete'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

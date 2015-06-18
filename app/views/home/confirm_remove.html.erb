@@ -39,6 +39,7 @@
 </p>
 
 <p>
-  <%= link_to "Yes, Delete!", "/tasks/#{params[:id]}" %>
+  <%= button_to "Yes, Delete!", { action: "delete", id: @remove_task.id }, method: :delete %>
+   <!-- button_to "Delete Image", { action: "delete", id: @image.id }, method: :delete, data: { confirm: "Are you sure?" } -->
   <%= link_to "No, Go Back!", "/" %>
 </p>
