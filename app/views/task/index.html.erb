@@ -4,15 +4,19 @@
   <tr class="header">
   <td>Name</td>
   <td>Completion Status</td>
+  <td>Delete?</td>
   </tr>
 
   <% @displaytasks.each do |task| %>
     <tr>
       <td><%= link_to "#{task[:taskname]}", "/tasks/#{task[:id]}" %></td>
       <td><%= task[:comp_status] %></td>
+      <td><%= link_to "Delete", "/tasks/#{task[:id]}", method: :delete, data: { confirm: "Are you sure?" } %></td>
+
     </tr>
   <% end %>
 
 <tr><td><%= link_to "Create new task!", "/tasks/new" %></td></tr>
+
 
 <table>

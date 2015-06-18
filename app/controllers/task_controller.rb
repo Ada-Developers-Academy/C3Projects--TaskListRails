@@ -21,7 +21,14 @@ class TaskController < ApplicationController
     @task.save
 
     redirect_to root_url
+  end
 
+  def destroy
+    @id = params[:id]
+    @onetask = Task.find(@id)
+    @onetask.destroy
+
+    redirect_to root_url
   end
 
   private
