@@ -2,11 +2,15 @@
 <h3>Task:</h3> <p><%= @task.name %></p>
 </div>
 <div class="each_task"> 
-<h3>Description:</h3> <p> <%= @task.description %></p>
+<% if !@task.description.nil? && !@task.description.empty? %>
+  <h3>Description:</h3> <p> <%= @task.description %></p>
+<% end %>
 </div>
 <div class="each_task">  
-<h3>Completed?: </h3> <p><%= @task.date_completed ? "Completed" : "Not Completed" %></p>
+<h3>Completed? </h3> <p><%= @task.date_completed ? "Yes" : "No" %></p>
 </div>
 <div class="each_task">
-<h3>Date Completed:</h3> <p> <%= @task.date_completed.month %> - <%= @task.date_completed.day%> - <%= @task.date_completed.year%></p>
+<% unless @task.date_completed.nil? %>
+<h3>Date Completed:</h3> <p> <%= @task.date_completed.month %> - <%= @task.date_completed.day%> -  <%= @task.date_completed.year%></p>
+<% end %>
 </div>

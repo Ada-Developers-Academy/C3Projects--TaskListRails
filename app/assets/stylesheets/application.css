@@ -16,15 +16,33 @@
 
  body {
   width: 960px;
+  background: #ccc;
+  font-family: 'Indie Flower', cursive;
+  font-size: 25px;
+  margin: 2% auto;
+  text-align: center;
  }
 
 table {
-  width: 500px;
+  padding: 20px;
   margin: 2% auto 2% auto;
 }
 
+table th {
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
 table td {
-  padding: 10px 5px 10px 5px;
+  padding: 10px 10px 10px 10px;
+}
+
+.each_task {
+  margin: 30px;
 }
 
 .each_task h3, p {

@@ -2,18 +2,20 @@
   <tr>
   <th>id</th>
   <th>name</th>
-  <th>date completed</th>
-  </tr>
+  <th>completed?</th>
+
   
-    <% @tasks.each do |t|%>
+<% @tasks.each do |t|%>
   <tr>
-    <td><%= t.id %></td>
-    <td><%= t.name %></td>
-    <td><%= t.date_completed ? "completed" : "not completed" %>
+      <div class="completed">
+        <td><%= t.id %></td>
+        <td><%= t.name %></td>
+        <td><%= t.date_completed ? "Yes" : "No" %>
+      </div>
       <% @id = t.id%>
     <td><%= button_to "Go to Task", "/task/#{@id}", method: :get %>
   </tr>
-<% end %>
+<% end%>
 
 </table>
 
