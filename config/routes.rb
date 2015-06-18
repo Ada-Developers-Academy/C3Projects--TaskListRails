@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   # equivelant below
   # get '/' => 'welcome#index'
-  get "/" => "tasks#index"
+  get "/" => "task#index"
 
-  get "/task_:id/details" => "tasks#show"
+  get "/task_:id/details" => "task#show"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -8,8 +8,4 @@ class Task < ActiveRecord::Base
     end
   end
 
-  # def completed?
-  #   if completed_at >=
-  # end
-
 end

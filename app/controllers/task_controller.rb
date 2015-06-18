@@ -1,4 +1,4 @@
-class TasksController < ActionController::Base
+class TaskController < ActionController::Base
   def index
     @title = "Task List"
     @all_tasks = Task.all
