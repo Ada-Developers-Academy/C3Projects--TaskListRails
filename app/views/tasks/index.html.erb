@@ -5,7 +5,7 @@
   <% @all_tasks.each do |task| %>
   <tr>
     <td>
-      <%= link_to "#{task[:name]}", "/tasks/#{task[:id]}" %>
+      <%= link_to "#{task[:name]}", "/task/#{task[:id]}" %>
       <% # NOTE TO SELF: 'link_to task[:name]' also works %>
     </td>
     <td>
@@ -15,3 +15,5 @@
   <% end %>
 </table>
 </div>
+
+<%= link_to "ADD", "/tasks/new" %>

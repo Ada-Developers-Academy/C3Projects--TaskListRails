@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   get '/tasks' => 'tasks#index'
 
-  get '/tasks/:id' => 'tasks#show'
+  # get '/tasks/:id' => 'tasks#show'
+
+  get '/tasks/new' => 'tasks#new'
+  post '/tasks' => 'tasks#create'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

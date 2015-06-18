@@ -17,4 +17,25 @@ class TasksController < ApplicationController
 
     render :task
   end
+
+  def new
+    @task = Task.new
+
+    render :new
+  end
+
+  def create
+    @task = Task.new(create_params[:task])
+    @task.save
+
+    redirect_to "/" # Why does this not work with :index?
+      # NOTE TO SELF: Look up other ways to write 'redirect_to'.
+  end
+
+  private
+
+  def create_params
+    params.permit(task: [:name])
+  end
+
 end
