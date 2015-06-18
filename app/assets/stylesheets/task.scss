@@ -1,3 +1,47 @@
 // Place all the styles related to the task controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+body{
+  font-family: Verdana, Geneva, sans-serif;
+  color:rgb(111,36,152);
+  background:rgb(255,255,155);
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+table td{
+  padding: 20px;
+  }
+
+.header {
+  font-weight: bold;
+}
+
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height:250px;
+}
+
+h1{
+  text-align: center;
+}
+
+form{
+  width:250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label{
+ display: block;
+}
