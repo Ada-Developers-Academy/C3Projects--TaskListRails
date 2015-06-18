@@ -34,3 +34,27 @@ a {
 #task_list h2 {
   text-decoration: underline;
 }
+
+#add {
+  background-color: #fff;
+  padding: 4px;
+  margin-top: 10px;
+}
+
+ul {
+  padding: 0px;
+}
+
+section {
+  padding-bottom: 20px;
+}
+
+fieldset label {
+  display: block;
+}
+
+input[type=submit] {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
