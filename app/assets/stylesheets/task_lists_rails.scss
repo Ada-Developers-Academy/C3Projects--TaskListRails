@@ -16,11 +16,11 @@ h1, .comp_date, .desc, .create_task_link, .delete_task_link {
   text-align: center;
 }
 
-table, th, tr, {
+table, th, tr, .add_task {
   border: 1px solid #000;
   border-collapse: collapse;
-  padding: 13px;
-  background-color: rgba(255, 255, 255, 0.85);
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 th {
@@ -40,6 +40,10 @@ tr, td {
 .comp_status {
   text-align: center;
   color: #DC0095;
+}
+
+.incomplete a{
+  font-weight: bold;
 }
 
 .complete a {

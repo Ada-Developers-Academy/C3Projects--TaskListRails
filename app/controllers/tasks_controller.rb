@@ -33,7 +33,7 @@ class TasksController < ApplicationController
 
   def task_params
     params.permit(task: [:name, :desc, :comp_date])
-    # params.require(:proposal).permit(:title, :abstract)
+    # params.require(:task).permit(task: [:name, :desc, :comp_date])
   end
 
 end
