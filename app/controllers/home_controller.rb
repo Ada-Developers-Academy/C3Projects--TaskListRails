@@ -20,11 +20,14 @@ class HomeController < ApplicationController
   end
 
   def confirm_remove
-
+    @remove_task = Task.find(params[:id])
+    render :confirm_remove
   end
 
   def delete
-    
+    @remove_task = Task.find(params[:id])
+    @remove_task.destroy
+    redirect_to action: :index
   end
 
 
