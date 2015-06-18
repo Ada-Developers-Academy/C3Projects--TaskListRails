@@ -5,26 +5,24 @@
     Enter in a Task
   </legend>
 
-<%= form_for @task do |f| %>
-  <%= f.label :name %>
-  <%= f.text_area :name %>
+  <%= form_for @task do |f| %>
+    <%= f.label :name %>
+    <%= f.text_area :name %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
 
-  <%= f.label :date %>
-  <%= f.text_area :date %>
-
-  <%= f.label :completed %>
-  <%= f.text_area :completed %>
-
-
-  <%= f.submit %>
-
-
-<% end %>
-
+    <%= f.label :date %>
+    <%= f.text_area :date %>
+<fieldset>
+  <legend> Is this task completed? </legend>
+    <%= f.label :completed %>
+    <%= f.radio_button("completed", "yes") %>
+    <%= f.label "not completed" %>
+    <%= f.radio_button("completed", "no") %>
+</fieldset>
 </fieldset>
 
- <!-- Task(id: integer, name: string, description: string, date: datetime,  -->
- <!-- completed: string, created_at: datetime, updated_at: datetime) -->
+    <%= f.submit %>
+
+  <% end %>
