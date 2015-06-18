@@ -35,6 +35,10 @@ a:link, a:visited {
   text-decoration: none;
 }
 
+a:hover.finished, a:active.finished {
+  text-decoration: line-through;
+}
+
 a:hover, a:active {
   color: #33c;
 }
@@ -52,20 +56,8 @@ table, th, td {
   border: 1px solid black;
 }
 
-#id {
-  width: 100px;
-}
-
-#name {
-  width: 150px;
-}
-
-#description {
-  width: 350px;
-}
-
-#date {
-  width: 150px;
+.finished {
+  text-decoration: line-through;
 }
 
 
@@ -93,4 +85,11 @@ form {
 article p {
   font-size: 22px;
   text-align: justify;
+}
+
+/* individual task page styles */
+
+.task h2, .task-options h2 {
+  font-family: "Copperplate", "Arial Bold", sans-serif;
+  font-size: 28px;
 }

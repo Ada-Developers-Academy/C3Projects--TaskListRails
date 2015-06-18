@@ -7,18 +7,23 @@ Rails.application.routes.draw do
 
   get "/about" => "carl_tasks#about"
 
-  # get "/complete" => "carl_tasks#complete"
-  # post "/complete" => "carl_tasks#complete"
-  #
-  # get "/create" => "carl_tasks#create"
-  # post "/create" => "carl_tasks#create"
-  #
-  # get "/delete" => "carl_tasks#delete"
-  # post "/delete" => "carl_tasks#delete"
-  #
-  # get "/update/:id" => "carl_tasks#update"
-  # post "/update/:id" => "carl_tasks#update"
+  get "/task/:id" => "carl_tasks#task"
+  get "/task" => "carl_tasks#task"
 
+  get "/create" => "carl_tasks#create"
+  # post "/create" => "carl_tasks#create"
+
+  get "/complete/:id" => "carl_tasks#complete"
+  get "/complete" => "carl_tasks#complete"
+  # post "/complete" => "carl_tasks#complete"
+
+  get "/edit/:id" => "carl_tasks#create"
+  get "/edit" => "carl_tasks#create"
+  # post "/delete" => "carl_tasks#delete"
+
+  get "/delete/:id" => "carl_tasks#delete"
+  get "/delete" => "carl_tasks#delete"
+  # post "/delete" => "carl_tasks#delete"
 
 
   # Example of regular route:

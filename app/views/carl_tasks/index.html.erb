@@ -1,22 +1,7 @@
-<h1>TASKMASTER</h1>
+<h1>Ye Olde List of Tasks</h1>
 
 <% unless @tasks.nil? %>
-  <table>
-    <tr>
-      <th id="id">id</th>
-      <th id="name">task name</th>
-      <th id="description">description</th>
-      <th id="date">date completed</th>
-      <th id="edit-link">edit task?</th>
-    </tr>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.id %></td>
-        <td><%= task.name %></td>
-        <td><%= task.description %></td>
-        <td><%= task.date_complete %></td>
-        <td><a href="/update/<%= task.id %>">Edit this task.</a></td>
-      </tr>
-    <% end %>
-  </table>
+  <% @tasks.each do |task| %>
+    <p class="<%= task.date_complete ? 'finished' : 'unfinished' %>"><%= link_to "#{ task.name }", "/task/#{ task.id }", title: "#{ task.name }" %></p>
+  <% end %>
 <% end %>

@@ -1,8 +1,8 @@
 <% if @task %>
-  <% task_id = @task[0][0] %>
-  <% task_name = @task[0][1] %>
-  <% task_description = @task[0][2] %>
-  <% task_complete = @task[0][3] %>
+  <% task_id = @task.id %>
+  <% task_name = @task.name %>
+  <% task_description = @task.description %>
+  <% task_complete = @task.date_complete.strftime("%A, %B %d, %Y") %>
 <% end %>
 
 <% if @maybe_error && @maybe_error.length > 0 %>
@@ -10,7 +10,9 @@
 <% end %>
 
 <form id="create" action="" method='post'>
-  <input type="hidden" name="id" value="<%= task_id %>" required />
+  <% if @task %>
+    <input type="hidden" name="id" value="<%= task_id %>" required />
+  <% end %>
   <label>Name <input size="50" type="text" name="name" placeholder="create a to-do list app" value="<%= task_name || '' %>" /></label>
   <label>Description <input size="50" type="text" name="description" placeholder="You can put an optional description of your task here." value="<%= task_description || '' %>" /></label>
   <label>Date of completion <input size="50" type="text" name="complete" placeholder="optional" value="<%= task_complete || '' %>" /></label>
