@@ -4,11 +4,16 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'tasks#index'
+
   get 'tasks/new' => 'tasks#new'
 
   get 'tasks/:id' => 'tasks#show'
 
   post 'tasks' => 'tasks#create'
+
+  get 'tasks/:id/delete' => 'tasks#confirm_delete'
+
+  delete 'task' => 'tasks#destroy'
 
 
   # Example of regular route:
