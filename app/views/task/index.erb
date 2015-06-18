@@ -7,7 +7,7 @@
   <tr>
     <% @tasks.each do |task| %>
     <td><%= task[:name] %></tb>
-    <td><%= task[:completed_on] %></td>
+    <td><%= task[:completed_on] ? "Yes" : "No" %></td>
     <td><%= link_to "About task", "/show/#{task[:id]}" %></td>
   </tr>
     <% end %>
