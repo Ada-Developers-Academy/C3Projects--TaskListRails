@@ -11,4 +11,15 @@ class TaskController < ApplicationController
     render :show
 
   end
+
+  def new
+    @task = Task.new
+  end
+
+  def create
+    @task = Task.new(create_params[:task])
+    @task.save
+
+  end
+
 end

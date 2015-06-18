@@ -1,0 +1,12 @@
+<h1> This is a new task form!</h1>
+
+<%= form_for @task do |f| %>
+  <fieldset>
+    <legend>Task Details</legend>
+    <%= f.label :taskname %>
+    <%= f.text_field :description %>
+  </fieldset>
+
+  <%= f.submit 'Create task' %>
+
+<% end %>
