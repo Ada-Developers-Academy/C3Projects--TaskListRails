@@ -1,0 +1,21 @@
+<h1>TASKS!</h1>
+
+<table>
+  <tr>
+    <th>Task Name</th>
+    <th>Completed?</th>
+  </tr>
+
+  <% @all_tasks.each_with_index do |task, index| %>
+    <tr>
+      <td><%= link_to "#{task[:name]}", "/#{task[:name]}" %></td>
+      <td><% if task[:completed_at].nil? %>
+            Not yet.
+          <% else %>
+            Yes!
+          <% end %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
