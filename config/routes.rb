@@ -11,19 +11,19 @@ Rails.application.routes.draw do
   get "/task" => "carl_tasks#task"
 
   get "/create" => "carl_tasks#create"
-  # post "/create" => "carl_tasks#create"
+  # post "/create" => "carl_tasks#post_create"
 
   get "/complete/:id" => "carl_tasks#complete"
   get "/complete" => "carl_tasks#complete"
-  # post "/complete" => "carl_tasks#complete"
+  # post "/complete" => "carl_tasks#post_complete"
 
   get "/edit/:id" => "carl_tasks#create"
   get "/edit" => "carl_tasks#create"
-  # post "/delete" => "carl_tasks#delete"
+  # post "/edit" => "carl_tasks#post_create"
 
   get "/delete/:id" => "carl_tasks#delete"
   get "/delete" => "carl_tasks#delete"
-  # post "/delete" => "carl_tasks#delete"
+  # post "/delete" => "carl_tasks#post_delete"
 
 
   # Example of regular route:
