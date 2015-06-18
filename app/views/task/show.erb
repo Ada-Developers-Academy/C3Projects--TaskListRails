@@ -1,0 +1,22 @@
+<h1><%= @task[:name] %></h1>
+<p class='link'><%= link_to "Back to task list", "/" %></p>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Description</th>
+    <th>Completed?</th>
+    <th>When completed</th>
+
+  </tr>
+  <tr>
+    <td><%= @task[:name] %></tb>
+    <td><%= @task[:description] %></td>
+    <td><%= @task[:completed_on] ? "Yes" : "No" %></td>
+    <td><% if @task[:completed_on] == nil %>
+        <%= ' ' %>
+        <% else %>
+        <%= @task[:completed_on].to_date %>
+        <% end %>
+    </td>
+  </tr>
+</table>
