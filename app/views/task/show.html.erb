@@ -1,0 +1,12 @@
+<div class="each_task">
+<h3>Task:</h3> <p><%= @task.name %></p>
+</div>
+<div class="each_task"> 
+<h3>Description:</h3> <p> <%= @task.description %></p>
+</div>
+<div class="each_task">  
+<h3>Completed?: </h3> <p><%= @task.date_completed ? "Completed" : "Not Completed" %></p>
+</div>
+<div class="each_task">
+<h3>Date Completed:</h3> <p> <%= @task.date_completed.month %> - <%= @task.date_completed.day%> - <%= @task.date_completed.year%></p>
+</div>
