@@ -3,18 +3,14 @@
 <table>
   <tr class="header">
   <td>Name</td>
-  <td>Description</td>
   <td>Completion Status</td>
-  <td>Completion Date</td>
   </tr>
 
   <% @displaytasks.each do |task| %>
-  <tr>
-    <td><%= task[:taskname] %></td>
-    <td><%= task[:description] %></td>
-    <td><%= task[:comp_status] %></td>
-    <td><%= task[:datecomp] %></td>
-  </tr>
+    <tr>
+      <td><%= link_to "#{task[:taskname]}", "/tasks/#{task[:id]}" %></td>
+      <td><%= task[:comp_status] %></td>
+    </tr>
   <% end %>
 
 <table>

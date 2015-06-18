@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root 'task#index'
 
+  get '/tasks/:id' => 'task#show'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
