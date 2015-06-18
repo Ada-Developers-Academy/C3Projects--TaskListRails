@@ -1,0 +1,19 @@
+<h1>Here is the task you requested</h1>
+
+<%= @task.id %>
+<%= @task.name %>
+<%= @task.description %>
+<%= @task.date %>
+<%= @task.created_at %>
+<%= @task.updated_at %>
+<%= @task.completed %>
+
+tasks", force: :cascade do |t|
+  t.string   "name"
+  t.string   "description"
+  t.datetime "date"
+  t.datetime "created_at",  null: false
+  t.datetime "updated_at",  null: false
+  t.string   "completed"
+
+ <%= params %>

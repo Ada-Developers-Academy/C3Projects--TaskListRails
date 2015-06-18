@@ -5,9 +5,12 @@ class TaskController < ApplicationController
     render :home
   end
 
-  def displaytask(id)
-    @task = Task.find(id)
-    render :displaytask
+  def show
+    # need to get id from the params hash
+    @id = params[:id]
+    @task = Task.find(@id)
+
+    render :show
   end
 
 end
