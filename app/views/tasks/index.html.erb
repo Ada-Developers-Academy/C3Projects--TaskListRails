@@ -5,14 +5,14 @@
   <thead>
   	<tr>
   	  <th>Task</th>
-  	  <th>Completed?</th>
+  	  <th class="checkmark">Completed?</th>
   	</tr>
   </thead>
   <tbody>
     <% @all_tasks.each do |task| %>
       <tr>
-      	<td><%= link_to task.name, task_path(task) %></td>
-      	<td><%= task.completed? %></td>
+      	<td><%= link_to task.name, "tasks/#{task.id}" %></td>
+      	<td class="checkmark"><%= task.completed? %></td>
       </tr>
     <% end %>
   </tbody>

@@ -11,8 +11,10 @@
     <tr>
       <td><%= @task.name %></td>
       <td><%= @task.description %></td>
-      <td><%= @task.completed? %></td>
+      <td class="checkmark"><%= @task.completed? %></td>
       <td><%= @task.date_completed %></td>
     </tr>
   </tbody>
 </table>
+
+<%= link_to "Home", '/', class: "nav_link" %>
