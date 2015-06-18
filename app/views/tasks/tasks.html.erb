@@ -1,15 +1,12 @@
 <section class="task_desc">
   <table>
     <tr>
-      <th colspan="2">Tasks</th>
+      <th>Tasks</th>
       <th>Description</th>
       <th>Date Completed</th>
     </tr>
 
     <tr>
-      <td class="comp_status">
-        <%= @task.comp_date ? "\u2713" : "" %>
-      </td>
       <td class="name"><%= @task.name %></td>
       <td class="desc"><%= @task.desc %></td>
       <td class="comp_date">

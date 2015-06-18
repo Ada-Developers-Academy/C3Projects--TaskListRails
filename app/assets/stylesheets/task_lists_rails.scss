@@ -9,22 +9,26 @@ html {
 }
 
 table {
-  margin: 50px auto;
+  margin: 30px auto;
 }
 
-h1, .comp_date {
+h1, .comp_date, .desc, .create_task_link, .delete_task_link {
   text-align: center;
 }
 
 table, th, tr, td {
   border: 1px solid #000;
   border-collapse: collapse;
-  padding: 9px;
+  padding: 13px;
 }
 
 th {
   background-color: #D3F649;
-  font-size: 1.2em;
+  font-size: 1.3em;
+}
+
+td {
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
 .comp_status {
@@ -32,13 +36,29 @@ th {
   color: #DC0095;
 }
 
-.complete {
+.complete a {
   text-decoration: line-through;
+  color: #BABABA;
 }
 
 .name {
   font-family: 'Reenie Beanie', cursive;
   font-size: 1.6em;
+}
+
+.delete a:link {
+  color: #BABABA;
+}
+
+.delete a:hover {
+  color: #000;
+}
+
+/* Form */
+.form {
+  padding-top: 30px;
+  width: 600px;
+  margin: 0 auto;
 }
 
 /* Links */
@@ -48,7 +68,7 @@ a {
 }
 
 a:hover {
-  color: #DC0095;
+  color: #56CAD0;
 }
 
 .return_home {
