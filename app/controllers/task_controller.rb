@@ -16,8 +16,6 @@ class TaskController < ApplicationController
 
   def new
     @task = Task.new
-
-    render :new
   end
 
   def create
@@ -25,7 +23,7 @@ class TaskController < ApplicationController
     @task = Task.new(create_params[:task])
     @task.save
 
-    redirect_to :home
+    redirect_to "/"
   end
 
   def create_params

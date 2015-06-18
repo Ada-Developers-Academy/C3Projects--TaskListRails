@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get "/task_:id/details" => "task#show"
 
   get "/task/new" => "task#new"
-
   post "/task/new" => "task#create"
 
 
