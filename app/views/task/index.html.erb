@@ -12,7 +12,7 @@
 			<% @tasks.each do |task| %>
 				<tr>
 				  <td>
-		  		  <% if task.completed_at != nil %>
+		  		  <% if task.completed_at != nil %>	
 		  		  	&#10003;
 		  		  <% end %>
 				  </td>
@@ -21,5 +21,6 @@
 			<% end %>
 		</tbody>
   </table>
-
+	
+<% end %>
 </div>
