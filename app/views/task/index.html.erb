@@ -9,7 +9,10 @@
     <tr>
       <td><%= link_to "#{task[:name]}", "task/#{task[:id]}" %></td>
       <td><%= task[:completion_status] %></td>
+      <td><%= link_to "Delete Task", "delete/#{task[:id]}" %></td>
     </tr>
   <% end %>
 
 </table>
+
+<%= link_to "Add a Task!", "task/new" %>
