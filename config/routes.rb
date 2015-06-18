@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'task_list_rails#index'
+  root 'tasks#index'
 
   # Example of regular route:
-  #get '' => 'catalog#view'
+  get 'tasks/:id' => 'tasks#show'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

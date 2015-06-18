@@ -1,0 +1,20 @@
+
+<section id="task_list">
+<h2>Task</h2>
+<h3> <%= @task_name %> </h3>
+<h2>Description:</h2>
+<h3> <%= @task_description %> </h3>
+
+<h2>Completed?</h2>
+<% if @completed == true %>
+  <h3> This task was completed on <%= @completed_date %>!! </h3>
+<% else %>
+  <h3>Not yet! Get on it, buddy.</h3>
+<% end %>
+</section>
+
+
+
+<footer>
+  <%= button_to "Home", "/", method: :get %>
+</footer>
