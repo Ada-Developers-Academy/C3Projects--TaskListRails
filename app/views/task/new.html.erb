@@ -1,0 +1,15 @@
+<%= form_for @task do |f|%>
+<fieldset>
+  <legend>Make a New Task</legend>
+  <%= f.label :name %>
+  <%= f.text_area :name %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :date_completed, 'Date Completed (optional)' %>
+  <%= f.text_area :date_completed %>
+
+  <%= f.submit %>
+</fieldset>
+<% end %>
