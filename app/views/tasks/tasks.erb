@@ -1,0 +1,25 @@
+<section class="task_desc">
+<h1>hey girl hey</h1>
+  <table>
+    <tr>
+      <th>Done</th>
+      <th>Task</th>
+      <th>Description</th>
+      <th>Completion Date</th>
+    </tr>
+
+    <tr>
+      <td class="comp_status">
+        <% if @task.comp_date %>
+          <%= "\u2713" %>
+        <% else %>
+          <%= "" %>
+        <% end %>
+        </td>
+      <td class="name"><%= @task.name %></td>
+      <td class="desc"><%= @task.desc %></td>
+      <td class="comp_date"><%= @task.comp_date %></td>
+    </tr>
+  </table>
+  <p><%= link_to "return to task list", "/" %></p>
+</section>

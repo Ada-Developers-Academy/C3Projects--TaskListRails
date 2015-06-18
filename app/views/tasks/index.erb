@@ -1,0 +1,22 @@
+ <section class="home"> 
+  <h1>hey girl hey</h1>
+  <table>
+    <tr>
+      <th>Done</th>
+      <th>Task</th>
+    </tr>
+   
+  <% @tasks.each do |task| %>
+    <tr>
+      <td class="comp_status">
+        <% if task.comp_date %>
+          &#x2713;
+        <% else %>
+          <%= "" %>
+        <% end %>
+        </td>
+      <td class="name"><%= link_to "#{task.name}", "tasks/#{task.id}" %></td>
+    </tr>
+  <% end %>
+  </table>
+</section>
