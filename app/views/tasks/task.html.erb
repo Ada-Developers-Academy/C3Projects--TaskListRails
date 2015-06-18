@@ -15,13 +15,13 @@
       Completion Status: <%= @task[:completed_at].nil? ? @uncompleted : @completed %>
     </li>
     <li>
-      <%= "Completion Date: #{@task[:completed_at]}" unless @task[:completed_at].nil? %>
+      Completion Date: <%= @task[:completed_at] unless @task[:completed_at].nil? %>
     </li>
-    <li>
+    <!-- <li>
       Created at: <%= @task[:created_at] %>
     </li>
     <li>
       Updated at: <%= @task[:updated_at] %>
-    </li>
+    </li> -->
   </ul>
 </div>
