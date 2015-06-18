@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: 'Rhodium Libre', serif;
+
+}
+
+h1 {
+
+}
+
+h2 {
+  color: #454544;
+}
+
+li {
+  color: #848484;
+}
