@@ -23,6 +23,15 @@ class TaskController < ApplicationController
 		redirect_to action: "index"
 	end
 
+  def delete
+  	@delete_task = Task.find(params[:id])
+  	@delete_task.destroy.save
+
+  	redirect_to action: "index"
+  end
+
+################### PRIVATE METHODS ###################
+
 	private
 
   def create_params

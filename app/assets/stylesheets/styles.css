@@ -5,19 +5,20 @@ font-family: 'Dancing Script', cursive;*/
 
 body {
 	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
 }
-
-.home, .show {
-	margin: 0 auto;
-	width: 100%;
-}
-
 
 h1 {
 	font-family: 'Dancing Script', cursive;
+	text-align: center;
 }
 
-table, th, td {
+table {
+	margin: 0 auto;
+	min-width: 350px;
+}
+
+table {
 	border: 1px solid black;
 	border-collapse: collapse;
 }
@@ -27,6 +28,18 @@ thead {
 	color: #fff;
 }
 
-tr {
-	width: 50px;
+.button {
+	text-align: center;
+	margin: 15px;
+}
+
+
+.delete_button a {
+	font-family: 'Dancing Script', cursive;
+	text-decoration: none;
+	color: black;
+}
+
+.delete_button a:hover {
+	font-weight: 700;
 }
