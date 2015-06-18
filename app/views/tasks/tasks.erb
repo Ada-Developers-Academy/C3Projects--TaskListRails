@@ -1,10 +1,10 @@
 <section class="task_desc">
   <table>
     <tr>
-      <th>Done</th>
+      <th></th>
       <th>Task</th>
       <th>Description</th>
-      <th>Completion Date</th>
+      <th>Date Completed</th>
     </tr>
 
     <tr>
@@ -19,9 +19,9 @@
       <td class="desc"><%= @task.desc %></td>
       <td class="comp_date">
         <% if @task.comp_date %>
-          <%= @task.comp_date.strftime("%m/%d/%Y %I:%M %p") %>
+          <%= @task.comp_date.strftime("%m/%d/%Y") %>
         <% else %>
-          <%= "" %>
+          <%= "incomplete" %>
         <% end %>
       </td>
     </tr>

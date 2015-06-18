@@ -11,17 +11,17 @@ def random_time
 end
 
 tasks = [
-  {name: "The First Task", desc: "do it", comp_date: random_time},
-  {name: "Go to Brunch", desc: "mmm foood"},
-  {name: "Go to Lunch", desc: "MORE FOOD", comp_date: random_time},
-  {name: "Go to Second Lunch", desc: "can't stop, won't stop"},
-  {name: "Play Video Games", desc: "beerio kart", comp_date: random_time},
-  {name: "High Five Somebody You Don't Know", desc: "or don't", comp_date: random_time},
+  {name: "Go to brunch", desc: "mmm foood"},
+  {name: "Go to lunch", desc: "MORE FOOD", comp_date: random_time},
+  {name: "Bathroom time", desc: "poop", comp_date: random_time},
+  {name: "Go to second lunch", desc: "can't stop, won't stop"},
+  {name: "Play video games", desc: "beerio kart", comp_date: random_time},
+  {name: "High five somebody you don't know", desc: "or don't", comp_date: random_time},
   {name: "Bake a potato", desc: "don't forget the sour cream!"},
-  {name: "Plant Flowers", desc: "peonies", comp_date: random_time},
+  {name: "Plant flowers", desc: "peonies", comp_date: random_time},
   {name: "Call Mom", desc: "she's been calling lots",},
   {name: "She worries, you know.", desc: "worrying sucks",},
-  {name: "Nap.", desc: "zzzzz", comp_date: random_time}
+  {name: "Nap", desc: "zzzzz", comp_date: random_time}
 ]
 
 tasks.each do |task|
