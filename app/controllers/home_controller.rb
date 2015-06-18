@@ -19,11 +19,21 @@ class HomeController < ApplicationController
     redirect_to action: :index
   end
 
+  def confirm_remove
+
+  end
+
+  def delete
+    
+  end
+
+
+
   private
 
   def create_params
+    # this is unsafe and gross. fix to require name, permit description and completed_date
     params.permit!
-    # params.permit(proposal: [:title, :abstract])
   end
 
 end

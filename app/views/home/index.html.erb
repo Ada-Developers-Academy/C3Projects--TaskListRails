@@ -11,6 +11,9 @@
     <th>
       Details
     </th>
+    <th>
+      Delete
+    </th>
   </tr>
   <tbody>
     <% @all_tasks.each do |data| %>
@@ -23,6 +26,9 @@
       </td>
       <td>
         <%= link_to "Show", "/tasks/#{data.id}" %>
+      </td>
+      <td>
+        <%= link_to "Delete", "/tasks/#{data.id}/confirm_remove"%>
       </td>
     </tr>
     <% end %>
