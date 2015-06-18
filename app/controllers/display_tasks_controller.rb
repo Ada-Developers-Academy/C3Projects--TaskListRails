@@ -1,10 +1,10 @@
 class DisplayTasksController < ApplicationController
-  def index
-    @all_tasks = Task.all
-    render :index
+  def display_tasks
+    @tasks = Task.all
+    render :tasks
   end
 
-  def single_task_display
+  def display_task
     @task = Task.find_by id: params[:task_id]
     render :task
   end

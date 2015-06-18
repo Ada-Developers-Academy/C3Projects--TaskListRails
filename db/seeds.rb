@@ -10,7 +10,7 @@ def random_time
   Time.at(rand * Time.now.to_i)
 end
 
-tasks = [
+myentries = [
   { name: "The First Task", description: "", completed_at: random_time },
   { name: "Go to Brunch", description: "" },
   { name: "Go to Lunch", description: "", completed_at: random_time },

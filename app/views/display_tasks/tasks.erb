@@ -1,0 +1,29 @@
+<h1>TASK LIST</h1>
+
+<table>
+  <tr>
+    <th> Task # </th>
+    <th> Name </th>
+    <th> Description </th>
+    <th> Completed? </th>
+    <th> Date Completed </th>
+  </tr>
+
+  <% @tasks.each_with_index do |task, index| %>
+    <div>
+      <tr>
+        <td> <%= task[:id] %> </td>
+        <td> <%= link_to "#{task[:name]}", "/task/#{task[:id]}" %> </td>
+        <td> <%= task[:description] %> </td>
+
+        <% if task[:completed_at] == nil %>
+          <td>No</td>
+        <% else %>
+          <td>Yes</td>
+        <% end %>
+
+        <td> <%= task[:completed_at] %> </td>
+      </tr>
+    </div>
+  <% end %>
+</table>
