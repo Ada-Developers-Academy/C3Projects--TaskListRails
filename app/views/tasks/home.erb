@@ -1,0 +1,19 @@
+<h1>Task List</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Completed?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_records.each do |record|%>
+      <tr>
+        <td><%= record.name %></td>
+        <%= if record.completed_at >%>
+        <td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
