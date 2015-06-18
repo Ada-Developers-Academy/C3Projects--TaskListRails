@@ -11,16 +11,16 @@ def random_time
 end
 
 tasks = [
-  { name: "The First Task", description: "", completed_at: random_time },
-  { name: "Go to Brunch", description: "" },
-  { name: "Go to Lunch", description: "", completed_at: random_time },
-  { name: "Go to Second Lunch", description: "" },
-  { name: "Play Video Games", description: "", completed_at: random_time },
-  { name: "High Five Somebody You Don't Know", description: "", completed_at: random_time },
-  { name: "Plant Flowers", description: "", completed_at: random_time },
-  { name: "Call Mom", description: "" },
-  { name: "She worries, you know.", description: "" },
-  { name: "Nap.", description: "", completed_at: random_time },
+  { name: "The First Task", description: "The very first!", completed_at: random_time },
+  { name: "Go to Brunch", description: "Pick somewhere fancy. You deserve it." },
+  { name: "Go to Lunch", description: "Maybe go protein sandwich style. Brunch was fancy.", completed_at: random_time },
+  { name: "Go to Second Lunch", description: "Deliciousness all over again!" },
+  { name: "Play Video Games", description: "Even though board games are cooler.", completed_at: random_time },
+  { name: "High Five Somebody You Don't Know", description: "It might be awkward!", completed_at: random_time },
+  { name: "Plant Flowers", description: "Despite their inevitable death.", completed_at: random_time },
+  { name: "Call Mom", description: "<3<3<3 She solves all your first-world problems." },
+  { name: "She worries, you know.", description: "Send her a card. But don't neglect dad." },
+  { name: "Nap.", description: "Forever.", completed_at: random_time },
 ]
 
 tasks.each do |task|

@@ -1,32 +1,22 @@
 <table>
   <tr>
     <th>
-      <h3>Completed?</h3>
+      <h3>&check;</h3>
     </th>
     <th>
       <h3>Task</h3>
-    </th>
-    <th>
-      <h3>Description</h3>
-    </th>
-    <th>
-      <h3>Completion Date</h3>
     </th>
   </tr>
 
   <% @tasks.each do |task| %>
   <tr>
     <td>
-      <%= task.completed_at ? "X" : "" %>
+      <% if task.completed_at %>
+      &check;
+      <% end %>
     </td>
     <td>
-      <%= task.name %>
-    </td>
-    <td>
-      <%= task.description %>
-    </td>
-    <td>
-      <%= task.completed_at ? task.completed_at : "" %>
+      <%= link_to task.name, "/show/" + task.id.to_s %>
     </td>
   </tr>
   <% end %>
