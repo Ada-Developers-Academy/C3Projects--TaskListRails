@@ -1,11 +1,17 @@
-<h1>
-  <%= @task.name %>
-</h1>
+<div class="task_details">
+  <h1>
+    <%= @task.name %>
+  </h1>
 
-<p>
-  <%= @task.description %>
-</p>
+  <p>
+    <%= @task.description %>
+  </p>
 
-<p>
-  <%= @task.completed_at %>
-</p>
+  <p>
+    <% if !@task.completed_at.nil? %>
+      <%= @task.completed_at.strftime("%m.%d.%Y") %>
+    <% end %>
+  </p>
+  <br><br>
+  <%= link_to "< Home", "/" %>
+</div>

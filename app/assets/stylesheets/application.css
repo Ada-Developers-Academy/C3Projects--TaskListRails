@@ -17,3 +17,14 @@
 body {
   background-color: #C9D5ED;
 }
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+h3 {
+  font-size: 20px;
+}
+p {
+  margin-bottom: 5px;
+}
