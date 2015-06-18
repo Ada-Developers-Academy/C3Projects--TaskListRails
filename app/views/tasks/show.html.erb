@@ -9,9 +9,9 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= @name %></td>
-      <td><%= @description %></td>
-      <td class="checkmark"><%= @completed %></td>
+      <td><%= @task.name %></td>
+      <td><%= @task.description %></td>
+      <td class="checkmark"><%= @task.completed? %></td>
       <td><%= @date %></td>
     </tr>
   </tbody>
