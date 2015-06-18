@@ -23,7 +23,14 @@
         <% end %>
       </td>
       <td class="desc"><%= @task.desc %></td>
-      <td class="comp_date"><%= @task.comp_date %></td>
+
+      <td class="comp_date">
+        <% if @task.comp_date %>
+          <%= @task.comp_date.strftime("%A %B %d, %Y") %>
+        <% else %>
+          <%= "" %>
+        <% end %>
+      </td>
     </tr>
   </table>
   <p class="return_home"><%= link_to "return to task list", "/" %></p>
