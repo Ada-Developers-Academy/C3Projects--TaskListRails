@@ -13,6 +13,7 @@ class TasksController < ApplicationController
     # QUESTION: Is it possible to make the below instances variables available to both index & show? (A constant didn't work...)
     @completed = "COMPLETED"
     @uncompleted = "UNCOMPLETED"
+    @status = @task[:completed_at].nil? ? @uncompleted : @completed
 
     render :task
   end
