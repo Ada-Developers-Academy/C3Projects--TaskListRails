@@ -24,4 +24,9 @@
       Updated at: <%= @task[:updated_at] %>
     </li> -->
   </ul>
+
+  <div class="<%= @visibility %>">
+    <p> Are you sure you want to delete this task forever? </p>
+    <%= button_to "DELETE FOREVER", "/tasks/#{@task[:id]}", method: :delete %>
+  </div>
 </div>

@@ -2,18 +2,21 @@ class TasksController < ApplicationController
 
   def index
     @all_tasks = Task.all   # NOTE TO SELF: "task" is actually a Task::ActiveRecord_Relation object, but responds to Array methods
-    @completed = "COMPLETED"
-    @uncompleted = "UNCOMPLETED"
+    completed_instance_var
 
     render :index   # for clarity, you don't actually need this in this case
   end
 
   def show
-    @task = Task.find(params[:id])
-    # QUESTION: Is it possible to make the below instances variables available to both index & show? (A constant didn't work...)
-    @completed = "COMPLETED"
-    @uncompleted = "UNCOMPLETED"
-    @status = @task[:completed_at].nil? ? @uncompleted : @completed
+    completed_instance_var
+    @visibility = "invisible"
+
+    render :task
+  end
+
+  def show_before_delete
+    completed_instance_var
+    @visibility = "visible"
 
     render :task
   end
@@ -29,13 +32,34 @@ class TasksController < ApplicationController
     @task.save
 
     redirect_to "/" # Why does this not work with :index?
-      # NOTE TO SELF: Look up other ways to write 'redirect_to'.
+      # NOTE!!!: Look up other ways to write 'redirect_to'.
+  end
+
+  def destroy
+    # @task = Task.find(params[:id])
+    Task.find(params[:id]).destroy
+
+    redirect_to "/"
   end
 
   private
 
+  def completed_instance_var
+    # QUESTION: Constant's don't really work, do they? (Didn't work for me.)
+    @completed = "COMPLETED"
+    @uncompleted = "UNCOMPLETED"
+  end
+
+  def task_instance_vars
+    # NOTE!!! Need to read up on params to show unique URLs!
+    @task = Task.find(params[:id])
+    completed_instance_var
+    @status = @task[:completed_at].nil? ? @uncompleted : @completed
+  end
+
   def create_params
-    params.permit(task: [:name])
+    # NOTE!!!: Definately look up info on this.
+    params.permit(task: [:name, :description])
   end
 
 end

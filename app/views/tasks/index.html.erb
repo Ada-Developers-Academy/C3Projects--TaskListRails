@@ -11,9 +11,13 @@
     <td>
       <%= task[:completed_at].nil? ? @uncompleted : @completed %>
     </td>
+    <td>
+      <%= button_to "DELETE", "/tasks/delete/#{task[:id]}", method: :get %>
+      <% # method: "get"' also works!  %>
   </tr>
   <% end %>
 </table>
-</div>
+<%= button_to "ADD", "/tasks/new", method: :get %>
 
-<%= link_to "ADD", "/tasks/new" %>
+<a href="/tasks/new"><button type="button">ADD</button></a>
+</div>
