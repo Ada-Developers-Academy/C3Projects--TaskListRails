@@ -1,4 +1,4 @@
-class TaskController < ActionController::Base
+class TaskController < ApplicationController
   def index
     @title = "Task List"
     @all_tasks = Task.all
@@ -14,4 +14,21 @@ class TaskController < ActionController::Base
 		render :details
 	end
 
+  def new
+    @task = Task.new
+
+    render :new
+  end
+
+  def create
+    @title = "Add New Task"
+    @task = Task.new(create_params[:task])
+    @task.save
+
+    redirect_to :home
+  end
+
+  def create_params
+    params.permit(task: [:name, :description])
+  end
 end
