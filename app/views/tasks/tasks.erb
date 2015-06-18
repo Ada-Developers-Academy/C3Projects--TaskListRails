@@ -16,17 +16,13 @@
         <% end %>
         </td>
       <td class="name">
-        <% if @task.comp_date %>
-          <span class="complete"><%= @task.name %></span>
-        <% else %>
-          <span class="incomplete"><%= @task.name %></span>
+        <%= @task.name %>
         <% end %>
       </td>
       <td class="desc"><%= @task.desc %></td>
-
       <td class="comp_date">
         <% if @task.comp_date %>
-          <%= @task.comp_date.strftime("%A %B %d, %Y") %>
+          <%= @task.comp_date.strftime("%m/%d/%Y %I:%M %p") %>
         <% else %>
           <%= "" %>
         <% end %>
