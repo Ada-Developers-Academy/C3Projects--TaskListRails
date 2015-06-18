@@ -17,7 +17,9 @@
   </tr>
   <% end %>
 </table>
-<%= button_to "ADD", "/tasks/new", method: :get %>
 
+<%= button_to "ADD", "/tasks/new", {method: :get, :class => "confirm"} %>
+<!-- NOTE TO SELF: Another way of writing this would be...
 <a href="/tasks/new"><button type="button">ADD</button></a>
+-->
 </div>

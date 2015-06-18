@@ -8,14 +8,14 @@ class TasksController < ApplicationController
   end
 
   def show
-    completed_instance_var
+    task_instance_vars
     @visibility = "invisible"
 
     render :task
   end
 
   def show_before_delete
-    completed_instance_var
+    task_instance_vars
     @visibility = "visible"
 
     render :task
