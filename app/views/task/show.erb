@@ -1,0 +1,14 @@
+<h1><%= @task[:name] %></h1>
+<p class='link'><%= link_to "Back to task list", "/" %></p>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Description</th>
+    <th>Completed_on</th>
+  </tr>
+  <tr>
+    <td><%= @task[:name] %></tb>
+    <td><%= @task[:description] %></td>
+    <td><%= @task[:completed_on] %></td>
+  </tr>
+</table>
