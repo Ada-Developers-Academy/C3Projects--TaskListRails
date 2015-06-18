@@ -5,7 +5,6 @@ class TaskController < ApplicationController
     render :index
   end
 
-
   def show
     @id = params[:id]
     @task = Task.find(@id)
@@ -21,13 +20,9 @@ class TaskController < ApplicationController
     redirect_to root_url
   end
 
-  def delete_confirmation
-    @task_to_delete = Task.find(params[:id])
-    redirect_to "delete/:id"
-  end
 
   def delete
-    @delete_task = Task.destroy(@task_to_delete)
+    @delete_task = Task.destroy(params[:id])
 
     redirect_to root_url
   end
