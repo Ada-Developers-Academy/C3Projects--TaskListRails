@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/add_task' => 'task#new'
   post '/tasks' => 'task#create'
 
-  delete '/tasks/:id' => 'task#delete'
+  delete '/delete/:id' => 'task#delete'
 
   # lines 6 and 7 do the exact same thing
 

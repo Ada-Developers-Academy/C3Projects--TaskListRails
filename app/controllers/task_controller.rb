@@ -17,7 +17,6 @@ class TaskController < ApplicationController
     @new_task.save
 
     redirect_to '/'
-    # render :add_task
   end
 
   def delete

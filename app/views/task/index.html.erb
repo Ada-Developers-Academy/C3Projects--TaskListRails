@@ -11,7 +11,7 @@
     <%= " (Not completed)" %>
     <% end %>
   <%= button_to "Show Details", "/show/#{task.id}" %>
-  <%= button_to "Delete Task", "/tasks/#{task.id}", method: "delete", action: "destroy" data: { confirm: "Are you sure?!" } %>
+  <%= button_to "Delete Task", "/delete/#{task.id}", method: "delete", action: "destroy", data: { :confirm => "Are you sure?!" } %>
 </p>
 <% end %>
 
