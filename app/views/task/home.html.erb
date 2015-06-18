@@ -4,31 +4,9 @@
 
 <% @tasks.each do |task|  %>
   <ul>
-
     <li>
       <!-- linking the task person name to the unique task id -->
       <%= link_to "#{task[:name]}", "tasks/#{task[:id]}" %>,  <%= task[:completed] %>
     </li>
   </ul>
-
 <% end %>
-<p>
-  table:
-</p>
-<table>
-  <tr>
-    <th> Name </th>
-    <th> Completed? </th>
-  </tr>
-
-    <% @tasks.each do |task|  %>
-  <tr>
-    <td>
-
-    <!-- linking the task person name to the unique task id -->
-    <%= link_to "#{task[:name]}", "tasks/#{task[:id]}" %>,</td>
-    <td>  <%= task[:completed] %> </td>
-  </tr>
-    <% end %>
-
-  </table>
