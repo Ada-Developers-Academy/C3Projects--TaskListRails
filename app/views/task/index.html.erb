@@ -9,11 +9,14 @@
 <%   end %>
 <% end %>
 
+<%= button_to "Add a New Task", '/add_task', method: 'get' %>
+
 <section>
 <h3>Active Tasks (not yet complete):</h3>
 <ol>
   <% incomplete_tasks.each do |task| %>
-  <li><p><%= task[:task_name] %> (active) <%= button_to "Show Details", "/show/#{task.id}", class: "button" %></li></p>
+  <li><p><%= task[:task_name] %> (active) <%= button_to "Show Details", "/show/#{task.id}", class: "button" %>
+  <%= button_to "Delete this task", "/delete_confirmation/#{task.id}" %></li></p>
   <% end %>
 </ol>
 </section>
@@ -23,7 +26,8 @@
 <ol>
   <% completed_tasks.each do |task| %>
   <!-- <% completed = "(active)" %> -->
-  <li><p><%= task[:task_name] %> (completed) <%= button_to "Show Details", "/show/#{task.id}", class: "button" %></li></p>
+  <li><p><%= task[:task_name] %> (completed) <%= button_to "Show Details", "/show/#{task.id}", class: "button" %>
+  <%= button_to "Delete this task", "/delete/#{task.id}", method: "delete", action: "destroy" %></li></p>
   <% end %>
 </ol>
 </section>
