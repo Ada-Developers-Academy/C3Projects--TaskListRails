@@ -6,6 +6,10 @@ class TasksController < ApplicationController
 
   def show
   	@task 			= Task.find(params[:id])
-  	@title			= @task.name
+  	@name			= @task.name
+  	@title			= @name
+  	@description	= @task.description
+  	@completed 		= @task.completed?
+  	@date			= @task.date_completed ? @task.date_completed.strftime("%m-%d-%Y") : nil
   end
 end
