@@ -1,5 +1,7 @@
 <h1>Welcome to your Tasks</h1>
 
+<%= link_to "Create New Task", '/add_task' %>
+
 <% @tasks.each do |task| %>
  <p> <h3>Task:</h3>
     <%= task[:name] %>
@@ -9,6 +11,7 @@
     <%= " (Not completed)" %>
     <% end %>
   <%= button_to "Show Details", "/show/#{task.id}" %>
+  <%= button_to "Delete Task", "/tasks/#{task.id}", method: "delete", action: "destroy" data: { confirm: "Are you sure?!" } %>
 </p>
 <% end %>
 
