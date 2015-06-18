@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   delete 'task' => 'tasks#destroy'
 
 
+  # delete 'tasks/:id' => 'tasks#destroy'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

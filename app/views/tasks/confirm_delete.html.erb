@@ -1,27 +1,10 @@
 <h1>Are you sure you want to delete this task?</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Completed?</th>
-      <th>Date Created</th>
-      <th>Date Completed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @task.name %></td>
-      <td><%= @task.description %></td>
-      <td class="checkmark"><%= @task.completed? %></td>
-      <td><%= @creation_date %></td>
-      <td><%= @date %></td>
-    </tr>
-  </tbody>
-</table>
+<%= render 'task_table' %>
 
 <%= form_for @task, method: :delete do |f| %>
   <%= f.hidden_field :id %>
   <%= f.submit 'Yes, delete' %>
 <% end %>
+
+<%= link_to "Cancel", '/', class: "nav_link" %>
