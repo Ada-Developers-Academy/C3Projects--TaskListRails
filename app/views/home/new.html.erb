@@ -1,0 +1,15 @@
+<h1>Create New Task</h1>
+
+<%= form_for @task do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :required => true%>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :completed_date %>
+  <%= f.datetime_local_field :completed_date %>
+
+  <%= f.submit %>
+
+<% end %>

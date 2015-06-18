@@ -5,8 +5,25 @@ class HomeController < ApplicationController
   end
 
   def show
-    @one_task = Task.find(params[:id])
+    @show_task = Task.find(params[:id])
     render :show
+  end
+
+  def new
+    @task = Task.new
+  end
+
+  def create
+    @task = Task.new(create_params[:task])
+    @task.save
+    redirect_to action: :index
+  end
+
+  private
+
+  def create_params
+    params.permit!
+    # params.permit(proposal: [:title, :abstract])
   end
 
 end
