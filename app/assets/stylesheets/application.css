@@ -12,3 +12,7 @@
   text-align: left;
   font-weight: bold;
 }
+
+.add_task_button {
+  text-align: center;
+}

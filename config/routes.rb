@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   root 'display_task#index'
+  post '/' => 'display_task#index'
+
+  # to show an individual task
   get '/show/:id' => 'display_task#links'
 
   # to add a task
-  get '/tasks/new' => 'add_task#new'
+  post '/tasks/new' => 'add_task#new'
   post '/tasks' => 'add_task#create'
 
   # to delete a task
-  post '/delete/:id' => 'delete_task#delete'
+  delete '/tasks/delete/:id' => 'delete_task#destroy'
+
   # post '/:id' => 'display_task#links'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

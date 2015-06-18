@@ -1,4 +1,8 @@
 class DeleteTaskController < ApplicationController
-  def delete
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+
+    redirect_to '/'
   end
 end
