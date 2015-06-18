@@ -1,3 +1,43 @@
 // Place all the styles related to the task controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.2em;
+}
+
+ul {
+  color: #092827;
+}
+
+h1 {
+  color: #b24d1b;
+}
+
+h2 {
+  color: #2a6f66;
+}
+
+a:link {
+  color: #092827;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #93cfd3;
+  text-transform: uppercase;
+}
+
+table {
+  // color: #93cdf3;
+  margin: auto;
+  text-align: left;
+}
+
+td {
+
+  padding: 10px;
+  text-align: left;
+}
+  // #ceb381;
+  // brown

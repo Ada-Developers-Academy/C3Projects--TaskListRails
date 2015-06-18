@@ -1,19 +1,46 @@
 <h1>Here is the task you requested</h1>
 
-<%= @task.id %>
-<%= @task.name %>
-<%= @task.description %>
-<%= @task.date %>
-<%= @task.created_at %>
-<%= @task.updated_at %>
-<%= @task.completed %>
 
-tasks", force: :cascade do |t|
-  t.string   "name"
-  t.string   "description"
-  t.datetime "date"
-  t.datetime "created_at",  null: false
-  t.datetime "updated_at",  null: false
-  t.string   "completed"
+<ul>
+  <li>id: <%= @task.id %></li>
+  <li>Name: <%= @task.name %></li>
+  <li>Date: <%= @task.date %></li>
 
- <%= params %>
+  <li> Description: <%= @task.description %></li>
+  <li>Created at: <%= @task.created_at %></li>
+  <li>Updated at: <%= @task.updated_at %></li>
+  <li>Completed?: <%= @task.completed %></li>
+
+</ul>
+
+
+<table>
+  <tr>
+    <th> ID </th>
+    <th> Name </th>
+    <th> Date</th>
+    <th> Created at</th>
+    <th>Updated at </th>
+    <th>Completed </th>
+  </tr>
+  <tr>
+    <td>  <%= task.id %> </td>
+  </tr>
+  <tr>
+    <td>  <%= task.name %> </td>
+  </tr>
+  <tr>
+    <td>  <%= task.date %> </td>
+  </tr>
+  <tr>
+    <td>  <%= task.created_at %> </td>
+  </tr>
+  <tr>
+    <td>  <%= task.updated_at %> </td>
+  </tr>
+  <tr>
+    <td>  <%= task.completed %> </td>
+  </tr>
+    <% end %>
+
+  </table>
