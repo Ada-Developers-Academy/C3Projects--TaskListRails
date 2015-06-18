@@ -1,6 +1,4 @@
 <main>
-  <% @all_tasks.each_with_index do |task, i| %>
-    <%= format_task_for_list(task, i) %>
-    <%= link_to "Show details", "/task/#{task.id}", class: "details_link" %>
-  <% end %>
+  <%= link_to '+ Task', '/add_task' %>
+  <%= render 'complete_task_list' %>
 </main>
