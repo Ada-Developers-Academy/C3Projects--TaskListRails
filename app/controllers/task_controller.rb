@@ -29,4 +29,11 @@ class TaskController < ApplicationController
   def create_params
     params.permit(task: [:name, :description])
   end
+
+  def delete
+    @task = Task.find(params[:id])
+    @task.destroy
+
+    redirect_to "/"
+  end
 end

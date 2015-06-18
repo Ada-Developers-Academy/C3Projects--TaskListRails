@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/task/new" => "task#new"
   post "/task/new" => "task#create"
 
+  delete "/task_:id" => "task#delete"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

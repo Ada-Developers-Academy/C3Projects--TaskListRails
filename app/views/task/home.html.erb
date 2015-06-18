@@ -18,11 +18,8 @@
         </td>
         <td>
           <%= task.completed %>
-        </td>
-        <td>
-          <%= task.completed_at %>
-        </td>
       <td> <a href=<%="/task_#{task.id}/details"%>>Details</a></td>
+      <td> <%= button_to "Delete task", "task_#{task.id}", method: :delete, data: {confirm:"Are you sure?"} %></td>
       </tr>
     <% end %>
   </tbody>
