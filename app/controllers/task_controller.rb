@@ -22,12 +22,7 @@ class TaskController < ApplicationController
     redirect_to "/"
   end
 
-  def confirm_delete
-    @detail = Task.find(params[:id])
-    render :confirm_delete
-  end
-
-  def destroy
+  def delete
     @detail = Task.find(params[:id])
     @detail.delete
     @detail.save

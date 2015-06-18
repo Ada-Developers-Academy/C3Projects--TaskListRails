@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   get 'task/new' => 'task#new'
   post '/tasks' => 'task#create'
 
-  get '/delete/:id' => 'task#confirm_delete'
-  delete '/task' => 'task#destroy'
+  delete '/task/:id' => 'task#delete'
 
   get '/task/:id' => 'task#show'
 

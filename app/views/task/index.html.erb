@@ -3,13 +3,14 @@
   <tr>
     <th>Task Name</th>
     <th>Completion Status</th>
+    <th></th>
   </tr>
 
   <% @tasks.each do |task| %>
     <tr>
-      <td><%= link_to "#{task[:name]}", "task/#{task[:id]}" %></td>
+      <td><%= link_to "#{task.name}", "task/#{task.id}" %></td>
       <td><%= task[:completion_status] %></td>
-      <td><%= link_to "Delete Task", "delete/#{task[:id]}" %></td>
+      <td><%= link_to "delete", "task/#{task.id}", method: :delete, data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
 
