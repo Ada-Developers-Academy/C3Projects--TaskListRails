@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/task" => "carl_tasks#task"
 
   get "/create" => "carl_tasks#create"
+  post "/created" => "carl_tasks#created"
   # post "/create" => "carl_tasks#post_create"
 
   get "/complete/:id" => "carl_tasks#complete"

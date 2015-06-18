@@ -7,7 +7,7 @@
 body {
   width: 960px;
   background: #ccc;
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 20px;
   margin: 2% auto;
   text-align: center;
@@ -71,12 +71,20 @@ label {
 form {
   display: block;
   text-align: left;
-  width: 500px;
+  width: 600px;
   margin: auto;
 }
 
 #error {
   color: #c00;
+}
+
+.inline * {
+  display: inline;
+}
+
+.hidden * {
+  visibility: hidden;
 }
 
 
