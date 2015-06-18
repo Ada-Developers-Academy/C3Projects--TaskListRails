@@ -1,19 +1,14 @@
  <section class="home">
   <table>
     <tr>
-      <th></th>
-      <th>Tasks</th>
+      <th colspan="2">Tasks</th>
     </tr>
    
   <% @tasks.each do |task| %>
     <tr>
       <td class="comp_status">
-        <% if task.comp_date %>
-          <%= "\u2713" %>
-        <% else %>
-          <%= "" %>
-        <% end %>
-        </td>
+        <%= task.comp_date ? "\u2713" : "" %>
+      </td>
       <td class="name">
         <% if task.comp_date %>
           <span class="complete"><%= link_to "#{task.name}", "tasks/#{task.id}" %></span>
