@@ -14,11 +14,13 @@
     <% @all_tasks.each do |task|%>
       <tr>
         <td>
+          <a href=<%="/task_#{task.id}/details"%>>
           <%= task.name %>
+        </a>
         </td>
         <td>
           <%= task.completed %>
-      <td> <a href=<%="/task_#{task.id}/details"%>>Details</a></td>
+      </td>
       <td> <%= button_to "Delete task", "task_#{task.id}", method: :delete, data: {confirm:"Are you sure?"} %></td>
       </tr>
     <% end %>

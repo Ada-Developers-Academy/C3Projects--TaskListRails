@@ -2,12 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body{
+ 	background-color: #271033;
 	font-family: monospace;
 	font-size: 1.5em;
 }
 
-table, td, th {
-	border: 1px solid #000;
+h1{
+	color: #fff;
+}
+
+form{
+	color: #fff;
+}
+.completed{
+text-decoration-color: #000;
+text-decoration: line-through;
+color: #000;
+}
+
+a{
+	text-decoration: none;
+	color : #388e97;
+}
+
+
+a:link, a:visited {
+	font-weight: bold;;
+}
+
+a:hover {
+	font-weight: normal;
 }
 
 tr:nth-child(even){
@@ -24,5 +48,6 @@ td, th {
 }
 
 th {
-	background-color: #d3d3d3;
+	color: #271033;
+	background-color: #fff;
 }
