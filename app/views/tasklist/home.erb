@@ -1,11 +1,13 @@
 <table>
   <tr>
+    <th>Task #</th>
     <th>Task Name</th>
     <th>Date of Completion</th>
   <tr>
   <% @tasks.to_a.each do |task| %>
   <tr>
-    <td><a href="/show/<%= task.name %>"><%= task.name %></td>
+    <td><%= task.id %></td>
+    <td><a href="/show/<%= task.id %>"><%= task.name %></td>
     <td><%= task.completed_at %></td>
     <tr>
     <% end %>

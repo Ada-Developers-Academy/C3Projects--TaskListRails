@@ -1,2 +1,20 @@
-<%= @task_finder.name %>
-<%= @task_finder.id %>
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Date of Completion</th>
+  </tr>
+  <tr>
+    <td><%= @task_finder.id %></td>
+    <td><%= @task_finder.name %></td>
+    <td><%= @task_finder.description %></td>
+    <td><% if @task_finder.completed_at == nil %>
+       In Process
+      <% else %>
+       Completed
+       <% end %>
+    <td><%= @task_finder.completed_at %></td>
+  </tr>
+</table>
