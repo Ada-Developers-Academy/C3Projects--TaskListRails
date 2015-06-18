@@ -6,8 +6,8 @@
 
   <% @all_tasks.each_with_index do |task, index| %>
     <tr>
-      <td><%= link_to "#{task[:name]}", "/#{task[:name]}" %></td>
-      <td><% if task[:completed_at].nil? %>
+      <td><%= link_to "#{task.name}", "/#{task.id}" %></td>
+      <td><% if task.completed_at.nil? %>
             Not yet.
           <% else %>
             Yes!

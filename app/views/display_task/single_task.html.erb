@@ -7,14 +7,14 @@
   </tr>
 
   <tr>
-    <td><%= @task[0][:name]%></td>
-    <td><%= @task[0][:description]%></td>
-    <td><% if @task[0][:completed_at].nil? %>
+    <td><%= @task.name %></td>
+    <td><%= @task.description %></td>
+    <td><% if @task.completed_at.nil? %>
           Not yet completed.
         <% else %>
           Completed.
         <% end %>
     </td>
-    <td> <%= @task[0][:completed_at] %></td>
+    <td> <%= @task.completed_at %></td>
   </tr>
 </table>
