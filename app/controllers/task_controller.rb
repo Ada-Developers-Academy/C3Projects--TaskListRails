@@ -5,4 +5,10 @@ class TaskController < ApplicationController
     render :index
   end
 
+  def show
+    id = params[:id]
+    @detail = Task.find(id)
+    render :show
+  end
+
 end

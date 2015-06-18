@@ -6,14 +6,12 @@
   <tr>
     <th>Task Name</th>
     <th>Completion_status</th>
-    <th>Completed Date</th>
   </tr>
 
   <% @tasks.each do |task| %>
     <tr>
-      <td><%= task[:name] %></td>
+      <td><%= link_to "#{task[:name]}", "task/#{task[:id]}" %></td>
       <td><%= task[:completion_status] %></td>
-      <td><%= task[:completed_at] %></td>
     </tr>
   <% end %>
 

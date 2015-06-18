@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'task#index'
   # get '/' => 'welcome#index'
   # lines 6 and 7 are equivalent
+  get 'task/:id' => 'task#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
