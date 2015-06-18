@@ -1,0 +1,21 @@
+<H1> Create a Task </H1>
+
+<fieldset>
+  <legend>
+    Enter in a Task
+  </legend>
+
+<%= form_for @task do |f| %>
+  <%= f.label :name %>
+  <%= f.text_area :name %>
+
+  <%= f.label :date %>
+  <%= f.text_area :date %>
+
+  <%= f.label :completed %>
+  <%= f.text_area :completed %>
+  <%= f.submit %>
+<% end %>
+
+
+</fieldset>
