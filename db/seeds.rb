@@ -10,16 +10,16 @@ def random_time
 end
 
 tasks = [
-  { name: "The First Task", description: "", completed_at: random_time, completion_status: "done!" },
-  { name: "Go to Brunch", description: "", completion_status: "not done" },
-  { name: "Go to Lunch", description: "", completed_at: random_time, completion_status: "done!" },
-  { name: "Go to Second Lunch", description: "", completion_status: "not done" },
-  { name: "Play Video Games", description: "", completed_at: random_time, completion_status: "done!" },
+  { name: "The First Task", description: "it is the first task", completed_at: random_time, completion_status: "done!" },
+  { name: "Go to Brunch", description: "mimosas and beignets", completion_status: "not done" },
+  { name: "Go to Lunch", description: "yummy", completed_at: random_time, completion_status: "done!" },
+  { name: "Go to Second Lunch", description: "because food", completion_status: "not done" },
+  { name: "Play Video Games", description: "all of them", completed_at: random_time, completion_status: "done!" },
   { name: "High Five Somebody You Don't Know", description: "", completed_at: random_time, completion_status: "done!" },
-  { name: "Plant Flowers", description: "", completed_at: random_time, completion_status: "done!" },
-  { name: "Call Mom", description: "", completion_status: "not done" },
-  { name: "She worries, you know.", description: "", completion_status: "not done" },
-  { name: "Nap.", description: "", completed_at: random_time, completion_status: "done!" }
+  { name: "Plant Flowers", description: "sunflowers and daffodils", completed_at: random_time, completion_status: "done!" },
+  { name: "Call Mom", description: "at your sister's", completion_status: "not done" },
+  { name: "She worries, you know.", description: "always", completion_status: "not done" },
+  { name: "Nap.", description: "sweet dreams!", completed_at: random_time, completion_status: "done!" }
 ]
 
 tasks.each do |task|
