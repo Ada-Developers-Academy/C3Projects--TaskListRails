@@ -6,10 +6,10 @@
       Name
     </th>
     <th>
-      Completed?
+      Status
     </th>
     <th>
-      Show
+      Details
     </th>
   </tr>
   <tbody>
@@ -22,7 +22,7 @@
         <%= data.completed_date ? "Completed" : "Not Completed"%>
       </td>
       <td>
-        SHOW
+        <%= link_to "Show", "/#{data.id}" %>
       </td>
     </tr>
     <% end %>

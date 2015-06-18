@@ -1,0 +1,34 @@
+<h1>Show Task</h1>
+
+<table>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+      Status
+    </th>
+    <th>
+      Completion Date
+    </th>
+  </tr>
+  <tbody>
+    <tr>
+      <td>
+        <%= @one_task.name %>
+      </td>
+      <td>
+        <%= @one_task.description %>
+      </td>
+      <td>
+        <%= @one_task.completed_date ? "Completed" : "Not Completed"%>
+      </td>
+      <td>
+        <%= @one_task.completed_date %>
+      </td>
+    </tr>
+  </tbody>
+</table>
