@@ -23,9 +23,12 @@
         <% end %>
 
         <td> <%= task[:completed_at] %> </td>
+        <td>
+          <%= link_to "Delete?", "/task/#{task[:id]}/confirm_delete" %>
+        </td>
       </tr>
     </div>
   <% end %>
 </table>
 
-<%= link_to "Add new task", "/create" %>
+<%= link_to "Add new task", "/tasks/new" %>

@@ -8,4 +8,28 @@ class DisplayTasksController < ApplicationController
     @task = Task.find_by id: params[:task_id]
     render :task
   end
+
+  def new
+    @task = Task.new
+    render :add_task_form
+  end
+
+  def create
+    @task = Task.new(create_params[:task])
+    @task.save
+
+    redirect_to :tasks
+  end
+
+  def confirm_delete
+    @task = Task.find_by id: params[:task_id]
+
+    render :confirm_delete
+  end
+
+  private
+
+  def create_params
+    params.permit(task: [:name, :description, :completed_at])
+  end
 end

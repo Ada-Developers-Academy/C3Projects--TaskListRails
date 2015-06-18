@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
-  get '/' => 'display_tasks#display_tasks'
 
+  root 'display_tasks#display_tasks'
+  
+  # route to landing page that displays all tasks
+  get '/tasks' => 'display_tasks#display_tasks'
+
+  # route to page with single task
   get '/task/:task_id' => 'display_tasks#display_task'
 
-  
+  # route to page with form for entering new task
+  get '/tasks/new' => 'display_tasks#new'
+
+  # new task gets posted here
+  post '/tasks' => 'display_tasks#create'
+
+  get 'task/:task_id/confirm_delete' => 'display_tasks#confirm_delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

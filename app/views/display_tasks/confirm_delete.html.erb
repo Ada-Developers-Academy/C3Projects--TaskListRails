@@ -1,3 +1,5 @@
+<h4>ARE YOU SURE YOU WANT TO DELETE THIS TASK?</h4>
+
 <h1> TASK #<%= @task[:id] %></h1>
 
 <table>
@@ -19,6 +21,4 @@
   </tr>
 </table>
 
-<div>
-  <%= link_to "Back to Task List", "/tasks"%>
-</div>
+  <%= button_to "NO", "/" %>
