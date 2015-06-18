@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def show
-    @show_task = Task.find(params[:id])
+    @task = Task.find(params[:id])
     render :show
   end
 
@@ -20,13 +20,13 @@ class HomeController < ApplicationController
   end
 
   def confirm_remove
-    @remove_task = Task.find(params[:id])
+    @task = Task.find(params[:id])
     render :confirm_remove
   end
 
   def delete
-    @remove_task = Task.find(params[:id])
-    @remove_task.destroy
+    @task = Task.find(params[:id])
+    @task.destroy
     redirect_to action: :index
   end
 

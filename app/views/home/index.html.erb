@@ -16,19 +16,19 @@
     </th>
   </tr>
   <tbody>
-    <% @all_tasks.each do |data| %>
+    <% @all_tasks.each do |task| %>
     <tr>
       <td>
-        <%= data.name %>
+        <%= task.name %>
       </td>
       <td>
-        <%= data.completed_date ? "Completed" : "Not Completed"%>
+        <%= task.completed_date ? "Completed" : "Not Completed"%>
       </td>
       <td>
-        <%= link_to "Show", "/tasks/#{data.id}" %>
+        <%= link_to "Show", "/tasks/#{task.id}" %>
       </td>
       <td>
-        <%= link_to "Delete", "/delete_task/#{data.id}"%>
+        <%= link_to "Delete", "/delete_task/#{task.id}" %>
       </td>
     </tr>
     <% end %>

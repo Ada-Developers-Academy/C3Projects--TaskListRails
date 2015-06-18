@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+      Status
+    </th>
+    <th>
+      Completion Date
+    </th>
+  </tr>
+  <tbody>
+    <tr>
+      <td>
+        <%= @task.name %>
+      </td>
+      <td>
+        <%= @task.description %>
+      </td>
+      <td>
+        <%= @task.completed_date ? "Completed" : "Not Completed"%>
+      </td>
+      <td>
+        <%= @task.completed_date %>
+      </td>
+    </tr>
+  </tbody>
+</table>
