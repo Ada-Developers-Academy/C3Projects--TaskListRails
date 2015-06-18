@@ -3,7 +3,8 @@ module TaskHelper
     html = ""
     html << "<div"
     html << " class='completed_task'" if task.completed_at
-    html << "><p>" +
+    html << ">" +
+            "<p>" +
             "<span class='task_name'>#{ i + 1 }. #{ task.name }</span>"
     # html << "<span class='complete_date'>Completed: #{ task.completed_at.to_formatted_s(:long) }</span>" if task.completed_at
     html << "</p>"
@@ -17,7 +18,7 @@ module TaskHelper
     html << "<div"
     html << " class='completed_task'" if task.completed_at
     html << "><p>" +
-            "<span class='task_name'>#{ i + 1 }. #{ task.name }</span>"
+            "<span class='task_name'>#{ task.name }</span>"
     html << "<span class='complete_date'>Completed: #{ task.completed_at.to_formatted_s(:long) }</span>" if task.completed_at
     html << "</p>"
     html << "<p class='task_descr'> - #{task.description}</p>" if task.description

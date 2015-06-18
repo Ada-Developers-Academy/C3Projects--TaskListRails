@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+p {
+  margin: 0em;
+}
+
 .completed_task .task_name {
   text-decoration: line-through;
 }
@@ -11,7 +15,15 @@
 }
 
 .task_name {
+  margin: 0em;
+}
 
+.details_link {
+ font-size: .5em;
+ margin-top: 0em;
+ margin-left: 2em;
+ margin-bottom: 2em;
+ display: inline-block;
 }
 
 .complete_date {
