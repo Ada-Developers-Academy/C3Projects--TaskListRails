@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
     Task.all
   end
 
-  def self.show_task
+  # def self.show_task
     # Task.find
-  end
+  # end
 end
