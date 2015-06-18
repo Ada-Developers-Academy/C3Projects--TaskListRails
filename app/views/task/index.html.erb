@@ -1,0 +1,14 @@
+<h1>Welcome to your Tasks</h1>
+
+<% @tasks.each do |task| %>
+ <p> <h3>Task:</h3>
+    <%= task[:name] %>
+  <% if task[:completed_at] != nil %>
+    <%= " (Completed)"  %>
+  <% else %>
+    <%= " (Not completed)" %>
+    <% end %>
+  <%= button_to "Show Details", "/show/#{task.id}" %>
+</p>
+<% end %>
+
