@@ -18,6 +18,12 @@ class TaskController < ApplicationController
   def create
     @task = Task.new(create_params[:task])
     @task.save
-    render :home
+    render :index
+  end
+
+  private
+
+  def create_params
+    params.permit(task: [:name, :description, :completed_at])
   end
 end
