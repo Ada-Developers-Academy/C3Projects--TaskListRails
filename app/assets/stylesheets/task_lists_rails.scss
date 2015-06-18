@@ -24,6 +24,10 @@ th {
   text-align: center;
 }
 
+.complete {
+  text-decoration: line-through;
+}
+
 /* Base Style */
 html {
   background: #fff url(./images/linedpaper.png) repeat fixed center;

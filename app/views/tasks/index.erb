@@ -14,7 +14,13 @@
           <%= "" %>
         <% end %>
         </td>
-      <td class="name"><%= link_to "#{task.name}", "tasks/#{task.id}" %></td>
+      <td class="name">
+        <% if task.comp_date %>
+          <span class="complete"><%= link_to "#{task.name}", "tasks/#{task.id}" %></span>
+        <% else %>
+          <span class="incomplete"><%= link_to "#{task.name}", "tasks/#{task.id}" %></span>
+        <% end %>
+      </td>
     </tr>
   <% end %>
   </table>
