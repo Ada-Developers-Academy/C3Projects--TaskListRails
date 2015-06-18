@@ -1,8 +1,17 @@
 class TasksController < ActionController::Base
   def index
-    @completed = ""
-    @all_records = Task.get_all_records
+    @title = "Task List"
+    @all_tasks = Task.all
+
     render :home
   end
+
+  def show
+    @task_id =params[:id]
+    @task = Task.find(@task_id)
+    @title = @task.name + "Details"
+
+		render :details
+	end
 
 end

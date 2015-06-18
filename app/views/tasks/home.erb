@@ -4,15 +4,22 @@
     <tr>
       <th>Name</th>
       <th>Completed?</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @all_records.each do |record|%>
+    <% @all_tasks.each do |task|%>
       <tr>
-        <td><%= record.name %></td>
-        <%= if record.completed_at >%>
         <td>
+          <%= task.name %>
         </td>
+        <td>
+          <%= task.completed %>
+        </td>
+        <td>
+          <%= task.completed_at %>
+        </td>
+      <td> <a href=<%="/task_#{task.id}/details"%>>Details</a></td>
       </tr>
     <% end %>
   </tbody>

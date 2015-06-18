@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # get '/' => 'welcome#index'
   get "/" => "tasks#index"
 
+  get "/task_:id/details" => "tasks#show"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   # /products/1 would get matched
