@@ -20,6 +20,15 @@ class TaskController < ApplicationController
     @task = Task.new(create_params[:task])
     @task.save
 
+    redirect_to root_url
+
   end
+
+  private
+
+  def create_params
+    params.permit(task: [:taskname, :description])
+  end
+
 
 end

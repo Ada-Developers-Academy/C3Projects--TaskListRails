@@ -2,8 +2,10 @@
 
 <%= form_for @task do |f| %>
   <fieldset>
-    <legend>Task Details</legend>
+    <legend>New Task Deets</legend>
     <%= f.label :taskname %>
+    <%= f.text_field :taskname %>
+    <%= f.label :description %>
     <%= f.text_field :description %>
   </fieldset>
 
