@@ -4,6 +4,7 @@
       <th>Name</th>
       <th>Description</th>
       <th>Completed?</th>
+      <th>Date Created</th>
       <th>Date Completed</th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
       <td><%= @task.name %></td>
       <td><%= @task.description %></td>
       <td class="checkmark"><%= @task.completed? %></td>
+      <td><%= @creation_date %></td>
       <td><%= @date %></td>
     </tr>
   </tbody>
