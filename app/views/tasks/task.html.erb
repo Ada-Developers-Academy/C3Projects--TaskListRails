@@ -1,0 +1,27 @@
+<div class="task_list">
+  <h1> Task Details </h1>
+
+  <ul>
+    <li>
+      ID: <%= @task[:id] %>
+    </li>
+    <li>
+      Name: <%= @task[:name] %>
+    </li>
+    <li>
+      Description: <%= @task[:description] %>
+    </li>
+    <li>
+      Completion Status: <%= @task[:completed_at].nil? ? @uncompleted : @completed %>
+    </li>
+    <li>
+      <%= "Completion Date: #{@task[:completed_at]}" unless @task[:completed_at].nil? %>
+    </li>
+    <li>
+      Created at: <%= @task[:created_at] %>
+    </li>
+    <li>
+      Updated at: <%= @task[:updated_at] %>
+    </li>
+  </ul>
+</div>

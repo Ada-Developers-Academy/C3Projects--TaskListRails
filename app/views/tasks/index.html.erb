@@ -1,0 +1,17 @@
+<!-- NOTE TO SELF: This file can called .html.erb or .erb, html makes it clear that it'll end up as html.(?) -->
+<div class="task_list">
+<h1> Task List </h1>
+<table>
+  <% @all_tasks.each do |task| %>
+  <tr>
+    <td>
+      <%= link_to "#{task[:name]}", "/tasks/#{task[:id]}" %>
+      <% # NOTE TO SELF: 'link_to task[:name]' also works %>
+    </td>
+    <td>
+      <%= task[:completed_at].nil? ? @uncompleted : @completed %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+</div>
