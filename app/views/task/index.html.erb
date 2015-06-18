@@ -1,0 +1,13 @@
+<h1>Task List</h1>
+<% @tasks.each do |task| %>
+<ul>
+    <% if task[:date_completed] != nil %>
+    <% completed = "(completed)" %>
+    <% else %>
+    <% completed = "(active)" %>
+    <% end %>
+    <li><p><%= task[:task_name] %> <%= completed %> <%= button_to "Show Details", "/show/#{task.id}", class: "button" %></p>
+</ul>
+
+
+<% end %>
