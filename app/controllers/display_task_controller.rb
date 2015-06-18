@@ -5,8 +5,7 @@ class DisplayTaskController < ApplicationController
   end
 
   def links
-    # @task = params[:task]
-    @task_i_want = Task.where(name: "#{params[:task]}")
+    @task = Task.where(name: "#{params[:task]}")
     render :single_task
   end
 end

@@ -1,0 +1,13 @@
+.title {
+  text-align: center;
+  font-size: 40px;
+}
+
+.table_data {
+  align-self: center;
+}
+
+.table_headers {
+  text-align: left;
+  font-weight: bold;
+}

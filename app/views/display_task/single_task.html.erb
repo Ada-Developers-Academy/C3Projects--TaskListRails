@@ -1,13 +1,20 @@
-<h1>HI I'M ONE TASK!</h1>
-
-<%= @task_i_want %>
-
-<table>
-  <tr>
+<table class="table_data">
+  <tr class="table_headers">
     <th>Task Name</th>
     <th>Task Description</th>
+    <th>Status</th>
     <th>Completed date</th>
   </tr>
 
-
+  <tr>
+    <td><%= @task[0][:name]%></td>
+    <td><%= @task[0][:description]%></td>
+    <td><% if @task[0][:completed_at].nil? %>
+          Not yet completed.
+        <% else %>
+          Completed.
+        <% end %>
+    </td>
+    <td> <%= @task[0][:completed_at] %></td>
+  </tr>
 </table>
