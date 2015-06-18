@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get '/show/:selected_id' => 'task#show'
 
-
+  get '/new_task' => 'task#new'
+  post '/tasks' => 'task#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

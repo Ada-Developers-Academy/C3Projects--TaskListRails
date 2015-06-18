@@ -11,4 +11,22 @@ class TaskController < ApplicationController
 		render :show
 	end
 
+	def new
+		@task = Task.new
+		render :new
+	end
+
+	def create
+		@task = Task.new(create_params[:task])
+		@task.save
+
+		redirect_to action: "index"
+	end
+
+	private
+
+  def create_params
+    params.permit(task: [:name, :description, :completed_at])
+  end
+
 end
