@@ -2,17 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$font-stack:    			Arial, sans-serif;
+$font-stack:    			  Arial, sans-serif;
 $alternate-row-color:		#e9e9e9;
-$header-color:				#d4d4d4;
+$header-color:				  #d4d4d4;
+$link-color:            #000;
+$darkest-color:         #40144b;
+$mid-color:             #69386d;
+$mid-light-color:       #e4abf7;
+$light-color:           #ecebf7;
+
 
 body {
   font-family: $font-stack;
   padding: 10px 50px;
+  width: 960px;
+  margin: 0 auto;
 }
 
 table {
   padding-top: 20px;
+  width: 100%;
 }
 
 td, th {
@@ -22,7 +31,7 @@ td, th {
 }
 
 th {
-  background-color: $header-color;
+  background-color: $mid-light-color;
 }
 
 .checkmark {
@@ -34,4 +43,20 @@ th {
 	font-size: 1.5em;
 	width: 100%;
 	display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+td, th, h1, a:link {
+  color: $darkest-color;
+}
+
+a:visited {
+  color: $mid-color;
+}
+
+h1, h3 {
+  text-align: center;
 }
