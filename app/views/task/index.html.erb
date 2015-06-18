@@ -1,0 +1,25 @@
+<div class="home">
+  <h1>Tasks:</h1>
+
+  <table>
+  	<thead>
+			<tr>
+				<th></th>
+				<th>Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @tasks.each do |task| %>
+				<tr>
+				  <td>
+		  		  <% if task.completed_at != nil %>
+		  		  	&#10003;
+		  		  <% end %>
+				  </td>
+					<td><a href="/show/<%= task.id %>"> <%= task.name %></a></td>
+				</tr>
+			<% end %>
+		</tbody>
+  </table>
+
+</div>

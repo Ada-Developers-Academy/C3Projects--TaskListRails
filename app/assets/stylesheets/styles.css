@@ -1,0 +1,32 @@
+/*Google fonts
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Dancing Script', cursive;*/
+
+
+body {
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.home, .show {
+	margin: 0 auto;
+	width: 100%;
+}
+
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #336699;
+	color: #fff;
+}
+
+tr {
+	width: 50px;
+}
