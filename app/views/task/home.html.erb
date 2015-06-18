@@ -6,7 +6,7 @@
   <ul>
     <li>
       <!-- linking the task person name to the unique task id -->
-      <%= link_to "#{task[:name]}", "tasks/#{task[:id]}" %>,  <%= task[:completed] %>
+      <%= link_to "#{task[:name]}", "tasks/show/#{task[:id]}" %>,  <%= task[:completed] %>
     </li>
   </ul>
 <% end %>
