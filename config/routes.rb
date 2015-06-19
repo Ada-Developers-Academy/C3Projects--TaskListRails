@@ -4,9 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'tasks#index'
-
-  # get 'task/:task_id' => 'task#task_details'
-  # get 'add_task' => 'task#add_task'
+  put '/tasks/complete/:id' => 'tasks#complete'
 
   resources :tasks
     # HTTPverb, Path, Controller#Action, Used for

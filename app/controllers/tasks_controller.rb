@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   # set_task will be called before show, edit, update, or destroy
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :complete, :destroy]
 
   # GET /tasks
   def index
@@ -55,6 +55,17 @@ class TasksController < ApplicationController
       end
     end
   end
+
+  def complete
+    respond_to do |format|
+      if @task.update(completed_at: Time.now)
+        format.html { redirect_to tasks_path }
+      else
+        format.html { redirect_to @task }
+      end
+    end
+  end
+
 
   # # DELETE /tasks/:id
   # delete a specific task
