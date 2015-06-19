@@ -12,6 +12,8 @@ tasks = [
   {name: "Joaquin", description: "Dusting", completed: "No"},
   {name: "Phoenix", description: "Polishing", date: "01/01/2015", completed: "Yes"},
   {name: "Xavier", description: "Groceries", completed: "No"},
+  {name: "Jammie-Jammie-Jam", description: "Play East-West College Bowl", completed: "Yes", date: "06/06/2013"},
+  {name: "Bill & Ted", description: "Be excellent", completed: "No"},
 ]
 
 tasks.each do |task|

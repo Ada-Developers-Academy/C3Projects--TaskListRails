@@ -1,5 +1,5 @@
-
-  <%= form_for @task do |f| %>
+  <!-- form_for @task needs to be together -->
+  <%= form_for @task, url: @url do |f| %>
 <fieldset>
   <legend> Task Details </legend>
 
@@ -14,9 +14,9 @@
 
   <legend> Is this task completed? </legend>
     <%= f.label "completed" %>
-    <%= f.radio_button(:completed, "yes") %>
+    <%= f.radio_button(:completed, "Yes") %>
     <%= f.label "not_completed" %>
-    <%= f.radio_button(:completed, "no") %>
+    <%= f.radio_button(:completed, "No") %>
 
 </fieldset>
     <%= f.submit %>

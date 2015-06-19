@@ -13,6 +13,7 @@ class TaskController < ApplicationController
 
   def new
     @task = Task.new
+    @url = "/tasks/new"
     render :new
   end
 
@@ -35,6 +36,7 @@ class TaskController < ApplicationController
   def edit
     @id = params[:id]
     @task = Task.find(@id)
+    @url = "/tasks/:id/edit"
   end
 
   def update
