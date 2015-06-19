@@ -10,5 +10,9 @@
 
 <%= yield %>
 
+<div class="button_block">
+  <%= link_to "Back to Task List", "/" unless current_page?(action: 'index')%>
+</div>
+
 </body>
 </html>

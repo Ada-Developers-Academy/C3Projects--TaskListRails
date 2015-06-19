@@ -2,8 +2,12 @@
 
 <%= render "task_table" %>
 
-<p>
-  <%= button_to "Yes, Delete!", { action: "delete", id: @task.id }, method: :delete %>
-   <!-- button_to "Delete Image", { action: "delete", id: @image.id }, method: :delete, data: { confirm: "Are you sure?" } -->
-  <%= link_to "No, Go Back!", "/" %>
-</p>
+<div class="button_block">
+  <%= button_to "Yes, Delete!", { action: "delete", id: @task.id }, method: :delete, class: "damn_button" %>
+  <p>
+    (or go back)
+  </p>
+  <p>
+    ↓
+  </p>
+</div>
