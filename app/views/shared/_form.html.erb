@@ -1,0 +1,15 @@
+<%= form_for @task, url: @form_url, method: @method do |f| %>
+<fieldset>
+  <legend>Make a New Task</legend>
+  <%= f.label :name %>
+  <%= f.text_area :name %>
+
+  <%= f.label :description, placeholder: "optinal"%>
+  <%= f.text_area :description %>
+
+  <%= f.label :completed, 'Completed'  %>
+  <%= f.check_box :completed %>
+
+  <%= f.submit %>
+</fieldset>
+<% end %>
