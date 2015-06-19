@@ -1,0 +1,6 @@
+<p class='link'><%= link_to "Go back to task list manager", "/" %></p>
+<h1>"<%= @task[:name] %>" will miss you...</h1>
+<%= image_tag("delete_task.png", :alt => "delete_task", :class => "face") %>
+
+<p class="delete_button"><%= button_to "Delete task",  { action: "delete", id: @task.id },
+  method: :delete, data: { confirm: "Are you sure?" } %></p>
