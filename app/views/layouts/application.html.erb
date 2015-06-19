@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>C3ProjectsTasklistrails</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<div class="button_block">
+  <%= link_to "Back to Task List", "/" unless current_page?(action: 'index')%>
+</div>
+
+</body>
+</html>
