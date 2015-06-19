@@ -3,6 +3,8 @@ class TasksController < ApplicationController
     @all_tasks     = Task.all
     
   	@title         = "Task List"
+    @headline      = @title
+    @subhead       = "Get 'er done"
   end
 
   def show
@@ -11,10 +13,12 @@ class TasksController < ApplicationController
     @creation_date = @task.created_at.strftime("%m-%d-%Y")
 
   	@title			   = @task.name
+    @headline      = "Voilà, your task:"
   end
 
   def new
     @task = Task.new
+    @headline = "Add a new task"
   end
 
   def create
@@ -30,11 +34,11 @@ class TasksController < ApplicationController
     @creation_date = @task.created_at.strftime("%m-%d-%Y")
 
     @title         = "Delete '#{@task.name}'?"
+    @headline      = "Delete this task?"
   end
 
   def destroy
-    task_params = params[:task]
-    @task = Task.find(task_params["id"])
+    @task = Task.find(params["id"])
     @task.destroy
 
     redirect_to '/'

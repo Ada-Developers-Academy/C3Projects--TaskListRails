@@ -13,10 +13,7 @@ Rails.application.routes.draw do
 
   get 'tasks/:id/delete' => 'tasks#confirm_delete'
 
-  delete 'task' => 'tasks#destroy'
-
-
-  # delete 'tasks/:id' => 'tasks#destroy'
+  delete '/tasks/:id' => 'tasks#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
