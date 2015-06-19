@@ -7,7 +7,7 @@
     <% end %>
 
     <div class="center-this-stupid-button">
-    <%= button_to "FINISH THEM!", "/deleted/#{ @task.id }", method: "delete", action: "destroy" %>
+    <%= button_to "FINISH THEM!", "/deleted/#{ @task.id }", method: "delete" %>
     <!-- code to prompt a confirmation popup: -->
     <!-- data: {:confirm => "Are you sure you want to end this task forever?"} -->
     </div>
@@ -23,7 +23,7 @@
   <div class="center-this-stupid-button">
   <% genders = ["him", "her", "her", "him", "her", "her", "him", "him"] %>
   <% gender = genders.sample %>
-  <%= button_to "FINISH #{ gender.upcase }!", "/deleted/#{ @task.id }", method: "delete", action: "destroy" %>
+  <%= button_to "FINISH #{ gender.upcase }!", "/deleted/#{ @task.id }", method: "delete" %>
   <!-- code to prompt a confirmation popup: -->
   <!-- data: {:confirm => "Are you sure you want to end this task forever?"} -->
   </div>

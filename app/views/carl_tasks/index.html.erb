@@ -1,4 +1,8 @@
-<h1>Ye Olde List of Tasks</h1>
+<% headings = ["Taskmaster: Master Your Tasks", "Ye Olde List of Tasks", "Ye Olde List of To Doeth", "Carl Says You Must Do These Things", "To Do", "TASKMASTER", "FINISH THEM"] %>
+<% heading = headings.sample %>
+
+
+<h1><%= heading %></h1>
 
 <% unless @tasks.nil? %>
   <% @tasks.each do |task| %>
