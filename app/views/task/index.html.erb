@@ -1,0 +1,89 @@
+<h1> Tasks! </h1>
+
+<p>
+  Let's start getting things done! Use this app to start a task list. (Don't forget to check it off when you've completed something!)
+</p>
+
+
+<table border "5">
+<tr>
+
+  <th> 
+   ID 
+  </th>
+
+  <th> 
+  TASKS 
+  </th>
+  
+  <th>
+  DESCRIPTION
+  </th>
+
+  <th> 
+  TASK COMPLETED
+  </th>
+
+  <th>
+  DATE STARTED
+  </th>
+
+  <th>
+  COMPLETE?
+  </th>
+
+</tr>
+
+<%@tasks.each do |task| %>
+
+<tr>
+
+<td> <%= task.id %>
+</td>
+
+<td> <%= link_to "#{task.task_name}", "task/show/#{task.id}" %>
+</td>
+
+<td> <%= task.task_description %>
+</td>
+
+<td> <%= task.task_completed %>
+</td>
+
+<td><%= task.task_started %>
+</td>
+
+<td><%= button_to "Done, Please Delete!", "/task/destroy/#{task.id}", method: :delete %>
+</td>
+
+</tr>
+
+<% end %>
+
+</table>
+
+<%= link_to "Add a New Task" , "/new" %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

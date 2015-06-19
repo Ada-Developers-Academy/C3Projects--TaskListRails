@@ -1,0 +1,25 @@
+
+<%= form_for @task do |f| %>
+
+<fieldset>
+
+<legend> Add Task Form </legend>
+
+<%= f.label :task_name %>
+<%= f.text_field :task_name %>
+
+<%= f.label :task_description %>
+<%= f.text_area :task_description %>
+
+
+</fieldset>
+
+<%= f.submit 'Add to Task List' %>
+
+<% end %>
+
+
+
+
+
+      
