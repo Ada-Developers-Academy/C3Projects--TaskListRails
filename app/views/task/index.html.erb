@@ -1,14 +1,8 @@
 <header><h1>Reading List</h1></header>
 
-<nav>
-  <ul>
-    <li>
-      <%= link_to "Add a book", "/tasks/new" %>
-    </li>
-    <li>
-      <%= link_to "Peep at my Goodreads", "https://www.goodreads.com/review/list/4306102?shelf=read" %>
-    </li>
-</nav>
+<p class="mininav">
+    <%= link_to "Add a book", "/tasks/new" %>
+</p>
 
 <table>
   <tr class="header">
@@ -25,5 +19,8 @@
     </tr>
 
   <% end %>
-
 <table>
+
+<p class="mininav">
+  <%= link_to "Peep at my Goodreads", "https://www.goodreads.com/review/list/4306102?shelf=read" %>
+</p>

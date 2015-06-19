@@ -20,7 +20,7 @@ class TaskController < ApplicationController
     @task = Task.new(create_params[:task])
     @task.save
 
-    redirect_to root_url
+    redirect_to root_url # This is preferred if the root is not '/'
   end
 
   def destroy
