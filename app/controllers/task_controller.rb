@@ -1,7 +1,6 @@
 class TaskController < ApplicationController
   def show
-    id = params[:id]
-    @task = Task.find(id)
+    @task = Task.find(params[:id])
   end
 
   def new
@@ -15,16 +14,34 @@ class TaskController < ApplicationController
     redirect_to "/"
   end
 
-  def confirm
-    id = params[:id]
-    @task = Task.find(id)
+  def delete
+    @task = Task.find(params[:id])
+    @task.delete #destroy without save
+    @task.save
+    redirect_to "/"
   end
 
-  def delete
-    id = params[:id]
-    @task = Task.find(id)
-    @task.delete
-    @task.save
+  def complete
+    task = Task.find(params[:id])
+    task.completed_at ? task.completed_at = "" : task.completed_at = Time.new
+    task.save
+
+    redirect_to "/"
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    task = Task.find(params[:id])
+    edited_task = params[:task]
+
+    task.update(name: edited_task[:name],
+                description: edited_task[:description],
+                completed_at: edited_task[:completed_at]
+    )
+
     redirect_to "/"
   end
 
