@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   # GET /tasks/:id
   def show
     # @task = Task.find(params[:id])
-    render :task_details
+    render :show_task
   end
 
   # GET /tasks/new
@@ -24,45 +24,46 @@ class TasksController < ApplicationController
   # def edit
   # end
 
-  # # POST /tasks
-  # # create a new task
-  # def create
-  #   @task = Task.new(task_params)
+  # POST /tasks
+  # create a new task
+  def create
+    # TODO: require task name from the user
+    @task = Task.new(task_params)
 
-  #   respond_to do |format|
-  #     if @task.save
-  #       format.html { redirect_to @task, notice: 'Task was successfully created.' }
-  #       format.json { render :show, status: :created, location: @task }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @task.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to @task }
+        # format.json { render :show, status: :created, location: @task }
+      else
+        format.html { render :new_task }
+        # format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
-  # # PATCH/PUT /tasks/:id
-  # # update a specific task
-  # def update
-  #   respond_to do |format|
-  #     if @task.update(task_params)
-  #       format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @task }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @task.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  # PATCH/PUT /tasks/:id
+  # update a specific task
+  def update
+    respond_to do |format|
+      if @task.update(task_params)
+        format.html { redirect_to @task }
+        # format.json { render :show, status: :ok, location: @task }
+      else
+        format.html { render :edit, notice: 'Sorry, something went wrong =(' }
+        # format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # # DELETE /tasks/:id
   # delete a specific task
-  # def destroy
-  #   @task.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    @task.destroy
+    respond_to do |format|
+      format.html { redirect_to tasks_path, notice: "\"#{@task.name}\" was deleted." }
+      # format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -71,7 +72,7 @@ class TasksController < ApplicationController
     end
 
     # # Never trust parameters from the scary internet, only allow the white list through.
-    # def task_params
-    #   params[:task]
-    # end
+    def task_params
+      params.permit(task: [:name, :description])[:task]
+    end
 end
