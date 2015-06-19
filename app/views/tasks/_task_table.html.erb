@@ -42,7 +42,7 @@
       </td>
       <% elsif current_page?(action: 'confirm_remove') %>
       <td>
-        <%= button_to "Confirm Delete", { action: "delete", id: @task.id }, method: :delete, class: "damn_button" %>
+        <%= button_to "Confirm Delete", { action: "delete", id: @task.id }, method: :delete %>
       </td>
       <% end %>
     </tr>

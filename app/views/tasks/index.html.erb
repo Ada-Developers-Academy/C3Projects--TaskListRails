@@ -9,6 +9,9 @@
       Status
     </th>
     <th class="center">
+      Mark Done
+    </th>
+    <th class="center">
       Details
     </th>
     <th class="center">
@@ -22,7 +25,12 @@
         <%= task.name %>
       </td>
       <td>
-        <%= task.completed_date ? "Completed" : "Not Yet Completed" %>
+        <%= task.completed_date ? "Completed" : "Not Completed" %>
+      </td>
+      <td class="center">
+        <% if task.completed_date.present? == false %>
+          <%= button_to "Done", { action: "update", id: task.id }, method: :patch %>
+        <% end %>
       </td>
       <td class="center">
         <%= link_to "Show", "/tasks/#{task.id}" %>

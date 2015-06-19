@@ -16,7 +16,10 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+    #if completed before, just do this update
     @task.update(form_params[:task])
+    # if not completed before, update again with completed_date set to Time.new
+
     redirect_to action: :index
   end
 
@@ -47,7 +50,7 @@ class TasksController < ApplicationController
 
 
   def form_params
-    params.permit(task: [:name, :description, :completed_date])
+    params.permit(task: [:name, :description, :completed_date, :updated_at])
   end
 
 end
