@@ -5,9 +5,12 @@
 
 
 body{
-  font-family: Verdana, Geneva, sans-serif;
-  color:rgb(111,36,152);
-  background:rgb(255,255,155);
+  font-family: 'IM Fell English', sans-serif;
+  font-style: italic;
+  // font-family: 'Special Elite', times, serif;
+  color:rgb(4, 10, 21);
+  background:rgb(234, 214, 187);
+  background-image: image-url("papier.jpg");
 }
 
 table {
@@ -40,8 +43,4 @@ form{
   width:250px;
   margin-left: auto;
   margin-right: auto;
-}
-
-label{
- display: block;
 }
