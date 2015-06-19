@@ -1,27 +1,2 @@
 <H1> Create a Task </H1>
-
-  <%= form_for @task do |f| %>
-<fieldset>
-  <legend> Enter in a Task</legend>
-
-    <%= f.label :name %>
-    <%= f.text_area :name %>
-
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-
-    <%= f.label :date %>
-    <%= f.date_field :date %>
-
-  <legend> Is this task completed? </legend>
-    <%= f.label "completed" %>
-    <%= f.radio_button(:completed, "yes") %>
-    <%= f.label "not_completed" %>
-    <%= f.radio_button(:completed, "no") %>
-
-    <%= f.submit %>
-</fieldset>
-
-  <% end %>
-
-  <!-- checkmark is \u2713 -->
+<%= render "form" %>

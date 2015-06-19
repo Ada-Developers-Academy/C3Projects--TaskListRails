@@ -20,6 +20,6 @@
     <td>  <%= @task.created_at %> </td>
     <td>  <%= @task.updated_at %> </td>
     <td>  <%= @task.completed %> </td>
-    <td> <%= link_to "edit", "/edit" %> </td>
+    <td> <%= link_to "Edit", "/tasks/#{@task.id}/edit" %> </td>
   </tr>
 </table>

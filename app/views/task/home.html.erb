@@ -1,6 +1,6 @@
 <h1>The Queen of Task Lists</h1>
-<h2> Has arrived to help you manage your to do list</h2>
 
+<h2> Directions for Usage</h2>
 <ul>
   <li>Click on the person's name you wish to see more details for.</li>
   <li>Press the delete button to delete a person's task.</li>
@@ -22,10 +22,10 @@
     <td> <%= task.id %> </td>
       <!-- linking the task person name to the unique task id (read)-->
 <td><%= task[:completed] %></td>
-<td> <%= link_to "#{task[:name]}", "tasks/#{task.id}/show" %></td>
+<td> <%= link_to "#{task[:name]}", "/tasks/#{task.id}/show" %></td>
 
  <!-- Completed -->
-<td> <%= button_to "Complete", "tasks/#{task.id}/patch", method: "patch", data: {:confirm => "Mark #{task.description} by #{task.name} as complete?"} %> </td>
+<td> <%= button_to "Complete", "/tasks/#{task.id}/complete", method: "patch", data: {:confirm => "Mark #{task.description} by #{task.name} as complete?"} %> </td>
 
 <!-- Delete -->
 <td> <%= button_to "Delete", "/tasks/delete/#{task.id}", method: "delete",
