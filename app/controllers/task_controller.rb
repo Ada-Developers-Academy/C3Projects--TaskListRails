@@ -38,9 +38,26 @@ class TaskController < ApplicationController
   def destroy
     # local variables here cuz it's not being displayed / used elsewhere
     id = params[:id]
-    onetask = Task.find(id).destroy
+    destroytask = Task.find(id).destroy
 
     redirect_to root_url
+  end
+
+  def update
+    id = params[:id]
+    update = Task.find(id)
+
+    # Allows you to toggle the read status between read and unread
+    if update.comp_status == "unread"
+      update.comp_status = "read"
+    else
+      update.comp_status = "unread"
+    end
+
+    update.save
+
+    redirect_to root_url
+
   end
 
   private

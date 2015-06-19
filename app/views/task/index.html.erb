@@ -9,6 +9,8 @@
   <td>Title</td>
   <td>Status</td>
   <td>Unshelve it?</td>
+  <td>Finished?</td>
+
   </tr>
 
   <% @displaytasks.each do |task| %>
@@ -16,6 +18,14 @@
       <td><%= link_to "#{task[:taskname]}", "/tasks/#{task[:id]}" %></td>
       <td><%= task[:comp_status] %></td>
       <td><%= link_to "Delete", "/tasks/#{task[:id]}", method: :delete, data: { confirm: "Are you sure?" } %></td>
+
+      <!-- Display conditional based on the completion status -->
+      <% if task[:comp_status] == "unread" %>
+        <td><%= button_to "Read it", "/tasks/#{task[:id]}", method: :patch %></td>
+      <% else %>
+        <td><%= button_to "Unread it", "/tasks/#{task[:id]}", method: :patch %></td>
+      <% end %>
+
     </tr>
 
   <% end %>
