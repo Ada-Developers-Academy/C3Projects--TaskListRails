@@ -27,6 +27,14 @@ class TasksController < ApplicationController
     redirect_to '/'
   end
 
+  def update_completion
+    task = Task.find(params[:id])
+    task.date_completed = Time.now
+    task.save
+
+    redirect_to '/'
+  end
+
   def confirm_delete
     @task          = Task.find(params[:id])
     @date          = @task.date_completed ? @task.date_completed.strftime("%m-%d-%Y") : nil
