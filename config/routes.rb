@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'display_tasks#display_tasks'
-  
+
   # route to landing page that displays all tasks
   get '/tasks' => 'display_tasks#display_tasks'
 
@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   # new task gets posted here
   post '/tasks' => 'display_tasks#create'
 
-  get 'task/:task_id/confirm_delete' => 'display_tasks#confirm_delete'
+  delete '/task/:task_id' => 'display_tasks#destroy'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

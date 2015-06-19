@@ -21,10 +21,11 @@ class DisplayTasksController < ApplicationController
     redirect_to :tasks
   end
 
-  def confirm_delete
+  def destroy
     @task = Task.find_by id: params[:task_id]
+    @task.destroy
 
-    render :confirm_delete
+    redirect_to "/"
   end
 
   private
