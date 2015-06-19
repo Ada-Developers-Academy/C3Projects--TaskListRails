@@ -3,16 +3,16 @@ def random_time
 end
 
 tasks = [
-  { name: "The First Task", description: "", completed_at: random_time },
-  { name: "Go to Brunch", description: "" },
-  { name: "Go to Lunch", description: "", completed_at: random_time },
-  { name: "Go to Second Lunch", description: "" },
-  { name: "Play Video Games", description: "", completed_at: random_time },
-  { name: "High Five Somebody You Don't Know", description: "", completed_at: random_time },
-  { name: "Plant Flowers", description: "", completed_at: random_time },
-  { name: "Call Mom", description: "" },
-  { name: "She worries, you know.", description: "" },
-  { name: "Nap.", description: "", completed_at: random_time }
+  { name: "Bastion", description: "AMAZING", completed_at: random_time },
+  { name: "Mass Effect", description: "A scifi RPG-shooter series." },
+  { name: "Monster Hunter 4 Ultimate", description: "You cannot complete this game....", completed_at: random_time },
+  { name: "Don't Starve", description: "" },
+  { name: "Awesomenauts", description: "", completed_at: random_time },
+  { name: "Portal 2", description: "", completed_at: random_time },
+  { name: "Rogue Legacy", description: "", completed_at: random_time },
+  { name: "Trine 2", description: "Very pretty multiplayer platform game. Started, did not finish." },
+  { name: "Transistor", description: "" },
+  { name: "Dwarfs?!", description: "", completed_at: random_time }
 ]
 
 tasks.each do |task|

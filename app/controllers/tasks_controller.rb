@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    @all_tasks = Task.all   # NOTE TO SELF: "task" is actually a Task::ActiveRecord_Relation object, but responds to Array methods
+    @all_tasks = Task.all   # NOTE TO SELF: "@all_tasks" is actually a Task::ActiveRecord_Relation object, but responds to array methods
     completed_instance_var
 
     render :index   # for clarity, you don't actually need this in this case
@@ -43,14 +43,13 @@ class TasksController < ApplicationController
   end
 
   def destroy_all
-    @all_completed_tasks = Task.where.not(completed_at: nil)
+    @all_completed_tasks = Task.completed
 
     render :delete_all
   end
 
   def destroy_all_completed
-    completed_tasks = Task.where.not(completed_at: nil)
-    completed_tasks.destroy_all
+    Task.destroy_all_completed
 
     redirect_to "/"
   end

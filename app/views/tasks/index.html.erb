@@ -1,6 +1,6 @@
 <!-- NOTE TO SELF: This file can called .html.erb or .erb, html makes it clear that it'll end up as html.(?) -->
 <div class="task_list">
-<h1> Task List </h1>
+<h1> Games-to-Play List </h1>
 <table>
   <% @all_tasks.each do |task| %>
   <tr>
@@ -26,5 +26,5 @@
 <!-- NOTE TO SELF: Another way of writing this would be...
 <a href="/tasks/new"><button type="button">ADD</button></a>
 -->
-<%= button_to "DELETE ALL COMPLETED TASKS", "/tasks/delete_all", {method: :get, :class => "confirm"} %>
+<%= button_to "DELETE ALL COMPLETED TASKS", "/tasks/delete/delete_all", {method: :get, :class => "confirm"} %>
 </div>
