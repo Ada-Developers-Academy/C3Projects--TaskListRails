@@ -30,6 +30,20 @@ class TaskController < ApplicationController
   	redirect_to action: "index"
   end
 
+  def edit
+  	@edit_id = params[:edit_id]
+  	@edit_task = Task.find_by(id: "#{@edit_id}") 
+  	render :edit
+  end
+
+  def make_update
+  	@edit_id = params[:edit_id]
+  	@edit_task = Task.find_by(id: "#{@edit_id}")
+  	@edit_task.update(create_params[:task])
+
+  	redirect_to action: "index"
+  end
+
 ################### PRIVATE METHODS ###################
 
 	private

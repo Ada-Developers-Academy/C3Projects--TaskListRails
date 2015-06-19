@@ -9,9 +9,6 @@
 
     		<%= f.label :description %>
     		<%= f.text_area :description %>
-
-    		<%= f.label :completed_at %>
-    		<%= f.date_select :completed_at, {:include_blank => true, :default => nil} %>
     	</fieldset>
       <%= f.submit 'Add Task' %>
     <% end %>
