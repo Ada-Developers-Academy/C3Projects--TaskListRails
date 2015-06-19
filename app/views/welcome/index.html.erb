@@ -1,0 +1,46 @@
+<main>
+  <nav>
+    <p>
+      <%= link_to "+ New Task", "/new" %>
+    </p>
+  </nav>
+
+  <table class="notebook">
+    <tr>
+      <th>
+        <!-- empty space -->
+      </th>
+      <th>
+        <h1>Things To Do</h1>
+      </th>
+      <th>
+        <!-- empty space -->
+      </th>
+    </tr>
+
+    <% @tasks.each do |task| %>
+    <tr>
+      <td>
+        <p>
+          <% if task.completed_at %>
+          &check;
+          <% end %>
+        </p>
+      </td>
+      <td class="task-cell">
+        <p>
+          <%= link_to task.name, "/show/#{task.id}" %>
+        </p>
+      </td>
+      <td>
+        <%= button_to "/delete/#{task.id}", data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
+          <p>
+           Delete
+         </p>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+
+  </table>
+</main>
