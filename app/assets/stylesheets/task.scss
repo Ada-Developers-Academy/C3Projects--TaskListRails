@@ -89,7 +89,7 @@ input[type="submit"] {
   box-shadow: 0;
 }
 
-a.default_button {
+a.button, a.default_button {
   display: inline-block;
   margin: 20px 20px 0 0;
   padding: 20px;
@@ -106,10 +106,6 @@ input[type="submit"]:hover, a.default_button:hover {
   color: white;
 }
 
-.task_name_link:hover {
-  background-color: $light-color;
-}
-
-.delete_link:hover {
+.action_link:hover, .task_name_link:hover {
   background-color: $contrast-color;
 }

@@ -1,0 +1,12 @@
+<%= form_for @task, url: { action: @action}, method: @method do |f| %>
+  <%= f.label :name, "Name:" %>
+  <%= f.text_field :name, required: :true %>
+
+  <%= f.label :description, "Description:" %>
+  <%= f.text_area :description, :placeholder => @placeholder %>
+
+  <%= f.label :date_completed, "Date completed:" %>
+  <%= f.date_field :date_completed %>
+
+  <%= f.submit @submit_text, class: "default_button" %>
+<% end %>

@@ -17,12 +17,15 @@ class TasksController < ApplicationController
 
   def new
     @task         = Task.new
+    @placeholder  = "optional"
+    @action       = "create"
+    @method       = "post"
+    @submit_text  = "add task"
     @title        = "Add a new task"
   end
 
   def create
-    @task = Task.new(create_params[:task])
-    @task.save
+    @task = Task.create(create_params[:task])
 
     redirect_to '/'
   end
@@ -33,6 +36,24 @@ class TasksController < ApplicationController
     task.save
 
     redirect_to '/'
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update(create_params[:task])
+
+    redirect_to '/'
+  end
+
+  def edit
+    @task          = Task.find(params[:id])
+    @date          = @task.date_completed ? @task.date_completed.strftime("%m-%d-%Y") : nil
+    @action        = "update"
+    @method        = "patch"
+    @placeholder   = nil
+    @submit_text   = "update"
+
+    @title         = "Edit this task:"
   end
 
   def confirm_delete
