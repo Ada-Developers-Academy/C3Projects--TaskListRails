@@ -1,0 +1,13 @@
+<% if @tasks %>
+  <form id="complete" class="" action="" method="post">
+    <legend><h2>Which tasks do you want to mark complete?</h2></legend>
+    <% @tasks.each do |task| %>
+      <% unless task.date_complete %>
+        <label><input name="id[<%= task.id  %>]" type="checkbox" /><%= task.name %><%= task.description ? ": #{ task.description }" : "" %></label>
+      <% end %>
+    <% end %>
+    <input type="submit" />
+  </form>
+<% else %>
+  <%=  %>
+<% end %>

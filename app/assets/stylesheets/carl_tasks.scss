@@ -1,0 +1,122 @@
+// Place all the styles related to the carlTasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* layout & general styles */
+
+body {
+  width: 960px;
+  background: #ccc;
+  font-family: "Indie Flower", cursive;
+  font-size: 20px;
+  margin: 2% auto;
+  text-align: center;
+}
+
+h1 {
+  padding: 0;
+  margin: 0 0 5px 0;
+}
+
+main {
+  padding: 20px 0;
+}
+
+nav {
+  font-size: 28px;
+}
+
+nav a {
+  padding: 20px;
+}
+
+a:link, a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover.finished, a:active.finished {
+  text-decoration: line-through;
+}
+
+a:hover, a:active {
+  color: #33c;
+}
+
+.number {
+  font-family: "Arial Narrow", sans-serif;
+}
+
+/* home page styles */
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.finished {
+  text-decoration: line-through;
+}
+
+
+/* form styles */
+
+label {
+  display: block;
+  margin: 10px;
+}
+
+form {
+  display: block;
+  text-align: left;
+  width: 600px;
+  margin: auto;
+}
+
+#error {
+  color: #c00;
+}
+
+.inline * {
+  display: inline;
+}
+
+.hidden * {
+  visibility: hidden;
+}
+
+.center-this-stupid-button * {
+  display: inline;
+  margin: auto;
+  text-align: center;
+}
+
+.center-this-stupid-button input {
+  background-image:url('/asssets/images/carl.gif');
+  background-repeat:no-repeat;
+  background: #000;
+  color: #c00;
+  font-family: "Copperplate", sans-serif;
+  font-size: 34px;
+}
+
+
+/* about page styles */
+
+article p {
+  font-size: 22px;
+  text-align: justify;
+}
+
+/* individual task page styles */
+
+.task h2, .task-options h2 {
+  font-family: "Copperplate", "Arial Bold", sans-serif;
+  font-size: 28px;
+}

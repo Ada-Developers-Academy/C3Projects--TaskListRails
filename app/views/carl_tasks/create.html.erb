@@ -1,0 +1,50 @@
+<% if @task %>
+  <% task_id = @task.id %>
+  <% task_name = @task.name %>
+  <% task_description = @task.description %>
+  <% if @task.date_complete %>
+    <% task_complete = @task.date_complete.strftime("%A, %B %d, %Y") %>
+  <% end %>
+<% end %>
+
+<% if @maybe_error && @maybe_error.length > 0 %>
+  <h1 id="error"><%= @maybe_error %></h1>
+<% end %>
+
+<%= form_for @tasky, url: { action: "created" }, html: { id: "create_form" } do |f| %>
+  <% if task_id %>
+    <%= f.hidden_field :id, value: task_id %>
+  <% end %>
+
+  <%= f.label :name %>
+  <% placeholder_name = "Ask someone to feature my second video on their wobsite." %>
+  <%= f.text_field :name, size: "90", placeholder: placeholder_name, value: task_name ? task_name : "" %>
+
+  <%= f.label :description %>
+  <% placeholder_description = "PAUL: Carl! What on earth was all that?
+  CARL: I'm not sure what you're referring to.
+PAUL: You sunk an entire cruise ship, Carl!
+  CARL: Are you sure that was me? I, I would think I'd remember something like that.
+PAUL: Carl, I watched you fire a harpoon into the captain's face!
+  CARL: That sounds dangerous.
+PAUL: You were headbutting children off the ship!
+  CARL: That, uh... that must've been horrifying to watch!
+PAUL: Then you started making out with the ice sculptures!
+  CARL: Well, thank God that the children weren't on board to see it." %>
+  <%= f.text_area :description, size: "90x8", placeholder: placeholder_description, value: task_description ? task_description : "" %>
+
+  <div class="inline">
+    <%= f.label :is_this_task_already_complete? %>
+    <%= check_box(:task, "complete", { checked: task_complete ? true : false }) %>
+
+    <!-- can has hide/show by js? jnf: no. leaving this here for future me. http://stackoverflow.com/questions/19151566/show-hide-2-required-form-fields-based-on-checkbox -->
+    <!-- <div class="hidden"> -->
+      <%= select_date task_complete ? Date.parse(task_complete) : Date.today, prefix: :start_date %>
+    <!-- </div> -->
+  </div>
+
+  <div class="inline">
+    <%= f.label @task ? "Update this task!" : "Create this new task!" %>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
