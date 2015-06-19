@@ -9,6 +9,17 @@ class HomeController < ApplicationController
     render :show
   end
 
+  def edit
+    @task = Task.find(params[:id])
+    render :edit_task
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update(update_params[:task])
+    redirect_to action: :index
+  end
+
   def new
     @task = Task.new
   end
@@ -34,8 +45,13 @@ class HomeController < ApplicationController
 
   private
 
+  # these are unsafe and gross. fix to require name, permit description and completed_date
+
+  def update_params
+    params.permit!
+  end
+
   def create_params
-    # this is unsafe and gross. fix to require name, permit description and completed_date
     params.permit!
   end
 

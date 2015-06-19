@@ -1,13 +1,3 @@
 <h1>Confirm Deletion</h1>
 
 <%= render "task_table" %>
-
-<div class="button_block">
-  <%= button_to "Yes, Delete!", { action: "delete", id: @task.id }, method: :delete, class: "damn_button" %>
-  <p>
-    (or go back)
-  </p>
-  <p>
-    ↓
-  </p>
-</div>

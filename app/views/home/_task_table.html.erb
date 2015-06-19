@@ -12,6 +12,15 @@
     <% if @task.completed_date.present? %>
       <th>Completion Date</th>
     <% end %>
+    <% if current_page?(action: 'show') %>
+      <th class="center">
+        Edit
+      </th>
+    <% elsif current_page?(action: 'confirm_remove') %>
+      <th class="center">
+        Confirm Delete
+      </th>
+    <% end %>
   </tr>
   <tbody>
     <tr>
@@ -26,6 +35,15 @@
       </td>
       <% if @task.completed_date.present? %>
         <td><%= @task.completed_date %></td>
+      <% end %>
+      <% if current_page?(action: 'show') %>
+      <td class="center">
+        <%= link_to "Edit", "/tasks/#{@task.id}/edit" %>
+      </td>
+      <% elsif current_page?(action: 'confirm_remove') %>
+      <td>
+        <%= button_to "Confirm Delete", { action: "delete", id: @task.id }, method: :delete, class: "damn_button" %>
+      </td>
       <% end %>
     </tr>
   </tbody>
