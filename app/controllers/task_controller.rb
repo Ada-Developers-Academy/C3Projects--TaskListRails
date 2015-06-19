@@ -36,4 +36,12 @@ class TaskController < ApplicationController
 
     redirect_to "/"
   end
+
+  def sort_name
+    @title = "Task List"
+    @all_tasks = Task.all.order(:name)
+
+    render :home
+  end
+
 end

@@ -1,13 +1,18 @@
 <h1>Task List</h1>
 <p>
-  <a href= "/task/new">Add a new task</a>
+  <a href= "/task/new">+ Add a new task</a>
 </p>
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Completed?</th>
-      <th></th>
+      <th>
+        Name <%= button_to "sort by name", {class: "sort"}%>
+      </th>
+      <th>
+        Completed?
+      </th>
+      <th>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -24,5 +29,10 @@
       <td> <%= button_to "Delete task", "task_#{task.id}", method: :delete, data: {confirm:"Are you sure?"} %></td>
       </tr>
     <% end %>
+    <tr>
+      <td colspan="3">
+        <a href="task/new">+ Add new Task</a>
+      </td>
+    </tr>
   </tbody>
 </table>

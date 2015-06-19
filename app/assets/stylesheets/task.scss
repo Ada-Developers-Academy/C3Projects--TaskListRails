@@ -7,6 +7,9 @@ body{
 	font-size: 1.5em;
 }
 
+.sort {
+	display: inline-table;
+}
 h1{
 	color: #fff;
 }
@@ -35,11 +38,11 @@ a:hover {
 }
 
 tr:nth-child(even){
-	background-color: #e9e9e9;
+	background-color: #fff;
 }
 
 tr:nth-child(odd){
-	background-color: #fff;
+	background-image: url("greyzz.png");
 }
 
 td, th {
@@ -50,4 +53,5 @@ td, th {
 th {
 	color: #271033;
 	background-color: #fff;
+	font-size: 1.25em;
 }

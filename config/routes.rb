@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   delete "/task_:id" => "task#delete"
 
+  post "/" => "task#sort_name"
+  post "/" => "task#sort_completed"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
