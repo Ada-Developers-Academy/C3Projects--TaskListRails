@@ -9,21 +9,23 @@ class TaskController < ApplicationController
     # need to get id from the params hash
     @id = params[:id]
     @task = Task.find(@id)
+
     render :show
   end
 
-  def create
+  def new
     @task = Task.new
+    render :new
   end
 
-  def created
+  def create
     @task = Task.new(create_params[:task])
     @task.save
     redirect_to "/"
   end
 
   def create_params
-    params.permit(task: [:name, :description, :date, :completed, :created_at, :updated_at])
+    params.permit(task: [:name, :description, :date, :completed])
   end
 
   def delete
@@ -33,6 +35,6 @@ class TaskController < ApplicationController
       redirect_to "/"
   end
 
-  
+
 
 end
