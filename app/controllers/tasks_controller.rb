@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class TasksController < ApplicationController
   def index
     @all_tasks = Task.all
     render :index
