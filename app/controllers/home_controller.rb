@@ -16,7 +16,7 @@ class HomeController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update(update_params[:task])
+    @task.update(form_params[:task])
     redirect_to action: :index
   end
 
@@ -25,7 +25,7 @@ class HomeController < ApplicationController
   end
 
   def create
-    @task = Task.new(create_params[:task])
+    @task = Task.new(form_params[:task])
     @task.save
     redirect_to action: :index
   end
@@ -45,14 +45,9 @@ class HomeController < ApplicationController
 
   private
 
-  # these are unsafe and gross. fix to require name, permit description and completed_date
 
-  def update_params
-    params.permit!
-  end
-
-  def create_params
-    params.permit!
+  def form_params
+    params.permit(task: [:name, :description, :completed_date])
   end
 
 end

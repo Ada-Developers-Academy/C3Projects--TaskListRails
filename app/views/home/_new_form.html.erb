@@ -1,0 +1,13 @@
+<%= form_for @task do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :required => true, :placeholder => "(required)" %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, :placeholder => "(optional)" %>
+
+  <%= f.label :completed_date, "Completed Date" %>
+  <%= f.datetime_local_field :completed_date %>
+
+  <%= f.submit %>
+
+<% end %>
