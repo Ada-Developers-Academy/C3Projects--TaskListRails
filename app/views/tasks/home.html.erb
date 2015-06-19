@@ -1,0 +1,28 @@
+<header>
+  <h1>Welcome to your tasklist!</h1>
+</header>
+<main>
+  <table>
+    <tr>
+      <th>Task Name</th>
+      <th>Completed?</th>
+      <th>Delete Task</th>
+    </tr>
+
+  <% @all_tasks.each do |task| %>
+  <tr>
+  <td><%= link_to "#{task.name}", "show/#{task.id}" %> </td>
+    <% if task.completed_date != nil %>
+      <td> <%= "\u2713" %></td>
+    <% else %>
+      <td> <%= "\u2610" %> </td>
+    <% end %>
+  <td><%= link_to "Delete Me!", "confirm_delete/#{task.id}" %> </td>
+  </tr>
+  <% end %>
+
+  </table>
+  <section class="button_placement">
+    <%= button_to "Add a Task", "/new_task", class: "main_button" %>
+  </section>
+</main>

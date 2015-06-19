@@ -1,0 +1,35 @@
+<header>
+  <h1>Delete this Task</h1>
+</header>
+<main>
+  <table>
+    <tr>
+      <th>Id</th>
+      <td><%= @delete_task.id %></td>
+    </tr>
+    <tr>
+        <th> Task Name</th>
+        <td><%= @delete_task.name %></td>
+    </tr>
+    <tr>
+      <th> Task Description</th>
+      <td><%= @delete_task.description %></td>
+    </tr>
+    <tr>
+        <th> Completed Date</th>
+        <% if @delete_task.completed_date == nil %>
+          <td> <%= "Incomplete task" %> </td>
+        <% else %>
+          <% date = @delete_task.completed_date %>
+          <% date = date.strftime("%m/%d/%Y") %>
+          <td> <%= date %> </td>
+        <% end %>
+    </tr>
+  </table>
+<section class="button_placement">
+  <%= button_to "Delete!", "/delete/#{@delete_task.id}", method: :delete, data: { confirm: "You Sure You Sure?"}, class: 'main_button' %>
+</section>
+</main>
+<footer>
+  <%= button_to "I made a terrible mistake. Home!", "/", class: 'go_home' %>
+</footer>

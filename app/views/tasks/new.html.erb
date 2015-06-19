@@ -1,0 +1,19 @@
+<header>
+  <h1>Add a new task to your list</h1>
+</header>
+<main>
+
+  <%= form_for @new_task do |f| %>
+    <fieldset>
+      <%= f.label :name  %>
+      <%= f.text_field :name, :required => true %>
+
+      <%= f.label :description  %>
+      <%= f.text_area :description %>
+
+    </fieldset>
+    <section class="add_button">
+    <%= f.submit 'Add Task' %>
+    </section>
+  <% end %>
+</main>
