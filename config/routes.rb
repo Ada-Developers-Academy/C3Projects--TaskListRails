@@ -6,7 +6,12 @@ Rails.application.routes.draw do
    root 'tasks#index'
 
    get '/tasks/:id' =>'tasks#show'
-
+   get '/new' =>'tasks#new'
+   post '/tasks' => 'tasks#create'
+   get '/modify/:id' => 'tasks#modify'
+   patch '/modify/:id' => 'tasks#updated'
+   get '/delete_confirmation/:id' => 'tasks#delete_confirmation'
+   delete '/delete/:id' =>'tasks#delete'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

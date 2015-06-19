@@ -1,0 +1,6 @@
+<h1> Are you sure you want to delete the task "<%= @task.name %>"? </h1>
+<%= button_to "Delete Task", "/delete/#{@task.id}", method: :delete %>
+<br>
+<br>
+
+<a href="/">Go Back to Task List</a>
