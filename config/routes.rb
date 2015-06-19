@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   delete "/deleted/:id" => "carl_tasks#deleted"
 
 
+  get "/four_oh_four" => "carl_tasks#four_oh_four"
+  get "/:anything_else" => "carl_tasks#four_oh_four"
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

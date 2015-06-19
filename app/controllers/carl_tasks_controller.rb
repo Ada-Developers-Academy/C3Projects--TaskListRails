@@ -16,6 +16,9 @@ class CarlTasksController < ApplicationController
   def about
   end
 
+  def four_oh_four
+  end
+
   def complete
     if params[:id]
       @task = Task.find(params[:id])
@@ -64,8 +67,8 @@ class CarlTasksController < ApplicationController
   def update
     if params[:id]
       @task = Task.find(params[:id])
-    else
-      @tasks = Task.all
+    # else
+    #   @tasks = Task.all
     end
 
     render :create
@@ -74,8 +77,8 @@ class CarlTasksController < ApplicationController
   def delete
     if params[:id]
       @task = Task.find(params[:id])
-    else
-      @tasks = Task.all
+    # else
+    #   @tasks = Task.all
     end
   end
 

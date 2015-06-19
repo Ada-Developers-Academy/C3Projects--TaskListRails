@@ -43,6 +43,10 @@ a:hover, a:active {
   color: #33c;
 }
 
+.number {
+  font-family: "Arial Narrow", sans-serif;
+}
+
 /* home page styles */
 
 table {
@@ -85,6 +89,21 @@ form {
 
 .hidden * {
   visibility: hidden;
+}
+
+.center-this-stupid-button * {
+  display: inline;
+  margin: auto;
+  text-align: center;
+}
+
+.center-this-stupid-button input {
+  background-image:url('/asssets/images/carl.gif');
+  background-repeat:no-repeat;
+  background: #000;
+  color: #c00;
+  font-family: "Copperplate", sans-serif;
+  font-size: 34px;
 }
 
 
