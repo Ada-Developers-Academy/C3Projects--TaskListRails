@@ -9,6 +9,7 @@
       <td><%= link_to "#{task.name}", "/show/#{task.id}" %></td>
       <td><% if task.completed_at.nil? %>
             Not yet.
+            <%= button_to "mark as complete", "/tasks/complete/#{task.id}", method: :patch %>
           <% else %>
             Yes!
           <% end %>

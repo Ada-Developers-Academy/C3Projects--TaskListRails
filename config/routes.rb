@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   # to delete a task
   delete '/tasks/delete/:id' => 'delete_task#destroy'
 
+  # to mark a task as complete
+  patch '/tasks/complete/:id' => 'update_task#completed'
+
+  # to edit a task
+  post '/tasks/edit/:id' => 'update_task#edit'
+  patch '/tasks/edit/:id' => 'update_task#update'
+
   # post '/:id' => 'display_task#links'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

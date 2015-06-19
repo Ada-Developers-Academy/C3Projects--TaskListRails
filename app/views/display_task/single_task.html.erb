@@ -16,5 +16,8 @@
         <% end %>
     </td>
     <td> <%= @task.completed_at %></td>
+    <td>
+      <%= button_to "Edit this task", "/tasks/edit/#{@task.id}", method: :post %>
+    </td>
   </tr>
 </table>
