@@ -1,4 +1,4 @@
-<h1>Welcom to task list manager</h1>
+<h1>Welcome to task list manager</h1>
 <%= image_tag("welcome_manager.png", :alt => "welcome_manager", :class => "face") %>
 <p><%= link_to "Add new task", "/task/add_task" %></p>
 
@@ -8,12 +8,20 @@
     <th>Completed?</th>
     <th>See the task</th>
     <th>Delete task</th>
+    <th>Check completed task</th>
+    <th>Uncheck task</th>
+
+  </tr>
   <tr>
     <% @tasks.each do |task| %>
     <td><%= task[:name] %></tb>
     <td><%= task[:completed_on] ? "√" : "" %></td>
     <td><%= link_to "About task", "/show/#{task[:id]}" %></td>
     <td><%= link_to "Delete task", "/delete/#{task[:id]}" %></td>
+    <td><%= button_to "check", "/check/#{task[:id]}", :class => "button", :method => :update %></td>
+    <!-- <td><%= link_to "check ", "/check/#{task[:id]}" %></td> -->
+    <td><%= button_to "uncheck", "/uncheck/#{task[:id]}", :class => "button", :method => :uncheck_update %></td>
+
   </tr>
     <% end %>
 </table>

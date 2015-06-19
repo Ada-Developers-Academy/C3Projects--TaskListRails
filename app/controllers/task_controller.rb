@@ -37,6 +37,18 @@ class TaskController < ApplicationController
     redirect_to :root
   end
 
+  def update
+    Task.update((params[:id]), completed_on: Time.now)
+
+    index
+  end
+
+  def uncheck_update
+    Task.update((params[:id]), completed_on:" ")
+
+    index
+  end
+
   private
 
   def create_params
