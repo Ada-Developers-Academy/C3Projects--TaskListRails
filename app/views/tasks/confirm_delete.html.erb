@@ -1,0 +1,5 @@
+<%= render "task_table" %>
+
+<%= button_to "Delete", { action: "destroy", id: @task.id }, method: :delete, data: { confirm: "Are you super duper sure?" }, class: "default_button" %>
+
+<%= button_to "Cancel", "/", method: :get %>

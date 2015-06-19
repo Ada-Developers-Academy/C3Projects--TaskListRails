@@ -1,0 +1,115 @@
+// Place all the styles related to the task controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// palette: http://colorpalettes.net/color-palette-1932/
+
+$font-stack:            Arial, sans-serif;
+$alternate-row-color:   #e9e9e9;
+$header-color:          #d4d4d4;
+$link-color:            #000;
+$darkest-color:         #40144b;
+$mid-color:             #69386d;
+$mid-light-color:       #e4abf7;
+$light-color:           #ecebf7;
+$contrast-color:        #b3bef1;
+$standard-border:       1px solid grey;
+
+html {
+  font-family: $font-stack;
+  width: 960px;
+  margin: 0 auto;
+}
+
+table {
+  margin: 20px 0;
+}
+
+table, td, th {
+  border: $standard-border;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: $mid-light-color;
+}
+
+.checkmark {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+td, th, h1, h3, a:link, input[type="submit"], a.default_button:visited, label {
+  color: $darkest-color;
+}
+
+a:visited {
+  color: $mid-color;
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+form[class="button_to"] {
+  display: inline;
+}
+
+input {
+  display: block;
+  margin-bottom: 20px;
+  border: $standard-border;
+  padding: 10px;
+ }
+
+textarea {
+  resize: none;
+  width: 300px;
+  height: 100px;
+  border: $standard-border;
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px;
+ }
+
+input[type="submit"] {
+  display: inline-block;
+  margin: 20px 20px 0 0;
+  padding: 20px;
+  background-color: $mid-light-color;
+  border: $standard-border;
+  font-size: 16px;
+  box-shadow: 0;
+}
+
+a.default_button {
+  display: inline-block;
+  margin: 20px 20px 0 0;
+  padding: 20px;
+  background-color: $mid-light-color;
+  border: $standard-border;
+}
+
+.default_button {
+  font-weight: bold;
+}
+
+input[type="submit"]:hover, a.default_button:hover {
+  background-color: $mid-color;
+  color: white;
+}
+
+.task_name_link:hover {
+  background-color: $light-color;
+}
+
+.delete_link:hover {
+  background-color: $contrast-color;
+}

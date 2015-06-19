@@ -1,0 +1,19 @@
+<table>
+  <thead>
+  	<tr>
+  	  <th>Task</th>
+  	  <th class="checkmark">Completed?</th>
+  	</tr>
+  </thead>
+  <tbody>
+    <% @all_tasks.each do |task| %>
+      <tr>
+      	<td class="task_name_link"><%= link_to task.name, "tasks/#{task.id}" %></td>
+      	<td class="checkmark"><%= task.completed? %></td>
+        <td class="delete_link"><%= link_to "delete", "tasks/#{task.id}/delete" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Add a new task", "tasks/new", class: "default_button" %>
