@@ -25,6 +25,14 @@ class TaskController < ApplicationController
     redirect_to '/'
   end
 
+  def complete
+    # if :completed
+    @task = Task.update(params[:id], :completed_at => Time.now)
+    @task.save
+
+    redirect_to '/'
+  end
+
   private
 
   def create_params

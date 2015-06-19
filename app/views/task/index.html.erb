@@ -6,11 +6,15 @@
   <% @tasks.each do |task| %>
     <td><%= task[:name] %></td>
 
+  <%= form_for('/tasks/#{task:id}') do |f| %>
     <% if task[:completed_at] != nil %>
-      <td><%= " (Completed)" %></td>
+      <td><%= label_tag(:completed, "Task Complete") %></td>
+      <td><%= check_box_tag(:completed, "yes", true) %></td>
 
-    <% else %>
-      <td> <%= " " %></td>
+      <% else %>
+        <td><%= label_tag(:not_completed, "Mark Complete") %></td>
+        <td><%= check_box_tag(:not_completed, "no") %></td>
+    <% end %>
   <% end %>
 
     <td><%= button_to "Show Details", "/show/#{task.id}" %></td>

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   delete '/delete/:id' => 'task#delete'
 
+  patch '/tasks/:id' => 'task#complete'
+
   # lines 6 and 7 do the exact same thing
 
   # Example of regular route:
