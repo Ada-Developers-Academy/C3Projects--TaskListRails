@@ -61,7 +61,12 @@ form {
   text-align: center;
 }
 
-input {
+label {
+  display: block;
+
+}
+
+input, textarea {
   display: block;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -81,10 +86,3 @@ a, input[type="submit"] {
   cursor: pointer;
   color: #0C46E8;
 }
-
-/*input[type="submit"] {
-  background: #eee;
-  padding: 10px;
-  margin: 0 auto;
-  cursor: pointer;
-}*/
