@@ -1,34 +1,46 @@
-<table>
-  <tr>
-    <th>
-      <h3>&check;</h3>
-    </th>
-    <th>
-      <h3>Task</h3>
-    </th>
-    <th>
-      <!-- empty space -->
-    </th>
-  </tr>
+<main>
+  <nav>
+    <p>
+      <%= link_to "+ New Task", "/new" %>
+    </p>
+  </nav>
 
-  <% @tasks.each do |task| %>
-  <tr>
-    <td>
-      <% if task.completed_at %>
-      &check;
-      <% end %>
-    </td>
-    <td>
-      <%= link_to task.name, "/show/" + task.id.to_s %>
-    </td>
-    <td>
-      <%= button_to "/delete/" + task.id.to_s, data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
-        Delete
-      <% end %>
-    </td>
-  </tr>
-  <% end %>
+  <table class="notebook">
+    <tr>
+      <th>
+        <!-- empty space -->
+      </th>
+      <th>
+        <h1>Things To Do</h1>
+      </th>
+      <th>
+        <!-- empty space -->
+      </th>
+    </tr>
 
-</table>
+    <% @tasks.each do |task| %>
+    <tr>
+      <td>
+        <p>
+          <% if task.completed_at %>
+          &check;
+          <% end %>
+        </p>
+      </td>
+      <td class="task-cell">
+        <p>
+          <%= link_to task.name, "/show/#{task.id}" %>
+        </p>
+      </td>
+      <td>
+        <%= button_to "/delete/#{task.id}", data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
+          <p>
+           Delete
+         </p>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
 
-<%= link_to "Create a New Task", "/new" %>
+  </table>
+</main>

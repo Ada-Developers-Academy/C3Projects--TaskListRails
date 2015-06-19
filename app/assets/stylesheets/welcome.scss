@@ -2,31 +2,61 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table {
-  margin: 0 auto;
+$pink: #E2A7B5;
+$header-font-stack: 'Permanent Marker', cursive;
+$primary-font-stack: 'Rosario', sans-serif;
+
+h1 {
+  font-family: $header-font-stack;
+  font-size: 40px;
+  vertical-align: bottom;
+  margin: 10px 0;
+}
+p {
+  font-family: $primary-font-stack;
+  margin: 0;
 }
 
-table, th, td {
+main {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+nav p a {
+  font-size: 16px;
+}
+
+.notebook {
   border: 1px solid #000;
   background-color: #F5F4FB; /* white */
+  margin: 15px 0;
+  width: 100%;
 }
 
-th {
+.notebook th {
   height: 40px;
   vertical-align: bottom;
 }
 
-th, td {
-  padding: 5px;
+.notebook th, .notebook td {
+  padding: 5px 5px 5px 15px;
 }
 
-th:first-child, td:first-child {
-  border-right: 1px solid #E2A7B5; /* pink */
+.notebook th:first-child, .notebook td:first-child {
+  border-right: 1px solid $pink;
+}
+.notebook th:last-child, .notebook td:last-child {
+  border-left: 1px solid rgba($pink, 0.1);
 }
 
-th, td {
+.notebook th, .notebook td {
   border-bottom: 1px solid #75BCD1; /* blue */
 }
-tr:last-child td {
+.notebook tr:last-child td {
   border-bottom: 1px solid #000;
+}
+
+.notebook td:first-child, .notebook td:last-child {
+  text-align: center;
 }

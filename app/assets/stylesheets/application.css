@@ -18,13 +18,20 @@ body {
   background-color: #E9E0F5; /* purple-white */
 }
 
-h1 {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
+
 h3 {
   font-size: 20px;
 }
-p {
-  margin-bottom: 5px;
+a {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+}
+button:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
