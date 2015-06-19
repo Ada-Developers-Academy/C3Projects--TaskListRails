@@ -1,0 +1,59 @@
+// Place all the styles related to the task controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  margin: auto;
+  width: 960px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f6f5f3;
+  color: #222a3f;
+}
+
+header {
+  background-color: #948e8c;
+}
+
+.add_task:link {
+  color: #222a3f;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.add_task:visited {
+  color: #222a3f;
+}
+
+table {
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom: 200px;
+  font-size: 18px;
+}
+
+th {
+  background-color: #d6e1ef;
+  padding: 5px;
+}
+
+td {
+  padding: 5px;
+}
+
+.task:link {
+  text-decoration: none;
+  color: #222a3f;
+}
+
+.task:hover {
+  text-decoration: underline;
+}
+
+.task:visited {
+  text-decoration: underline;
+  color: #948e8c;
+}
+
+footer {
+  text-align: center;
+  font-size: 20px;
+}
