@@ -1,0 +1,60 @@
+ #completed {
+  text-decoration: line-through;
+}
+
+#completed input {
+  display: inline;
+}
+
+html {
+  background-image: url("dark_embroidery.png");
+}
+
+h1{
+  text-decoration: underline;
+}
+
+body {
+  margin: 0 auto;
+  width: 960px;
+  background: #AEC7D1;
+  padding: 15px;
+  margin-top: 115px;
+  border-radius: 5px;
+  font-family: 'Shadows Into Light', cursive;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: #353543;
+}
+
+#task_list h2 {
+  text-decoration: underline;
+}
+
+#add {
+  background-color: #fff;
+  padding: 4px;
+  margin-top: 10px;
+}
+
+ul {
+  padding: 0px;
+}
+
+section {
+  padding-bottom: 20px;
+}
+
+fieldset label {
+  display: block;
+}
+
+input[type=submit] {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
