@@ -9,7 +9,7 @@
   <%= f.text_field :description %>
 
   <%= f.label :completed %>
-  <%= f.text_field :completed %>
+  <%= f.select :completed, options_for_select([['True', "t"], ['False', "f"]]) %>
 
   <%= f.label :completed_at %>
   <%= f.date_field :completed_at %>

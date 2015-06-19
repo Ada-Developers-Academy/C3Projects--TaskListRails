@@ -25,7 +25,11 @@ class TasksController < ApplicationController
     @task.name = create_params[:task][:name]
     @task.description = create_params[:task][:description]
     @task.completed = create_params[:task][:completed]
-    @task.completed_at = create_params[:task][:completed_at]
+      if @task.completed
+        @task.completed_at = create_params[:task][:completed_at]
+      else
+        @task.completed_at = nil
+      end
     @task.save
     redirect_to "/tasks/#{@task.id}"
   end
@@ -43,6 +47,15 @@ class TasksController < ApplicationController
     @tasks = Task.all
     @task = Task.find(params[:id])
     @task.delete
+    render :index
+  end
+
+  def mark_complete
+    @tasks = Task.all
+    @task = Task.find(params[:id])
+    @task.completed = true
+    @task.completed_at = Time.now
+    @task.save
     render :index
   end
 

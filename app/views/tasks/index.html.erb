@@ -14,6 +14,10 @@
       Update Task
     </th>
     <th>
+      Mark Done
+    </th>
+    </th>
+    <th>
       Delete Task
     </th>
   </tr>
@@ -24,7 +28,7 @@
         <%= task.name %>
       </td>
       <td>
-        <%= task.completed %>
+        <%= (task.completed and "True") or "False"  %>
       </td>
       <td>
         <%= button_to "More Details", "/tasks/#{task.id}", method: :get %>
@@ -32,6 +36,9 @@
       <td>
         <%= button_to "Update Task", "/modify/#{task.id}", method: :get %>
       </td>
+      <td>
+         <%= button_to "Mark Done!", "/tasks/mark_complete/#{task.id}",  method: :patch, data: { confirm: "Mark this task as Complete?" } %>
+       </td>
       <td>
         <%= button_to "Delete Task", "/delete_confirmation/#{task.id}", method: :get %>
       </td>
