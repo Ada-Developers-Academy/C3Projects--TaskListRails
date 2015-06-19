@@ -25,7 +25,8 @@ table, th, tr, .add_task {
 
 th {
   background-color: #D3F649;
-  font-size: 1.3em;
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 2.2em;
 }
 
 .task td {
@@ -37,9 +38,10 @@ tr, td {
   padding: 10px;
 }
 
-.comp_status {
+.checkmark {
   text-align: center;
   color: #DC0095;
+  font-size: 1.3em;
 }
 
 .incomplete a{
@@ -51,7 +53,7 @@ tr, td {
   color: #BABABA;
 }
 
-.name {
+.name, {
   font-family: 'Reenie Beanie', cursive;
   font-size: 1.6em;
 }
@@ -65,7 +67,7 @@ tr, td {
 
 .name_form, .desc_form, .comp_date_form {
   display: block;
-  margin: 30px;
+  margin-bottom: 20px;
 }
 
 /* Links */
@@ -83,12 +85,29 @@ a:hover {
   margin: 30px;
 }
 
-/* Delete */
+/* Delete & Update */
 
-.delete a:link {
+.delete_update {
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 13px;
+  margin-left: 20px;
+}
+
+.delete_update a:link {
   color: #BABABA;
 }
 
-.delete a:hover {
+.delete_update a:visited {
+  color: #BABABA;
+}
+
+.update_link {
+  font-style: italic;
+  margin-right: 15px;
+}
+
+.delete_update a:hover {
   color: #000;
+  font-style: normal;
 }

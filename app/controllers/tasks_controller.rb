@@ -4,6 +4,7 @@ class TasksController < ApplicationController
     render :index
   end
 
+  # Display a specific task
   def show
     @task = Task.find(params[:id])
     render :tasks
@@ -15,7 +16,7 @@ class TasksController < ApplicationController
     render :new
   end
 
-  # Add and save a new task to db
+  # Add and save a new task to list
   def create
     @task = Task.new(task_params[:task])
     @task.save
@@ -23,7 +24,7 @@ class TasksController < ApplicationController
     index
   end
 
-  # Delete a task from db
+  # Delete a task from list
   def destroy
     @task = Task.find(params[:id])
     @task.destroy.save
@@ -31,9 +32,13 @@ class TasksController < ApplicationController
     redirect_to '/'
   end
 
+  # Update an existing task
   def update
     @task = Task.find(params[:id])
-    @task.update.save
+    # @name = params[:name]
+    # @desc = params[:desc]
+    # @comp_date = params[:comp_date]
+    # @task.update
   end
 
   private

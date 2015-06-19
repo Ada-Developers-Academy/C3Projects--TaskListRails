@@ -1,0 +1,29 @@
+<%= params %>
+<%= @task = Task.find(params[:id]).name %>
+
+
+<section class="form">
+  <fieldset class="add_task">
+    <legend>Add a Task</legend>
+    <%= form_for @task do |f| %>
+      <span class="name_form">
+      <%= f.label :name, 'Task', :input_html => { :value => 'f.name' } %>
+      <%= f.text_field :name %>
+      </span>
+
+      <span class="desc_form">
+      <%= f.label :desc, 'Description', :input_html => { :value => 'f.desc' }  %>
+      <%= f.text_field :desc, :placeholder => 'optional' %>
+      </span>
+
+      <span class="comp_date_form">
+      <%= f.label :comp_date, 'Date of completion', :input_html => { :value => 'f.comp_date' } %>
+      <%= f.date_field :comp_date %>
+      </span>
+
+      <%= f.submit 'add task' %>
+    <% end %>
+  </fieldset>
+</section>
+
+<p class="return_home"><%= link_to "return to task list", "/" %></p>
