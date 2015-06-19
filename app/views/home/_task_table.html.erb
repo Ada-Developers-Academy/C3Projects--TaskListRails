@@ -9,9 +9,9 @@
     <th>
       Status
     </th>
-    <th>
-      Completion Date
-    </th>
+    <% if @task.completed_date.present? %>
+      <th>Completion Date</th>
+    <% end %>
   </tr>
   <tbody>
     <tr>
@@ -24,9 +24,9 @@
       <td>
         <%= @task.completed_date ? "Completed" : "Not Completed"%>
       </td>
-      <td>
-        <%= @task.completed_date %>
-      </td>
+      <% if @task.completed_date.present? %>
+        <td><%= @task.completed_date %></td>
+      <% end %>
     </tr>
   </tbody>
 </table>

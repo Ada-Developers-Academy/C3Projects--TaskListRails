@@ -50,7 +50,9 @@ th {
   font-size: 20px;
 }
 
-
+.center {
+  text-align: center;
+}
 
 .button_block {
   padding-top: 30px;
