@@ -1,0 +1,23 @@
+<p class='link'><%= link_to "Back to task list manager", "/" %></p>
+<h1>Here is your task</h1>
+<%= image_tag("task_manager.png", :alt => "task_manager", :class => "face") %>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Description</th>
+    <th>Completed?</th>
+    <th>When completed</th>
+  </tr>
+  <tr>
+    <td><%= @task[:name] %></tb>
+    <td><%= @task[:description] %></td>
+    <td><%= @task[:completed_on] ? "√" : " " %></td>
+    <td><% if @task[:completed_on] == nil %>
+        <%= ' ' %>
+        <% else %>
+        <%= @task[:completed_on].to_date %>
+        <% end %>
+    </td>
+  </tr>
+</table>
