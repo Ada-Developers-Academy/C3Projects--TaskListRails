@@ -1,0 +1,26 @@
+<header><h1>Reading List</h1></header>
+
+<p class="mininav">
+    <%= link_to "Add a book", "/tasks/new" %>
+</p>
+
+<table>
+  <tr class="header">
+  <td>Title</td>
+  <td>Status</td>
+  <td>Unshelve it?</td>
+  </tr>
+
+  <% @displaytasks.each do |task| %>
+    <tr>
+      <td><%= link_to "#{task[:taskname]}", "/tasks/#{task[:id]}" %></td>
+      <td><%= task[:comp_status] %></td>
+      <td><%= link_to "Delete", "/tasks/#{task[:id]}", method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+
+  <% end %>
+<table>
+
+<p class="mininav">
+  <%= link_to "Peep at my Goodreads", "https://www.goodreads.com/review/list/4306102?shelf=read" %>
+</p>
