@@ -17,10 +17,22 @@ class TaskController < ApplicationController
   end
 
   def create
-    @task = Task.new(create_params[:task])
-    @task.save
+    # Guard clause against empty tasknames
+    @taskname = params[:task][:taskname]
+    #Checks if string is empty, sets it to null to trigger db-level error
+    if @taskname.length == 0
+      @taskname = nil
+    else
+      @task = Task.new(create_params[:task])
+    end
 
+    @task.save
     redirect_to root_url # This is preferred if the root is not '/'
+
+    # What the user sees if they his a db-level error
+    rescue => error
+      render :fancy_error
+
   end
 
   def destroy
