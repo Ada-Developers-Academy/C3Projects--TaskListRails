@@ -1,0 +1,19 @@
+<h1>Add a Task Plz</h1>
+
+<%= form_for @new_task do |f| %>
+  <fieldset>
+    <legend>New Task</legend>
+      <%= f.label :name %>
+      <%= f.text_field :name, required: :true %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.label :completed_at %>
+      <%= f.date_field :completed_at %>
+
+    <%= f.submit "Add Task" %>
+  <% end %>
+
+
+  </fieldset>
