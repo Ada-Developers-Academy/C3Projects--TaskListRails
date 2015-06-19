@@ -50,6 +50,7 @@ class TaskController < ApplicationController
     # Allows you to toggle the read status between read and unread
     if update.comp_status == "unread"
       update.comp_status = "read"
+      update.datecomp = Time.now
     else
       update.comp_status = "unread"
     end

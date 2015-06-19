@@ -45,8 +45,8 @@ In this wave we will add the first set of user interactivity and persistence.
 
 In this wave we will extend the interactivity with users, allowing them to edit existing tasks in a couple of different ways. As always, follow RESTful conventions when implementing these features.
 
-- Add the ability for the user to mark a task complete
-  - Add a button to the list of tasks on the home page that, when clicked, will mark a task   complete.
+- (done) Add the ability for the user to mark a task complete
+  - (done) Add a button to the list of tasks on the home page that, when clicked, will mark a task   complete.
   - Update the database with the task's completed date
 - Add the ability for the user to edit a task's details.
   - Add an edit action that renders a form allowing the user to update all the fields of a  task.
