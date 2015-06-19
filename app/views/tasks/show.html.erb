@@ -1,0 +1,41 @@
+<table border = "1">
+  <tr>
+    <th>
+    Task
+    </th>
+    <th>
+    Task Name
+    </th>
+    <th>
+    Description
+    </th>
+    <th>
+    Completed
+    </th>
+    <th>
+    Completed Date
+    </th>
+  </tr>
+
+  <tr>
+    <td>
+      <%= @task.id %>
+    </td>
+    <td>
+      <%= @task.name %>
+    </td>
+    <td>
+      <%= @task.description %>
+    </td>
+    <td>
+      <%= @task.completed %>
+    </td>
+    <td>
+      <%= @task.completed_at %>
+    </td>
+    </tr>
+</table>
+
+<p>
+<a href="/">Go Back to Task List</a>
+</p>
