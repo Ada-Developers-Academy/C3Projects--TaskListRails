@@ -7,6 +7,7 @@
       <th>Description</th>
       <th>Completed</th>
       <th>Date Completed</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -17,7 +18,7 @@
         <td>
           <%= @task.completed_at%>
         </td>
-      <td>
+      <td><a href="<%="/task_#{@task.id}/edit"%>">edit</a></td>
       </tr>
   </tbody>
 </table>

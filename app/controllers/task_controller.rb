@@ -14,6 +14,23 @@ class TaskController < ApplicationController
 		render :details
 	end
 
+  def edit
+    @task_id =params[:id]
+    @task = Task.find(@task_id)
+    @title = @task.name + "Edit"
+
+		render :edit
+  end
+
+  def update
+    @title = @task.name + "Edit"
+    @task_id =params[:id]
+    @task = Task.find(@task_id)
+    @task.update
+
+    redirect_to "/"
+  end
+
   def new
     @title = "Add New Task"
     @task = Task.new
@@ -35,7 +52,15 @@ class TaskController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
 
-    redirect_to "/"
+    redirect_to root_url
+  end
+
+  def mark_complete
+    @task = Task.find(params[:id])
+    @time = Time.now.strftime("%y=%m=%d")
+    @task.update(completed_at: @time)
+
+    redirect_to root_url
   end
 
   def sort_name
@@ -48,6 +73,13 @@ class TaskController < ApplicationController
   def sort_completed
     @title = "Task List"
     @all_tasks = Task.all.order(:completed_at)
+
+    render :home
+  end
+
+  def sort_name
+    @title = "Task List"
+    @all_tasks = Task.all.order(:name)
 
     render :home
   end

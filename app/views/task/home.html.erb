@@ -6,10 +6,10 @@
   <thead>
     <tr>
       <th>
-        Name 
+        Name <%= button_to "&#8595".html_safe, "/name_sort"%>
       </th>
       <th>
-        Completed? <%= button_to "sort", action: "sort_completed"%>
+        Completed? <%= button_to "&#8595".html_safe, "/completed_sort"%>
       </th>
       <th>
       </th>
@@ -23,9 +23,15 @@
           <%= task.name %>
         </a>
         </td>
+        <% if task.completed == "yes" %>
         <td>
           <%= task.completed %>
-      </td>
+        </td>
+      <% else %>
+        <td>
+          <%= button_to "Complete!",  "/task_#{task.id}/mark_complete" %>
+        </td>
+        <% end %>
       <td> <%= button_to "Delete task", "task_#{task.id}", method: :delete, data: {confirm:"Are you sure?"} %></td>
       </tr>
     <% end %>
