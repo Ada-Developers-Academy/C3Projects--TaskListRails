@@ -21,7 +21,7 @@
           <% end %>
         </td>
         <td class="delete_update">
-          <span class="update_link"><%= link_to "edit", "tasks/update/#{task.id}" %></span>
+          <span class="update_link"><%= link_to "\u270E", "tasks/update/#{task.id}" %></span>
           <%= link_to "X", "tasks/delete/#{task.id}",  method: :delete, data: { confirm: "Delete this task?" } %>
         </td>
       </tr>

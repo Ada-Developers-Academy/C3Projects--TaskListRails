@@ -18,41 +18,53 @@ class TasksController < ApplicationController
 
   # Add and save a new task to list
   def create
-    @task = Task.new(task_params[:task])
-    @task.save
+    task = Task.new(task_params[:task])
+    task.save
 
     index
   end
 
   # Delete a task from list
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy.save
+    task = Task.find(params[:id])
+    task.destroy.save
 
     redirect_to '/'
   end
 
   # Update an existing task
-  def update
+  def edit
     @task = Task.find(params[:id])
-    # @name = params[:name]
-    # @desc = params[:desc]
-    # @comp_date = params[:comp_date]
-    # @task.update
+
+    render :update
   end
 
-  def complete
+  def update
     @task = Task.find(params[:id])
-    @task.comp_date = "#{Time.now}"
+    @name = task_params[:task][:name]
+    @desc = task_params[:task][:desc]
+    @comp_date = task_params[:task][:comp_date]
+
+    @task.update(name: @name)
+    @task.update(desc: @desc)
+    @task.update(comp_date: @comp_date)
     @task.save
 
     redirect_to '/'
   end
 
+  def complete
+    task = Task.find(params[:id])
+    task.comp_date = "#{Time.now}"
+    task.save
+
+    redirect_to '/'
+  end
+
   def undo
-    @task = Task.find(params[:id])
-    @task.comp_date = nil
-    @task.save
+    task = Task.find(params[:id])
+    task.comp_date = nil
+    task.save
 
     redirect_to '/'
   end

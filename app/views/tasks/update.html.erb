@@ -1,11 +1,7 @@
-<%= params %>
-<%= @task = Task.find(params[:id]).name %>
-
-
 <section class="form">
   <fieldset class="add_task">
-    <legend>Add a Task</legend>
-    <%= form_for @task do |f| %>
+    <legend>Edit a Task</legend>
+    <%= form_for @task, url: "/tasks/update/#{@task.id}" do |f| %>
       <span class="name_form">
       <%= f.label :name, 'Task', :input_html => { :value => 'f.name' } %>
       <%= f.text_field :name %>
@@ -13,7 +9,7 @@
 
       <span class="desc_form">
       <%= f.label :desc, 'Description', :input_html => { :value => 'f.desc' }  %>
-      <%= f.text_field :desc, :placeholder => 'optional' %>
+      <%= f.text_area :desc, :placeholder => 'optional' %>
       </span>
 
       <span class="comp_date_form">
