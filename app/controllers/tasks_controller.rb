@@ -41,6 +41,22 @@ class TasksController < ApplicationController
     # @task.update
   end
 
+  def complete
+    @task = Task.find(params[:id])
+    @task.comp_date = "#{Time.now}"
+    @task.save
+
+    redirect_to '/'
+  end
+
+  def undo
+    @task = Task.find(params[:id])
+    @task.comp_date = nil
+    @task.save
+
+    redirect_to '/'
+  end
+
   private
 
   def task_params

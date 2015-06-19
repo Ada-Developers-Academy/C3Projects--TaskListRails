@@ -6,8 +6,12 @@
    
     <% @tasks.each do |task| %>
       <tr>
-        <td class="checkmark">
-          <%= task.comp_date ? "\u2713" : "" %>
+        <td class="checkbox">
+          <% if task.comp_date %>
+            <%= link_to "\u2713", "tasks/uncheck/#{task.id}", method: :patch %>
+          <% else %>
+            <%= link_to "\u2610", "tasks/complete/#{task.id}", method: :patch %>
+          <% end %>
         </td>
         <td class="name">
           <% if task.comp_date %>
@@ -17,7 +21,7 @@
           <% end %>
         </td>
         <td class="delete_update">
-          <span class="update_link"><%= link_to "update", "tasks/update/#{task.id}" %></span>
+          <span class="update_link"><%= link_to "edit", "tasks/update/#{task.id}" %></span>
           <%= link_to "X", "tasks/delete/#{task.id}",  method: :delete, data: { confirm: "Delete this task?" } %>
         </td>
       </tr>
