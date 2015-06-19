@@ -6,16 +6,18 @@
   <% @tasks.each do |task| %>
     <td><%= task[:name] %></td>
 
-  <%= form_for('/tasks/#{task:id}') do |f| %>
     <% if task[:completed_at] != nil %>
-      <td><%= label_tag(:completed, "Task Complete") %></td>
-      <td><%= check_box_tag(:completed, "yes", true) %></td>
+      <td><%= link_to("/tasks/incomplete/#{task.id}") do %>
+        <i class="fa fa-thumbs-down"></i>
+        <% end %>
+      </td>
 
       <% else %>
-        <td><%= label_tag(:not_completed, "Mark Complete") %></td>
-        <td><%= check_box_tag(:not_completed, "no") %></td>
-    <% end %>
-  <% end %>
+        <td><%= link_to("/tasks/complete/#{task.id}") do  %>
+          <i class="fa fa-thumbs-o-up"></i>
+          <% end %>
+        </td>
+      <% end %>
 
     <td><%= button_to "Show Details", "/show/#{task.id}" %></td>
     <td><%= button_to "Delete Task", "/delete/#{task.id}", method: "delete", data: { :confirm => "Are you sure?!" } %></td>

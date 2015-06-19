@@ -33,6 +33,13 @@ class TaskController < ApplicationController
     redirect_to '/'
   end
 
+  def incomplete
+    @task = Task.update(params[:id], :completed_at => nil)
+    @task.save
+
+    redirect_to '/'
+  end
+
   private
 
   def create_params

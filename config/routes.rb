@@ -14,7 +14,12 @@ Rails.application.routes.draw do
 
   delete '/delete/:id' => 'task#delete'
 
-  patch '/tasks/:id' => 'task#complete'
+  get '/tasks/complete/:id' => 'task#complete'
+  patch'/tasks/complete/:id' => 'task#complete'
+
+
+  get '/tasks/incomplete/:id' => 'task#incomplete'
+  patch'/tasks/incomplete/:id' => 'task#incomplete'
 
   # lines 6 and 7 do the exact same thing
 
