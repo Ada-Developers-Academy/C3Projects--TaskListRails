@@ -11,8 +11,14 @@
   <% @tasks.each do |task| %>
     <tr>
       <td><%= link_to "#{task.name}", "task/#{task.id}", class: "task" %></td>
-      <td><%= task[:completion_status] %></td>
-      <td><%= link_to "delete", "task/#{task.id}", method: :delete, data: { confirm: "Are you sure?" } %></td>
+      <td>
+      <% if task.completion_status == "not done" %>
+        <%= link_to "I did this!", "task/#{task.id}", method: :patch, data: { confirm: "Did you really complete #{task.name}?"} %>
+      <% else %>
+        <%= task.completion_status %>
+      <% end %>
+      </td>
+      <td><%= link_to "delete", "delete/#{task.id}", method: :delete, data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
 

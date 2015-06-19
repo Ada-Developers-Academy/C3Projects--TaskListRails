@@ -8,12 +8,14 @@
   </tr>
 
   <tr>
-    <td><%= @detail.name %></td>
-    <td><%= @detail.description %></td>
-    <td><%= @detail.completion_status %></td>
-    <td><%= @detail.completed_at %></td>
+    <td><%= @task.name %></td>
+    <td><%= @task.description %></td>
+    <td><%= @task.completion_status %></td>
+    <td><%= @task.completed_at %></td>
   </tr>
 
 </table>
+
+<%= link_to "Update this task", "/task/#{@task.id}/edit" %>
 
 <%= render "footer" %>
