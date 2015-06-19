@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   get "/create" => "carl_tasks#create"
   post "/created" => "carl_tasks#created"
-  # post "/create" => "carl_tasks#post_create"
 
   get "/complete/:id" => "carl_tasks#complete"
   get "/complete" => "carl_tasks#complete"
@@ -24,7 +23,7 @@ Rails.application.routes.draw do
 
   get "/delete/:id" => "carl_tasks#delete"
   get "/delete" => "carl_tasks#delete"
-  # post "/delete" => "carl_tasks#post_delete"
+  delete "/deleted/:id" => "carl_tasks#deleted"
 
 
   # Example of regular route:
