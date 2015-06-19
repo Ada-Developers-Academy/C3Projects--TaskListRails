@@ -1,14 +1,26 @@
 <h1>The Queen of Task Lists</h1>
 <h2> Has arrived</h2>
 
+
+
+<table>
+<thead>task list</thead>
+<tr>
+  <th>ID</th>
+  <th>name</th>
+  <th>Completed</th>
+</tr>
+<tr>
 <% @tasks.each do |task|  %>
-  <ul>
-    <li>
+
+    <td> <%= task.id %> </td>
       <!-- linking the task person name to the unique task id -->
-      <%= link_to "#{task[:name]}", "tasks/show/#{task[:id]}" %>,
-      <%= task[:completed] %>,
-      <%= button_to "Delete", "/tasks/delete/#{task.id}", method: "delete",
+<td> <%= link_to "#{task[:name]}", "tasks/show/#{task[:id]}" %></td>
+<td><%= task[:completed] %></td>
+<td>
+  <%= button_to "Delete", "/tasks/delete/#{task.id}", method: "delete",
       data: {:confirm => "Are you sure you want to delete?"} %>
-    </li>
-  </ul>
-<% end %>
+</td>
+</tr>
+      <% end %>
+</table>
