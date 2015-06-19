@@ -20,6 +20,26 @@ class TaskController < ApplicationController
     redirect_to root_url
   end
 
+  # def update
+  #   @update_task = Task.find(params[:id])
+  #   @update_task.update(task_name: params[:task_name])
+  #
+  #   redirect_to root_url
+  # end
+
+  def complete
+    @task = Task.update(params[:id], completed: "true", date_completed: Time.now)
+    @task.save
+
+    redirect_to root_url
+  end
+
+  def incomplete
+    @task = Task.update(params[:id], completed: "false", date_completed: nil)
+    @task.save
+
+    redirect_to root_url
+  end
 
   def delete
     @delete_task = Task.destroy(params[:id])
@@ -31,7 +51,7 @@ class TaskController < ApplicationController
 
   def create_params
     # params.require(task: [:id, :task_name])
-    params.permit(task: [:task_name, :description, :date_completed])
+    params.permit(task: [:task_name, :description, :completed, :date_completed])
   end
 
 

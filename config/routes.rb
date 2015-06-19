@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   get '/tasks/:id' => 'task#show'
   post '/tasks/:id' => 'task#show'
 
+  # patch '/tasks/:id' => 'task#update'
+  get '/tasks/complete/:id' => 'task#complete'
+  patch '/tasks/complete/:id' => 'task#complete'
+
+  get '/tasks/incomplete/:id' => 'task#incomplete'
+  patch '/tasks/incomplete/:id' => 'task#incomplete'
+
   delete '/tasks/:id' => 'task#delete'
 
   # Example of regular route:
