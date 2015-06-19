@@ -20,18 +20,27 @@
 
     <% @tasks.each do |task| %>
     <tr>
+      <% if task.completed_at %>
       <td>
-        <p>
-          <% if task.completed_at %>
-          &check;
-          <% end %>
-        </p>
+          <%= check_box_tag "completed", 1, true %>
       </td>
-      <td class="task-cell">
+      <td class="task-completed">
         <p>
           <%= link_to task.name, "/show/#{task.id}" %>
         </p>
       </td>
+
+      <% else %>
+      <td>
+          <%= check_box_tag "completed", 0, false %>
+      </td>
+      <td>
+        <p>
+          <%= link_to task.name, "/show/#{task.id}" %>
+        </p>
+      </td>
+      <% end %>
+
       <td>
         <%= button_to "/delete/#{task.id}", data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
           <p>

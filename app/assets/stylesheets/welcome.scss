@@ -60,3 +60,7 @@ nav p a {
 .notebook td:first-child, .notebook td:last-child {
   text-align: center;
 }
+
+.task-completed {
+  text-decoration: line-through;
+}
