@@ -1,0 +1,18 @@
+<header>
+  <h2>Sometimes you change your mind</h2>
+  <h3> &mdash; Quote by someone </h3>
+</header>
+
+<%= form_for @task ,url:"/tasks/#{@task.id}/edit" do |f| %>
+  <fieldset>
+    <legend>Change the deets for that book:</legend>
+    <%= f.label :taskname, "Book Title" %>
+    <%= f.text_field :taskname, :required => true %>
+    <!-- Includes a guard against blanks -->
+    <%= f.label :description, "Details" %>
+    <%= f.text_field :description %>
+  </fieldset>
+
+  <%= f.submit 'Submit' %>
+
+<% end %>

@@ -15,8 +15,11 @@ Rails.application.routes.draw do
 
   delete '/tasks/:id' => 'task#destroy'
 
-  patch '/tasks/:id' => 'task#update'
+  patch '/tasks/:id' => 'task#update_status'
 
+  get '/tasks/:id/edit' => 'task#edit'
+
+  patch '/tasks/:id/edit' => 'task#update'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

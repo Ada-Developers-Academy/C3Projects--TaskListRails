@@ -7,7 +7,7 @@ class TaskController < ApplicationController
 
   def show
     @id = params[:id]
-    @onedeet = Task.find(@id)
+    @task = Task.find(@id)
     render :show
 
   end
@@ -43,7 +43,7 @@ class TaskController < ApplicationController
     redirect_to root_url
   end
 
-  def update
+  def update_status
     id = params[:id]
     update = Task.find(id)
 
@@ -58,8 +58,26 @@ class TaskController < ApplicationController
     update.save
 
     redirect_to root_url
+  end
+
+  def edit
+    @id = params[:id]
+    @task = Task.find(@id)
+    render :edit
 
   end
+
+  def update
+    @id = params[:id]
+    @task = Task.find(@id)
+    Task.update(@id, :taskname => params[:task][:taskname],
+    :description => params[:task][:description])
+    # @task.taskname = params[:task][:taskname]
+    @task.save
+
+    redirect_to root_url
+  end
+
 
   private
 

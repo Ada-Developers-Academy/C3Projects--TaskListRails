@@ -5,13 +5,15 @@
   <td>Description</td>
   <td>Completion Status</td>
   <td>Completion Date</td>
-
   </tr>
+
   <tr>
-    <td><%= @onedeet[:taskname] %></td>
-    <td><%= @onedeet[:description] %></td>
-    <td><%= @onedeet[:comp_status] %></td>
-    <td><%= @onedeet[:datecomp] %></td>
+    <td><%= @task[:taskname] %></td>
+    <td><%= @task[:description] %></td>
+    <td><%= @task[:comp_status] %></td>
+    <td><%= @task[:datecomp] %></td>
   </tr>
 
 </table>
+
+<%= link_to "Edit deets", "/tasks/#{@task[:id]}/edit" %>

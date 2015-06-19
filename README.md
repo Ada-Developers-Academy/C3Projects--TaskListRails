@@ -47,7 +47,7 @@ In this wave we will extend the interactivity with users, allowing them to edit 
 
 - (done) Add the ability for the user to mark a task complete
   - (done) Add a button to the list of tasks on the home page that, when clicked, will mark a task   complete.
-  - Update the database with the task's completed date
+  - (done) Update the database with the task's completed date
 - Add the ability for the user to edit a task's details.
   - Add an edit action that renders a form allowing the user to update all the fields of a  task.
   - Submitting the form from the edit action should update the existing task; not create a new one.
