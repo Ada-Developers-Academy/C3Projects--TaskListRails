@@ -1,0 +1,30 @@
+<!-- NOTE TO SELF: This file can called .html.erb or .erb, html makes it clear that it'll end up as html.(?) -->
+<div class="task_list">
+<h1> Task List </h1>
+<table>
+  <% @all_tasks.each do |task| %>
+  <tr>
+    <td>
+      <%= link_to "#{task[:name]}", "/tasks/#{task[:id]}" %>
+      <% # NOTE TO SELF: 'link_to task[:name]' also works %>
+    </td>
+    <td>
+      <%= task[:completed_at].nil? ? @uncompleted : @completed %>
+    </td>
+    <td>
+      <%= button_to "DELETE", "/tasks/delete/#{task[:id]}", method: :get %>
+      <% # 'method: "get"' also works!  %>
+      <% # NOTE BELOW: Pops up a confirmation on the same page, chose not to use it though (commented it out). %>
+      <!-- <%= button_to "DELETE", "/tasks/#{task[:id]}", method: "delete", data: {:confirm => "ARE YOUS SUREEEE?"} %> -->
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<%= button_to "ADD", "/tasks/new", {method: :get, :class => "confirm"} %>
+
+<!-- NOTE TO SELF: Another way of writing this would be...
+<a href="/tasks/new"><button type="button">ADD</button></a>
+-->
+<%= button_to "DELETE ALL COMPLETED TASKS", "/tasks/delete_all", {method: :get, :class => "confirm"} %>
+</div>
