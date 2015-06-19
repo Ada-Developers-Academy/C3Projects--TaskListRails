@@ -1,3 +1,44 @@
+body {
+  width: 960;
+  margin-left 0;
+  margin-right: 0;
+  font-family: Lato, sans-serif;
+
+}
+
+table {
+  margin: 0 auto;
+
+}
+
+h1, p {
+  text-align: center;
+}
+
+td, tr, th {
+  padding-right: 60px;
+}
+
+
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+
+a:visited {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+
+
+
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

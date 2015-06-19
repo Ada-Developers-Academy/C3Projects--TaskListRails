@@ -1,0 +1,29 @@
+<div class ="show">
+<h1> Details About Your Task </h1>
+
+<table>
+  <tr>
+    <th> Name </th>
+    <th> Description </th>
+    <th> Completed Date </th>
+  </tr>
+
+
+
+  <tr>
+    <td>
+        <%= @show.name %>
+    </td>
+    <td>
+      <%= @show.description%>
+    </td>
+    <td>
+      <%= @show.completed_at %>
+    </td>
+  </tr>
+
+</table>
+<p>
+<%= link_to "Back to Your List", "/" %>
+</p>
+</div>

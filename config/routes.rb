@@ -3,15 +3,18 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'task_lists#index'
+  root 'task#index'
+  get "/tasks/confirm/:id" => 'task#confirm'
+  get '/tasks/destroy/:id' => 'task#destroy'
+
+  get '/tasks/new' => 'task#new'
+  post '/tasks' => 'task#create'
+
+  get '/tasks/:id' => 'task#show'
+
 
   # get '/' => 'task_lists#index'
   # Example of regular route:
-  get '/task_lists/new' => 'task_lists#new'
-  post '/' => 'task_lists#create'
-
-  get '/task_lists/:id' => 'task_lists#show'
-
     # get 'products/:id' => 'catalog#view'
     ### /products/1 would get matched #first route it matches it takes starting at the top. exact match = must
     # / products wouold not

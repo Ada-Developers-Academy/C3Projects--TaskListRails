@@ -1,8 +1,0 @@
-
-
-  <% @tasks.each do |task| %>
-    <p> <%= link_to "#{task[:name]}", "task_lists/#{task[:id]}" %>
-    <%= task[:completed_at]%></p>
-  <% end %>
-
-<%= link_to "Create New Task", "task_lists/new" %>
