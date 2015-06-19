@@ -45,7 +45,7 @@ th, td {
 }
 
 th {
-  background: #ddd;
+  background: #ccc;
   font-weight: bold;
   font-size: 20px;
 }
@@ -85,4 +85,12 @@ a, input[type="submit"] {
   margin: 0 auto;
   cursor: pointer;
   color: #0C46E8;
+}
+
+a:hover,
+a:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+  background: #ccc;
+  color: #0087FF;
 }
