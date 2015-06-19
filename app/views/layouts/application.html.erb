@@ -5,10 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <!-- my font below-->
+  <!-- my google font below-->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-
 </head>
+
+<header>
+  <%= link_to "Home", "/" %> |
+  <%= link_to "Create a Task", "/tasks/new" %>
+</header>
+
 <body>
 
   <%= yield %>

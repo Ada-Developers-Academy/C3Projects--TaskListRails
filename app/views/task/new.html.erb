@@ -2,9 +2,7 @@
 
   <%= form_for @task do |f| %>
 <fieldset>
-  <legend>
-    Enter in a Task
-  </legend>
+  <legend> Enter in a Task</legend>
 
     <%= f.label :name %>
     <%= f.text_area :name %>
@@ -13,17 +11,16 @@
     <%= f.text_area :description %>
 
     <%= f.label :date %>
-    <%= f.text_area :date %>
+    <%= f.date_field :date %>
 
-</fieldset>
-<fieldset>
   <legend> Is this task completed? </legend>
     <%= f.label "completed" %>
     <%= f.radio_button(:completed, "yes") %>
     <%= f.label "not_completed" %>
     <%= f.radio_button(:completed, "no") %>
-</fieldset>
+
     <%= f.submit %>
+</fieldset>
 
   <% end %>
 

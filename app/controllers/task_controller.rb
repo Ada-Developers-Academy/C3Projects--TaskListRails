@@ -7,8 +7,7 @@ class TaskController < ApplicationController
 
   def show
     # need to get id from the params hash
-    @id = params[:id]
-    @task = Task.find(@id)
+    @task = Task.find(params[:id])
 
     render :show
   end
@@ -24,6 +23,13 @@ class TaskController < ApplicationController
     redirect_to "/"
   end
 
+  def update
+    @task = Task.find(params[:id])
+  end
+
+  def edit
+
+  end
 
   def delete
     @id = params[:id]

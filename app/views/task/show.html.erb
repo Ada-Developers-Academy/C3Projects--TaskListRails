@@ -8,8 +8,9 @@
     <th> Description </th>
     <th> Date</th>
     <th> Created at</th>
-    <th>Updated at </th>
-    <th>Completed </th>
+    <th> Updated at </th>
+    <th> Completed </th>
+    <th> Update </th>
   </tr>
   <tr>
     <td>  <%= @task.id %> </td>
@@ -19,5 +20,6 @@
     <td>  <%= @task.created_at %> </td>
     <td>  <%= @task.updated_at %> </td>
     <td>  <%= @task.completed %> </td>
+    <td> <%= link_to "edit", "/edit" %> </td>
   </tr>
 </table>
