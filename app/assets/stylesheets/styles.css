@@ -1,0 +1,68 @@
+/*Google fonts
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Dancing Script', cursive;*/
+
+
+body {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+}
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+	text-align: center;
+	margin-top: 60px;
+}
+
+table {
+	margin: 0 auto;
+	min-width: 350px;
+	text-align: center;
+	border: 1px solid black;
+}
+
+thead {
+	background-color: #000;
+	color: #fff;
+}
+
+.name {
+	text-align: left;
+}
+
+.button, input[type="submit"] {
+	display: block;
+	color: #fff;
+	text-align: center;
+	margin: 15px auto;
+	border: 1px solid black;
+	border-radius: 10px;
+	width: 125px;
+	padding: 6px;
+	background-color: #000;
+}
+
+.button a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.button:hover, .button a:hover {
+	background-color: white;
+	color: #000;
+}
+
+.delete_button a {
+	font-family: 'Dancing Script', cursive;
+	text-decoration: none;
+	color: black;
+}
+
+.delete_button a:hover {
+	font-weight: 700;
+}
+
+fieldset {
+	margin: 0 auto;
+	width: 100%;
+}

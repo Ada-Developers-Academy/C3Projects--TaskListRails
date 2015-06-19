@@ -1,0 +1,26 @@
+<div class="show">
+  <h1>Task Details:</h1>
+
+  <table>
+		<tr>
+			<td></td>
+			<td>Name</td>
+			<td>Description</td>
+			<td>Completed Date</td>
+		</tr>
+
+		<tr>
+		  <td>
+  		  <% if @selected_task.completed_at != nil %>
+  		  	&#10003;
+  		  <% end %>
+		  </td>
+			<td><%= @selected_task.name %></td>
+			<td><%= @selected_task.description %></td>
+			<td><%= @selected_task.completed_at%></td>
+		</tr>
+  </table>
+
+  <div class="button"><%= link_to "Return To Task List", "/" %></div>
+
+</div>
