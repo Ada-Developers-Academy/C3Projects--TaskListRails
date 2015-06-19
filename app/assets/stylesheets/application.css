@@ -1,0 +1,28 @@
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+}
+
+.table_data {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.table_data td {
+  padding: 20px;
+  border: 1px #000000;
+  border-style: solid;
+}
+
+.table_headers {
+  text-align: center;
+  font-weight: bold;
+}
+
+.add_task_button {
+  text-align: center;
+}

@@ -1,0 +1,23 @@
+<table class="table_data">
+  <tr="table_headers">
+    <th>Task Name</th>
+    <th>Completed?</th>
+  </tr>
+
+  <% @all_tasks.each_with_index do |task, index| %>
+    <tr>
+      <td><%= link_to "#{task.name}", "/show/#{task.id}" %></td>
+      <td><% if task.completed_at.nil? %>
+            Not yet.
+          <% else %>
+            Yes!
+          <% end %>
+      </td>
+      <td><%= button_to "Delete this task", "/tasks/delete/#{task.id}", method: :delete, data: { confirm: "Are you sure?"}%></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="add_task_button">
+  <%= button_to "Add a new task!", "/tasks/new" %>
+</div>
