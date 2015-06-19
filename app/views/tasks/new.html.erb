@@ -3,10 +3,10 @@
     <%= f.text_field :name %>
 
     <%= f.label :description, "Description:" %>
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
 
     <%= f.label :date_completed, "Date completed:" %>
-    <%= f.datetime_field :date_completed %>
+    <%= f.date_field :date_completed %>
 
     <%= f.submit 'Add task', class: "default_button" %>
 <% end %>

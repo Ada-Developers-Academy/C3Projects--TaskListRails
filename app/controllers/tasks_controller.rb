@@ -3,7 +3,6 @@ class TasksController < ApplicationController
     @all_tasks     = Task.all
     
   	@title         = "Task List"
-    @headline      = @title
     @subhead       = "Get 'er done"
   end
 
@@ -18,7 +17,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    @headline = "Add a new task"
+    @title        = "Add a new task"
   end
 
   def create
@@ -33,8 +32,7 @@ class TasksController < ApplicationController
     @date          = @task.date_completed ? @task.date_completed.strftime("%m-%d-%Y") : nil
     @creation_date = @task.created_at.strftime("%m-%d-%Y")
 
-    @title         = "Delete '#{@task.name}'?"
-    @headline      = "Delete this task?"
+    @title      = "Delete this task?"
   end
 
   def destroy

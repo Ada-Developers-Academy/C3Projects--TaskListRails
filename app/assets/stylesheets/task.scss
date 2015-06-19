@@ -12,12 +12,12 @@ $mid-color:             #69386d;
 $mid-light-color:       #e4abf7;
 $light-color:           #ecebf7;
 $contrast-color:        #b3bef1;
+$standard-border:       1px solid grey;
 
 html {
   font-family: $font-stack;
   width: 960px;
   margin: 0 auto;
-  // text-align: center;
 }
 
 table {
@@ -25,7 +25,7 @@ table {
 }
 
 table, td, th {
-  border: 1px solid grey;
+  border: $standard-border;
   border-collapse: collapse;
 }
 
@@ -46,7 +46,7 @@ a {
   text-decoration: none;
 }
 
-td, th, h1, h3, a:link, input[type="submit"], a.default_button:visited {
+td, th, h1, h3, a:link, input[type="submit"], a.default_button:visited, label {
   color: $darkest-color;
 }
 
@@ -65,6 +65,18 @@ form[class="button_to"] {
 input {
   display: block;
   margin-bottom: 20px;
+  border: $standard-border;
+  padding: 10px;
+ }
+
+textarea {
+  resize: none;
+  width: 300px;
+  height: 100px;
+  border: $standard-border;
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px;
  }
 
 input[type="submit"] {
@@ -72,7 +84,7 @@ input[type="submit"] {
   margin: 20px 20px 0 0;
   padding: 20px;
   background-color: $mid-light-color;
-  border: 1px solid grey;
+  border: $standard-border;
   font-size: 16px;
   box-shadow: 0;
 }
@@ -82,7 +94,7 @@ a.default_button {
   margin: 20px 20px 0 0;
   padding: 20px;
   background-color: $mid-light-color;
-  border: 1px solid grey;
+  border: $standard-border;
 }
 
 .default_button {
