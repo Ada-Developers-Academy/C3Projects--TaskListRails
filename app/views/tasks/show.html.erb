@@ -15,6 +15,9 @@
     <th>
     Completed Date
     </th>
+    <th>
+    Edit Task
+    </th>
   </tr>
 
   <tr>
@@ -32,6 +35,9 @@
     </td>
     <td>
       <%= @task.completed_at %>
+    </td>
+    <td>
+      <%= button_to "Update Task", "/modify/#{@task.id}", method: :get %>
     </td>
     </tr>
 </table>
