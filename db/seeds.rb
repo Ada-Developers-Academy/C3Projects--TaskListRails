@@ -8,9 +8,9 @@
 
 
 checklist = [
-  {taskname: "Rails for zombies", description: "Finish level 1.", datecomp: "6/16", comp_status: "complete"},
-  {taskname: "Task project", description: "Submit pr", datecomp: "6/15", comp_status: "complete"},
-  {taskname: "Submit surveys", description: "Those two companies.", datecomp: "6/15", comp_status: "complete"}]
+  {taskname: "Bluets", description: "Maggie Nelson", datecomp: "7/17", comp_status: "read"},
+  {taskname: "The Stars My Destination", description: "Alfred Bester", datecomp: "3/07", comp_status: "read"},
+  {taskname: "Speaks the Nightbird", description: "Robert McCammon", datecomp: "1/28", comp_status: "read"}]
 
 checklist.each do |task|
   Task.create(task)

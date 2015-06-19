@@ -1,14 +1,17 @@
-<h1> This is a new task form!</h1>
+<header>
+  <h2>With freedom, books, flowers, and the moon, who could not be happy?</h2>
+  <h3> &mdash; Oscar Wilde </h3>
+</header>
 
 <%= form_for @task do |f| %>
   <fieldset>
-    <legend>New Task Deets</legend>
-    <%= f.label :taskname %>
+    <legend>So hurry up and add a book:</legend>
+    <%= f.label :taskname, "Book Title" %>
     <%= f.text_field :taskname %>
-    <%= f.label :description %>
+    <%= f.label :description, "Details" %>
     <%= f.text_field :description %>
   </fieldset>
 
-  <%= f.submit 'Create task' %>
+  <%= f.submit 'Submit' %>
 
 <% end %>

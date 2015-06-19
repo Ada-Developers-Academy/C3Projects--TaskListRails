@@ -2,45 +2,76 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+//______GLOBAL_______
 
 body{
   font-family: 'IM Fell English', sans-serif;
   font-style: italic;
-  // font-family: 'Special Elite', times, serif;
+  font-size: 1.2em;
   color:rgb(4, 10, 21);
   background:rgb(234, 214, 187);
   background-image: image-url("papier.jpg");
 }
+
+a {
+  color:rgb(62, 64, 103);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  // text-align: center;
+}
+
+
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+
+nav li {
+  margin: 10px 0px;
+  padding-right: 50px;
+  display: inline-block;
+}
+
+header {
+  text-align: center;
+}
+
+label {
+  display: block;
+}
+
+
+//______TABLE_______
+
 
 table {
   margin-left: auto;
   margin-right: auto;
 }
 
-
 table td{
-  padding: 20px;
+  padding: 10px;
   }
+
+.options{
+  text-align: center;
+}
 
 .header {
   font-weight: bold;
 }
 
 
-img{
-  display: block;
+//______NEW FORM_______
+
+form {
+  width:350px;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
-  height:250px;
 }
 
-h1{
-  text-align: center;
-}
-
-form{
-  width:250px;
-  margin-left: auto;
-  margin-right: auto;
+legend {
+  font-size: 1.4em;
 }
