@@ -15,6 +15,7 @@ class TaskController < ApplicationController
 	end
 
   def new
+    @title = "Add New Task"
     @task = Task.new
   end
 
@@ -44,4 +45,10 @@ class TaskController < ApplicationController
     render :home
   end
 
+  def sort_completed
+    @title = "Task List"
+    @all_tasks = Task.all.order(:completed_at)
+
+    render :home
+  end
 end
