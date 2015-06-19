@@ -20,15 +20,13 @@ class TaskController < ApplicationController
     @title = @task.name + "Edit"
   end
 
-  # def update
-  #   @title = @task.name + "Edit"
-  #   @task_id =params[:id]
-  #   @task = Task.find(@task_id)
-  #   @task = @task(create_params[:task])
-  #   @task.update
-  #
-  #   redirect_to root_url
-  # end
+  def update
+    @task_id =params[:id]
+    @task = Task.find(@task_id)
+    @task.update(create_params[:task])
+
+    redirect_to root_url
+  end
 
   def new
     @title = "Add New Task"
