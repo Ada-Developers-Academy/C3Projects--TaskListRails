@@ -1,0 +1,26 @@
+<body>
+<table>
+  <tr>
+    <th>Task #</th>
+    <th>Task Name</th>
+    <th>Date of Completion</th>
+    <th>Delete?</th>
+  <tr>
+  <% @tasks.to_a.each do |task| %>
+  <tr>
+    <td><%= task.id %></td>
+    <td><%= link_to "#{task.name}", "/show/#{task.id}" %></td>
+    <td><% if task.completed_at == nil %>
+       <p class="IP">In Process</p>
+      <% else %>
+       <%= task.completed_at %>
+       <% end %>
+     </td>
+    <td><%= button_to "Yes", "/tasks/#{task.id}", method: :delete, data: {confirm: "Are you sure?"}, class:"button" %></td>
+  </tr>
+    <% end %>
+</table>
+
+<p><%= link_to "Add New Task", "/tasks/new" %></p>
+
+</body>
