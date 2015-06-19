@@ -32,7 +32,8 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task }
+        # format.html { redirect_to @task } # Ash prefers this
+        format.html {redirect_to tasks_path} # required for project requirements
         # format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new_task }
