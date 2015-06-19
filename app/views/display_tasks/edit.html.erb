@@ -1,10 +1,10 @@
-<h1>Add new task</h1>
+<h1>Edit task</h1>
 
-<%= form_for @task do |f| %>
+<%= form_for @task, url: "/tasks/#{@task.id}" do |f| %>
   <fieldset>
     <legend>New Task</legend>
     <%= f.label :name %>
-    <%= f.text_field :name%>
+    <%= f.text_field :name %>
 
     <%= f.label :description %>
     <%= f.text_field :description %>
@@ -15,7 +15,3 @@
 
   <%= f.submit %>
 <% end %>
-
-<div class="home">
-  <%= link_to "Back to Task List", "/tasks"%>
-</div>

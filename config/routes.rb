@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'display_tasks#display_tasks'
+  root 'display_tasks#index'
 
   # route to landing page that displays all tasks
-  get '/tasks' => 'display_tasks#display_tasks'
+  get '/tasks' => 'display_tasks#index'
 
   # route to page with single task
-  get '/task/:task_id' => 'display_tasks#display_task'
+  get '/tasks/:task_id' => 'display_tasks#show'
 
   # route to page with form for entering new task
   get '/tasks/new' => 'display_tasks#new'
@@ -14,7 +14,17 @@ Rails.application.routes.draw do
   # new task gets posted here
   post '/tasks' => 'display_tasks#create'
 
-  delete '/task/:task_id' => 'display_tasks#destroy'
+  # goes to the edit page with task info filled in
+  get '/tasks/:task_id/edit' => 'display_tasks#edit'
+
+  # updates single task
+  patch '/tasks/:task_id' => 'display_tasks#update'
+
+  # delete single task
+  delete '/tasks/:task_id' => 'display_tasks#destroy'
+
+
+
 
 
 
@@ -31,7 +41,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  # resources :products
 
   # Example resource route with options:
   #   resources :products do

@@ -1,11 +1,13 @@
 class DisplayTasksController < ApplicationController
-  def display_tasks
+  def index
     @tasks = Task.all
+
     render :tasks
   end
 
-  def display_task
+  def show
     @task = Task.find_by id: params[:task_id]
+
     render :task
   end
 
@@ -22,10 +24,29 @@ class DisplayTasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.find_by id: params[:task_id]
+    @task = Task.find(params[:task_id])
     @task.destroy
 
-    redirect_to "/"
+    redirect_to :tasks
+  end
+
+  def edit
+    @task = Task.find(params[:task_id])
+
+    render :edit
+  end
+
+  def update
+    @task = Task.find(params[:task_id])
+    new_name         = params[:task][:name]
+    new_description  = params[:task][:description]
+    new_completed_at = params[:task][:completed_at]
+
+    @task.update(name:         new_name,
+                 description:  new_description,
+                 completed_at: new_completed_at)
+
+    render :task
   end
 
   private
