@@ -7,7 +7,8 @@
   <fieldset>
     <legend>So hurry up and add a book:</legend>
     <%= f.label :taskname, "Book Title" %>
-    <%= f.text_field :taskname %>
+    <%= f.text_field :taskname, :required => true %>
+    <!-- Includes a guard against blanks -->
     <%= f.label :description, "Details" %>
     <%= f.text_field :description %>
   </fieldset>
