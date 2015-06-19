@@ -1,0 +1,25 @@
+<section class="form">
+  <%= form_for @task do |f| %>
+    <fieldset class="add_task">
+      <legend>Add a Task</legend>
+      <span class="name_form">
+      <%= f.label :name, 'Task' %>
+      <%= f.text_field :name %>
+      </span>
+
+      <span class="desc_form">
+      <%= f.label :desc, 'Description' %>
+      <%= f.text_field :desc, :placeholder => 'optional' %>
+      </span>
+
+      <span class="comp_date_form">
+      <%= f.label :comp_date, 'Date of completion' %>
+      <%= f.date_field :comp_date %>
+      </span>
+
+      <%= f.submit 'add task' %>
+    </fieldset>
+  <% end %>
+</section>
+
+<p class="return_home"><%= link_to "return to task list", "/" %></p>

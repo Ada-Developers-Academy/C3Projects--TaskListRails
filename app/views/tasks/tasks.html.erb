@@ -1,0 +1,18 @@
+<section class="task_desc">
+  <table>
+    <tr>
+      <th>Tasks</th>
+      <th>Description</th>
+      <th>Date Completed</th>
+    </tr>
+
+    <tr class="task">
+      <td class="name"><%= @task.name %></td>
+      <td class="desc"><%= @task.desc %></td>
+      <td class="comp_date">
+        <%= @task.comp_date ? "#{@task.comp_date.strftime("%m/%d/%Y")}" : "incomplete" %>
+      </td>
+    </tr>
+  </table>
+  <p class="return_home"><%= link_to "return to task list", "/" %></p>
+</section>
