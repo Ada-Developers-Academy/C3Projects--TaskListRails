@@ -1,0 +1,11 @@
+<div class="task_list">
+  <h1> Delete All Completed Tasks </h1>
+  <ul>
+    <% @all_completed_tasks.each do |task| %>
+    <li>
+      <%= link_to "#{task[:name]}", "/tasks/#{task[:id]}" %>
+    </li>
+    <% end %>
+  </ul>
+  <%= button_to "DELETE ALL FOREVER", "/tasks/delete_all", {method: :delete, :class => "confirm"} %>
+</div>

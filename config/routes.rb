@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   get '/tasks/new' => 'tasks#new'
   post '/tasks' => 'tasks#create'
 
+  get '/tasks/delete_all' => 'tasks#destroy_all'
+  delete '/tasks/delete_all' => 'tasks#destroy_all_completed'
+
+  get '/tasks/delete/:id' => 'tasks#show_before_delete'
   # NOTE: I had to move this down so it wouldn't think "new" was the :id.
   # Is there another way to do this, or ordering the operations a good way to manage loading priority?
-  get '/tasks/delete/:id' => 'tasks#show_before_delete'
   get '/tasks/:id' => 'tasks#show'
   delete '/tasks/:id' => 'tasks#destroy'
 

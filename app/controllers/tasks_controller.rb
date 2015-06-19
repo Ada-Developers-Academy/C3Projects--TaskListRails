@@ -42,12 +42,27 @@ class TasksController < ApplicationController
     redirect_to "/"
   end
 
+  def destroy_all
+    @all_completed_tasks = Task.where.not(completed_at: nil)
+
+    render :delete_all
+  end
+
+  def destroy_all_completed
+    completed_tasks = Task.where.not(completed_at: nil)
+    completed_tasks.destroy_all
+
+    redirect_to "/"
+  end
+
   private
 
   def completed_instance_var
     # QUESTION: Constant's don't really work, do they? (Didn't work for me.)
-    @completed = "COMPLETED"
-    @uncompleted = "UNCOMPLETED"
+    @completed = "\u2713"
+    @uncompleted = ""
+    # What is this?
+    # "\u2713".force_encoding("UTF-8")
   end
 
   def task_instance_vars
