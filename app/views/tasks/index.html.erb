@@ -8,9 +8,9 @@
   <tbody>
     <% @all_tasks.each do |task| %>
       <tr>
-      	<td><%= link_to task.name, "tasks/#{task.id}" %></td>
+      	<td class="task_name_link"><%= link_to task.name, "tasks/#{task.id}" %></td>
       	<td class="checkmark"><%= task.completed? %></td>
-        <td><%= link_to "delete", "tasks/#{task.id}/delete" %></td>
+        <td class="delete_link"><%= link_to "delete", "tasks/#{task.id}/delete" %></td>
       </tr>
     <% end %>
   </tbody>

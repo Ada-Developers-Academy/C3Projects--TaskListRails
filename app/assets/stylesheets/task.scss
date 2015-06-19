@@ -105,3 +105,11 @@ input[type="submit"]:hover, a.default_button:hover {
   background-color: $mid-color;
   color: white;
 }
+
+.task_name_link:hover {
+  background-color: $light-color;
+}
+
+.delete_link:hover {
+  background-color: $contrast-color;
+}

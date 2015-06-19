@@ -12,11 +12,11 @@ class TasksController < ApplicationController
     @creation_date = @task.created_at.strftime("%m-%d-%Y")
 
   	@title			   = @task.name
-    @headline      = "Voilà, your task:"
+    @headline      = "Voilà, your task"
   end
 
   def new
-    @task = Task.new
+    @task         = Task.new
     @title        = "Add a new task"
   end
 
@@ -39,7 +39,7 @@ class TasksController < ApplicationController
     @task = Task.find(params["id"])
     @task.destroy
 
-    redirect_to '/'
+    redirect_to "/"
   end
 
   private

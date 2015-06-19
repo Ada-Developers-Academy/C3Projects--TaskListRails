@@ -1,6 +1,6 @@
 <%= form_for @task do |f| %>
     <%= f.label :name, "Name:" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: :true %>
 
     <%= f.label :description, "Description:" %>
     <%= f.text_area :description %>
@@ -8,5 +8,5 @@
     <%= f.label :date_completed, "Date completed:" %>
     <%= f.date_field :date_completed %>
 
-    <%= f.submit 'Add task', class: "default_button" %>
+    <%= f.submit "Add task", class: "default_button" %>
 <% end %>
