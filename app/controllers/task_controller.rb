@@ -18,7 +18,12 @@ class TaskController < ApplicationController
   def create
     @task = Task.new(create_params[:task])
     @task.save
-    render :index
+    redirect_to root_url
+  end
+
+  def destroy
+    Task.find(params[:id]).destroy
+    redirect_to root_url
   end
 
   private

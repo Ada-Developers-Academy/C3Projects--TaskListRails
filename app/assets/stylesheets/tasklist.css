@@ -1,4 +1,40 @@
 table, td, th {
-  border: 1px solid black;
+  border: 2px solid black;
   border-collapse: collapse;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFEBCD;
+}
+
+body, legend {
+  background-color: #87CEFA;
+  margin: 25px;
+  padding: 10px;
+  text-align: center;
+  font-family: Arial, "Helvetica", sans-serif;
+}
+
+.button {
+  color: #B22222;
+}
+
+.IP {
+  color: #FF0000;
+}
+
+.done {
+  color: #32CD32;
+}
+
+a:link {
+  color: #FFD700;
+}
+
+a:visited {
+  color: #696969;
+}
+
+a:hover {
+  color: #5F9EA0;
 }
