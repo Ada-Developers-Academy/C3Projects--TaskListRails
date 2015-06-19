@@ -9,14 +9,14 @@ class TasksController < ApplicationController
 
   def show
     task_instance_vars
-    @visibility = "invisible"
+    @delete_visibility = "invisible"
 
     render :task
   end
 
   def show_before_delete
     task_instance_vars
-    @visibility = "visible"
+    @delete_visibility = "visible"
 
     render :task
   end
@@ -37,7 +37,7 @@ class TasksController < ApplicationController
 
   def destroy
     # @task = Task.find(params[:id])
-    Task.find(params[:id]).destroy
+    Task.destroy_one(params[:id])
 
     redirect_to "/"
   end
@@ -68,6 +68,7 @@ class TasksController < ApplicationController
   def task_instance_vars
     # NOTE!!! Need to read up on params to show unique URLs!
     @task = Task.find(params[:id])
+    @completed_visibility = @task[:completed_at].nil? ? "invisible" : "visible"
     completed_instance_var
     @status = @task[:completed_at].nil? ? @uncompleted : @completed
   end
