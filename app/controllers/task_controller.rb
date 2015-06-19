@@ -18,18 +18,17 @@ class TaskController < ApplicationController
     @task_id =params[:id]
     @task = Task.find(@task_id)
     @title = @task.name + "Edit"
-
-		render :edit
   end
 
-  def update
-    @title = @task.name + "Edit"
-    @task_id =params[:id]
-    @task = Task.find(@task_id)
-    @task.update
-
-    redirect_to "/"
-  end
+  # def update
+  #   @title = @task.name + "Edit"
+  #   @task_id =params[:id]
+  #   @task = Task.find(@task_id)
+  #   @task = @task(create_params[:task])
+  #   @task.update
+  #
+  #   redirect_to root_url
+  # end
 
   def new
     @title = "Add New Task"
@@ -41,7 +40,7 @@ class TaskController < ApplicationController
     @task = Task.new(create_params[:task])
     @task.save
 
-    redirect_to "/"
+    redirect_to root_url
   end
 
   def create_params
