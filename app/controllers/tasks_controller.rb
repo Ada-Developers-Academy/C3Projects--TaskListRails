@@ -10,9 +10,9 @@ class TasksController < ApplicationController
 
     @completed = false
 
-    if @task.completed_date != nil
-      @task_completed_date = @task.completed_date
-      @completed_date =  @task_completed_date.strftime("%m/%d/%Y")
+    if @task.completed_date
+      @completed_date = @task.completed_date
+      @completed_date = @completed_date.strftime("%m/%d/%Y")
       @completed = true
     end
   end
@@ -31,7 +31,26 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    @task.save #this might not be necessary
+
+    redirect_to "/"
+  end
+
+  def complete
+    @task = Task.find(params[:id])
+    @task[:completed_date] = Time.now
     @task.save
+
+    redirect_to "/"
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update(create_params[:task])
 
     redirect_to "/"
   end

@@ -6,15 +6,13 @@
 <h3> <%= @task_description %> </h3>
 
 <h2>Completed?</h2>
-<% if @completed == true %>
+<% if @completed %>
   <h3> This task was completed on <%= @completed_date %>!! </h3>
 <% else %>
   <h3>Not yet! Get on it, buddy.</h3>
 <% end %>
 </section>
 
+<%= link_to "Edit Task", "/tasks/#{@task[:id]}/edit", method: :get  %>
 
-
-<footer>
-  <%= button_to "Home", "/", method: :get %>
-</footer>
+<%= render "footer" %>

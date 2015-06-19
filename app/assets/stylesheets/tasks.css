@@ -58,3 +58,7 @@ input[type=submit] {
   margin: auto;
   margin-top: 20px;
 }
+
+.delete {
+  font-family: 'Shadows Into Light', cursive;
+}
