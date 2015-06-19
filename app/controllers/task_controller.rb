@@ -24,9 +24,9 @@ class TaskController < ApplicationController
   end
 
   def destroy
-    @id = params[:id]
-    @onetask = Task.find(@id)
-    @onetask.destroy
+    # local variables here cuz it's not being displayed / used elsewhere
+    id = params[:id]
+    onetask = Task.find(id).destroy
 
     redirect_to root_url
   end
