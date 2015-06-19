@@ -9,7 +9,7 @@
   - (done) create a posts that returns to homepage (route)
 
 # Be able to delete an existing task
-- Add a route and controller action to delete a task (RESTful route)
-- add a link/button for each task that:
-  - asks the user to confirm that they definitely want to delete the task (new page?)
-  - deletes the task from the database and returns to the homepage (controller/route)
+- (done) Add a route and controller action to delete a task (RESTful route)
+- (done) add a link/button for each task that:
+  - (done) asks the user to confirm that they definitely want to delete the task (new page?)
+  - (done) deletes the task from the database and returns to the homepage (controller/route)
