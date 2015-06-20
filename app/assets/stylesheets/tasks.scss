@@ -2,24 +2,95 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.task_list {
-  width: 600px;
-  margin: auto;
-  text-align: auto;
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+//
+// .task_list {
+//   width: 600px;
+//   margin: auto;
+//   text-align: auto;
+// }
+//
+// a:link.invisible {
+//   color: transparent;
+// }
+//
+// a:hover.invisible {
+//   color: #33CC33;
+// }
+//
+// .invisible {
+//   visibility: hidden;
+// }
+//
+// // a:hover.invisible {
+// //   visibility: visible;
+// // }
+//
+// .visible {
+//   display: inline;
+// }
+//
+// input[type="submit"].confirm {
+//   // font-weight: bold;
+//   padding: 10px 20px 10px 20px;
+//   font-size: 100px;
+//   // margin-left: 35px;
+//   // display: block;
+// }
+.visible {
+  color: black;
 }
 
-.invisible {
+a:link.completed {
+  color: transparent;
+  text-decoration: none;
+}
+
+a:hover.completed {
+  color: #33CC33;
+}
+
+a:link.delete {
+  color: #5C5C5C;
+  text-decoration: none;
+}
+
+a:visited.delete {
+  color: #5C5C5C;
+}
+
+a:hover.delete {
+  color: #FF0000;
+}
+
+
+// .not_completed.
+
+.not_completed::after {
+  position: relative;
+  content: "\u2714"
+}
+
+.not_completed:hover {
   display: none;
 }
 
-.visible {
-  display: inline;
+.not_completed:hover::after {
+  content: "\u2718";
 }
 
-input[type="submit"].confirm {
-  // font-weight: bold;
-  padding: 10px 20px 10px 20px;
-  font-size: 100px;
-  // margin-left: 35px;
-  // display: block;
-}
+
+
+// .item a p.new-label span{
+//   position: relative;
+//   content: 'NEW'
+// }
+// .item:hover a p.new-label span{
+//   display: none;
+// }
+// .item:hover a p.new-label{
+//   content: 'ADD';
+// }

@@ -4,14 +4,14 @@ class TasksController < ApplicationController
     @all_tasks = Task.all   # NOTE TO SELF: "@all_tasks" is actually a Task::ActiveRecord_Relation object, but responds to array methods
     completed_instance_var
 
-    render :index   # for clarity, you don't actually need this in this case
+    render :index   # NOTE TO SELF: this is for clarity, you don't actually need this in this case
   end
 
   def show
     task_instance_vars
     @delete_visibility = "invisible"
 
-    render :task
+    render :task   # NOTE TO SELF: "render 'task'" also would work
   end
 
   def show_before_delete
@@ -58,10 +58,8 @@ class TasksController < ApplicationController
 
   def completed_instance_var
     # QUESTION: Constant's don't really work, do they? (Didn't work for me.)
-    @completed = "\u2713"
-    @uncompleted = ""
-    # What is this?
-    # "\u2713".force_encoding("UTF-8")
+    # @visibility = @task[:completed_at].nil? ? "invisible" : "visible"
+    # What is this?: "\u2713".force_encoding("UTF-8")
   end
 
   def task_instance_vars
