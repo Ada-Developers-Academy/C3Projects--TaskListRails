@@ -12,7 +12,7 @@ class CarlTasksController < ApplicationController
     @tasks = Task.all
   end
 
-  def task
+  def show
     @task = Task.find(params[:id])
   rescue
     redirect_to "/"
@@ -29,7 +29,7 @@ class CarlTasksController < ApplicationController
     Task.create(task)
     id = Task.last.id
 
-    redirect_to "/task/#{ id }"
+    redirect_to "/show/#{ id }"
   end
 
   #----------------------------- EDITING A TASK --------------------------------
@@ -49,7 +49,7 @@ class CarlTasksController < ApplicationController
 
     Task.find(id).update(task)
 
-    redirect_to "/task/#{ id }"
+    redirect_to "/show/#{ id }"
   end
 
   #--------------------------- COMPLETING A TASK -------------------------------

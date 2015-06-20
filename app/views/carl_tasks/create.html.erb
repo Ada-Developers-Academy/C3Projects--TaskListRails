@@ -18,7 +18,7 @@
 
   <%= f.label :name %>
   <% placeholder_name = "Ask someone to feature my second video on their wobsite." %>
-  <%= f.text_field :name, size: "90", placeholder: placeholder_name, value: task_name ? task_name : "" %>
+  <%= f.text_field :name, required: true, size: "90", placeholder: placeholder_name, value: task_name ? task_name : "" %>
 
   <%= f.label :description %>
   <% placeholder_description = "PAUL: Carl! What on earth was all that?

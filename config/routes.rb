@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/about" => "carl_tasks#about" # about carl
 
   # GETs for SPECIFIC INDIVIDUAL tasks
-  get "/task/:id" => "carl_tasks#task" # review a specific task
+  get "/show/:id" => "carl_tasks#show" # review a specific task
   get "/edit/:id" => "carl_tasks#edit" # edit a specific task
   get "/delete/:id" => "carl_tasks#delete"# delete a specific task
 
