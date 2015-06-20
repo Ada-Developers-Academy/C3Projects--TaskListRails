@@ -11,7 +11,7 @@
       <li><%= link_to "#{task[:name]}", "/tasks/#{task[:id]}"%></li>
       <% end %>
      <%= button_to "Delete Task", "tasks/#{task[:id]}", class: "delete", method: :delete, data: { confirm: "Are you sure you want to delete this task?" } %>
-     <%= button_to "Task Completed", "tasks/#{task[:id]}", class: "complete_task", method: :patch %>
+     <%= button_to "Task Completed", "tasks/#{task[:id]}/complete", class: "complete_task", method: :patch %>
   <% end %>
 </ul>
 </section>
