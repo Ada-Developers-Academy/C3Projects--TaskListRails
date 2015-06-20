@@ -1,4 +1,4 @@
-<h1>Task List (Rails!)</h1>
+<h1>Task List</h1>
 
 <table>
   <tr>
@@ -20,15 +20,20 @@
   </tr>
   <tbody>
     <% @all_tasks.each do |task| %>
+      <% if task.completed_date.present? %>
+        <% @task_css = "completed" %>
+      <% else %>
+        <% @task_css = "incomplete" %>
+      <% end %>
     <tr>
-      <td>
+      <td class="<%= @task_css %>">
         <%= task.name %>
       </td>
-      <td>
-        <%= task.completed_date ? "Completed" : "Not Completed" %>
+      <td class="<%= @task_css %>">
+        <%= task.completed_date ? "Completed" : "Incomplete" %>
       </td>
       <td class="center">
-        <% if task.completed_date.present? == false %>
+        <% unless task.completed_date.present? %>
           <%= button_to "Done", { action: "mark_done", id: task.id }, method: :patch %>
         <% end %>
       </td>

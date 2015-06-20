@@ -54,6 +54,10 @@ th {
   text-align: center;
 }
 
+.completed {
+  color: #888;
+}
+
 .button_block {
   padding-top: 30px;
   text-align: center;

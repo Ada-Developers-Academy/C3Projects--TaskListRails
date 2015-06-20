@@ -6,6 +6,11 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    if @task.completed_date.present?
+      @task_css = "completed"
+    else
+      @task_css = "not_completed"
+    end
     render :show
   end
 
@@ -23,8 +28,7 @@ class TasksController < ApplicationController
 
   def mark_done
     @task = Task.find(params[:id])
-    @task.update(completed_date: Time.now)
-    # if not completed before, update again with completed_date set to Time.new
+    @task.update(completed_date: Time.new)
     redirect_to action: :index
   end
 
@@ -40,6 +44,11 @@ class TasksController < ApplicationController
 
   def confirm_remove
     @task = Task.find(params[:id])
+    if @task.completed_date.present?
+      @task_css = "completed"
+    else
+      @task_css = "not_completed"
+    end
     render :confirm_remove
   end
 
