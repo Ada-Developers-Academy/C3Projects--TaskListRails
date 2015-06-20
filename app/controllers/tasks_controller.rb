@@ -21,26 +21,24 @@ class TasksController < ApplicationController
     @action       = "create"
     @method       = "post"
     @submit_text  = "add task"
+
     @title        = "Add a new task"
   end
 
   def create
-    @task = Task.create(create_params[:task])
+    Task.create(create_params[:task])
 
     redirect_to '/'
   end
 
   def update_completion
-    task = Task.find(params[:id])
-    task.date_completed = Time.now
-    task.save
+    Task.find(params[:id]).update(date_completed: Time.now)
 
     redirect_to '/'
   end
 
   def update
-    @task = Task.find(params[:id])
-    @task.update(create_params[:task])
+    Task.find(params[:id]).update(create_params[:task])
 
     redirect_to '/'
   end
