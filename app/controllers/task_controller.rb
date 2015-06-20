@@ -1,4 +1,4 @@
-class TaskController < ApplicationController
+class TaskController < ApplicationController 
   def index
     @title = "Task List"
     @all_tasks = Task.all
@@ -56,6 +56,13 @@ class TaskController < ApplicationController
     @task = Task.find(params[:id])
     @time = Time.now.strftime("%y=%m=%d")
     @task.update(completed_at: @time)
+
+    redirect_to root_url
+  end
+
+  def mark_incomplete
+    @task = Task.find(params[:id])
+    @task.update(completed_at: nil)
 
     redirect_to root_url
   end

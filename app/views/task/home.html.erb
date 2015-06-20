@@ -25,7 +25,7 @@
         </td>
         <% if task.completed == "yes" %>
         <td>
-          <%= task.completed %>
+          <%= button_to "incomplete",  "/task_#{task.id}/mark_incomplete" %>
         </td>
       <% else %>
         <td>

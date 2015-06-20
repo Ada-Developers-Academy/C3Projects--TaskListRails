@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'task#index'
 
-  post "/task_:id/mark_complete"  => "task#mark_complete"
+  post "/task_:id/mark_complete"   => "task#mark_complete"
+  post "/task_:id/mark_incomplete" =>      "task#mark_incomplete"
 
-  get "/task_:id/details"        => "task#show"
+  get "/task_:id/details"         => "task#show"
 
   get "/task/new"         => "task#new"
   post "/task/new"        => "task#create"
