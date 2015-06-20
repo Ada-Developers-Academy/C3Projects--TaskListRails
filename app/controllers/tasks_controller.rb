@@ -9,8 +9,9 @@ class TasksController < ApplicationController
     @task_description = @task.description
 
     @completed = false
+    now = Time.now
 
-    if @task.completed_date
+    if @task.completed_date < now
       @completed_date = @task.completed_date
       @completed_date = @completed_date.strftime("%m/%d/%Y")
       @completed = true
@@ -22,9 +23,10 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(create_params[:task])
-    @task.save
-
+    if (create_params[:name]) != nil
+      @task = Task.new(create_params[:task])
+      @task.save
+    end
     redirect_to "/"
   end
 

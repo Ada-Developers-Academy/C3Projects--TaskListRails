@@ -31,18 +31,34 @@ a {
   color: #353543;
 }
 
+table a:hover {
+  color: #fff;
+}
+
 #task_list h2 {
   text-decoration: underline;
 }
 
 #add {
+  font-family: 'Shadows Into Light', cursive;
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
   background-color: #fff;
-  padding: 4px;
-  margin-top: 10px;
 }
 
-ul {
+table {
   padding: 0px;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+table, td {
+   border: 1px solid gray;
+}
+
+td {
+  padding: 10px;
 }
 
 section {
@@ -61,4 +77,16 @@ input[type=submit] {
 
 .delete {
   font-family: 'Shadows Into Light', cursive;
+  padding: 5px;
+  margin: 10px;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.complete_task {
+  font-family: 'Shadows Into Light', cursive;
+  padding: 5px;
+  margin: 10px;
+  font-size: 15px;
+  background-color: #fff;
 }
