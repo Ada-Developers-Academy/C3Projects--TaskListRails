@@ -2,6 +2,18 @@ class TaskController < ApplicationController
 
   def index
     @tasks = Task.all
+    # update completed column to reflect whether or not there is a completion date.
+    @tasks.each do |task|
+      if task.date_completed == nil
+         task.update(completed: "false")
+      else
+        task.update(completed: "true")
+      end
+       task.save
+     end
+    # order tasks to put incomplete tasks first, then by name.
+    @tasks = @tasks.order(:date_completed, :task_name)
+
     render :index
   end
 
@@ -34,6 +46,8 @@ class TaskController < ApplicationController
     redirect_to root_url
   end
 
+  # For tasks marked as complete through the checkbox on the index page,
+  # update completed to true and date_completed to now.
   def complete
     @task = Task.update(params[:id], completed: "true", date_completed: Time.now)
     @task.save
@@ -41,6 +55,8 @@ class TaskController < ApplicationController
     redirect_to root_url
   end
 
+  # For tasks marked as incomplete through the checkbox on the index
+  # page, update completed to false and date_completed to nil. 
   def incomplete
     @task = Task.update(params[:id], completed: "false", date_completed: nil)
     @task.save

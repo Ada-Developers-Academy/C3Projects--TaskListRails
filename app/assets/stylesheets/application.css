@@ -23,8 +23,9 @@
    background-color: #487DC2;
  }
 
- h1{
+ h1, th{
    font-family: 'Press Start 2P', sans-serif;
+   text-align: left;
  }
 
  h3{
@@ -43,17 +44,18 @@ input, textarea {
 
 table{
   padding: 0 15px;
+  margin-top: 30px;
 }
 
-/*.test{
-  height: 10px;
-}*/
+a, a:visited, a:hover{
+  color: #883B10
+}
 
 .name_column{
-  width: 300px;
+  width: 250px;
 }
 
-.completed_column{
+i{
   text-align: center;
-  width: 100px;
+  width: 162px;
 }
