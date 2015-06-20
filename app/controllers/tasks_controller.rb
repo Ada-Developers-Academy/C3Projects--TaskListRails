@@ -9,9 +9,9 @@ class TasksController < ApplicationController
     @task_description = @task.description
 
     @completed = false
-    now = Time.now
 
-    if @task.completed_date < now
+
+    if @task.completed_date #how to check for date being in past?
       @completed_date = @task.completed_date
       @completed_date = @completed_date.strftime("%m/%d/%Y")
       @completed = true
@@ -23,10 +23,10 @@ class TasksController < ApplicationController
   end
 
   def create
-    if (create_params[:name]) != nil
-      @task = Task.new(create_params[:task])
-      @task.save
-    end
+
+    @task = Task.new(create_params[:task]) #how to check for nil values?
+    @task.save
+
     redirect_to "/"
   end
 
