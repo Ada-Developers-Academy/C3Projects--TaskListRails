@@ -16,10 +16,15 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    #if completed before, just do this update
     @task.update(form_params[:task])
-    # if not completed before, update again with completed_date set to Time.new
 
+    redirect_to action: :index
+  end
+
+  def mark_done
+    @task = Task.find(params[:id])
+    @task.update(completed_date: Time.now)
+    # if not completed before, update again with completed_date set to Time.new
     redirect_to action: :index
   end
 
@@ -50,7 +55,7 @@ class TasksController < ApplicationController
 
 
   def form_params
-    params.permit(task: [:name, :description, :completed_date, :updated_at])
+    params.permit(task: [:name, :description, :completed_date])
   end
 
 end

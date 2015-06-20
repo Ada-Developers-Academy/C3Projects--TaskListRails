@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
   get 'tasks/new' => 'tasks#new'
   post 'tasks' => 'tasks#create'
-  patch 'tasks' => 'tasks#update'
+  patch 'tasks' => 'tasks#mark_done'
 
   get 'tasks/:id' => 'tasks#show'
   get 'tasks/:id/edit' => 'tasks#edit'
