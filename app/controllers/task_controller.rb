@@ -15,17 +15,25 @@ class TaskController < ApplicationController
   end
 
   def create
+    raise
     @new_task = Task.new(create_params[:task])
     @new_task.save
     redirect_to root_url
   end
 
-  # def update
-  #   @update_task = Task.find(params[:id])
-  #   @update_task.update(task_name: params[:task_name])
-  #
-  #   redirect_to root_url
-  # end
+  def edit
+    show
+  end
+
+  def update
+    show
+    @task.update(task_name: params[:task][:task_name],
+                 description: params[:task][:description],
+                 date_completed: params[:task][:date_completed])
+    @task.save
+
+    redirect_to root_url
+  end
 
   def complete
     @task = Task.update(params[:id], completed: "true", date_completed: Time.now)

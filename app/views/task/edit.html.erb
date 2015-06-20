@@ -1,8 +1,8 @@
 <h1> Update your task here! </h1>
 
-<%= form_for @update_task do |f| %>
+<%= form_for @task, :url => { action: "update"} do |f| %>
   <fieldset>
-    <legend>New Task</legend>
+    <legend>Update your task here!</legend>
     <%= f.label :task_name %>
     <%= f.text_field :task_name, required: :true %>
 
@@ -12,7 +12,7 @@
     <%= f.label :date_completed %>
     <%= f.date_field :date_completed %>
 
-    <%= f.submit 'Add Task' %>
+    <%= f.submit 'Update Task' %>
   </fieldset>
 
 <% end %>
