@@ -75,22 +75,6 @@ tr, td {
   margin-bottom: 20px;
 }
 
-/* Links */
-
-a, .delete_update a:hover, .edit a:hover, .checkbox a:hover {
-  color: #000;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #56CAD0; /* teal */
-}
-
-.return_home {
-  text-align: center;
-  margin: 30px;
-}
-
 /* Delete & Update */
 
 .edit {
@@ -111,4 +95,18 @@ a:hover {
 .update_link {
   font-style: italic;
   margin-right: 12px;
+}
+
+a, .delete_update a:hover, .edit a:hover, .checkbox a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #56CAD0; /* teal */
+}
+
+.return_home {
+  text-align: center;
+  margin: 30px;
 }
