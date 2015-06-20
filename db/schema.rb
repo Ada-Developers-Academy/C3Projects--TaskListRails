@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150619204406) do
     t.datetime "datecomp"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.string   "comp_status", default: "unread"
+    t.string   "comp_status",                    default: "unread"
   end
 
 end

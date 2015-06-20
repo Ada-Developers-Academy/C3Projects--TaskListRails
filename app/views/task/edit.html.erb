@@ -9,10 +9,14 @@
     <%= f.label :taskname, "Book Title" %>
     <%= f.text_field :taskname, :required => true %>
     <!-- Includes a guard against blanks -->
-    <%= f.label :description, "Details" %>
+    <%= f.label :description, "Author" %>
     <%= f.text_field :description %>
+    <%= f.label :datecomp, "Completed Date" %>
+    <%= f.date_field :datecomp %>
+    <%= f.label :comp_status, "Finished?" %>
+    <%= f.select :comp_status, ([["read", "read"], ["unread", "unread"]]) %>
   </fieldset>
 
-  <%= f.submit 'Submit' %>
+  <%= f.submit 'Update' %>
 
 <% end %>

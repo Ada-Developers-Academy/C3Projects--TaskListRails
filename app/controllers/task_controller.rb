@@ -69,10 +69,13 @@ class TaskController < ApplicationController
 
   def update
     @id = params[:id]
-    @task = Task.find(@id)
-    Task.update(@id, :taskname => params[:task][:taskname],
-    :description => params[:task][:description])
-    # @task.taskname = params[:task][:taskname]
+    @task = Task.update(@id, (create_params[:task]))
+    # @task = Task.find(@id)
+    # Task.update(@id, :taskname => params[:task][:taskname],
+    # :description => params[:task][:description],
+    # :datecomp => params[:task][:datecomp],
+    # :comp_status => params[:task][:comp_status])
+    # raise
     @task.save
 
     redirect_to root_url
@@ -82,7 +85,7 @@ class TaskController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:taskname, :description])
+    params.permit(task: [:taskname, :description, :comp_status, :datecomp])
   end
 
 

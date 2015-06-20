@@ -6,11 +6,11 @@
 <%= form_for @task do |f| %>
   <fieldset>
     <legend>So hurry up and add a book:</legend>
-    <%= f.label :taskname, "Book Title" %>
+    <%= f.label :taskname, "Book Title", :placeholder => 'required'%>
     <%= f.text_field :taskname, :required => true %>
     <!-- Includes a guard against blanks -->
-    <%= f.label :description, "Details" %>
-    <%= f.text_field :description %>
+    <%= f.label :description, "Author" %>
+    <%= f.text_field :description, :placeholder => 'optional' %>
   </fieldset>
 
   <%= f.submit 'Submit' %>
