@@ -11,13 +11,12 @@ class TaskController < ApplicationController
   end
 
   def new
-    @new_task = Task.new
+    @task = Task.new
   end
 
   def create
-    raise
-    @new_task = Task.new(create_params[:task])
-    @new_task.save
+    @task = Task.new(create_params[:task])
+    @task.save
     redirect_to root_url
   end
 
@@ -58,9 +57,7 @@ class TaskController < ApplicationController
   private
 
   def create_params
-    # params.require(task: [:id, :task_name])
     params.permit(task: [:task_name, :description, :completed, :date_completed])
   end
-
 
 end
