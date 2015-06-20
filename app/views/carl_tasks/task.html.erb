@@ -15,7 +15,7 @@
 
 <section class="task-options">
   <h2>Taskmaster Options</h2>
-  <p><%= link_to "I did this already!", "/complete/#{ @task.id }", class: "finished", title: "Mark this task complete." %></p>
+  <p><%= link_to "I did this already!", "/complete/#{ @task.id }", class: "finished", method: :patch, title: "Mark this task complete." %></p>
   <p><%= link_to "Uhhhh, I think we need to make some changes.", "/edit/#{ @task.id }", title: "Edit this task." %></p>
   <p><%= link_to "This task is stupid. DESTROY it.", "/delete/#{ @task.id }", title: "Initiate self destruct sequence in T-minus 3... 2..." %></p>
 </secion>

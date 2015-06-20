@@ -1,11 +1,20 @@
 <% headings = ["Taskmaster: Master Your Tasks", "Ye Olde List of Tasks", "Ye Olde List of To Doeth", "Carl Says You Must Do These Things", "To Do", "TASKMASTER", "FINISH THEM"] %>
 <% heading = headings.sample %>
 
-
-<h1><%= heading %></h1>
-
 <% unless @tasks.nil? %>
+  <table>
+    <thead>
+      <tr>
+        <td colspan="4"><h1><%= heading %></h1></td>
+      </tr>
+    </thead>
   <% @tasks.each do |task| %>
-    <p class="<%= task.date_complete ? 'finished' : 'unfinished' %>"><%= link_to "#{ task.name }", "/task/#{ task.id }", title: "#{ task.name }" %></p>
+    <tr class="tasks">
+      <td class="done"><%= link_to "#{ task.date_complete ? "☑" : "☐" }", "/complete/#{ task.id }", method: :patch, title: "#{ task.date_complete ? "undo" : "DONE!" }" %></td>
+      <td class="<%= task.date_complete ? 'finished' : 'unfinished' %>"><%= link_to "#{ task.name }", "/task/#{ task.id }", title: "#{ task.name }" %></td>
+      <td class="edit"><%= link_to "✎", "/edit/#{ task.id }", title: "Edit this task!" %></td>
+      <td class="kill"><%= link_to "KILL", "/delete/#{ task.id }", title: "BURNINATE THE COUNTRYSIDE! Delete this task." %></td>
+    </tr>
   <% end %>
+  </table>
 <% end %>

@@ -1,12 +1,8 @@
-// Place all the styles related to the carlTasks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 /* layout & general styles */
 
 body {
   width: 960px;
-  background: #ccc;
+  background: #fefffe;
   font-family: "Indie Flower", cursive;
   font-size: 20px;
   margin: 2% auto;
@@ -35,12 +31,24 @@ a:link, a:visited {
   text-decoration: none;
 }
 
-a:hover.finished, a:active.finished {
-  text-decoration: line-through;
+.finished a:hover, .finished a:active {
+  text-decoration: none;
+}
+
+.kill a:hover, .kill a:active {
+  color: #c33;
+}
+
+.edit a:hover, .edit a:active {
+  color: #33c;
+}
+
+.done a:hover, .done a:active {
+  color: #000;
 }
 
 a:hover, a:active {
-  color: #33c;
+  color: #3c3; //#33c;
 }
 
 .number {
@@ -52,18 +60,42 @@ a:hover, a:active {
 table {
   border-collapse: collapse;
   margin: auto;
-  font-family: "Arial", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 
-table, th, td {
+table, tr {
   border: 1px solid black;
 }
 
-.finished {
+thead {
+  background: #090;
+  color: #fff;
+}
+
+tr.tasks {
+  background: #dcdddc;
+}
+
+.finished a {
+  color: #090;
   text-decoration: line-through;
 }
 
+.edit, .done {
+  font-size: 30px;
+}
+
+.edit {
+  -webkit-transform:rotateY(180deg);
+  -moz-transform:rotateY(180deg);
+  -o-transform:rotateY(180deg);
+  -ms-transform:rotateY(180deg);
+}
+
+.kill {
+  padding-left: 10px;
+  padding-right: 5px;
+}
 
 /* form styles */
 
