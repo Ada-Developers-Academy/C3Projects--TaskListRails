@@ -9,12 +9,22 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   # get  'products/:id'   => 'catalog#view'
+  
+  # Create Tasks
   get     '/tasks/new'          => 'tasks#new'
   post    '/tasks'              => 'tasks#create'
+
+  # Display task
+  get     '/tasks/:id'          => 'tasks#show'
+
+  # Delete task
   delete  '/tasks/delete/:id'   => 'tasks#destroy'
+
+  # Edit task
   get     '/tasks/update/:id'   => 'tasks#edit'
   patch   '/tasks/update/:id'   => 'tasks#update'
-  get     '/tasks/:id'          => 'tasks#show'
+
+  # Check/uncheck complete task
   patch   '/tasks/complete/:id' => 'tasks#complete'
   patch   '/tasks/uncheck/:id'  => 'tasks#undo'
 

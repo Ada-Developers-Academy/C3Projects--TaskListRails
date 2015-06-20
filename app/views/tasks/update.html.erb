@@ -4,7 +4,7 @@
     <%= form_for @task, url: "/tasks/update/#{@task.id}" do |f| %>
       <span class="name_form">
       <%= f.label :name, 'Task', :input_html => { :value => 'f.name' } %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :required => true %>
       </span>
 
       <span class="desc_form">
@@ -17,7 +17,7 @@
       <%= f.date_field :comp_date %>
       </span>
 
-      <%= f.submit 'add task' %>
+      <%= f.submit 'update' %>
     <% end %>
   </fieldset>
 </section>

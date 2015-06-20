@@ -1,12 +1,14 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
+    
     render :index
   end
 
   # Display a specific task
   def show
     @task = Task.find(params[:id])
+
     render :tasks
   end
 
@@ -20,7 +22,6 @@ class TasksController < ApplicationController
   def create
     task = Task.new(task_params[:task])
     task.save
-
     index
   end
 

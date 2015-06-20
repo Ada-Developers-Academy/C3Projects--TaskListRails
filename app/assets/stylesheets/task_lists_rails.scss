@@ -63,6 +63,7 @@ tr, td {
 }
 
 /* Form */
+
 .form {
   padding-top: 30px;
   width: 600px;
@@ -75,7 +76,8 @@ tr, td {
 }
 
 /* Links */
-a {
+
+a, .delete_update a:hover, .edit a:hover, .checkbox a:hover {
   color: #000;
   text-decoration: none;
 }
@@ -92,7 +94,7 @@ a:hover {
 /* Delete & Update */
 
 .edit {
-  margin-left: 10px;
+  margin-right: 13px;
 }
 
 .delete_update {
@@ -102,20 +104,11 @@ a:hover {
   margin-left: 20px;
 }
 
-.delete_update a:link, .edit a:link {
-  color: #BABABA;
-}
-
-.delete_update a:visited, .edit a:visited {
+.delete_update a:link, .edit a:link, .delete_update a:visited, .edit a:visited {
   color: #BABABA;
 }
 
 .update_link {
   font-style: italic;
   margin-right: 12px;
-}
-
-.delete_update a:hover, .edit a:hover, .checkbox a:hover {
-  color: #000;
-  font-style: normal;
 }

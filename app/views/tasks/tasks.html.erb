@@ -7,7 +7,7 @@
     </tr>
 
     <tr class="task">
-      <td class="name"><%= @task.name %><span class="edit"><%= link_to "\u270E", "../tasks/update/#{@task.id}" %></td></span>
+      <td class="name"><span class="edit"><%= link_to "\u270E", "../tasks/update/#{@task.id}" %></span><%= @task.name %></td>
       <td class="desc"><%= @task.desc %></td>
       <td class="comp_date">
         <%= @task.comp_date ? "#{@task.comp_date.strftime("%m/%d/%Y")}" : "incomplete" %>
