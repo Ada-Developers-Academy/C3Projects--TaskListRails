@@ -34,7 +34,7 @@
         <td class="<%= @task_css %>">Completed</td>
         <td class="<%= @task_css %>"><%= @task.completed_date %></td>
       <% else %>
-        <td class="<%= @task_css %>">Not Completed</td>
+        <td class="<%= @task_css %>">Incomplete</td>
       <% end %>
       <% if current_page?(action: 'show') %>
       <td class="center">
