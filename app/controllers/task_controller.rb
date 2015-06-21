@@ -9,7 +9,6 @@ class TaskController < ApplicationController
 
   def new
     @task = Task.new
-    render :create_new
   end
 
   def create
