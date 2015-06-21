@@ -1,18 +1,16 @@
-<main>
-  <% zero_padded_id = @task.id.to_s %>
-  <% while zero_padded_id.length < 3 %>
-    <% zero_padded_id.insert(0, "0") %>
-  <% end %>
+<% zero_padded_id = @task.id.to_s %>
+<% while zero_padded_id.length < 3 %>
+  <% zero_padded_id.insert(0, "0") %>
+<% end %>
 
-  <%= render partial: "header", locals: { link_name: "< Nevermind",
-                                          link_path: "/",
-                                          title: "Edit Task ##{zero_padded_id}",
-                                          kicker: false,
-                                          edit_button: false } %>
+<%= render partial: "header", locals: { link_name: "< Nevermind",
+                                        link_path: "/",
+                                        title: "Edit Task ##{zero_padded_id}",
+                                        kicker: false,
+                                        edit_button: false } %>
 
 
-  <%= render partial: "form", locals: { url: "/tasks/#{@task.id}",
-                                        submit_name: "Edit",
-                                        required_place: "",
-                                        optional_place: ""} %>
-</main>
+<%= render partial: "form", locals: { url: "/tasks/#{@task.id}",
+                                      submit_name: "Edit",
+                                      required_place: "",
+                                      optional_place: ""} %>

@@ -1,49 +1,47 @@
-<main>
-  <% zero_padded_id = @task.id.to_s %>
-  <% while zero_padded_id.length < 3 %>
-    <% zero_padded_id.insert(0, "0") %>
+<% zero_padded_id = @task.id.to_s %>
+<% while zero_padded_id.length < 3 %>
+  <% zero_padded_id.insert(0, "0") %>
+<% end %>
+
+<%= render partial: "header", locals: { link_name: "< Home",
+                                        link_path: "/",
+                                        title: "Task ##{zero_padded_id}",
+                                        kicker: false,
+                                        edit_button: true } %>
+
+<div class="container">
+  <p>
+    <span>Task Name</span>
+  </p>
+
+  <p class="task-details">
+    <%= @task.name %>
+  </p>
+
+  <p>
+    <span>Description</span>
+  </p>
+
+  <% if @task.description != "" %>
+    <p class="task-details">
+      <%= @task.description %>
+    </p>
+  <% else %>
+    <p class="task-details tbd">
+      N/A
+    </p>
   <% end %>
 
-  <%= render partial: "header", locals: { link_name: "< Home",
-                                          link_path: "/",
-                                          title: "Task ##{zero_padded_id}",
-                                          kicker: false,
-                                          edit_button: true } %>
+  <p>
+    <span>Completion Date</span>
+  </p>
 
-  <div class="container">
-    <p>
-      <span>Task Name</span>
-    </p>
-
-    <p class="task-details">
-      <%= @task.name %>
-    </p>
-
-    <p>
-      <span>Description</span>
-    </p>
-
-    <% if @task.description != "" %>
-      <p class="task-details">
-        <%= @task.description %>
-      </p>
-    <% else %>
-      <p class="task-details tbd">
-        N/A
-      </p>
-    <% end %>
-
-    <p>
-      <span>Completion Date</span>
-    </p>
-
-    <% if @task.completed_at %>
-    <p class="task-details">
-      <%= @task.completed_at.strftime("%m.%d.%Y") %>
-    <% else %>
-    <p class="tbd">
-      TBD
-    <% end %>
-    </p>
-  </div>
-</main>
+  <% if @task.completed_at %>
+  <p class="task-details">
+    <%= @task.completed_at.strftime("%m.%d.%Y") %>
+  <% else %>
+  <p class="tbd">
+    TBD
+  <% end %>
+  </p>
+</div>
