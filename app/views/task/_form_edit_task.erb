@@ -1,0 +1,12 @@
+<%= form_for @task, url: "/task/edit_update/#{@task[:id]}" do |t| %>
+  <fieldset>
+    <legend>Edit task</legend>
+    <%= t.label :name %>
+    <%= t.text_field :name %>
+
+    <%= t.label :description %>
+    <%= t.text_field :description %>
+  </fieldset>
+
+  <%= t.submit 'Confirm changes' %>
+<% end %>

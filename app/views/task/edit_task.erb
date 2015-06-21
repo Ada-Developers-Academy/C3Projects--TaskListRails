@@ -1,24 +1,14 @@
 <p class='link'><%= link_to "Go back to task list manager", "/" %></p>
+
 <h1>Edit task</h1>
 
 <table>
   <tr>
     <td>
-      <%= form_for @task, url: "/task/edit_update/#{@task[:id]}" do |t| %>
-        <fieldset>
-          <legend>Edit task</legend>
-          <%= t.label :name %>
-          <%= t.text_field :name %>
-
-          <%= t.label :description %>
-          <%= t.text_field :description %>
-        </fieldset>
-        <p><%= t.submit 'Confirm' %></p>
-      <% end %>
+      <%= render :partial => 'form_edit_task' %>
     </td>
     <td>
-    <%= image_tag("add_task.png", :alt => "add_task", :class => "face") %>
-      <p>Good job!</p>
+      <center><%= render :partial => 'image_task_form' %>
     </td>
   </tr>
 </table>

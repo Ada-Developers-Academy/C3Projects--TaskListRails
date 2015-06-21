@@ -1,26 +1,14 @@
 <p class='link'><%= link_to "Go back to task list manager", "/" %></p>
+
 <h1>Add new task</h1>
 
-<table class ="add_task">
+<table>
   <tr>
     <td>
-      <%= form_for @new_task do |t| %>
-        <fieldset>
-          <legend>New task</legend>
-          <%= t.label :name %>
-          <%= t.text_field :name %>
-
-          <%= t.label :description %>
-          <%= t.text_field :description %>
-
-          <%= t.label :completed_on, 'completed?' %>
-          <%= t.check_box :completed_on %>
-        </fieldset>
-        <%= t.submit 'Add task' %>
-      <% end %>
+      <%= render :partial => 'form_new_task' %>
     </td>
-    <td><%= image_tag("add_task.png", :alt => "add_task", :class => "face") %>
-      <p>Good job!</p>
+    <td>
+      <center><%= render :partial => 'image_task_form' %>
     </td>
   </tr>
 </table>
