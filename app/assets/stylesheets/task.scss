@@ -6,6 +6,7 @@
   src: local('BebasNeue');
 }
 
+$primary-font-stack: 'Roboto', sans-serif;
 $body-text: #4A4A4A; // black
 
 form {
@@ -21,11 +22,17 @@ form label {
 form input, textarea {
   height: 40px;
   width: (300px - 10px) / 300px * 100%;
+
   background-color: #F2F2F2;
   border: 1px solid #979797;
   border-radius: 2px;
+
   margin-top: 10px;
   padding-left: 10px;
+
+  font-size: 16px;
+  font-family: $primary-font-stack;
+  font-size: 18px;
 }
 textarea {
   height: 122px;

@@ -42,7 +42,7 @@ class TaskController < ApplicationController
                 completed_at: edited_task[:completed_at]
     )
 
-    redirect_to "/"
+    redirect_to "/show/#{params[:id]}"
   end
 
   private

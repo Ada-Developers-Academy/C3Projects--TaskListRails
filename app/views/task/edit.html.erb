@@ -1,16 +1,39 @@
-<h1>
-  Edit "<%= @task.name %>"!
-</h1>
+<main>
+  <nav>
+    <p>
+      <%= link_to "< Nevermind", "/" %>
+    </p>
+  </nav>
 
-<%= form_for @task, url: "/tasks/#{@task.id}" do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <header>
+    <div>
+      <h1>
+        <% zero_padded_id = @task.id.to_s %>
+        <% while zero_padded_id.length < 3 %>
+          <% zero_padded_id.insert(0, "0") %>
+        <% end %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+        Edit Task #<%= zero_padded_id %>
+      </h1>
+    </div>
+  </header>
 
-  <%= f.label :completed_at %>
-  <%= f.date_field :completed_at %>
+  <%= form_for @task, url: "/tasks/#{@task.id}" do |f| %>
+    <p>
+      <%= f.label :name %>
+    </p>
+    <%= f.text_field :name %>
 
-  <%= f.submit 'Edit Task' %>
-<% end %>
+    <p>
+      <%= f.label :description %>
+    </p>
+    <%= f.text_area :description %>
+
+    <p>
+      <%= f.label :completed_at %>
+    </p>
+    <%= f.date_field :completed_at %>
+
+    <%= f.submit 'Edit Task', class: 'submit' %>
+  <% end %>
+</main>
