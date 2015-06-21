@@ -12,14 +12,14 @@ class TaskController < ApplicationController
   end
 
   def new
-    @new_task = Task.new
+    @task = Task.new
 
     render :add_task
   end
 
   def create
-    @new_task = Task.new(create_params[:task])
-    @new_task.save
+    @task = Task.new(create_params[:task])
+    @task.save
 
     index
   end

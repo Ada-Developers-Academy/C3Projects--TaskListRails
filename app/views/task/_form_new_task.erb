@@ -1,4 +1,4 @@
-<%= form_for @new_task do |t| %>
+<%= form_for @task do |t| %>
   <fieldset>
     <legend>New task</legend>
     <%= t.label :name %>
@@ -6,6 +6,9 @@
 
     <%= t.label :description %>
     <%= t.text_field :description %>
+
+    <%= t.label :completed_on %>
+    <%= t.date_field :completed_on %>
   </fieldset>
 
   <%= t.submit 'Add task' %>
