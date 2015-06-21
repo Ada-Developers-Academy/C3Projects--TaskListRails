@@ -39,7 +39,7 @@ thead {
 	text-decoration: line-through;
 }
 
-input[type="submit"] {
+/*input[type="submit"] {
 	display: block;
 	color: #fff;
 	text-align: center;
@@ -49,9 +49,11 @@ input[type="submit"] {
 	width: 125px;
 	background-color: #000;
 	padding: 6px;
-}
+}*/
 
-.button a {
+.button a, input[type="submit"] {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
 	text-decoration: none;
 	display: block;
 	background-color: #000;
@@ -69,14 +71,15 @@ input[type="submit"] {
 	color: #000;
 }
 
-.delete_button a {
-	font-family: 'Dancing Script', cursive;
+.details_button, .delete_button {
 	text-decoration: none;
-	color: black;
+	font-weight: 700;
+	color: #696969;
+	opacity: 0.5;
 }
 
-.delete_button a:hover {
-	font-weight: 700;
+.details_button:hover, .delete_button:hover {
+	opacity: 1;
 }
 
 fieldset {
@@ -86,4 +89,18 @@ fieldset {
 
 fieldset label {
 	display: block;
+}
+
+.task_name, .task_description, .task_comp_at {
+	min-width: 200px;
+}
+
+.check {
+	padding-left: 15px;
+}
+
+input[type="text"], textarea {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 17px;
+	min-width: 200px;
 }
