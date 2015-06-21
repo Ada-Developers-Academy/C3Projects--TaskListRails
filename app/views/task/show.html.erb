@@ -12,4 +12,6 @@
   <% else %>
    <li><%= "Status: Task Not Complete" %></li>
   <% end %>
+
+  <%= button_to "Edit Task", "/tasks/update/#{@task.id}", method: "get" %>
 </ul>
