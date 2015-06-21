@@ -54,3 +54,13 @@ Research: ActiveRecord's update method.
 Link to the edit action from the task's show page.
 DRY up your code by reusing the view code from the new functionality
 Research: Rendering partials in Rails.
+
+
+
+## Ideas for next wave/this weekend:
+  - rando task/name
+  - make buttons prettier
+  - add photo/color gradients
+  - figure out how to do line all the way across
+  - style form - box & buttons
+  - make dates just show the date/year, no time
