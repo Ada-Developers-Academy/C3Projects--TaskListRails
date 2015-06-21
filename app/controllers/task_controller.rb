@@ -38,15 +38,26 @@ class TaskController < ApplicationController
     @id = params[:id]
     @task = Task.find(@id)
     @url = "/tasks/:id/edit"
+    puts @id
   end
 
   def update
-    # @id = params[:id]
+    @id = params[:task][:id]
+    @name = params[:task][:name]
+    @date = params[:task][:date]
+    @description = params[:task][:description]
     @task = Task.find(@id)
-    @task.update_all
+    @task.name = @name
+    @task.date = @date
+    @task.description = @description
+
+
     @task.save
-    puts params
     redirect_to "/"
+    #
+    # task.update(name: edited_task[:name],
+    #         description: edited_task[:description],
+    #         completed_at: edited_task[:completed_at]
   end
 
   def delete
@@ -60,7 +71,7 @@ private
   # permissable parameters should be in a private method,
   # ie not accessible outside the class TaskController
   def create_params
-    params.permit(task: [:name, :description, :date, :completed])
+    params.permit(task: [:id, :name, :description, :date, :completed])
     # params.require(task: [:name])
   end
 
