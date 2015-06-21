@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   # route to landing page that displays all tasks
   get '/tasks' => 'display_tasks#index'
 
+  # route to page with form for entering new task
+  get '/tasks/new' => 'display_tasks#new'
+
   # route to page with single task
   get '/tasks/:task_id' => 'display_tasks#show'
 
-  # route to page with form for entering new task
-  get '/tasks/new' => 'display_tasks#new'
 
   # new task gets posted here
   post '/tasks' => 'display_tasks#create'
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
 
   # updates single task
   patch '/tasks/:task_id' => 'display_tasks#update'
+
+  post '/tasks/:task_id' => 'display_tasks#mark_complete'
 
   # delete single task
   delete '/tasks/:task_id' => 'display_tasks#destroy'

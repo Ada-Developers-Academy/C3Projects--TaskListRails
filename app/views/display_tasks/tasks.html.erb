@@ -1,5 +1,9 @@
 <h1>TASK LIST</h1>
 
+<div id="add_new_task">
+  <%= button_to "Add new task", "/tasks/new", method: "get" %>
+</div>
+
 <table>
   <tr>
     <th> Name </th>
@@ -8,13 +12,17 @@
     <th> Date Completed </th>
   </tr>
 
-  <% @tasks.each_with_index do |task, index| %>
+  <% @tasks.each do |task| %>
     <div>
       <tr>
         <td> <%= link_to "#{task.name}", "/tasks/#{task.id}" %> </td>
         <td> <%= task.description %> </td>
         <td> <%= task.completed_at ? "Yes" : "No" %> </td>
         <td> <%= task.completed_at %> </td>
+        <td>
+          <%= task.completed_at ? "" : (button_to "Task Completed", "/tasks/#{task.id}") %>
+
+        </td>
         <td>
           <%= button_to "Edit", "/tasks/#{task.id}/edit", method: "get" %>
         </td>
@@ -25,7 +33,3 @@
     </div>
   <% end %>
 </table>
-
-<div class="add_task">
-  <%= button_to "Add new task", "/tasks/new", method: "get"%>
-</div>

@@ -8,10 +8,10 @@
     <th> Date Completed </th>
   </tr>
   <tr>
-    <td><%= @task.name %></td>
-    <td><%= @task.description %></td>
-    <td><% @task.completed_at ? "Yes" : "No" %></td>
-    <td><%= @task.completed_at %></td>
+    <td><%= @task[:name] %></td>
+    <td><%= @task[:description] %></td>
+    <td><% @task[:completed_at] ? "Yes" : "No" %></td>
+    <td><%= @task[:completed_at] %></td>
   </tr>
 </table>
 

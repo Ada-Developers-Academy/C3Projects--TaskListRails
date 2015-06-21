@@ -5,15 +5,14 @@ class DisplayTasksController < ApplicationController
     render :tasks
   end
 
-  def show
-    @task = Task.find_by id: params[:task_id]
-
-    render :task
-  end
-
   def new
     @task = Task.new
     render :add_task_form
+  end
+
+  def show
+    @task = Task.find_by id: params[:task_id]
+    render :task
   end
 
   def create
@@ -47,6 +46,15 @@ class DisplayTasksController < ApplicationController
                  completed_at: new_completed_at)
 
     render :task
+  end
+
+  def mark_complete
+    @task = Task.find(params[:task_id])
+    new_completed_at = Time.now
+
+    @task.update(completed_at: new_completed_at)
+
+    redirect_to :tasks
   end
 
   private

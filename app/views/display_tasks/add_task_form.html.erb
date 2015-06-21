@@ -1,17 +1,8 @@
 <h1>Add new task</h1>
 
 <%= form_for @task do |f| %>
-  <fieldset>
-    <legend>New Task</legend>
-    <%= f.label :name %>
-    <%= f.text_field :name%>
 
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-
-    <%= f.label :completed_at %>
-    <%= f.text_field :completed_at %>
-  </fieldset>
+  <%= render partial: "form", :locals => {:f => f} %>
 
   <%= f.submit %>
 <% end %>
