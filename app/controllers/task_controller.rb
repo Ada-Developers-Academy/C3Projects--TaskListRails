@@ -44,6 +44,15 @@ class TaskController < ApplicationController
   	redirect_to action: "index"
   end
 
+  def mark_complete
+  	@id = params[:id]
+  	@task = Task.find(@id)
+  	@task.completed_at = DateTime.now
+  	@task.save
+
+  	redirect_to action: "index"
+  end
+
 ################### PRIVATE METHODS ###################
 
 	private

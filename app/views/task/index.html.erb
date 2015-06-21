@@ -17,7 +17,7 @@
 		  		  <% if task.completed_at != nil %>	
 		  		  	<%= "\u2713" %>
 		  		  <% else %>
-		  		  	<%= link_to "\u25A1", "/mark_complete/#{task.id}" %>
+		  		  	<%= link_to "\u25A1", "/mark_complete/#{task.id}", method: :patch %>
 		  		  <% end %>
 				  </td>
 				  <td class="name">
