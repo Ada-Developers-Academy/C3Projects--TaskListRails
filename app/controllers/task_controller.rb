@@ -71,7 +71,7 @@ private
   # permissable parameters should be in a private method,
   # ie not accessible outside the class TaskController
   def create_params
-    params.permit(task: [:id, :name, :description, :date, :completed])
+    params.permit(task: [:name, :description, :date, :completed])
     # params.require(task: [:name])
   end
 
