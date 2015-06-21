@@ -1,0 +1,22 @@
+<nav>
+  <p>
+    <%= link_to link_name, link_path %>
+  </p>
+  <% if edit_button %>
+    <%= button_to "/edit/#{@task.id}" do %>
+       Edit
+    <% end %>
+  <% end %>
+</nav>
+
+<header>
+  <div>
+    <h1><%= title %></h1>
+
+    <% if kicker %>
+    <h4>
+      <%= @tasks.count { |task| task.completed_at } %> things done
+    </h4>
+    <% end %>
+  </div>
+</header>

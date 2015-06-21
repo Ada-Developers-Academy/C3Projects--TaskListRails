@@ -1,46 +1,46 @@
 <main>
-  <nav>
-    <p>
-      <%= link_to "+ Add Task", "/new" %>
-    </p>
-  </nav>
-
-  <header>
-    <div>
-      <h1>Things To Do</h1>
-      <h4>
-        <%= @tasks.count { |task| task.completed_at } %> things done
-      </h4>
-    </div>
-  </header>
+  <%= render partial: "header", locals: { link_name: "+ Add Task",
+                                          link_path: "/new",
+                                          title: "Things To Do",
+                                          kicker: true,
+                                          edit_button: false } %>
 
   <section>
     <ul class="tasks">
       <% @tasks.each do |task| %>
         <li>
+          <!-- COMPLETED TASKS -->
           <% if task.completed_at %>
-          <div class="task-status">
-            <%= button_to "/update/#{task.id}", class: 'complete-mark checked', data: { confirm: "Are you sure you want to mark this item as incomplete? The completion date will be deleted." } do %>
-            <% end %>
-          </div>
-          <div class="task-name task-completed">
-            <p>
-              <%= link_to task.name, "/show/#{task.id}" %>
-            </p>
-          </div>
+            <!-- CHECK MARK -->
+            <div class="task-status">
+              <%= button_to "/update/#{task.id}", class: 'complete-mark checked', data: { confirm: "Are you sure you want to mark this item as incomplete? The completion date will be deleted." } do %>
+              <% end %>
+            </div>
 
+            <!-- TASK NAME -->
+            <div class="task-name task-completed">
+              <p>
+                <%= link_to task.name, "/show/#{task.id}" %>
+              </p>
+            </div>
+
+          <!-- UNCOMPLETED TASKS -->
           <% else %>
-          <div class="task-status">
-            <%= button_to "/update/#{task.id}", class: 'complete-mark', data: { confirm: "Are you sure you want to mark this item as complete?" } do %>
-            <% end %>
-          </div>
-          <div class="task-name">
-            <p>
-              <%= link_to task.name, "/show/#{task.id}" %>
-            </p>
-          <% end %>
-          </div>
+            <!-- CHECK MARK -->
+            <div class="task-status">
+              <%= button_to "/update/#{task.id}", class: 'complete-mark', data: { confirm: "Are you sure you want to mark this item as complete?" } do %>
+              <% end %>
+            </div>
 
+            <!-- TASK NAME -->
+            <div class="task-name">
+              <p>
+                <%= link_to task.name, "/show/#{task.id}" %>
+              </p>
+            </div>
+          <% end %>
+
+          <!-- DELETE BUTTON -->
           <div class="edit-task">
             <%= button_to "/delete/#{task.id}", data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
               <p>
@@ -49,7 +49,9 @@
             <% end %>
           </div>
         </li>
+
       <% end %>
     </ul>
+
   </section>
 </main>
