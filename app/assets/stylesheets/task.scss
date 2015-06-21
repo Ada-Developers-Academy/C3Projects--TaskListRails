@@ -36,25 +36,31 @@ label {
 table {
   margin-left: auto;
   margin-right: auto;
+  // text-align: center;
 }
 
-table td{
-  padding: 10px;
+th, td{
+  padding-top: 10px;
+  padding-right: 50px;
   }
 
-.options{
-  text-align: center;
-}
 
 .header {
   font-weight: bold;
 }
 
+.button {
+  text-decoration: none;
+}
 
-//______NEW FORM_______
+.button_wrapper {
+  text-align: center;
+}
+
+//______FORM_______
 
 form {
-  width:350px;
+  // width:350px;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;

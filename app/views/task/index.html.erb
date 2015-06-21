@@ -5,26 +5,25 @@
 </p>
 
 <table>
-  <tr class="header">
-  <td>Title</td>
-  <td>Status</td>
-  <td>Unshelve it?</td>
-  <td>Finished?</td>
-
+  <tr>
+    <td>Title</td>
+    <td>Complete?</td>
+    <td>Delete</td>
   </tr>
 
   <% @displaytasks.each do |task| %>
     <tr>
-      <td><%= link_to "#{task[:taskname]}", "/tasks/#{task[:id]}" %></td>
-      <td><%= task[:comp_status] %></td>
-      <td><%= link_to "Delete", "/tasks/#{task[:id]}", method: :delete, data: { confirm: "Are you sure?" } %></td>
+      <td><%= link_to "#{task.taskname}", "/tasks/#{task.id}" %></td>
 
       <!-- Display conditional based on the completion status -->
-      <% if task[:comp_status] == "unread" %>
-        <td><%= button_to "Read it", "/tasks/#{task[:id]}", method: :patch %></td>
+      <% if task.comp_status == "unread" %>
+        <td class= "button_wrapper"><%= link_to "&#9744;".html_safe, "/tasks/#{task.id}", method: :patch, class: "button" %></td>
       <% else %>
-        <td><%= button_to "Unread it", "/tasks/#{task[:id]}", method: :patch %></td>
+        <td class= "button_wrapper"><%= link_to "&#9745;".html_safe, "/tasks/#{task.id}", method: :patch, class: "button" %></td>
+
       <% end %>
+
+      <td class= "button_wrapper"><%= link_to "&#10008;".html_safe, "/tasks/#{task.id}", method: :delete, data: { confirm: "Sure you want to delete this book from your reading list?" }, class: "button" %></td>
 
     </tr>
 

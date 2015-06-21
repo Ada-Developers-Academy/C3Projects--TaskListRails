@@ -8,10 +8,14 @@
   </tr>
 
   <tr>
-    <td><%= @task[:taskname] %></td>
-    <td><%= @task[:description] %></td>
-    <td><%= @task[:comp_status] %></td>
-    <td><%= @task[:datecomp] %></td>
+    <td><%= @task.taskname %></td>
+    <td><%= @task.description %></td>
+    <td><%= @task.comp_status %></td>
+
+    <!-- Only show the formatted date if one exists.  -->
+    <% unless @task.datecomp == nil %>
+      <td><%= @task.datecomp.strftime("%m/%d/%Y") %></td>
+    <% end %>
   </tr>
 
 </table>
