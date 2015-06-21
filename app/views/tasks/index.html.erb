@@ -1,4 +1,3 @@
-<!-- NOTE TO SELF: This file can called .html.erb or .erb, html makes it clear that it'll end up as html.(?) -->
 <div class="task_list">
 
   <ul>
@@ -10,32 +9,13 @@
           <%= link_to "\u2714", "/tasks/#{task[:id]}", {method: :patch, class: "completed"}%>
         </span> -->
         <%= task[:completed_at].nil? ?
-          (link_to "\u2714", "/tasks/#{task[:id]}", {method: :patch, class: "completed"}) :
-          (link_to "\u2714", "/task/#{task[:id]}", {method: :patch, class: "not_completed"}) %>
+          (link_to "\u2714", "/#{task[:id]}", {method: :patch, class: "completed"}) :
+          (link_to "\u2714", "/#{task[:id]}", {method: :patch, class: "not_completed"}) %>
         <%= link_to "\u2716", "/tasks/delete/#{task[:id]}", {method: :get, class: "delete"} %>
       </li>
     <% end %>
   </ul>
 
   <%= button_to "CLEAR ALL COMPLETED", "/tasks/delete/delete_all", {method: :get, class: "confirm"} %>
-
-<!-- <table>
-  <% @all_tasks.each do |task| %>
-  <tr>
-    <td>
-      <%= link_to "#{task[:name]}", "/tasks/#{task[:id]}" %>
-    </td>
-    <td class="<%= task[:completed_at].nil? ? "invisible" : "visible" %>">
-      &#x2713
-    </td>
-    <td>
-      <%= button_to "DELETE", "/tasks/delete/#{task[:id]}", method: :get %>
-      <% # 'method: "get"' also works!  %>
-      <% # NOTE BELOW: Pops up a confirmation on the same page, chose not to use it though (commented it out). %>
-      <%= button_to "DELETE", "/tasks/#{task[:id]}", method: "delete", data: {:confirm => "ARE YOUS SUREEEE?"} %>
-    </td>
-  </tr>
-  <% end %>
-</table> -->
 
 </div>

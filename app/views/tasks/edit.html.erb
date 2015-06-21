@@ -1,0 +1,15 @@
+<h2>Edit Game</h2>
+
+<%= form_for @task, url: {action: "edit"}, method: "patch" do |f| %>
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name, {:value => @task_name} %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description, {:value => @task_desc} %>
+
+    <%= f.label :completed_at %>
+    <%= f.date_field :completed_at, {:value => @task_completed_at} %>
+  </fieldset>
+  <%= f.submit %>
+<% end %>

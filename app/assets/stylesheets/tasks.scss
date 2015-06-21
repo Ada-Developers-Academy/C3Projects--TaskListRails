@@ -5,6 +5,7 @@
 ul {
   list-style-type: none;
   padding-left: 0;
+  font-size: 1.5em;
 }
 //
 // .task_list {
@@ -12,39 +13,15 @@ ul {
 //   margin: auto;
 //   text-align: auto;
 // }
-//
-// a:link.invisible {
-//   color: transparent;
-// }
-//
-// a:hover.invisible {
-//   color: #33CC33;
-// }
-//
-// .invisible {
-//   visibility: hidden;
-// }
-//
-// // a:hover.invisible {
-// //   visibility: visible;
-// // }
-//
-// .visible {
-//   display: inline;
-// }
-//
-input[type="submit"].confirm {
-  // font-weight: bold;
-  padding: 7px 10px;
-  font-size: 1em;
-  border-radius: 10px;
-  // margin-left: 35px;
-  // display: block;
+
+.invisible {
+  visibility: hidden;
 }
 
 .visible {
-  color: black;
+  visibility: visible;
 }
+
 
 a:link.completed {
   color: transparent;
@@ -55,10 +32,13 @@ a:hover.completed {
   color: #33CC33;
 }
 
-
 a:link.not_completed {
   color: #000000;
   text-decoration: none;
+}
+
+a:visited.not_completed {
+  color: #000000;
 }
 
 a:hover.not_completed {
@@ -77,4 +57,12 @@ a:visited.delete {
 
 a:hover.delete {
   color: #FF0000;
+}
+
+
+input[type="submit"] {
+  padding: 7px 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  // font-weight: bold;
 }

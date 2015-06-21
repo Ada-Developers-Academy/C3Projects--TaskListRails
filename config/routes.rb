@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/tasks/new' => 'tasks#new'
   post '/tasks' => 'tasks#create'
+  patch '/:id' => 'tasks#completed_status'
 
   get '/tasks/delete/delete_all' => 'tasks#destroy_all'
   delete '/tasks/delete/delete_all' => 'tasks#destroy_all_completed'
@@ -15,7 +16,10 @@ Rails.application.routes.draw do
   get '/tasks/delete/:id' => 'tasks#show_before_delete'
 
   get '/tasks/:id' => 'tasks#show'
+  patch '/tasks/:id/edit' => 'tasks#update'
   delete '/tasks/:id' => 'tasks#destroy'
+
+  get '/tasks/:id/edit' => 'tasks#edit'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

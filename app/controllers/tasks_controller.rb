@@ -7,8 +7,20 @@ class TasksController < ApplicationController
     render :index   # NOTE TO SELF: this is for clarity, you don't actually need this in this case
   end
 
+  def completed_status
+    @task = Task.find(params[:id])
+    if @task[:completed_at].nil?
+      Task.completed(params[:id])
+    else
+      Task.not_completed(params[:id])
+    end
+
+    redirect_to '/'
+  end
+
   def show
     task_instance_vars
+    @button_visibility = "visible"
     @delete_visibility = "invisible"
 
     render :task   # NOTE TO SELF: "render 'task'" also would work
@@ -16,6 +28,7 @@ class TasksController < ApplicationController
 
   def show_before_delete
     task_instance_vars
+    @button_visibility = "invisible"
     @delete_visibility = "visible"
 
     render :task
@@ -33,6 +46,17 @@ class TasksController < ApplicationController
 
     redirect_to "/" # Why does this not work with :index?
       # NOTE!!!: Look up other ways to write 'redirect_to'.
+  end
+
+  def edit
+    task_instance_vars
+
+    render :edit
+  end
+
+  def update
+    task_instance_vars
+
   end
 
   def destroy
@@ -65,12 +89,18 @@ class TasksController < ApplicationController
   def task_instance_vars
     # NOTE!!! Need to read up on params to show unique URLs!
     @task = Task.find(params[:id])
+    @task_id = @task[:id]
     @task_name = @task[:name]
     @task_desc = @task[:description]
+    @task_completed_at = @task[:completed_at]
     @task_status = @task[:completed_at].nil? ? "NEED TO PLAY" : "FINISHED"
-    @task_completion_date = @task[:completed_at].strftime("%m/%d/%Y %l:%M %p") || "N/A"
-    @task_created_at = @task[:created_at].strftime("%m/%d/%Y %l:%M %p")
-    @task_updated_at = @task[:updated_at].strftime("%m/%d/%Y %l:%M %p")
+    @task_completion_date = @task[:completed_at].nil? ? "N/A" : date_format(@task[:completed_at])
+    @task_created_at = date_format(@task[:created_at])
+    @task_updated_at = date_format(@task[:updated_at])
+  end
+
+  def date_format(datetime)
+    datetime.strftime("%m/%d/%Y %l:%M %p")
   end
 
   def create_params

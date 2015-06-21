@@ -12,4 +12,12 @@ class Task < ActiveRecord::Base
     completed.destroy_all
   end
 
+  def self.completed(id)
+    find(id).update(completed_at: Time.now)
+  end
+
+  def self.not_completed(id)
+    find(id).update(completed_at: nil)
+  end
+
 end
