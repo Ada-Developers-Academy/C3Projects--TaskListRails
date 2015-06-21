@@ -28,7 +28,11 @@
    text-align: left;
  }
 
- h3{
+h1{
+  color: #09B200;
+}
+
+h3{
    margin: 40px 20px 20px 20px;
    font-family: 'Press Start 2P', sans-serif;
  }
