@@ -8,18 +8,17 @@ Rails.application.routes.draw do
   root 'task#index'
 
   get '/tasks/new' => 'task#new'
-
   post '/tasks' => 'task#create'
 
   get '/tasks/:id' => 'task#show'
+  get '/tasks/:id/edit' => 'task#edit'
+  patch '/tasks/:id/edit' => 'task#update'
 
-  delete '/tasks/:id' => 'task#destroy'
 
   patch '/tasks/:id' => 'task#update_status'
+  delete '/tasks/:id' => 'task#destroy'
 
-  get '/tasks/:id/edit' => 'task#edit'
 
-  patch '/tasks/:id/edit' => 'task#update'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
