@@ -7,12 +7,12 @@ class TaskController < ApplicationController
 
 
   def new
-    @new_task = Task.new
+    @task = Task.new
   end
 
   def create
-    @new_task = Task.new(create_params[:task])
-    @new_task.save
+    @task = Task.new(create_params[:task])
+    @task.save
 
     redirect_to '/'
   end

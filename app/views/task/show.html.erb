@@ -14,4 +14,6 @@
   <% end %>
 
   <%= button_to "Edit Task", "/tasks/update/#{@task.id}", method: "get" %>
+
+  <%= button_to "Back to List", "/", method: "get" %>
 </ul>
