@@ -1,14 +1,32 @@
-<h3>Create a new task!</h3>
+<main>
+  <nav>
+    <p>
+      <%= link_to "< Nevermind", "/" %>
+    </p>
+  </nav>
 
-<%= form_for @task do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <header>
+    <div>
+      <h1>Create A Task</h1>
+    </div>
+  </header>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= form_for @task do |f| %>
+    <p>
+      <%= f.label :name %>
+    </p>
+    <%= f.text_field :name, placeholder: "Required", onfocus: "this.placeholder = ''" %>
 
-  <%= f.label :completed_at %>
-  <%= f.date_field :completed_at %>
+    <p>
+      <%= f.label :description %>
+    </p>
+    <%= f.text_area :description, placeholder: "Optional", onfocus: "this.placeholder = ''" %>
 
-  <%= f.submit 'Add Task' %>
-<% end %>
+    <p>
+      <%= f.label :completed_at %>
+    </p>
+    <%= f.date_field :completed_at, placeholder: "Optional" %>
+
+    <%= f.submit 'Submit', class: "submit" %>
+  <% end %>
+</main>

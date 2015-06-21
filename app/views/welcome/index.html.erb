@@ -1,60 +1,50 @@
 <main>
   <nav>
     <p>
-      <%= link_to "+ New Task", "/new" %>
+      <%= link_to "+ Add Task", "/new" %>
     </p>
   </nav>
 
-  <table class="notebook">
-    <tr>
-      <th>
-        <!-- empty space -->
-      </th>
-      <th>
-        <h1>Things To Do</h1>
-      </th>
-      <th>
-        <!-- empty space -->
-      </th>
-    </tr>
+  <header>
+    <div>
+      <h1>Things To Do</h1>
+      <h4>
+        <%= @tasks.count { |task| task.completed_at } %> things done
+      </h4>
+    </div>
+  </header>
 
+<!-- FLEXBOX? -->
+  <ul class="tasks">
     <% @tasks.each do |task| %>
-    <tr>
-      <% if task.completed_at %>
-      <td>
-        &check;
-      </td>
-      <td class="task-completed">
-        <p>
-          <%= link_to task.name, "/show/#{task.id}" %>
-        </p>
-      </td>
-
-      <% else %>
-      <td>
-      </td>
-      <td>
-        <p>
-          <%= link_to task.name, "/show/#{task.id}" %>
-        </p>
-      </td>
-      <% end %>
-
-      <td>
-        <%= button_to "/delete/#{task.id}", data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
+      <li>
+        <% if task.completed_at %>
+        <div class="task-status">
+          &check;
+        </div>
+        <div class="task-name task-completed">
           <p>
-           Delete
-         </p>
+            <%= link_to task.name, "/show/#{task.id}" %>
+          </p>
+        </div>
+
+        <% else %>
+        <div class="task-status">
+        </div>
+        <div class="task-name">
+          <p>
+            <%= link_to task.name, "/show/#{task.id}" %>
+          </p>
         <% end %>
 
-        <%= button_to "/update/#{task.id}" do %>
-          <p>
-           Change Status
-         </p>
-        <% end %>
-      </td>
-    </tr>
+        <div class="edit-task">
+          <%= button_to "/delete/#{task.id}", data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
+            <p>
+             x
+           </p>
+          <% end %>
+        </div>
+      </li>
     <% end %>
-
-  </table>
+  </ul>
 </main>
