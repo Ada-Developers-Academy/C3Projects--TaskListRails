@@ -1,6 +1,6 @@
 <%= form_for @task, url: @url  do |f| %>
   <fieldset>
-    <legend>Enter task info here!</legend>
+    <legend> <%= @legend %> </legend>
   <%= f.label :name %>
   <%= f.text_field :name %>
 

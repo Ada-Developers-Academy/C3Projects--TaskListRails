@@ -5,17 +5,21 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'tasks#index'
 
-  # Example of regular route:
+  # Routes for new taks
   get 'tasks/new' => 'tasks#new'
   post '/tasks' => 'tasks#create'
 
+  # Route for updating completed date
   patch 'tasks/:id/complete' => 'tasks#complete'
 
+  # Routes for updating task information
   get 'tasks/:id/edit' => 'tasks#edit'
   patch 'tasks/:id'  => 'tasks#update'
 
+  # Route for showing all tasks on home page
   get 'tasks/:id' => 'tasks#show'
 
+  # Route for deleting task from db and home list
   delete 'tasks/:id' => 'tasks#destroy'
 
 

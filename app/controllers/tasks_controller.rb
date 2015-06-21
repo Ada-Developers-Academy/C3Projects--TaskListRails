@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+
+
   def index
     @tasks = Task.all
   end
@@ -8,10 +10,9 @@ class TasksController < ApplicationController
     @task_name = @task.name
     @task_description = @task.description
 
+    #checks if task is completed, and that date is past
     @completed = false
-
-
-    if @task.completed_date #how to check for date being in past?
+    if @task.completed_date && @task.completed_date < Time.now
       @completed_date = @task.completed_date
       @completed_date = @completed_date.strftime("%m/%d/%Y")
       @completed = true
