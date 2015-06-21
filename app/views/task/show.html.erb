@@ -1,8 +1,8 @@
 
 <table>
-  <tr class="header">
+  <tr class="theader">
   <td>Name</td>
-  <td>Description</td>
+  <td>Author</td>
   <td>Completion Status</td>
   <td>Completion Date</td>
   </tr>
@@ -20,4 +20,7 @@
 
 </table>
 
-<%= link_to "Edit deets", "/tasks/#{@task[:id]}/edit" %>
+<ul>
+  <li><%= link_to "Edit details", "/tasks/#{@task[:id]}/edit" %></li>
+  <li><%= link_to "Back to the list", "/" %></li>
+</ul>

@@ -5,12 +5,20 @@
 
 <%= form_for @task do |f| %>
   <fieldset>
-    <legend>So hurry up and add a book:</legend>
-    <%= f.label :taskname, "Book Title", :placeholder => 'required'%>
-    <%= f.text_field :taskname, :required => true, :placeholder => 'required' %>
+    <legend>Book details:</legend>
+
     <!-- Includes a guard against blanks -->
+    <%= f.label :taskname, "Title", :placeholder => 'required'%>
+    <%= f.text_field :taskname, :required => true, :placeholder => 'required' %>
+
     <%= f.label :description, "Author" %>
     <%= f.text_field :description %>
+
+    <%= f.label :datecomp, "Completed Date" %>
+    <%= f.date_field :datecomp %>
+
+    <%= f.label :comp_status, "Finished?" %>
+    <%= f.select :comp_status, ([["read", "read"], ["unread", "unread"]]) %>
   </fieldset>
 
   <%= f.submit 'Submit' %>

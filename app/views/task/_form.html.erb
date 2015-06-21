@@ -1,9 +1,3 @@
-<header>
-  <h2>Nothing is so painful to the human mind as a great and sudden change.</h2>
-  <h3> &mdash; Mary Shelley </h3>
-</header>
-
-<%= form_for @task,url:"/tasks/#{@task.id}/edit" do |f| %>
 <fieldset>
   <legend>Book details:</legend>
 
@@ -20,7 +14,3 @@
   <%= f.label :comp_status, "Finished?" %>
   <%= f.select :comp_status, ([["read", "read"], ["unread", "unread"]]) %>
 </fieldset>
-
-  <%= f.submit 'Update' %>
-
-<% end %>

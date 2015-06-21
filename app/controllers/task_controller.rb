@@ -69,14 +69,8 @@ class TaskController < ApplicationController
 
   def update
     @id = params[:id]
-    @task = Task.update(@id, (create_params[:task]))
-    # @task = Task.find(@id)
-    # Task.update(@id, :taskname => params[:task][:taskname],
-    # :description => params[:task][:description],
-    # :datecomp => params[:task][:datecomp],
-    # :comp_status => params[:task][:comp_status])
-    # raise
-    @task.save
+    @task = Task.find(@id)
+    @task.update(create_params[:task])
 
     redirect_to root_url
   end
