@@ -30,6 +30,15 @@ thead {
 	text-align: left;
 }
 
+.completed_task, .incomplete_task {
+	text-decoration: none;
+	color: #000;
+}
+
+.completed {
+	text-decoration: line-through;
+}
+
 input[type="submit"] {
 	display: block;
 	color: #fff;

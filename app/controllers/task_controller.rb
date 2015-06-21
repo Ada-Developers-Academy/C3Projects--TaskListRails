@@ -53,6 +53,16 @@ class TaskController < ApplicationController
   	redirect_to action: "index"
   end
 
+  def mark_incomplete
+  	@id = params[:id]
+  	@task = Task.find(@id)
+  	@task.completed_at = nil
+  	@task.save
+
+  	redirect_to action: "index"
+
+  end
+
 ################### PRIVATE METHODS ###################
 
 	private
