@@ -1,5 +1,5 @@
 <body>
-<h1>Just Do It</h1>
+<h1>To Do List</h1>
 <table>
   <tr>
     <th>Task Name</th>
@@ -18,9 +18,8 @@
     <td><%= button_to "X", "/tasks/#{task.id}", method: :delete, data: {confirm: "Are you sure?"} %></td>
   </tr>
     <% end %>
+  <tr>
+    <td colspan="3", class="new_task"><%= button_to "Add New Task", "/tasks/new" %></td>
+  </tr>
 </table>
-
-<p>You can thank me later.</p>
-<p><%= button_to "Add New Task", "/tasks/new" %></p>
-
 </body>
