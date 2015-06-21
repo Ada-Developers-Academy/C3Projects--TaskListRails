@@ -8,8 +8,11 @@
 <h2>Completed?</h2>
 <% if @completed %>
   <h3> This task was completed on <%= @completed_date %>!! </h3>
+<% elsif @future_date %>
+  <h3> You plan on finishing this task on <%= @completed_date %>. Nice planning! </h3>
 <% else %>
   <h3>Not yet! Get on it, buddy.</h3>
+
 <% end %>
 </section>
 

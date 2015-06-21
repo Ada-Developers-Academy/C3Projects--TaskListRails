@@ -12,10 +12,15 @@ class TasksController < ApplicationController
 
     #checks if task is completed, and that date is past
     @completed = false
-    if @task.completed_date && @task.completed_date < Time.now
+    @future_date = false
+    if @task.completed_date
       @completed_date = @task.completed_date
       @completed_date = @completed_date.strftime("%m/%d/%Y")
-      @completed = true
+      @future_date = true
+      if @task.completed_date && @task.completed_date < Time.now
+        @completed = true
+        @future_date = false
+      end
     end
   end
 
