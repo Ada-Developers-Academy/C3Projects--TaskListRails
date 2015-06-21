@@ -1,6 +1,6 @@
 <h1>Welcome to your Tasks</h1>
 
-<%= link_to "Create New Task", '/add_task' %>
+<%= link_to "Create New Task", '/new' %>
 <table>
   <tr>
   <% @tasks.each do |task| %>
@@ -19,8 +19,11 @@
         </td>
       <% end %>
 
-    <td><%= button_to "Show Details", "/show/#{task.id}" %></td>
-    <td><%= button_to "Delete Task", "/delete/#{task.id}", method: "delete", data: { :confirm => "Are you sure?!" } %></td>
+    <td><%= button_to "Show Details", "/tasks/#{task.id}", method: "get" %></td>
+
+    <td><%= button_to "Edit Task", "/tasks/update/#{task.id}", method: "get" %></td>
+
+    <td><%= button_to "Delete Task", "/tasks/#{task.id}", method: "delete", data: { :confirm => "Are you sure?!" } %></td>
   </tr>
   <% end %>
 </table>

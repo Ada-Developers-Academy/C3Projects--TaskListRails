@@ -1,12 +1,10 @@
 class TaskController < ApplicationController
   def index
     @tasks = Task.all
+
+    render :index
   end
 
-  def show
-    @id = params[:id]
-    @task = Task.find(@id)
-  end
 
   def new
     @new_task = Task.new
@@ -17,6 +15,13 @@ class TaskController < ApplicationController
     @new_task.save
 
     redirect_to '/'
+  end
+
+  def show
+    @task = Task.find(params[:id])
+
+    render :show
+
   end
 
   def delete
@@ -40,9 +45,25 @@ class TaskController < ApplicationController
     redirect_to '/'
   end
 
+  def edit
+    @task = Task.find_by(params[:id])
+
+  end
+
+  def update
+    @task = Task.find_by(params[:id])
+    @task.update(create_params[:task])
+
+    @task.save
+
+    redirect_to '/'
+  end
+
   private
 
   def create_params
     params.permit(task: [:name, :description, :completed_at])
   end
+
+
 end
