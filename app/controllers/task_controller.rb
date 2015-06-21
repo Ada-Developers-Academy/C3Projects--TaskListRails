@@ -49,6 +49,23 @@ class TaskController < ApplicationController
     index
   end
 
+  def edit
+    @task = Task.find(params[:id])
+
+    render :edit_task
+  end
+
+  def edit_update
+    @task = Task.find(params[:id])
+    @name = create_params[:task][:name]
+    @description = create_params[:task][:description]
+    @completed_on = create_params[:task][:completed_on]
+    @task.update(name: "#{@name}", description: "#{@description}", completed_on: "#{@completed_on}")
+    @task.save
+
+    render :show
+  end
+
   private
 
   def create_params
