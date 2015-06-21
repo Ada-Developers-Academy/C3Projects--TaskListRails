@@ -8,34 +8,32 @@
 </ul>
 
 <table>
-<thead>Honey-Do List</thead>
-<tr>
-  <th>ID</th>
-  <th>Completed</th>
-  <th>Name</th>
-  <th> Mark as Complete </th>
-  <th> Delete </th>
-</tr>
-<tr>
-<% @tasks.each do |task|  %>
+  <thead>Honey-Do List</thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Completed</th>
+    <th> Mark as Complete </th>
+    <th> Delete </th>
+  </tr>
+  <tr>
+  <% @tasks.each do |task|  %>
 
-    <td> <%= task.id %> </td>
-      <!-- linking the task person name to the unique task id (read)-->
+      <td> <%= task.id %> </td>
 
-<td> <%= link_to "#{task[:name]}", "/tasks/#{task.id}/show" %></td>
+        <!-- linking the task person name to the unique task id (read)-->
+  <td> <%= link_to "#{task[:name]}", "/tasks/#{task.id}/show" %></td>
 
-<td>
-  <% if task.completed == "Yes" %>
-    <%= "\u2713" %>
-  <% end %>
-</td>
- <!-- Completed -->
-<td> <%= button_to "Complete", "/tasks/#{task.id}/complete", method: "patch", data: {:confirm => "Mark #{task.description} by #{task.name} as complete?"} %> </td>
+  <td> <!-- want a check in this column if task is complete  -->
+    <%= task.completed == "Yes" ? "\u2713" : "" %> </td>
 
-<!-- Delete -->
-<td> <%= button_to "Delete", "/tasks/delete/#{task.id}", method: "delete",
-      data: {:confirm => "Are you sure you want to delete?"} %>
-</td>
-</tr>
-      <% end %>
+  <!-- Completed -->
+  <td> <%= button_to "Complete", "/tasks/#{task.id}/complete", method: "patch", data: {:confirm => "Do you want to mark #{task.description} by #{task.name} as complete?"} %> </td>
+
+  <!-- Delete -->
+  <td> <%= button_to "Delete", "/tasks/delete/#{task.id}", method: "delete",
+        data: {:confirm => "Are you sure you want to delete?"} %>
+  </td>
+  </tr>
+        <% end %>
 </table>

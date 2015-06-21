@@ -8,6 +8,7 @@ class TaskController < ApplicationController
   def show
     # need to get id from the params hash
     @task = Task.find(params[:id])
+    puts params
     render :show
   end
 
@@ -20,14 +21,15 @@ class TaskController < ApplicationController
   def create
     @task = Task.new(create_params[:task])
     @task.save
+    # use create here instead
     redirect_to "/"
   end
 
   def complete
     @id = params[:id]
     @task = Task.find(@id)
-    @task.completed = "yes"
-    @task.date = Time.now
+      @task.completed = "Yes"
+      @task.date = Time.now
     @task.save
 
     redirect_to "/"
@@ -37,6 +39,7 @@ class TaskController < ApplicationController
     @id = params[:id]
     @task = Task.find(@id)
     @url = "/tasks/:id/edit"
+    puts params
   end
 
   def update
@@ -44,7 +47,7 @@ class TaskController < ApplicationController
     @task = Task.find(@id)
     @task.update_all
     @task.save
-
+    # redirect_to "/"
   end
 
   def delete
