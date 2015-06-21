@@ -14,37 +14,38 @@
     </div>
   </header>
 
-<!-- FLEXBOX? -->
-  <ul class="tasks">
-    <% @tasks.each do |task| %>
-      <li>
-        <% if task.completed_at %>
-        <div class="task-status">
-          &check;
-        </div>
-        <div class="task-name task-completed">
-          <p>
-            <%= link_to task.name, "/show/#{task.id}" %>
-          </p>
-        </div>
-
-        <% else %>
-        <div class="task-status">
-        </div>
-        <div class="task-name">
-          <p>
-            <%= link_to task.name, "/show/#{task.id}" %>
-          </p>
-        <% end %>
-
-        <div class="edit-task">
-          <%= button_to "/delete/#{task.id}", data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
+  <section>
+    <ul class="tasks">
+      <% @tasks.each do |task| %>
+        <li>
+          <% if task.completed_at %>
+          <div class="task-status">
+            &check;
+          </div>
+          <div class="task-name task-completed">
             <p>
-             x
-           </p>
+              <%= link_to task.name, "/show/#{task.id}" %>
+            </p>
+          </div>
+
+          <% else %>
+          <div class="task-status"></div>
+          <div class="task-name">
+            <p>
+              <%= link_to task.name, "/show/#{task.id}" %>
+            </p>
           <% end %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+          </div>
+
+          <div class="edit-task">
+            <%= button_to "/delete/#{task.id}", data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
+              <p>
+               x
+             </p>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </section>
 </main>
