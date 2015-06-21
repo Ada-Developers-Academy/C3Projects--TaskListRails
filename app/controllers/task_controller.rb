@@ -1,7 +1,8 @@
 class TaskController < ApplicationController
   def index
     @displaytasks = Task.all
-    render :index # This isn't necessary since it's implicit. However
+    render :index
+    # This isn't necessary since it's implicit. However
     # we should prefer clarity.
   end
 
@@ -17,9 +18,9 @@ class TaskController < ApplicationController
   end
 
   def create
-    # Guard clause against empty tasknames
+     # Guard clause against empty tasknames
     @taskname = params[:task][:taskname]
-    #Checks if string is empty, sets it to null to trigger db-level error
+     #Checks if string is empty, sets it to null to trigger db-level error
     if @taskname.length == 0
       @taskname = nil
     else
