@@ -18,22 +18,8 @@
     </div>
   </header>
 
-  <%= form_for @task, url: "/tasks/#{@task.id}" do |f| %>
-    <p>
-      <%= f.label :name %>
-    </p>
-    <%= f.text_field :name %>
-
-    <p>
-      <%= f.label :description %>
-    </p>
-    <%= f.text_area :description %>
-
-    <p>
-      <%= f.label :completed_at %>
-    </p>
-    <%= f.date_field :completed_at %>
-
-    <%= f.submit 'Edit Task', class: 'submit' %>
-  <% end %>
+  <%= render partial: "form", locals: { url: "/tasks/#{@task.id}",
+                                        submit_name: "Edit",
+                                        required_place: "",
+                                        optional_place: ""} %>
 </main>

@@ -1,0 +1,18 @@
+<%= form_for @task, url: url do |f| %>
+  <p>
+    <%= f.label :name %>
+  </p>
+  <%= f.text_field :name, placeholder: required_place, onfocus: "this.placeholder = ''" %>
+
+  <p>
+    <%= f.label :description %>
+  </p>
+  <%= f.text_area :description, placeholder: optional_place, onfocus: "this.placeholder = ''" %>
+
+  <p>
+    <%= f.label :completed_at %>
+  </p>
+  <%= f.date_field :completed_at, placeholder: optional_place, onfocus: "this.placeholder = ''" %>
+
+  <%= f.submit submit_name, class: 'submit' %>
+<% end %>

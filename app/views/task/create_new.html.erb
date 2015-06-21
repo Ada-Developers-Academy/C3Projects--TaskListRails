@@ -11,23 +11,9 @@
     </div>
   </header>
 
-  <%= form_for @task do |f| %>
-    <p>
-      <%= f.label :name %>
-    </p>
-    <%= f.text_field :name, placeholder: "Required", onfocus: "this.placeholder = ''" %>
-
-    <p>
-      <%= f.label :description %>
-    </p>
-    <%= f.text_area :description, placeholder: "Optional", onfocus: "this.placeholder = ''" %>
-
-    <p>
-      <%= f.label :completed_at %>
-    </p>
-    <%= f.date_field :completed_at, placeholder: "Optional" %>
-
-    <%= f.submit 'Submit', class: 'submit' %>
-  <% end %>
+  <%= render partial: "form", locals: { url: "/tasks/",
+                                        submit_name: "Submit",
+                                        required_place: "Required",
+                                        optional_place: "Optional"} %>
 
 </main>
