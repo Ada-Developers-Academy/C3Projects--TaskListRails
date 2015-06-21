@@ -6,14 +6,14 @@
   <% @tasks.each do |task| %>
     <td><%= task[:name] %></td>
 
-    <% if task[:completed_at] != nil %>
-      <td><%= link_to("/tasks/incomplete/#{task.id}") do %>
+    <% if task[:completed_at] == nil %>
+      <td><%= link_to("/tasks/complete/#{task.id}") do %>
         <i class="fa fa-thumbs-down"></i>
         <% end %>
       </td>
 
       <% else %>
-        <td><%= link_to("/tasks/complete/#{task.id}") do  %>
+        <td><%= link_to("/tasks/incomplete/#{task.id}") do  %>
           <i class="fa fa-thumbs-o-up"></i>
           <% end %>
         </td>
