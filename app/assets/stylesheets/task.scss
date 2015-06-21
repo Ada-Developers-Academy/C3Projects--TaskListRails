@@ -9,7 +9,7 @@ body{
   font-style: italic;
   font-size: 1.2em;
   color:rgb(4, 10, 21);
-  background:rgb(234, 214, 187);
+  background:rgb(249, 234, 214);
   background-image: image-url("papier.jpg");
 }
 
@@ -17,16 +17,46 @@ a {
   color:rgb(62, 64, 103);
 }
 
-.mininav {
-  text-align: center;
-}
-
 header {
-  text-align: center;
+  text-align: center
+}
+//______FIXED HEADER_______ (I don't think this would work on mobile atm)
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  line-height: 60px;
+  background-image: image-url("papier2.jpg");
+
 }
 
-label {
-  display: block;
+.header h1 {
+  position: absolute;
+  top: 10px;
+  margin: 0 0 0 15px;
+}
+
+nav {
+  position: absolute;
+  right: 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 10px 10px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+
+.content_wrapper {
+  margin-top: 70px;
 }
 
 
@@ -34,18 +64,15 @@ label {
 
 
 table {
-  margin-left: auto;
-  margin-right: auto;
-  // text-align: center;
+  margin-left: 15px;
 }
 
-th, td{
+td {
   padding-top: 10px;
   padding-right: 50px;
   }
 
-
-.header {
+.theader {
   font-weight: bold;
 }
 
@@ -60,10 +87,14 @@ th, td{
 //______FORM_______
 
 form {
-  // width:350px;
+  width:350px;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
+}
+
+form input {
+  display: block;
 }
 
 legend {
