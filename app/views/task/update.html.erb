@@ -1,5 +1,4 @@
-<h1> So much to do! So little time!</h1>
-<%= form_for @task do |f| %>
+<%= form_for @task, url: "/tasks/#{@task.id}", method: :patch do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -9,7 +8,5 @@
   <%= f.label :completed_at %>
   <%= f.date_field :completed_at %>
 
-  <%= f.submit 'Add Task' %>
+  <%= f.submit 'Save' %>
 <% end %>
-
-<%= link_to "Back to Home", "/" %>

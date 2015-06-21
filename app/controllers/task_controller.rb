@@ -21,6 +21,32 @@ class TaskController < ApplicationController
     redirect_to root_url
   end
 
+  def edit
+    @task = Task.find(params[:id])
+    render :update
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update(create_params[:task])
+    @task.save
+    redirect_to root_url
+  end
+
+  def completed
+    @task = Task.find(params[:id])
+    @task.completed_at = Time.now
+    @task.save
+    redirect_to root_url
+  end
+
+  def in_process
+    @task = Task.find(params[:id])
+    @task.completed_at = nil
+    @task.save
+    redirect_to root_url
+  end
+
   def destroy
     Task.find(params[:id]).destroy
     redirect_to root_url

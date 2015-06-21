@@ -15,8 +15,13 @@ body, legend {
   font-family: Arial, "Helvetica", sans-serif;
 }
 
+label {
+  color: #686868;
+}
+
 .button {
   color: #B22222;
+  background-color: #FAEBD7;
 }
 
 .IP {

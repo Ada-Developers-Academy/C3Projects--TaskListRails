@@ -13,10 +13,11 @@
     <td><% if @task_finder.completed_at == nil %>
        <p class="IP">In Process</p>
       <% else %>
-       <p class="done">Completed</p>
+       <p class="done">&#10004</p>
        <% end %>
     <td><%= @task_finder.completed_at %></td>
   </tr>
 </table>
+<%= button_to "Edit", "/tasks/#{@task_finder.id}", method: :get %>
 
 <%= link_to "Back to Home", "/" %>
