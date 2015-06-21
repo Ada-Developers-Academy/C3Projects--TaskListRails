@@ -31,7 +31,6 @@ class TaskController < ApplicationController
       @task.completed = "Yes"
       @task.date = Time.now
     @task.save
-
     redirect_to "/"
   end
 
@@ -39,15 +38,15 @@ class TaskController < ApplicationController
     @id = params[:id]
     @task = Task.find(@id)
     @url = "/tasks/:id/edit"
-    puts params
   end
 
   def update
-    @id = params[:id]
+    # @id = params[:id]
     @task = Task.find(@id)
     @task.update_all
     @task.save
-    # redirect_to "/"
+    puts params
+    redirect_to "/"
   end
 
   def delete

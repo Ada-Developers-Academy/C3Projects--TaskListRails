@@ -2,7 +2,7 @@
 
 <table>
   <thead>Task</thead>
-  
+
   <tr>
     <th> ID </th>
     <th> Name </th>
@@ -18,7 +18,13 @@
     <td>  <%= @task.id %> </td>
     <td>  <%= @task.name %> </td>
     <td>  <%= @task.description %> </td>
-    <td>  <%= @task.date.month %>/<%= @task.date.day %>/<%= @task.date.year %> </td>
+    <td>
+      <% if @task.date != nil%>
+        <%= @task.date.month %>/<%= @task.date.day %>/<%= @task.date.year %>
+      <% else %>
+        <%= "" %>
+      <% end %>
+      </td>
     <td>  <%= @task.created_at.month %>/<%= @task.created_at.month %>/<%= @task.created_at.year %> </td>
     <td>  <%= @task.updated_at %> </td>
     <td>  <%= @task.completed %> </td>
