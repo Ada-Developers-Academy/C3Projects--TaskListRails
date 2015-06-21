@@ -5,23 +5,25 @@
     <% @all_tasks.each do |task| %>
       <li>
         <%= link_to "#{task[:name]}", "/tasks/#{task[:id]}" %>
+        <% # NOTE TO SELF: 'link_to task[:name]' also works %>
         <!-- <span class="<%= task[:completed_at].nil? ? "invisible" : "visible" %>">
           <%= link_to "\u2714", "/tasks/#{task[:id]}", {method: :patch, class: "completed"}%>
         </span> -->
         <%= task[:completed_at].nil? ?
           (link_to "\u2714", "/tasks/#{task[:id]}", {method: :patch, class: "completed"}) :
-          (link_to "", "/task/#{task[:id]}", {method: :patch, class: "not_completed"}) %>
+          (link_to "\u2714", "/task/#{task[:id]}", {method: :patch, class: "not_completed"}) %>
         <%= link_to "\u2716", "/tasks/delete/#{task[:id]}", {method: :get, class: "delete"} %>
       </li>
     <% end %>
   </ul>
+
+  <%= button_to "CLEAR ALL COMPLETED", "/tasks/delete/delete_all", {method: :get, class: "confirm"} %>
 
 <!-- <table>
   <% @all_tasks.each do |task| %>
   <tr>
     <td>
       <%= link_to "#{task[:name]}", "/tasks/#{task[:id]}" %>
-      <% # NOTE TO SELF: 'link_to task[:name]' also works %>
     </td>
     <td class="<%= task[:completed_at].nil? ? "invisible" : "visible" %>">
       &#x2713
@@ -36,10 +38,4 @@
   <% end %>
 </table> -->
 
-<%= button_to "ADD", "/tasks/new", {method: :get, :class => "confirm"} %>
-
-<!-- NOTE TO SELF: Another way of writing this would be...
-<a href="/tasks/new"><button type="button">ADD</button></a>
--->
-<%= button_to "DELETE ALL COMPLETED TASKS", "/tasks/delete/delete_all", {method: :get, :class => "confirm"} %>
 </div>

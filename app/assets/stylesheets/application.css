@@ -17,9 +17,9 @@
 body {
   width: 960px;
   margin: auto;
-  color: green;
 }
 
-footer {
-  padding: 10px 30px 15px 30px;
+form {
+  padding-left: 10px;
+  display: inline-block;
 }

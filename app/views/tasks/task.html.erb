@@ -1,28 +1,25 @@
 <div class="task_list">
-  <h1> Game Details </h1>
+  <h2> Game Details </h2>
 
   <ul>
     <li>
-      ID: <%= @task[:id] %>
+      Game: <%= @task_name %>
     </li>
     <li>
-      Name: <%= @task[:name] %>
+      Description: <%= @task_desc %>
     </li>
     <li>
-      Description: <%= @task[:description] %>
-    </li>
-    <li class="<%= @completed_visibility %>">
-      Completion Status: <%= @status %>
-    </li>
-    <li class="<%= @completed_visibility %>">
-      Completion Date: <%= @task[:completed_at] %>
-    </li>
-    <!-- <li>
-      Created at: <%= @task[:created_at] %>
+      Completion Status: <%= @task_status %>
     </li>
     <li>
-      Updated at: <%= @task[:updated_at] %>
-    </li> -->
+      Completion Date: <%= @task_completion_date %>
+    </li>
+    <li>
+      Created at: <%= @task_created_at %>
+    </li>
+    <li>
+      Updated at: <%= @task_updated_at %>
+    </li>
   </ul>
 
   <div class="<%= @delete_visibility %>">

@@ -33,13 +33,15 @@ ul {
 //   display: inline;
 // }
 //
-// input[type="submit"].confirm {
-//   // font-weight: bold;
-//   padding: 10px 20px 10px 20px;
-//   font-size: 100px;
-//   // margin-left: 35px;
-//   // display: block;
-// }
+input[type="submit"].confirm {
+  // font-weight: bold;
+  padding: 7px 10px;
+  font-size: 1em;
+  border-radius: 10px;
+  // margin-left: 35px;
+  // display: block;
+}
+
 .visible {
   color: black;
 }
@@ -53,6 +55,17 @@ a:hover.completed {
   color: #33CC33;
 }
 
+
+a:link.not_completed {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover.not_completed {
+  color: transparent;
+}
+
+
 a:link.delete {
   color: #5C5C5C;
   text-decoration: none;
@@ -65,32 +78,3 @@ a:visited.delete {
 a:hover.delete {
   color: #FF0000;
 }
-
-
-// .not_completed.
-
-.not_completed::after {
-  position: relative;
-  content: "\u2714"
-}
-
-.not_completed:hover {
-  display: none;
-}
-
-.not_completed:hover::after {
-  content: "\u2718";
-}
-
-
-
-// .item a p.new-label span{
-//   position: relative;
-//   content: 'NEW'
-// }
-// .item:hover a p.new-label span{
-//   display: none;
-// }
-// .item:hover a p.new-label{
-//   content: 'ADD';
-// }

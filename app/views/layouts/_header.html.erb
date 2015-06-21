@@ -1,3 +1,7 @@
 <header>
-<h1> Brandi's Games-to-Play List </h1>
+  <h1> Brandi's Games-to-Play List </h1>
+  <nav>
+    <%= button_to "LIST", "/tasks", {method: :get, class: "confirm"} %>
+    <%= button_to "ADD", "/tasks/new", {method: :get, class: "confirm"} %>
+  </nav>
 </header>

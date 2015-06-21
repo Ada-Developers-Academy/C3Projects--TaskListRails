@@ -65,9 +65,12 @@ class TasksController < ApplicationController
   def task_instance_vars
     # NOTE!!! Need to read up on params to show unique URLs!
     @task = Task.find(params[:id])
-    @completed_visibility = @task[:completed_at].nil? ? "invisible" : "visible"
-    completed_instance_var
-    @status = @task[:completed_at].nil? ? @uncompleted : @completed
+    @task_name = @task[:name]
+    @task_desc = @task[:description]
+    @task_status = @task[:completed_at].nil? ? "NEED TO PLAY" : "FINISHED"
+    @task_completion_date = @task[:completed_at].strftime("%m/%d/%Y %l:%M %p") || "N/A"
+    @task_created_at = @task[:created_at].strftime("%m/%d/%Y %l:%M %p")
+    @task_updated_at = @task[:updated_at].strftime("%m/%d/%Y %l:%M %p")
   end
 
   def create_params
