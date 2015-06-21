@@ -1,0 +1,56 @@
+$accent-color: #D8D8D8; // white
+
+
+nav form {
+  float: right;
+  margin: 0;
+  position: relative;
+  top: 17px;
+  right: 11px;
+  z-index: 99;
+
+  button {
+    float: right;
+    color: $accent-color;
+  }
+}
+
+.container {
+  width: 300px;
+  margin: 49px auto 0 auto;
+}
+
+.container p:nth-child(odd) {
+  margin-top: 26px;
+
+  span {
+    display: inline-block;
+    position: relative;
+  }
+
+  span:after {
+    content: "";
+    position: absolute;
+    height: 9px;
+    border-bottom: 1px dashed #979797;
+    top: 0;
+    width: 200px;
+    margin-left: 11px;
+  }
+}
+
+.container p:nth-child(1) {
+  margin-top: 0;
+}
+
+.task-details {
+  font-size: 35px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.tbd {
+  @extend .task-details;
+  color: #A6A6A6;
+  margin-top: 10px;
+}

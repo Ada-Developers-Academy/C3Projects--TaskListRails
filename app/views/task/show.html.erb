@@ -1,23 +1,63 @@
-<%= button_to "/edit/#{@task.id}" do %>
-  <p>
-   Edit
- </p>
-<% end %>
+<main>
+  <nav>
+    <p>
+      <%= link_to "< Home", "/" %>
+    </p>
 
-<main class="task_details">
-  <h1>
-    <%= @task.name %>
-  </h1>
+    <p>
+      <%= button_to "/edit/#{@task.id}" do %>
+         Edit
+      <% end %>
+    </p>
+  </nav>
 
-  <p>
-    <%= @task.description %>
-  </p>
+  <header>
+    <div>
+      <h1>
+        <% zero_padded_id = @task.id.to_s %>
+        <% while zero_padded_id.length < 3 %>
+          <% zero_padded_id.insert(0, "0") %>
+        <% end %>
 
-  <p>
-    <% if !@task.completed_at.nil? %>
-      <%= @task.completed_at.strftime("%m.%d.%Y") %>
+        Task #<%= zero_padded_id %>
+      </h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <p>
+      <span>Task Name</span>
+    </p>
+
+    <p class="task-details">
+      <%= @task.name %>
+    </p>
+
+    <p>
+      <span>Description</span>
+    </p>
+
+    <% if @task.description != "" %>
+      <p class="task-details">
+        <%= @task.description %>
+      </p>
+    <% else %>
+      <p class="task-details tbd">
+        N/A
+      </p>
     <% end %>
-  </p>
-  <br><br>
-  <%= link_to "< Home", "/" %>
+
+    <p>
+      <span>Completion Date</span>
+    </p>
+
+    <% if @task.completed_at %>
+    <p class="task-details">
+      <%= @task.completed_at.strftime("%m.%d.%Y") %>
+    <% else %>
+    <p class="tbd">
+      TBD
+    <% end %>
+    </p>
+  </div>
 </main>
