@@ -99,6 +99,11 @@ section {
 .task-status {
   text-align: center;
   flex-basis: 16px;
+  height: 45px;
+
+  button:hover {
+    text-decoration: none;
+  }
 }
 .task-name {
   text-align: left;
@@ -118,4 +123,25 @@ section {
 .edit-task button:focus {
   outline: none;
   box-shadow: none;
+}
+
+.complete-mark {
+  border: 1px solid $body-text;
+  height: 16px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.checked {
+  width: 14px;
+
+  &:after {
+    content: "✓";
+    font-size: 20px;
+    position: relative;
+    top: -10px;
+    left: -6px;
+  }
 }

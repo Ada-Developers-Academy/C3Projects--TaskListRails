@@ -20,7 +20,8 @@
         <li>
           <% if task.completed_at %>
           <div class="task-status">
-            &check;
+            <%= button_to "/update/#{task.id}", class: 'complete-mark checked', data: { confirm: "Are you sure you want to mark this item as incomplete? The completion date will be deleted." } do %>
+            <% end %>
           </div>
           <div class="task-name task-completed">
             <p>
@@ -29,7 +30,10 @@
           </div>
 
           <% else %>
-          <div class="task-status"></div>
+          <div class="task-status">
+            <%= button_to "/update/#{task.id}", class: 'complete-mark', data: { confirm: "Are you sure you want to mark this item as complete?" } do %>
+            <% end %>
+          </div>
           <div class="task-name">
             <p>
               <%= link_to task.name, "/show/#{task.id}" %>
