@@ -1,13 +1,17 @@
 table, td, th {
-  border: 2px solid black;
-  border-collapse: collapse;
-  padding: 5px;
+  padding: 2px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #FFEBCD;
+  background-color: #FFFFCC;
+  text-align: left;
 }
 
-body, legend {
+th {
+  text-decoration: underline;
+  text-align: center;
+}
+
+body, legend, p {
   background-color: #87CEFA;
   margin: 25px;
   padding: 10px;
@@ -19,25 +23,22 @@ label {
   color: #686868;
 }
 
-.button {
-  color: #B22222;
-  background-color: #FAEBD7;
+.button_table {
+  padding: 0;
+  margin: 0;
 }
 
-.IP {
-  color: #FF0000;
-}
-
-.done {
-  color: #32CD32;
+.done, .IP {
+  background-color: #FFFFCC;
 }
 
 a:link {
-  color: #FFD700;
+  color: #5F9EA0;
+  text-decoration: none;
 }
 
 a:visited {
-  color: #696969;
+  color: #666699;
 }
 
 a:hover {

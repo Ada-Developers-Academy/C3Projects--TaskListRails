@@ -1,13 +1,11 @@
 <table>
   <tr>
-    <th>No.</th>
     <th>Name</th>
     <th>Description</th>
-    <th>Status</th>
+    <th>Done?</th>
     <th>Date of Completion</th>
   </tr>
   <tr>
-    <td><%= @task_finder.id %></td>
     <td><%= @task_finder.name %></td>
     <td><%= @task_finder.description %></td>
     <td><% if @task_finder.completed_at == nil %>
@@ -17,7 +15,9 @@
        <% end %>
     <td><%= @task_finder.completed_at %></td>
   </tr>
-</table>
-<%= button_to "Edit", "/tasks/#{@task_finder.id}", method: :get %>
+  </table>
 
-<%= link_to "Back to Home", "/" %>
+<pre>
+  <%= link_to "Edit", "/tasks/#{@task_finder.id}", method: :get %>
+  <%= link_to "Back to Home", "/" %>
+</pre>

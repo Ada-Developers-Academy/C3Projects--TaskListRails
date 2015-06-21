@@ -1,9 +1,8 @@
 <body>
-<h1>To Do List</h1>
+<h1>Just Do It</h1>
 <table>
   <tr>
     <th>Task Name</th>
-    <th>Status</th>
     <th>Completed?</th>
     <th>Delete?</th>
   <tr>
@@ -11,16 +10,17 @@
   <tr>
     <td><%= link_to "#{task.name}", "/show/#{task.id}" %></td>
     <td><% if task.completed_at == nil %>
-      <p class="IP"><%= link_to "IP", "/tasks/comp_status/#{task.id}", method: :get %></p>
+      <%= link_to "\u274F", "/tasks/comp_status/#{task.id}", method: :get, class:"IP" %>
       <% else %>
-      <p class="done"><%= link_to "&#9989", "/tasks/ip_status/#{task.id}", method: :get%></p>
+      <%= link_to "\u2714", "/tasks/ip_status/#{task.id}", method: :get, class:"done"%>
       <% end %>
     </td>
-    <td>stuff</td>
-    <td><%= button_to "X", "/tasks/#{task.id}", method: :delete, data: {confirm: "Are you sure?"}, class:"button" %></td>
+    <td><%= button_to "X", "/tasks/#{task.id}", method: :delete, data: {confirm: "Are you sure?"} %></td>
   </tr>
     <% end %>
 </table>
+
+<p>You can thank me later.</p>
 <p><%= button_to "Add New Task", "/tasks/new" %></p>
 
 </body>
