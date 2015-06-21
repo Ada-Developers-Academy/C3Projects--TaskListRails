@@ -13,12 +13,14 @@ Rails.application.routes.draw do
   get         '/new' => 'task#new'
   post      '/tasks' => 'task#create'
 
-  post '/delete/:id' => 'task#delete'
-  post '/update/:id' => 'task#complete'
-  post   '/edit/:id' => 'task#edit'
-
   get    '/edit/:id' => 'task#edit'
-  patch  '/tasks/:id' => 'task#update'
+  post   '/edit/:id' => 'task#edit'
+  patch  '/tasks/:id' => 'task#update' # why do I need both a post & patch?
+
+  # buttons
+  post '/delete/:id' => 'task#delete'
+  post '/update/:id' => 'task#update_complete'
+
 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

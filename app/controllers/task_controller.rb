@@ -24,7 +24,7 @@ class TaskController < ApplicationController
     redirect_to "/"
   end
 
-  def complete
+  def update_complete
     task = Task.find(params[:id])
     task.completed_at ? task.completed_at = "" : task.completed_at = Time.new
     task.save
