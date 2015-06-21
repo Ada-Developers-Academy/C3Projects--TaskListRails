@@ -62,6 +62,7 @@ class TasksController < ApplicationController
     redirect_to '/'
   end
 
+  # Undo mark complete
   def undo
     task = Task.find(params[:id])
     task.comp_date = nil
