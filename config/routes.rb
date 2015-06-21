@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/tasks/:id/show" => "task#show"
 
   get "/tasks/new" => "task#new"
-  post "/tasks" => "task#create"
+  post "/tasks/new" => "task#create"
 
   patch "/tasks/:id/complete" => "task#complete"
 
