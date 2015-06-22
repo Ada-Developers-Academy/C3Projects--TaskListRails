@@ -1,0 +1,43 @@
+<h3>Incomplete Tasks:</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date Created</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @person.tasks.where(date_completed: nil).each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><%= task.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Completed Tasks:</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date Created</th>
+      <th>Date Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @person.tasks.where.not(date_completed: nil).each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><%= task.created_at %></td>
+        <td><%= task.date_completed %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

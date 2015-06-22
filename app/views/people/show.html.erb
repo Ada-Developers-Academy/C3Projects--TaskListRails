@@ -15,4 +15,6 @@
   </tbody>
 </table>
 
+<%= link_to "See #{@person.name}'s Tasks", "/people/#{@person.id}/tasks", class: "button" %>
+
 <%= link_to "All people", "/people", class: "button" %>
