@@ -18,6 +18,9 @@
     <th>
     Edit Task
     </th>
+    <th>
+    Mark Done
+  </th>  
   </tr>
 
   <tr>
@@ -38,6 +41,9 @@
     </td>
     <td>
       <%= button_to "Update Task", "/modify/#{@task.id}", method: :get %>
+    </td>
+    <td>
+       <%= button_to "Mark Done!", "/tasks/mark_complete/#{@task.id}",  method: :patch, data: { confirm: "Mark this task as Complete?" } %>
     </td>
     </tr>
 </table>
