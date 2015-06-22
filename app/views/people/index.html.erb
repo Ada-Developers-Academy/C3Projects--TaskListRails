@@ -1,0 +1,16 @@
+<h1>Here are all the people</h1>
+
+<table>
+  <tr>
+    <th> Name </th>
+  </tr>
+
+  <% @people.each do |person| %>
+    <div>
+      <tr>
+        <td> <%= link_to person.name, "/people/#{person.id}" %> </td>
+      </tr>
+    </div>
+  <% end %>
+
+</table>
