@@ -2,23 +2,35 @@
   <title>Details: <%= @task.name %></title>
 <% end %>
 
+<h1 class='title'>Details</h1>
+
 <main>
-    <p>
-      <span class='task_name'><%= @task.name %></span>
-      <span class='complete_date'>
-        <% if @task.completed_at %>
-          Completed: <%= @task.completed_at.to_formatted_s(:long) %>
-        <% else %>
-          Not Completed
-        <% end %>
-      </span>
-    </p>
-
+  <p>
     <% if @task.completed_at %>
-      <p class='task_descr'> - <%= @task.description %></p>
+      <%= button_to '✔', @task, method: :put, params: { :complete => 0 }, class: 'checkbox'%>
+    <% else %>
+      <%= button_to ' ', @task, method: :put, params: { :complete => 1 }, class: 'checkbox' %>
     <% end %>
+    <span class='task_name'><%= @task.name %></span>
 
-  <%= link_to 'All Tasks', tasks_path %> |
-  <%= link_to 'Edit', edit_task_path(@task) %> |
-  <%= link_to 'Back', :back %>
+    <span class='complete_date'>
+      <% if @task.completed_at %>
+        Completed: <%= @task.completed_at.to_formatted_s(:long) %>
+      <% else %>
+        Not Completed
+      <% end %>
+    </span>
+  </p>
+
+  <% unless @task.description.blank? %>
+    <p class='task_descr'> - <%= @task.description %></p>
+  <% end %>
+
+  <%= link_to '✎', edit_task_path(@task), class: 'modify_button' %>
+  <%= button_to '✗', @task, class: 'modify_button', method: :delete, data: { confirm: "Are you sure you want to delete \"#{ @task.name }\"?" } %>
 </main>
+
+<% content_for :nav do %>
+  <%= link_to 'All Tasks', tasks_path %> |
+  <%= link_to 'Back', :back %>
+<% end %>
