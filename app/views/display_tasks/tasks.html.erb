@@ -6,6 +6,7 @@
   <tr>
     <th> Name </th>
     <th> Description </th>
+    <th> Assigned to </th>
     <th> Completed? </th>
   </tr>
 
@@ -14,6 +15,7 @@
       <tr>
         <td> <%= link_to "#{task.name}", "/tasks/#{task.id}" %> </td>
         <td> <%= task.description %> </td>
+        <td> <%= Task.find(task.id).person.name %> </td>
         <td class="completed_task"> <%= task.completed_at ? "Yes" : (button_to "Task Completed", "/tasks/#{task.id}") %> </td>
         <td>
           <%= button_to "Edit", "/tasks/#{task.id}/edit", method: "get" %>

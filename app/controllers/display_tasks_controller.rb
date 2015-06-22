@@ -1,7 +1,7 @@
 class DisplayTasksController < ApplicationController
   def index
     @tasks = Task.all
-
+    
     render :tasks
   end
 
