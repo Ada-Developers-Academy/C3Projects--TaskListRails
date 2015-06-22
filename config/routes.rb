@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+
+  # paths to support displaying tasks in forward and backward chronological order
+  # DEFAULT: oldest tasks first (!W make the duplicants into redirects)
   root 'carl_tasks#index'
+  get "/oldest" => "carl_tasks#oldest"
+  get "/forward" => "carl_tasks#forward"
+  # but some people want to go the other way
+  get "/backward" => "carl_tasks#backward"
+  get "/reverse" => "carl_tasks#reverse"
+  get "/newest" => "carl_tasks#newest"
 
   # GETs / regular links
   get "/about" => "carl_tasks#about" # about carl

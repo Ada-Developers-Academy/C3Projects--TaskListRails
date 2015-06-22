@@ -18,6 +18,35 @@ class CarlTasksController < ApplicationController
     redirect_to "/"
   end
 
+  #------------ DISPLAYING TASKS IN REVERSE CHRONOLOGICAL ORDER ----------------
+
+  def newest
+    tasks = Task.all
+    @tasks = []
+
+    tasks.each do |task|
+      @tasks.unshift(task)
+    end
+
+    render :index
+  end
+
+  def reverse
+    redirect_to "/newest"
+  end
+
+  def backward
+    redirect_to "/newest"
+  end
+
+  def oldest
+    redirect_to "/"
+  end
+
+  def forward
+    redirect_to "/"
+  end
+
   #-------------------------- CREATING A NEW TASK ------------------------------
   def create
     @task = Task.new

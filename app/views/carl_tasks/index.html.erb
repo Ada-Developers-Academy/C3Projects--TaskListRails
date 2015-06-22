@@ -2,7 +2,27 @@
 <% heading = headings.sample %>
 
 <% unless @tasks.nil? %>
+  <table>
+    <thead>
+      <tr>
+        <td colspan="4"><h1><%= heading %></h1></td>
+      </tr>
+    </thead>
 
-  <%= render partial: "tasks_list", locals: { heading: heading, tasks: @tasks, reverse: false } %>
+    <% @tasks.each do |task| %>
+      <tr class="tasks">
+        <td class="done"><%= link_to "#{ task.date_complete ? "☑" : "☐" }", "/complete/#{ task.id }", method: :patch, title: "#{ task.date_complete ? "undo" : "DONE!" }", data: { confirm: "#{ task.date_complete ? "Are you sure you want to undo this task's completion? (Task: #{ task.name })" : "Are you sure you want to mark this task complete? (Task: #{ task.name })" }"} %></td>
+        <!-- PROMPT:
+        data: { confirm: "#{ task.date_complete ? "Are you sure you want to undo this task's completion? (#{ task.name })" : "Are you sure you want to mark this task complete? (#{ task.name })" }"}
+        -->
+        <!--
+        Hmm. Note to self (& any viewers?): investigate why in MacOSX Chrome it's not possible to hit space to dismiss the dialog. Yes, the dialog goes away. No, it doesn't provide confirmation. @_@
+        -->
+        <td class="<%= task.date_complete ? 'finished' : 'unfinished' %>"><%= link_to "#{ task.name }", "/show/#{ task.id }", title: "#{ task.name }" %></td>
+        <td class="edit"><%= link_to "✎", "/edit/#{ task.id }", title: "Edit this task!" %></td>
+        <td class="kill"><%= link_to "KILL", "/delete/#{ task.id }", title: "BURNINATE THE COUNTRYSIDE! Delete this task." %></td>
+      </tr>
+    <% end %>
 
+  </table>
 <% end %>
