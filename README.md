@@ -6,7 +6,7 @@ adjustments still needed:
      (instinct says: no. only modern browsers recognize `require` & I think IE (even 10) not at all.)
 * styles organized and better commented.
 * consider displaying tasks reverse chronologically DONE (not yet persistent, link in header/footer for now) or with completed tasks separately.
-   * tabs in table? I'm now thinking another header row in table w/ 2-4 options: forward, reverse, complete last (forward vs reverse).
+   * __NEXT: tabs in table? I'm now thinking another header row in table w/ 2-4 options: forward, reverse, complete last (forward vs reverse).__
       * if come back to this later, maybe historical options. like hide tasks completed over x days ago. set by user?
    * maybe view options?
       * restore old view as one option?
@@ -77,3 +77,23 @@ In this wave we will extend the interactivity with users, allowing them to edit 
   - Link to the `edit` action from the task's `show` page.
   - DRY up your code by reusing the view code from the `new` functionality
     - Research: Rendering _partials_ in Rails.
+
+## Final Wave!
+In this wave, we explore creating ActiveRecord associations by creating `belongs_to` and `has_many` relationships.
+
+- Create a model & migration for a new Person object.
+  - at a minimum, a Person should have a name
+- Create seed data to add at least three Person records to the database.
+- Each Task in your database can be assigned to a Person, indicating that Person is responsible for completing the Task.
+  - Express the relationship between Person and Task using `belongs_to` and `has_many`
+  - Update your Task `index` and `show` actions to include displaying the Person's name to which the Task belongs.
+  - Update your Task's `new` and `edit` actions to allow for selecting an _existing_ Person to which the Task should be associated.
+- Add a new people (the plural of Person) controller with the following routes and actions
+  - `index` action: Show a list of all people in the database.
+    - Link each Person's name to their `show` action.
+    - The index should include a count of how many _uncompleted_ tasks are assigned to each Person.
+  - `show` action: show all of the Person's information
+- Create a custom route and action for showing a complete list of a Person's tasks, both complete and incomplete.
+  - The url of this page should look something like `http://localhost:5000/people/1/tasks`.
+  - Link to this action from a Person's `show` view.
+- Deploy your completed app to Heroku.
