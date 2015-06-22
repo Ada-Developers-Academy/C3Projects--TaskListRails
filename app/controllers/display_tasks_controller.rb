@@ -1,7 +1,7 @@
 class DisplayTasksController < ApplicationController
   def index
     @tasks = Task.all
-    
+
     render :tasks
   end
 
@@ -37,12 +37,14 @@ class DisplayTasksController < ApplicationController
 
   def update
     @task = Task.find(params[:task_id])
-    new_name         = params[:task][:name]
-    new_description  = params[:task][:description]
-    new_completed_at = params[:task][:completed_at]
+    new_name            = params[:task][:name]
+    new_description     = params[:task][:description]
+    new_person_id       = params[:task][:person_id]
+    new_completed_at    = params[:task][:completed_at]
 
     @task.update(name:         new_name,
                  description:  new_description,
+                 person_id:    new_person_id,
                  completed_at: new_completed_at)
 
     render :task
