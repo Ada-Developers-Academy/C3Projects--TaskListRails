@@ -9,7 +9,8 @@
 
     <%= t.label :completed_on %>
     <%= t.date_field :completed_on %>
-  </fieldset>
+
+    <%= t.select :name, [["Victoria", "victoria"], ["Gena", "gena"], ["Natasha", "natasha"]] %>
 
   <%= t.submit 'Add task' %>
 <% end %>

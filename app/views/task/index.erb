@@ -23,7 +23,7 @@
     <td><%= link_to "Delete task", "/delete/#{task[:id]}" %></td>
     <td><%= button_to "check", "/check/#{task[:id]}", :class => "button", :method => :update %></td>
     <td><%= button_to "uncheck", "/uncheck/#{task[:id]}", :class => "button", :method => :update %></td>
-    <td><%= task.person.name%></td>
+    <td><%= task.person.name %></td>
   </tr>
     <% end %>
 </table>
