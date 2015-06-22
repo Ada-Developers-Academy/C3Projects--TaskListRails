@@ -4,7 +4,8 @@
   <table>
 		<tr>
 			<th></th>
-			<th>Name</th>
+			<th>Task</th>
+			<th>Owner</th>
 			<th>Description</th>
 			<th>Completed Date</th>
 		</tr>
@@ -16,6 +17,7 @@
   		  <% end %>
 		  </td>
 			<td class="task_name"><%= @selected_task.name %></td>
+			<td class="task_owner"><%= @selected_task.person.name %></td>
 			<td class="task_description"><%= @selected_task.description %></td>
 			<td class="task_comp_at"><%= @selected_task.completed_at%></td>
 		</tr>

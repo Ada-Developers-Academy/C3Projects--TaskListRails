@@ -26,6 +26,14 @@ thead {
 	color: #fff;
 }
 
+th {
+	padding: 10px 20px;
+}
+
+tbody {
+	padding: 10px;
+}
+
 .name {
 	text-align: left;
 }
@@ -38,18 +46,6 @@ thead {
 .completed {
 	text-decoration: line-through;
 }
-
-/*input[type="submit"] {
-	display: block;
-	color: #fff;
-	text-align: center;
-	margin: 15px auto;
-	border: 1px solid black;
-	border-radius: 10px;
-	width: 125px;
-	background-color: #000;
-	padding: 6px;
-}*/
 
 .button a, input[type="submit"] {
 	font-family: 'Open Sans Condensed', sans-serif;

@@ -5,8 +5,9 @@
   	<thead>
 			<tr>
 				<th></th>
-				<th>Name</th>
+				<th>Task</th>
 				<th></th>
+				<th>Owner</th>
 				<th>Delete?</th>
 			</tr>
 		</thead>
@@ -27,8 +28,8 @@
 							<span class="incomplete"><%= task.name %></span>
 						<% end %>
 					</td>
-
 					<td><%= link_to "Details", "/show/#{task.id}", class: "details_button" %></td>
+					<td><%= task.person.name %></td>
 					<td><%= link_to "X", "/delete/#{task.id}", method: :delete, data: { confirm: "Are you sure you want to delete this task?"}, class: "delete_button" %> </td>
 				</tr>
 			<% end %>
