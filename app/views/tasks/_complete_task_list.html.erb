@@ -1,7 +1,23 @@
-<% @all_tasks.each_with_index do |task, i| %>
-  <%= format_task_for_list(task, i) %>
-  <%= link_to 'Details', "/tasks/#{task.id}", class: "details_link" %>
-  <%= link_to 'Edit', edit_task_path(task) %>
-  <%= button_to 'Delete', "/tasks/#{task.id}", method: :delete, data: { confirm: "Are you sure you want to delete \"#{task.name}\"?" } %>
-  <%= button_to 'Mark Done', "/tasks/complete/#{task.id}", method: :put %>
-<% end %>
+<ol>
+  <% @all_tasks.each_with_index do |task, i| %>
+    <li class='<%=task.completed_at ? "complete" : "incomplete"%>'>
+      <span class="task_name"><%= task.name %></span>
+      <ul>
+        <% if task.completed_at %>
+          <li>
+            <span class='complete_date'>Completed:
+            <%= task.completed_at.to_formatted_s(:long) %>
+            </span>
+          </li>
+        <% end %>
+        <% if task.description %>
+          <li class='task_descr'><%= task.description %></li>
+        <% end %>
+        <li><%= link_to 'Details', "/tasks/#{task.id}", class: "details_link" %></li>
+        <li><%= link_to 'Edit', edit_task_path(task) %></li>
+        <li><%= button_to 'Delete', "/tasks/#{task.id}", method: :delete, data: { confirm: "Are you sure you want to delete \"#{task.name}\"?" } %></li>
+        <li><%= button_to 'Done', "/tasks/complete/#{task.id}", method: :put %></li>
+      </ul>
+    </li>
+  <% end %>
+</ol>
