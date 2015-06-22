@@ -3,6 +3,9 @@
   <thead>
     <tr>
       <th>
+        Id
+      </th>
+      <th>
         Name
       </th>
     </tr>
@@ -10,6 +13,9 @@
   <tbody>
     <% @all_people.each do |person|%>
       <tr>
+        <td>
+          <%= person.id %>
+        </td>
         <td>
           <%= person.name %>
         </td>
