@@ -34,9 +34,9 @@
       </td>
       <td class="<%= @task_css %>">
         <% if task.person_id.present? %>
-        <%= Person.find(task.person_id).name%>
+          <%= Person.find(task.person_id).name%>
         <% else %>
-        <%= "" %>
+          <%= "" %>
         <% end %>
       </td>
       <td class="<%= @task_css %>">

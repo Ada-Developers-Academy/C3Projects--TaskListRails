@@ -1,0 +1,28 @@
+<h1>People List</h1>
+
+<table>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Incomplete Tasks
+    </th>
+  </tr>
+  <tbody>
+    <% @all_people.each do |person| %>
+    <tr>
+      <td>
+        <%= link_to "#{person.name}", "/people/#{person.id}" %>
+      </td>
+      <td>
+        <% if Task.where("person_id = #{person.id}").present? %>
+          <%= Task.where("person_id = #{person.id}").where.not("completed_date NOT NULL ").count %>
+        <% else %>
+          <%= "" %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

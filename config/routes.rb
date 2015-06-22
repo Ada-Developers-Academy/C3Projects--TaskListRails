@@ -19,12 +19,16 @@ Rails.application.routes.draw do
 
   get '/delete_task/:id' => 'tasks#confirm_remove'
   delete '/delete_task/:id' => 'tasks#delete'
+
+  get 'people' => 'people#index'
+  get 'people/:id' => 'people#show'
+  get 'people/:id/tasks' => 'people#tasks'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :tasks
+  resources :tasks, :people
 
   # Example resource route with options:
   #   resources :products do

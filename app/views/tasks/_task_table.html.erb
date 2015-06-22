@@ -35,9 +35,9 @@
       </td>
       <td class="<%= @task_css %>">
         <% if @task.person_id.present? %>
-        <%= Person.find(@task.person_id).name%>
+          <%= Person.find(@task.person_id).name%>
         <% else %>
-        <%= "" %>
+          <%= "" %>
         <% end %>
       </td>
       <% if @task.completed_date.present? %>
