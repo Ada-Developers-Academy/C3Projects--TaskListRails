@@ -3,12 +3,14 @@
 <table>
   <tr>
     <th> Name </th>
+    <th> Uncompleted tasks </th>
   </tr>
 
   <% @people.each do |person| %>
     <div>
       <tr>
         <td> <%= link_to person.name, "/people/#{person.id}" %> </td>
+        <td> <%= person.tasks.where(completed_at: nil).count %> </td>
       </tr>
     </div>
   <% end %>
