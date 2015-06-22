@@ -12,4 +12,8 @@ class Task < ActiveRecord::Base
   def uncomplete
     update(completed_at: nil)
   end
+
+  def owner
+    Person.find(self.person_id).name
+  end
 end
