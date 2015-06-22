@@ -6,7 +6,8 @@ class TasksController < ApplicationController
 
   # Display a specific task
   def show
-    @task = Task.find(params[:id])
+    @task   = Task.find(params[:id])
+    @person = Person.find(params[:id])
     render :tasks
   end
 

@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   # Example of regular route:
   # get  'products/:id'   => 'catalog#view'
 
+  # Display people
+  get     '/people'             => 'people#index'
+
+  # Display person's tasks
+  get     '/people/:id'         => 'people#show'
+
   # Create Tasks
   get     '/tasks/new'          => 'tasks#new'
   post    '/tasks'              => 'tasks#create'
@@ -28,8 +34,7 @@ Rails.application.routes.draw do
   patch   '/tasks/complete/:id' => 'tasks#complete'
   patch   '/tasks/uncheck/:id'  => 'tasks#undo'
 
-  # Display people
-  get     '/tasks/people'       => 'people#index'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

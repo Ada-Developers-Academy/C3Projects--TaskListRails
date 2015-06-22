@@ -1,0 +1,19 @@
+<section class="show_people">
+  <table>
+    <tr>
+      <th>Person</th>
+      <th>Progress</th>
+      <th>Tasks</th>
+    </tr>
+    <tr class="person">
+      <td class="person_name"><%= @person.name %></td>
+      <td class="person_completion"><%= @person.tasks.where(comp_date: nil).count %> out of <%= @person.tasks.count %> tasks complete</td>
+      <td class="person_tasks">
+        <% @person.tasks.each do |task| %>
+          <p><%= task.name %></p>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  <p class="return_home"><%= link_to "return to task list", "/" %></p>
+</section>
