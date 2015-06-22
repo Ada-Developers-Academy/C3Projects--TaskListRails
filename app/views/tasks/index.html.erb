@@ -14,7 +14,7 @@
         <% if task.completed? %>
         	<td class="checkmark"><%= task.completed? %></td>
         <% else %>
-          <td class="link"><%= link_to "mark complete", "tasks/#{task.id}/completed", method: :patch, data: { confirm: "Mark this task complete?" } %></td>
+          <td class="checkmark"><%= link_to "\u2610", "tasks/#{task.id}/completed", method: :patch, data: { confirm: "Mark this task complete?" } %></td>
         <% end %>
         <td class="link"><%= link_to "delete", "tasks/#{task.id}/delete" %></td>
       </tr>
