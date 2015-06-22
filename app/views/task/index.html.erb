@@ -9,13 +9,13 @@
   <% @tasks.to_a.each do |task| %>
   <tr>
     <td><%= link_to "#{task.name}", "/show/#{task.id}" %></td>
-    <td><% if task.completed_at == nil %>
-      <%= link_to "\u274F", "/tasks/comp_status/#{task.id}", method: :get, class:"IP" %>
+    <td class="task_options"><% if task.completed_at == nil %>
+      <%= link_to "\u274F", "/tasks/comp_status/#{task.id}", method: :get %>
       <% else %>
-      <%= link_to "\u2714", "/tasks/ip_status/#{task.id}", method: :get, class:"done"%>
+      <%= link_to "\u2714", "/tasks/ip_status/#{task.id}", method: :get %>
       <% end %>
     </td>
-    <td><%= button_to "X", "/tasks/#{task.id}", method: :delete, data: {confirm: "Are you sure?"} %></td>
+    <td class="task_options"><%= button_to "X", "/tasks/#{task.id}", method: :delete, data: {confirm: "Are you sure?"} %></td>
   </tr>
     <% end %>
   <tr>

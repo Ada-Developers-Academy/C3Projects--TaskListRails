@@ -15,7 +15,7 @@ h1 {
   color: #FFFFFF;
 }
 
-body, legend, p {
+body {
   background-image: url(puppy.jpg);
   background-size: 1600px;
   background-repeat: no-repeat;
@@ -35,13 +35,13 @@ label {
   text-align: center;
 }
 
+.task_options {
+  text-align: center;
+}
+
 .button_table {
   padding: 0;
   margin: 0;
-}
-
-.done, .IP {
-  background-color: #FFFFCC;
 }
 
 a:link {
