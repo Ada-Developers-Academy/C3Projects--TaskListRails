@@ -11,5 +11,9 @@
         <%= f.label :comp_date, 'Date Completed' %>
         <%= f.date_field :comp_date, input_html: { :value => 'f.comp_date' } %>
     </span>
+    <span class="person">
+        <%= f.label :person_id, 'Owner' %>
+        <%= f.collection_select :person_id, Person.all, :id, :name, include_blank: "None" %>
+    </span>
     <%= f.submit submit_button %>
 <% end %>

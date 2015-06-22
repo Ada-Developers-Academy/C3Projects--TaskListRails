@@ -1,7 +1,7 @@
 <section class="home">
   <table>
     <tr>
-      <th colspan="3">Tasks</th>
+      <th colspan="4">Tasks</th>
     </tr>
     <% @tasks.each do |task| %>
     <tr>
@@ -18,6 +18,13 @@
         <% else %>
           <span class="incomplete"><%= link_to "#{task.name}", "tasks/#{task.id}" %></span>
         <% end %>
+      </td>
+      <td class="owner">
+        <% if task.person_id %>
+          <%= task.person.name %>
+        <% else %>
+          <%= "" %>
+        <% end %> 
       </td>
       <td class="delete_update">
         <span class="update_link"><%= link_to "\u270E", "tasks/update/#{task.id}" %></span>
