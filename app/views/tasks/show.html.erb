@@ -23,7 +23,8 @@
   </p>
 
   <p class="task-details">
-    <%= "#{@task.person.first_name} #{@task.person.last_name}" %>
+    <% assignee = @task.person_id == nil ? "" : Person.find(@task.person_id.to_i).first_name %>
+    <%= assignee %>
   </p>
 
   <p>
