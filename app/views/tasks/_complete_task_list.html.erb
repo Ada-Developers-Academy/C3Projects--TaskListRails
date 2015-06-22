@@ -4,16 +4,6 @@
       <%= link_to task.name, task, class: 'task_name' %>
 
       <ul>
-        <% if task.completed_at %>
-          <li>
-            <span class='complete_date'>Completed:
-            <%= task.completed_at.to_formatted_s(:long) %>
-            </span>
-          </li>
-        <% end %>
-        <% if task.description %>
-          <li class='task_descr'><%= task.description %></li>
-        <% end %>
 
         <li><%= link_to 'Edit', edit_task_path(task) %></li>
         <li><%= button_to 'Delete', "/tasks/#{task.id}", method: :delete, data: { confirm: "Are you sure you want to delete \"#{task.name}\"?" } %></li>
