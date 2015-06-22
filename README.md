@@ -1,3 +1,16 @@
+adjustments still needed
+* handle nameless create form error
+   * is requiring the name field enough? (instinct says: no. only modern browsers recognize `require`)
+
+* styles organized and better commented
+* consider displaying tasks reverse chronologically or with completed tasks separately
+   * tabs in table?
+   * maybe view options?
+      * restore old view as one option?
+      * disable individual task views?
+* update portfolio site include this?
+   * blagoblag?
+
 Jeri
 # Task List Rails
 

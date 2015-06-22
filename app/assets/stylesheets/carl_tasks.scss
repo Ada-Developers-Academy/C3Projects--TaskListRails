@@ -123,13 +123,13 @@ form {
   visibility: hidden;
 }
 
-.center-this-stupid-button * {
+.finish-him * {
   display: inline;
   margin: auto;
   text-align: center;
 }
 
-.center-this-stupid-button input {
+.finish-him input {
   background-image:url('/asssets/images/carl.gif');
   background-repeat:no-repeat;
   background: #000;
@@ -139,14 +139,10 @@ form {
 }
 
 
-/* about page styles */
-
 article p {
   font-size: 22px;
   text-align: justify;
 }
-
-/* individual task page styles */
 
 .task h2, .task-options h2 {
   font-family: "Copperplate", "Arial Bold", sans-serif;
