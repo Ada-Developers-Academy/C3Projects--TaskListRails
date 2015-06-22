@@ -2,6 +2,7 @@ class TaskController < ApplicationController
 
   def index
     @tasks = Task.all
+    @people = Person.all
     # update completed column to reflect whether or not there is a completion date.
     @tasks.each do |task|
       if task.date_completed == nil
@@ -28,7 +29,7 @@ class TaskController < ApplicationController
 
   def create
     @task = Task.new(create_params[:task])
-    
+
     @task.save
     redirect_to root_url
   end
@@ -74,8 +75,8 @@ class TaskController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:task_name, :description, :completed, :date_completed])
-    params.permit(person: [:name])
+    params.permit(task: [:task_name, :description, :person_id, :completed, :date_completed])
+
 
   end
 
