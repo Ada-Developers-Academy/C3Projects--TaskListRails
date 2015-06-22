@@ -50,6 +50,7 @@ class CarlTasksController < ApplicationController
   #-------------------------- CREATING A NEW TASK ------------------------------
   def create
     @task = Task.new
+    @people = Person.all.map { |person| [person.name, person.id] }
   end
 
   def created
@@ -128,7 +129,7 @@ class CarlTasksController < ApplicationController
 
   # permit these params nested inside task
   def task_params
-    params.permit(task: [:id, :name, :description, :complete])
+    params.permit(task: [:id, :name, :description, :complete, :person_id])
   end
 
   # permit these params nested inside start_date

@@ -34,6 +34,10 @@ PAUL: Then you started making out with the ice sculptures!
   <%= f.text_area :description, size: "90x8", placeholder: placeholder_description, value: task_description ? task_description : "" %>
 
   <div class="inline">
+    <%= select_tag("task[person_id]", options_for_select(@people), { include_blank: "Select a person" })%>
+  </div>
+
+  <div class="inline">
     <%= f.label :is_this_task_already_complete? %>
     <%= check_box(:task, "complete", { checked: task_complete ? true : false }) %>
 
