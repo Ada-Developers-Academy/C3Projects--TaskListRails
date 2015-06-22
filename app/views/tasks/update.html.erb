@@ -1,24 +1,13 @@
 <section class="form">
-  <fieldset class="add_task">
+  <fieldset class="edit_task">
     <legend>Edit a Task</legend>
-    <%= form_for @task, url: "/tasks/update/#{@task.id}" do |f| %>
-      <span class="name_form">
-      <%= f.label :name, 'Task', :input_html => { :value => 'f.name' } %>
-      <%= f.text_field :name, :required => true %>
-      </span>
-
-      <span class="desc_form">
-      <%= f.label :desc, 'Description', :input_html => { :value => 'f.desc' }  %>
-      <%= f.text_area :desc, :placeholder => 'optional' %>
-      </span>
-
-      <span class="comp_date_form">
-      <%= f.label :comp_date, 'Date of completion', :input_html => { :value => 'f.comp_date' } %>
-      <%= f.date_field :comp_date %>
-      </span>
-
-      <%= f.submit 'update' %>
-    <% end %>
+    <%= render partial: "form", locals: { url: "/tasks/update/#{@task.id}",
+                                          name_value: @task.name,
+                                          name_placeholder: "",
+                                          desc_value: @task.desc,
+                                          desc_placeholder: "",
+                                          comp_date_value: @task.comp_date,
+                                          submit_button: "update task" } %>
   </fieldset>
 </section>
 

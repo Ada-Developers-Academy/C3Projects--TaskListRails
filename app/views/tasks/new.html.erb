@@ -1,25 +1,13 @@
 <section class="form">
-  <%= form_for @task do |f| %>
-    <fieldset class="add_task">
-      <legend>Add a Task</legend>
-      <span class="name_form">
-      <%= f.label :name, 'Task' %>
-      <%= f.text_field :name, :autofocus => true, :required => true %>
-      </span>
-
-      <span class="desc_form">
-      <%= f.label :desc, 'Description' %>
-      <%= f.text_area :desc, :placeholder => 'optional' %>
-      </span>
-
-      <span class="comp_date_form">
-      <%= f.label :comp_date, 'Date of completion' %>
-      <%= f.date_field :comp_date %>
-      </span>
-
-      <%= f.submit 'add task' %>
-    </fieldset>
-  <% end %>
+  <fieldset class="add_task">
+    <legend>Add a Task</legend>
+    <%= render partial: "form", locals: { name_value: "",
+                                          name_placeholder: "required",
+                                          desc_value: "",
+                                          desc_placeholder: "optional",
+                                          comp_date_value: "",
+                                          submit_button: "add task" } %>
+  </fieldset>
 </section>
 
 <p class="return_home"><%= link_to "return to task list", "/" %></p>

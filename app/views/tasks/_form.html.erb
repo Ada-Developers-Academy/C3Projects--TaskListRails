@@ -1,0 +1,18 @@
+<%= form_for @task, url: url do |f| %>
+    <span class="name_form">
+    <%= f.label :name, 'Task' %>
+    <%= f.text_field :name, :required => true, :placeholder => name_placeholder, :value => name_value %>
+    </span>
+
+    <span class="desc_form">
+    <%= f.label :desc, 'Description' %>
+    <%= f.text_area :desc, :placeholder => desc_placeholder, :value => desc_value %>
+    </span>
+
+    <span class="comp_date_form">
+    <%= f.label :comp_date, 'Date of completion' %>
+    <%= f.date_field :comp_date, :value => comp_date_value %>
+    </span>
+
+    <%= f.submit submit_button %>
+<% end %>
