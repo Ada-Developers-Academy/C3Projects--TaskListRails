@@ -5,6 +5,13 @@
   <%= f.label :description, "Description:" %>
   <%= f.text_area :description, :placeholder => @placeholder %>
 
+  <%= f.label :person, "Person:" %>
+  <%= f.select (:person_id) do %>
+    <% Person.all.each do |person| %>
+      <%= content_tag(:option, person.name, value: person.id) %>
+    <% end %>
+  <% end %>
+
   <%= f.label :date_completed, "Date completed:" %>
   <%= f.date_field :date_completed %>
 

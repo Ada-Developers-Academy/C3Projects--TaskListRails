@@ -77,6 +77,6 @@ class TasksController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:name, :description, :date_completed])
+    params.permit(task: [:name, :description, :person_id, :date_completed])
   end
 end
