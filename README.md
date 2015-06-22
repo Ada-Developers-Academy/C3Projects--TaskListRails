@@ -61,6 +61,6 @@ Research: Rendering partials in Rails.
   - rando task/name
   - make buttons prettier
   - add photo/color gradients
-  - figure out how to do line all the way across
+  x figure out how to do line all the way across
   - style form - box & buttons
-  - make dates just show the date/year, no time
+  x make dates just show the date/year, no time

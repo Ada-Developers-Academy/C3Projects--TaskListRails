@@ -8,20 +8,15 @@ class TaskController < ApplicationController
   def show
     # need to get id from the params hash
     @task = Task.find(params[:id])
-    puts params
-    render :show
   end
 
   def new
     @task = Task.new
     @url = "/tasks/new"
-    render :new
   end
 
   def create
-    @task = Task.new(create_params[:task])
-    @task.save
-    # use create here instead
+    @task = Task.create(create_params[:task])
     redirect_to "/"
   end
 
@@ -38,26 +33,19 @@ class TaskController < ApplicationController
     @id = params[:id]
     @task = Task.find(@id)
     @url = "/tasks/:id/edit"
-    puts @id
   end
 
   def update
     @id = params[:task][:id]
-    @name = params[:task][:name]
-    @date = params[:task][:date]
-    @description = params[:task][:description]
     @task = Task.find(@id)
-    @task.name = @name
-    @task.date = @date
-    @task.description = @description
 
-
+    @task.name = create_params[:task][:name]
+    @task.date = create_params[:task][:date]
+    @task.description = create_params[:task][:description]
+    @task.completed = create_params[:task][:completed]
     @task.save
+
     redirect_to "/"
-    #
-    # task.update(name: edited_task[:name],
-    #         description: edited_task[:description],
-    #         completed_at: edited_task[:completed_at]
   end
 
   def delete
