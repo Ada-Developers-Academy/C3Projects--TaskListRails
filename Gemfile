@@ -45,5 +45,9 @@ group :development, :test do
   gem "better_errors" # Users shouldn't be exposed to this.
 
   gem "binding_of_caller"
-  
+
+end
+
+group :production do
+  gem 'pg'
 end
