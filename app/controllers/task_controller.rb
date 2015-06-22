@@ -28,6 +28,7 @@ class TaskController < ApplicationController
 
   def create
     @task = Task.new(create_params[:task])
+    
     @task.save
     redirect_to root_url
   end
@@ -56,7 +57,7 @@ class TaskController < ApplicationController
   end
 
   # For tasks marked as incomplete through the checkbox on the index
-  # page, update completed to false and date_completed to nil. 
+  # page, update completed to false and date_completed to nil.
   def incomplete
     @task = Task.update(params[:id], completed: "false", date_completed: nil)
     @task.save
@@ -74,6 +75,8 @@ class TaskController < ApplicationController
 
   def create_params
     params.permit(task: [:task_name, :description, :completed, :date_completed])
+    params.permit(person: [:name])
+
   end
 
 end

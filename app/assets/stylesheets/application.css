@@ -41,7 +41,7 @@ p{
   padding: 2px 0 0 0;
 }
 
-input, textarea {
+input, textarea, select {
   display: block;
   margin: 10px;
 }

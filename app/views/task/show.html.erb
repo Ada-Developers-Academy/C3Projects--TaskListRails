@@ -2,6 +2,7 @@
 
 <h2>Name: <%= @task.task_name %></h2>
 <h2>Description: <%= @task.description %></h2>
+<h2>Assigned To: <%= @task.person[:name] %></h2>
 <h2>Completed?
   <% if @task.date_completed == nil %>
     <% completed = "No" %>

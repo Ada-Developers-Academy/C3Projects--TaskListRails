@@ -7,6 +7,7 @@
     <tr>
       <th>Task Name</th>
       <th>Completed?</th>
+      <th>Assigned To</th>
     </tr>
 
     <% @tasks.each do |task| %>
@@ -28,6 +29,7 @@
 
         <% end %>
 
+        <td><%= task.person[:name] %></td>
         <td><%= button_to "Show Details", "/tasks/#{task.id}", method: "get" %></td>
         <td><%= button_to "Edit Details", "/tasks/update/#{task.id}", method: "get" %></td>
         <td><%= button_to "Delete this task", "/tasks/#{task.id}", method: "delete", data: { :confirm => "Are you sure you want to delete this task?" } %></td>
