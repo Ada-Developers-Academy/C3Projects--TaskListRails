@@ -9,6 +9,10 @@
   <%= f.label :completed_at %>
   <%= f.date_field :completed_at %>
 
+  <%= f.label :person %>
+  <%=
+    @person.find(:all, :order => "name")
+
   <% if @task.id != nil %>
     <%= f.submit "Update Task", method: "patch" %>
   <% else %>

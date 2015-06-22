@@ -3,7 +3,7 @@ def random_time
 end
 
 people = [
-  {name: "Sally Moore", description: "An awesome person!"},
+  {name: "Sally", description: "An awesome person!"},
   {name: "marleigh!", description: "A Wonderful Person"},
   {name: "Carly", description: "An OK person"}
 ]
