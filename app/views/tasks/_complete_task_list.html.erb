@@ -1,13 +1,7 @@
 <ol>
   <% @all_tasks.each_with_index do |task, i| %>
     <li class='<%=task.completed_at ? "complete" : "incomplete"%>'>
-      <%= form_for task do |f| %>
-        <span class="task_name">
-        <%= f.check_box :completed_at %>
-        <%= f.label :completed_at, task.name %>
-        </span>
-        <%= f.submit 'Complete/Uncomplete' %>
-      <% end %>
+      <span class='task_name'><%= task.name %></span>
 
       <ul>
         <% if task.completed_at %>
