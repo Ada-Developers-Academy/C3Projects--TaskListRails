@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get '/task/:id' => 'task#show'
 
 
+  get '/people' => 'people#index'
+  get '/people/:id' => 'people#show'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
