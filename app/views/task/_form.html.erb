@@ -16,6 +16,11 @@
       <%= f.date_field :complete_by %>
     </div>
 
+    <div class="person_id">
+      <%= f.label :person_id, 'Person' %>
+      <%= f.collection_select :person_id, Person.all, :id, :name, :prompt => true %>
+    </div>
+
     <div class="submit">
       <%= f.submit :class => 'btn' %>
     </div>
