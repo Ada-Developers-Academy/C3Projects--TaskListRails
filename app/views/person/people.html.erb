@@ -1,0 +1,19 @@
+<h1>Team Members</h1>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_people.each do |person|%>
+      <tr>
+        <td>
+          <%= person.name %>
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>

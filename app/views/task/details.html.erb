@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Assigned To</th>
       <th>Completed</th>
       <th>Date Completed</th>
       <th></th>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= @task.name %></td>
         <td><%= @task.description %>
+        <td><%= @task.person %></td>
         <td><%= @task.completed %></td>
         <td>
           <%= @task.completed_at%>

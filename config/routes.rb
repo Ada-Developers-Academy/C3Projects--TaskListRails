@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   post "/name_sort"       => "task#sort_name"
 
   get "/task_:id/edit"    => "task#edit"
-  patch "/task_:id/edit"   => "task#update"
+  patch "/task_:id/edit"  => "task#update"
+
+  get "/people"           => "people#index"
+
 
 
   # Example of regular route:
