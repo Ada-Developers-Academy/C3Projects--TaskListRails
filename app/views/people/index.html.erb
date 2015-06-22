@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th># of uncompleted tasks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_people.each do |person| %>
+    <tr>
+      <td><%= person.name %></td>
+      <td><%= person.tasks.where.not(date_completed: nil).count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
