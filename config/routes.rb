@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   get    '/edit/:id' => 'tasks#edit'
   post   '/edit/:id' => 'tasks#edit'
-  patch  '/tasks/:id' => 'tasks#update' # why do I need both a post & patch?
+  patch '/tasks/:id' => 'tasks#update' # why do I need both a post & patch?
+
+  get      '/people' => 'people#index'
 
   # buttons
   post '/delete/:id' => 'tasks#delete'
