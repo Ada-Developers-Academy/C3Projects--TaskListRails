@@ -11,13 +11,13 @@ def random_time
 end
 
 seed_tasks = [
-  { name: "Breakfast", completed_at: random_time },
-  { name: "Second breakfast"},
+  { name: "Breakfast", description: "", completed_at: random_time },
+  { name: "Second breakfast", description: ""},
   { name: "Elevenses", description: "Comes after 2nd breakfast but before lunch"},
-  { name: "Luncheon", completed_at: random_time},
-  { name: "Afternoon tea"},
+  { name: "Luncheon", description: "", completed_at: random_time},
+  { name: "Afternoon tea", description: ""},
   { name: "Dinner", description: "before supper", completed_at: random_time },
-  { name: "Supper"},
+  { name: "Supper", description: ""},
 ]
 
 seed_tasks.each do |task|
