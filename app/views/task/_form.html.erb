@@ -5,9 +5,10 @@
   <%= f.text_field :name, placeholder: required_place, onfocus: "this.placeholder = ''" %>
 
   <p>
-    <%= f.label :assignee %>
+    <%= f.label :person %>
   </p>
-  <%= f.text_field :assignee, placeholder: optional_place, onfocus: "this.placeholder = ''" %>
+  <%= f.collection_select(:person, Person.all, :id, :first_name) %>
+
 
   <p>
     <%= f.label :description %>
