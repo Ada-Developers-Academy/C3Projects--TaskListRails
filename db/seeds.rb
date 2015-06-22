@@ -22,8 +22,9 @@ tasks = [
   {name: "Call Mom", desc: "she's been calling lots"},
   {name: "She worries, you know.", desc: "worrying sucks"},
   {name: "Nap", desc: "zzzzz", comp_date: random_time},
-  {name: "Have sangria", desc: "red wine"}
-  {name: "Finish building app", desc: "almost there"}
+  {name: "Have sangria", desc: "red wine"},
+  {name: "Finish building app", desc: "almost there"},
+  {name: "Delete this task", desc: "for testing", comp_date: random_time}
 ]
 
 tasks.each do |task|
