@@ -3,10 +3,22 @@
 <% end %>
 
 <main>
-  <%= format_task_for_view(@task) %>
+    <p>
+      <span class='task_name'><%= @task.name %></span>
+      <span class='complete_date'>
+        <% if @task.completed_at %>
+          Completed: <%= @task.completed_at.to_formatted_s(:long) %>
+        <% else %>
+          Not Completed
+        <% end %>
+      </span>
+    </p>
+
+    <% if @task.completed_at %>
+      <p class='task_descr'> - <%= @task.description %></p>
+    <% end %>
 
   <%= link_to 'All Tasks', tasks_path %> |
-  <%= link_to 'Task Details', @task %> |
   <%= link_to 'Edit', edit_task_path(@task) %> |
   <%= link_to 'Back', :back %>
 </main>
