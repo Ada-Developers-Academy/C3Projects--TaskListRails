@@ -1,7 +1,7 @@
 require "time"
 
 class CarlTasksController < ApplicationController
-  #--------------- PARTIALS WITH LITTLE TO NO BUSINESS LOGIC -------------------
+  #----------------- VIEWS WITH LITTLE TO NO BUSINESS LOGIC --------------------
   def about
   end
 
@@ -46,6 +46,18 @@ class CarlTasksController < ApplicationController
   def forward
     redirect_to "/"
   end
+
+  #----------------- DISPLAYING TASKS FOR INDIVIDUAL PEOPLE --------------------
+
+  def people
+    @person = Person.find(params[:id])
+    @tasks = Task.all.where(person_id: params[:id])
+
+    render :index
+  # rescue
+  #   redirect_to "/person_not_found"
+  end
+
 
   #-------------------------- CREATING A NEW TASK ------------------------------
   def create

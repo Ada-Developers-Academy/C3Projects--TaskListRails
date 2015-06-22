@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get "/edit/:id" => "carl_tasks#edit" # edit a specific task
   get "/delete/:id" => "carl_tasks#delete"# delete a specific task
 
+  # GETs for SPECIFIC INDIVIDUAL people
+  get "/people/:id/tasks" => "carl_tasks#people" # review a specific task
+
 
   # GET a new task
   get "/create" => "carl_tasks#create"
