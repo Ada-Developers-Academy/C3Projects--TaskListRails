@@ -1,20 +1,17 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
-    
     render :index
   end
 
   # Display a specific task
   def show
     @task = Task.find(params[:id])
-
     render :tasks
   end
 
   def new
     @task = Task.new
-
     render :new
   end
 
@@ -29,14 +26,12 @@ class TasksController < ApplicationController
   def destroy
     task = Task.find(params[:id])
     task.destroy.save
-
     redirect_to '/'
   end
 
   # Update an existing task
   def edit
     @task = Task.find(params[:id])
-
     render :update
   end
 
@@ -58,7 +53,6 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     task.comp_date = "#{Time.now}"
     task.save
-
     redirect_to '/'
   end
 
@@ -67,7 +61,6 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     task.comp_date = nil
     task.save
-
     redirect_to '/'
   end
 

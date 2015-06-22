@@ -3,16 +3,13 @@
         <%= f.label :name, 'Task' %>
         <%= f.text_field :name, required: true, autofocus: true, value: name_value %>
     </span>
-
     <span class="desc_form">
         <%= f.label :desc, 'Description' %>
         <%= f.text_area :desc, placeholder: desc_placeholder, value: desc_value %>
     </span>
-
     <span class="comp_date_form">
         <%= f.label :comp_date, 'Date Completed' %>
         <%= f.date_field :comp_date, input_html: { :value => 'f.comp_date' } %>
     </span>
-
     <%= f.submit submit_button %>
 <% end %>
