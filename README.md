@@ -1,7 +1,6 @@
-adjustments still needed
+adjustments still needed:
 * handle nameless create form error
    * is requiring the name field enough? (instinct says: no. only modern browsers recognize `require`)
-
 * styles organized and better commented
 * consider displaying tasks reverse chronologically or with completed tasks separately
    * tabs in table?
