@@ -19,12 +19,4 @@ tasks.each do |task|
   Task.create task
 end
 
-people = [
-  {name: "Sally Moore", description: "An awesome person!"},
-  {name: "marleigh!", description: "A Wonderful Person"},
-  {name: "Carly", description: "An OK person"}
-]
 
-people.each do |person|
-  Person.create person
-end

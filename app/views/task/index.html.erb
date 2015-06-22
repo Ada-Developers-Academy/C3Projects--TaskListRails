@@ -3,6 +3,8 @@
 <table>
   <tr>
   <% @tasks.each do |task| %>
+
+    <td><%= task.person[:name] %></td>
     <td><%= task[:name] %></td>
 
     <% if task[:completed_at] == nil %>
@@ -11,12 +13,12 @@
         <% end %>
       </td>
 
-      <% else %>
-        <td><%= link_to("/tasks/incomplete/#{task.id}") do  %>
-          <i class="fa fa-thumbs-o-up"></i>
-          <% end %>
-        </td>
-      <% end %>
+    <% else %>
+      <td><%= link_to("/tasks/incomplete/#{task.id}") do  %>
+        <i class="fa fa-thumbs-o-up"></i>
+        <% end %>
+      </td>
+    <% end %>
 
     <td><%= button_to "Show Details", "/tasks/#{task.id}", method: "get" %></td>
 

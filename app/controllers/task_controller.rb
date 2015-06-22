@@ -2,6 +2,8 @@ class TaskController < ApplicationController
   def index
     @tasks = Task.all
 
+    @people = Person.all
+
     render :index
   end
 
@@ -19,6 +21,9 @@ class TaskController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+
+    @person_id = @task.person_id
+    @name = Person.find(@person_id)
 
     render :show
 
@@ -62,7 +67,7 @@ class TaskController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:name, :description, :completed_at])
+    params.permit(task: [:name, :description, :completed_at, :person_id])
   end
 
 
