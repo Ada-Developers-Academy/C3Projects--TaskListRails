@@ -11,14 +11,18 @@ class UpdateTaskController < ApplicationController
 
   def update
     task_params = create_params[:task]
-    @task = Task.update(params[:id], :name => task_params[:name], :description => task_params[:description], :completed_at => task_params[:completed_at])
+    @task = Task.update(params[:id],
+                        :name => task_params[:name],
+                        :description => task_params[:description],
+                        :completed_at => task_params[:completed_at],
+                        :person_id => task_params[:person_id])
     redirect_to "/show/#{@task.id}"
   end
 
   private
 
   def create_params
-    params.permit( task: [:name, :description, :completed_at])
+    params.permit( task: [:name, :description, :completed_at, :person_id])
   end
 
 end

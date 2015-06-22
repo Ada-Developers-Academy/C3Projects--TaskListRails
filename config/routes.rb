@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # to add a task
   post '/tasks/new' => 'add_task#new'
-  post '/tasks' => 'add_task#create'
+  post '/tasks'     => 'add_task#create'
 
   # to delete a task
   delete '/tasks/delete/:id' => 'delete_task#destroy'
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   patch '/tasks/complete/:id' => 'update_task#completed'
 
   # to edit a task
-  post '/tasks/edit/:id' => 'update_task#edit'
+  post '/tasks/edit/:id'  => 'update_task#edit'
   patch '/tasks/edit/:id' => 'update_task#update'
 
   # post '/:id' => 'display_task#links'

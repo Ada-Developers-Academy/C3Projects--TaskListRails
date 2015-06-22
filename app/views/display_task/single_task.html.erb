@@ -3,18 +3,21 @@
     <th>Task Name</th>
     <th>Description</th>
     <th>Status</th>
-    <th>Completed date</th>
+    <th>Person in Charge</th>
+    <th>Completed Date</th>
   </tr>
 
   <tr>
     <td><%= @task.name %></td>
     <td><%= @task.description %></td>
-    <td><% if @task.completed_at.nil? %>
-          Not yet completed.
-        <% else %>
-          Completed.
-        <% end %>
+    <td>
+      <% if @task.completed_at.nil? %>
+        Not yet completed.
+      <% else %>
+        Completed.
+      <% end %>
     </td>
+    <td> <%= @person ? @person.name : "" %> </td>
     <td> <%= @task.completed_at %></td>
     <td>
       <%= button_to "Edit this task", "/tasks/edit/#{@task.id}", method: :post %>

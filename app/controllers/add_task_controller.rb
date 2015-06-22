@@ -1,6 +1,6 @@
 class AddTaskController < ApplicationController
   def new
-    @task = Task.new(params.permit(:name, :description))
+    @task = Task.new(params.permit(:name, :description, :person_id))
   end
 
   def create
@@ -12,6 +12,6 @@ class AddTaskController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:name, :description])
+    params.permit(task: [:name, :description, :completed_at, :person_id])
   end
 end

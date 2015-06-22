@@ -8,7 +8,10 @@
     <%= f.text_field :description %>
 
     <%= f.label :completed_at %>
-    <%= f.text_field :completed_at %>
+    <%= f.date_field :completed_at %>
+
+    <%= f.label :person_id %>
+    <%= f.collection_select(:person_id, Person.all, :id, :name, prompt: "Select a person") %>
   </fieldset>
   <%= f.submit button_message %>
 <% end %>
