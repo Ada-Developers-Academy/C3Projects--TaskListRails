@@ -1,8 +1,6 @@
 class TaskController < ApplicationController
   def index
     @tasks = Task.all
-    @people = Person.all
-    @person = @people.find(1)
 
     render :index
   end
