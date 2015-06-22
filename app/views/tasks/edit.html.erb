@@ -2,12 +2,14 @@
   <title>Edit: <%= @task.name %></title>
 <% end %>
 
+<h1 class='title'>Edit</h1>
+
 <main>
-  <h1>Edit</h1>
-
   <%= render 'form' %>
-
-  <%= link_to 'All Tasks', tasks_path %> |
-  <%= link_to 'Task Details', @task %> |
-  <%= link_to 'Back', :back %>
 </main>
+
+<% content_for :nav do %>
+    <%= link_to 'All Tasks', tasks_path %> |
+    <%= link_to 'Task Details', @task %> |
+    <%= link_to 'Back', :back %>
+<% end %>
