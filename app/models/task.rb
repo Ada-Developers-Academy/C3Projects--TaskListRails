@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  belongs_to :person
 
   def self.all_completed
     where.not(completed_at: nil)

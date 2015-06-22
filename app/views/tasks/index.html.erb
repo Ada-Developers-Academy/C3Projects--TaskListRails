@@ -8,6 +8,7 @@
         <!-- <span class="<%= task[:completed_at].nil? ? "invisible" : "visible" %>">
           <%= link_to "\u2714", "/tasks/#{task[:id]}", {method: :patch, class: "completed"}%>
         </span> -->
+        <%= "(Recommended by: #{task.person.name})" %>
         <%= task[:completed_at].nil? ?
           (link_to "\u2714", "/#{task[:id]}", {method: :patch, class: "completed"}) :
           (link_to "\u2714", "/#{task[:id]}", {method: :patch, class: "not_completed"}) %>
