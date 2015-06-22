@@ -3,5 +3,5 @@
   <%= @task.errors.messages[:name].first %>
 <% end %>
 
-<%= render "shared/form", locals: {task: @task, url: @form_url} %>
+<%= render "shared/form", locals: {task: @task, url: @form_url, method: @method} %>
 

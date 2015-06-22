@@ -4,11 +4,14 @@
   <%= f.label :name %>
   <%= f.text_area :name %>
 
-  <%= f.label :description, placeholder: "optinal"%>
+  <%= f.label :description, placeholder: "opti0nal"%>
   <%= f.text_area :description %>
 
   <%= f.label :completed, 'Completed'  %>
   <%= f.check_box :completed %>
+  
+  <%= f.hidden_field :date_completed, value: Time.now %>
+    
 
   <%= f.submit %>
 </fieldset>

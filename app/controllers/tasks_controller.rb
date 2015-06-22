@@ -12,7 +12,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @form_url = "/tasks"
-    # redirect_to :root
+    @method = :post
   end
 
   def create
@@ -41,6 +41,15 @@ class TasksController < ApplicationController
     @task.update(task_params)
     render :show
   end
+
+  def completed
+    @task = Task.find(params[:id])
+    @task.date_completed = Time.now
+    @task.completed = true
+    @task.save
+    redirect_to '/'
+  end
+    # @task.update_attributes params[:date_completed]
 
   def task_params
     params.require(:task).permit(:name, :description, :date_completed, :completed)

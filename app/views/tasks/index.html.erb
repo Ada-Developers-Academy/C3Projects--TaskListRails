@@ -1,4 +1,3 @@
-<%= link_to "Create a New Task", "/new" %>
 
 <table>
   <tr>
@@ -11,11 +10,11 @@
   <tr class="<%= t.completed ? 'completed' : 'uncompleted' %>" >
         <td><%= task_num += 1  %></td>
         <td><%= t.name %></td>
-        <td><%= check_box_tag :completed %>
       <% @id = t.id%>
+    <td><%= button_to "Mark task as completed", "/completed/#{@id}", method: :patch %>
     <td><%= button_to "update Task", "/update/#{@id}", method: :get %></td>
-    <td><%= button_to "Go to Task", "/task/#{@id}", method: :get %>
-    <td><%= button_to "Delete Task", "/task/#{@id}/delete", method: :delete, data: { confirm: "Are you sure you want to delete this task"}  %>
+    <td><%= button_to "Go to Task", "/task/#{@id}", method: :get %></td>
+    <td><%= button_to "Delete Task", "/task/#{@id}/delete", method: :delete, data: { confirm: "Are you sure you want to delete this task"}  %></td>
   </tr>
 <% end%>
 

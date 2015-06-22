@@ -10,7 +10,8 @@
 <h3>Completed? </h3> <p><%= @task.completed ? "Yes" : "No" %></p>
 </div>
 <div class="each_task">
-<% unless @task.completed.nil? %>
+<% if @task.completed == true %>
 <h3>Date Completed:</h3> <p> <%= @task.date_completed.month %> - <%= @task.date_completed.day%> -  <%= @task.date_completed.year%></p>
 <% end %>
+<%= button_to "Edit task", "/update/#{@task.id}", method: :get %>
 </div>
