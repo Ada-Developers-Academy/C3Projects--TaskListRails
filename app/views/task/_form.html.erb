@@ -16,18 +16,12 @@
       <%= f.label "completed" %>
       <%= f.check_box(:completed, {}, "Yes", "No") %>
 
+      <%= f.hidden_field :id %>
+      
       <%= f.label "person" %>
-      <!--  -->
+      <!-- drop-down (controller to store, column name to store, collection grabbing from, what's stored in params hash, what's displayed in drop down) -->
       <%= collection_select(:task, :person_id, @all_the_people, :id, :name) %>
 
-      <%= f.hidden_field :id %>
   </fieldset>
       <%= f.submit %>
 <% end %>
-
-<!-- <%= collection_select(:person, :city_id, City.all, :id, :name -->
-<!-- {name: "Belinda", star_sign: "Aries"}, -->
-<!-- {name: "Jammie-Jammie Jam"}, -->
-<!-- {name: "Harry Potter", star_sign: "Pisces"}, -->
-<!-- {name: "Norman Bates"}, -->
-<!-- {name: "Seymour"} -->
