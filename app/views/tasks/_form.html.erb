@@ -10,8 +10,8 @@
     </span>
 
     <span class="comp_date_form">
-    <%= f.label :comp_date, 'Date of completion' %>
-    <%= f.date_field :comp_date, :value => comp_date_value %>
+    <%= f.label :comp_date, 'Date Completed' %>
+    <%= f.date_field :comp_date, :value => @task.comp_date %>
     </span>
 
     <%= f.submit submit_button %>

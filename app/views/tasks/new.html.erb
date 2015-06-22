@@ -1,11 +1,11 @@
 <section class="form">
   <fieldset class="add_task">
     <legend>Add a Task</legend>
-    <%= render partial: "form", locals: { name_value: "",
+    <%= render partial: "form", locals: { url: nil,
+                                          name_value: nil,
                                           name_placeholder: "required",
-                                          desc_value: "",
+                                          desc_value: nil,
                                           desc_placeholder: "optional",
-                                          comp_date_value: "",
                                           submit_button: "add task" } %>
   </fieldset>
 </section>
