@@ -3,23 +3,23 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'task#index'
+  root 'tasks#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  get     'show/:id' => 'task#show'
+  get     'show/:id' => 'tasks#show'
 
-  get         '/new' => 'task#new'
-  post      '/tasks' => 'task#create'
+  get         '/new' => 'tasks#new'
+  post      '/tasks' => 'tasks#create'
 
-  get    '/edit/:id' => 'task#edit'
-  post   '/edit/:id' => 'task#edit'
-  patch  '/tasks/:id' => 'task#update' # why do I need both a post & patch?
+  get    '/edit/:id' => 'tasks#edit'
+  post   '/edit/:id' => 'tasks#edit'
+  patch  '/tasks/:id' => 'tasks#update' # why do I need both a post & patch?
 
   # buttons
-  post '/delete/:id' => 'task#delete'
-  post '/update/:id' => 'task#update_complete'
+  post '/delete/:id' => 'tasks#delete'
+  post '/update/:id' => 'tasks#update_complete'
 
 
 
