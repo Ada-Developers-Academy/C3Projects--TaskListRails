@@ -17,11 +17,13 @@ tasks = [
   {name: "Go to second lunch", desc: "can't stop, won't stop"},
   {name: "Play video games", desc: "beerio kart", comp_date: random_time},
   {name: "High five somebody you don't know", desc: "or don't", comp_date: random_time},
-  {name: "Bake a potato", desc: "don't forget the sour cream!"},
+  {name: "Bake a potato", desc: "sour cream!"},
   {name: "Plant flowers", desc: "peonies", comp_date: random_time},
-  {name: "Call Mom", desc: "she's been calling lots",},
-  {name: "She worries, you know.", desc: "worrying sucks",},
-  {name: "Nap", desc: "zzzzz", comp_date: random_time}
+  {name: "Call Mom", desc: "she's been calling lots"},
+  {name: "She worries, you know.", desc: "worrying sucks"},
+  {name: "Nap", desc: "zzzzz", comp_date: random_time},
+  {name: "Have sangria", desc: "red wine"}
+  {name: "Finish building app", desc: "almost there"}
 ]
 
 tasks.each do |task|
