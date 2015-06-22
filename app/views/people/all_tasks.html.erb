@@ -1,0 +1,21 @@
+<% content_for :head do %>
+  <title><%= "#{@person.name}" %></title>
+<% end %>
+
+<table>
+
+  <tr>
+    <th>Task</th>
+    <th>Task Description</th>
+    <th>Uncompleted Tasks</th>
+    <th>Completed Tasks</th>
+  </tr>
+
+  <tr>
+    <td><%= @person.tasks.name %></td>
+    <td></td>
+    <td><%= @person.tasks.where(completion_status: false).count %>
+    <td><%= @person.tasks.where(completion_status: true).count %></td>
+  </tr>
+
+</table>
