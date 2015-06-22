@@ -2,9 +2,10 @@
   <title>Todo List</title>
 <% end %>
 
+<h1 class='title'>Todo</h1>
+
+<%= link_to '+ Task', new_task_path, class: 'button' %>
+
 <main>
-  <h1>Todo</h1>
-  <%= notice if notice %>
-  <%= link_to '+ Task', '/tasks/new' %>
   <%= render 'complete_task_list' %>
 </main>
