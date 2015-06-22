@@ -26,3 +26,21 @@ tasks = [
 tasks.each do |task|
   Task.create task
 end
+
+people = [
+  { first_name: "Rex", last_name: "Manning" },
+  { first_name: "Corey", last_name: "Mason" },
+  { first_name: "Joe", last_name: "Reaves" },
+  { first_name: "Debra" },
+  { first_name: "Lucas" },
+  { first_name: "A.J." },
+  { first_name: "Jane" },
+  { first_name: "Gina" },
+  { first_name: "Mark" },
+  { first_name: "Berko" },
+  { first_name: "Warren" }
+]
+
+people.each do |person|
+  Person.create person
+end

@@ -5,6 +5,11 @@
   <%= f.text_field :name, placeholder: required_place, onfocus: "this.placeholder = ''" %>
 
   <p>
+    <%= f.label :assignee %>
+  </p>
+  <%= f.text_field :assignee, placeholder: optional_place, onfocus: "this.placeholder = ''" %>
+
+  <p>
     <%= f.label :description %>
   </p>
   <%= f.text_area :description, placeholder: optional_place, onfocus: "this.placeholder = ''" %>

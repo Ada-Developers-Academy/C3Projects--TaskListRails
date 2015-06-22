@@ -39,6 +39,11 @@
           </div>
         <% end %>
 
+        <!-- ASSIGNMENT -->
+        <div class="task-assignee">
+          <p><%= "first_name" %></p>
+        </div>
+
         <!-- DELETE BUTTON -->
         <div class="edit-task">
           <%= button_to "/delete/#{task.id}", data: { confirm: "Are you sure? This task will be gone FOR-EV-ER." } do %>
