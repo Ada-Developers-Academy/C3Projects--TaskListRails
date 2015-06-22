@@ -1,0 +1,55 @@
+<div class="show_people">
+  <h1><%= @person.name.capitalize %>'s Task Details:</h1>
+
+  <table>
+   <thead>
+		<tr>
+			<th>Name</th>
+			<th>Completion Rate</th>
+		</tr>
+	 </thead>
+
+	 <tbody>
+			<tr>
+				<td><%= @person.name %></td>
+				<td><%= @person.tasks.where(completed_at: nil).count %>/<%= @person.tasks.count %></td>
+			</tr>
+	 </tbody>
+
+  </table>
+
+  <table>
+   <thead>
+   	<th>Tasks:</th>
+   	<th></th>
+   	<th></th>
+   	<th></th>
+   </thead>
+
+   <tbody>
+    <% @person.tasks.each do |task| %>
+			<tr>
+			  <td class="check">
+	  		  <% if task.completed_at != nil %>	
+	  		  	<%= link_to "\u2713", "/mark_incomplete/#{task.id}", method: :patch, class: "incomplete_task" %>
+	  		  <% else %>
+	  		  	<%= link_to "\u25A1", "/mark_complete/#{task.id}", method: :patch, class: "completed_task" %>
+	  		  <% end %>
+			  </td>
+			  <td class="name">
+					<% if task.completed_at != nil %>
+						<span class="completed"><%= task.name %></span>
+					<% else %>
+						<span class="incomplete"><%= task.name %></span>
+					<% end %>
+				</td>
+				<td><%= link_to "Details", "/show/#{task.id}", class: "details_button" %></td>
+				<td><%= link_to "X", "/delete/#{task.id}", method: :delete, data: { confirm: "Are you sure you want to delete this task?"}, class: "delete_button" %> </td>
+			</tr>
+		<% end %>
+   </tbody>
+  </table>
+
+  <div class="button"><%= link_to "Return To Task List", "/" %></div>
+
+</div> 

@@ -1,0 +1,25 @@
+<div class="person_list">
+  <h1>Task Owners:</h1>
+
+  <table>
+  	<thead>
+			<tr>
+				<th>Owners</th>
+				<th>Task Completion</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @people.each do |person| %>
+				<tr>
+					<td><%= person.name %></td>
+					<td><%= person.tasks.where(completed_at: nil).count %>/<%= person.tasks.count %></td>
+					<td><%= link_to "Details", "/person/#{person.id}", class: "details_button" %></td>
+				</tr>
+			<% end %>
+		</tbody>
+  </table>
+
+  <div class="button"><%= link_to "Add a New Owner", "/new_owner" %></div>
+  <div class="button"><%= link_to "Return To Task List", "/" %></div>
+</div>
