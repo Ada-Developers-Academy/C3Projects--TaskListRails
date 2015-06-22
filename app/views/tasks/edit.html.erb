@@ -9,7 +9,9 @@
     <%= f.text_area :description, {:value => @task_desc} %>
 
     <%= f.label :completed_at %>
-    <%= f.date_field :completed_at, {:value => @task_completed_at} %>
+    <%= f.date_field :completed_at %>
+    <!-- <%= f.date_field :completed_at, {:value => @task_completed_at} %> -->
+    <!-- DOESN'T SEEM TO BE WORKING -->
   </fieldset>
   <%= f.submit %>
 <% end %>

@@ -55,15 +55,18 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:id])
-    @task.attributes = {
-      name: edit_params[:task][:name],
-      description: edit_params[:task][:description],
-      completed_at: edit_params[:task][:completed_at]
-    }
-    @task.save
+    # raise
+    completed = params[:task][:completed_at] || Task.find(params[:id]).completed_at
+    Task.editing(params[:id], params[:task], completed)
 
-    # (edit_params[:task])
+    ### QUESTION: Why is it, when I use a method from the model it doesn't need #permit?
+    ### But when editing from the controller, you need to permit the params?
+    # @task = Task.find(params[:id])
+    # @task.attributes = {
+    #   name: edit_params[:task][:name],
+    #   description: edit_params[:task][:description]
+    # }
+    # @task.save
 
     redirect_to "/tasks/#{params[:id]}"
   end
@@ -76,7 +79,7 @@ class TasksController < ApplicationController
   end
 
   def destroy_all
-    @all_completed_tasks = Task.completed
+    @all_completed_tasks = Task.all_completed
 
     render :delete_all
   end
@@ -117,8 +120,8 @@ class TasksController < ApplicationController
     params.permit(task: [:name, :description])
   end
 
-  def edit_params
-    params.permit(task: [:name, :description, :completed_at])
-  end
+  # def edit_params
+  #   params.permit(task: [:name, :description, :completed_at])
+  # end
 
 end
