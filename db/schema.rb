@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619204406) do
+ActiveRecord::Schema.define(version: 20150622213016) do
+
+  create_table "people", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "taskname",                       null: false
@@ -19,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150619204406) do
     t.datetime "datecomp"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.string   "comp_status",                    default: "unread"
+    t.string   "comp_status", default: "unread"
   end
 
 end
