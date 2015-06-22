@@ -2,28 +2,112 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-p {
-  margin: 0em;
-}
-
-.completed_task .task_name {
+.complete .task_name {
   text-decoration: line-through;
 }
 
-.completed_task .task_descr {
-  text-decoration: line-through;
+body {
+  background-color: #F5F5F5;
+  font-family: monospace;
+}
+
+main {
+  background-color: white;
+  padding: 2em;
+  width: 400px;
+  margin: auto;
+}
+
+.notice {
+  display: block;
+  text-align: center;
+
+  color: red;
+  background-color: white;
+  font-weight: bold;
+}
+
+.title {
+  text-align: center;
+}
+
+ol {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0;
+}
+
+ol li {
+  padding: .5em 0;
+}
+
+ol li ul {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+ol li ul li {
+  display: inline-block;
+}
+
+nav {
+  display: block;
+  text-align: center;
+}
+
+a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+.button {
+  display: block;
+  text-align: center;
+  margin: 1em;
+}
+
+.button_to {
+  display: inline-block;
 }
 
 .task_name {
-  margin: 0em;
+  display: inline-block;
 }
 
-.details_link {
- font-size: .5em;
- margin-top: 0em;
- margin-left: 2em;
- margin-bottom: 2em;
- display: inline-block;
+.checkbox {
+  display: inline-block;
+  width: 2em;
+  padding: 0;
+  height: 1em;
+  text-align: center;
+}
+
+.modify_button {
+  border: none;
+  background-color: transparent;
+
+  text-align: center;
+  display: inline-block;
+
+  width: 2em;
+
+  margin-left: 1em;
+}
+
+.modify_button:hover {
+  border: none;
+  background-color: gray;
 }
 
 .complete_date {
