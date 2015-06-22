@@ -2,13 +2,15 @@
   <% @all_tasks.each_with_index do |task, i| %>
     <li class='<%=task.completed_at ? "complete" : "incomplete"%>'>
       <%= link_to task.name, task, class: 'task_name' %>
+      <% if task.completed_at %>
+        <%= button_to 'Mark Not Done', task, method: :put, params: { :complete => 0 } %>
+      <% else %>
+        <%= button_to 'Mark Done', task, method: :put, params: { :complete => 1 } %>
+      <% end %>
 
       <ul>
-
         <li><%= link_to 'Edit', edit_task_path(task) %></li>
         <li><%= button_to 'Delete', "/tasks/#{task.id}", method: :delete, data: { confirm: "Are you sure you want to delete \"#{task.name}\"?" } %></li>
-        <li><%= button_to 'Mark Done', task, method: :put, params: { :complete => 1 } %></li>
-        <li><%= button_to 'Mark Not Done', task, method: :put, params: { :complete => 0 } %></li>
       </ul>
     </li>
   <% end %>
