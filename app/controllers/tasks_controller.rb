@@ -15,7 +15,7 @@ class TasksController < ApplicationController
       Task.not_completed(params[:id])
     end
 
-    redirect_to '/'
+    redirect_to "/"
   end
 
   def show
@@ -55,8 +55,17 @@ class TasksController < ApplicationController
   end
 
   def update
-    task_instance_vars
+    @task = Task.find(params[:id])
+    @task.attributes = {
+      name: edit_params[:task][:name],
+      description: edit_params[:task][:description],
+      completed_at: edit_params[:task][:completed_at]
+    }
+    @task.save
 
+    # (edit_params[:task])
+
+    redirect_to "/tasks/#{params[:id]}"
   end
 
   def destroy
@@ -106,6 +115,10 @@ class TasksController < ApplicationController
   def create_params
     # NOTE!!!: Definately look up info on this.
     params.permit(task: [:name, :description])
+  end
+
+  def edit_params
+    params.permit(task: [:name, :description, :completed_at])
   end
 
 end
