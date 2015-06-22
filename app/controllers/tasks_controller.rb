@@ -28,8 +28,7 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
-  def create
-
+  def creates
     @task = Task.new(create_params[:task]) #how to check for nil values?
     @task.save
 
