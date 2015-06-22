@@ -8,6 +8,9 @@
       <th>
         Name
       </th>
+      <th>
+        Tasks Awaiting Action
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +22,12 @@
         <td>
           <a href = <%="assigned_to_#{person.id}"%>><%= person.name %></a>
         </td>
+        <td>
+          <%= person.tasks.count %>
+        </td>
       </tr>
     <%end%>
   </tbody>
 </table>
+
+<p><a href="/"> Return Home</p></a>

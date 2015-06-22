@@ -1,4 +1,4 @@
-<h1>Tasks assigned to <%= @person.id  %></h1>
+<h1>Tasks assigned to user <%= @person.id %> aka <%=@person.name %></h1>
 <table>
   <thead>
     <tr>
@@ -19,3 +19,6 @@
     <% end %>
   </tbody>
 </table>
+
+<p><a href="/people">Return to User List</p></a>
+<p><a href="/"> Return Home</p></a>

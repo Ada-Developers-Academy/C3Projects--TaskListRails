@@ -4,8 +4,8 @@
   <%= f.label :description %>
   <%= f.text_area :description %>
 
-  <%= f.label :person_id %>
-  <%= f.text_field :person_id %>
+  <%= f.label "Assigned to" %>
+  <%= f.collection_select(:person_id, Person.all, :id, :name) %>
 
   <%= f.label :completed_at %>
   <%= f.date_field :completed_at%>
