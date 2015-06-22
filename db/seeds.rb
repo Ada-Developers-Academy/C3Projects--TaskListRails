@@ -10,8 +10,8 @@ def random_time
 end
 
 tasks = [
-  { name: "The First Task", description: "it is the first task", completed_at: random_time, completion_status: true, complete_by: random_time },
-  { name: "Go to Brunch", description: "mimosas and beignets", completion_status: false },
+  { name: "The First Task", description: "it is the first task", completed_at: random_time, completion_status: true, complete_by: random_time, person_id: 1 },
+  { name: "Go to Brunch", description: "mimosas and beignets", completion_status: false, person_id: 3 },
   { name: "Go to Lunch", description: "yummy", completed_at: random_time, completion_status: true },
   { name: "Go to Second Lunch", description: "because food", completion_status: false },
   { name: "Play Video Games", description: "all of them", completed_at: random_time, completion_status: true },
@@ -24,4 +24,14 @@ tasks = [
 
 tasks.each do |task|
   Task.create task
+end
+
+people = [
+  {name: "Lindsey"},
+  {name: "Michelle"},
+  {name: "Kari"}
+]
+
+people.each do |person|
+  Person.create person
 end
