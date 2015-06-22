@@ -1,23 +1,29 @@
 class TaskController < ApplicationController
   # RENAME FOLDER TASKS & change folder/controller associations
+  before_action :find_task, only: [:show, :edit, :update, :complete, :delete]
+  # , only: [:action_names]
 
   def index
     @tasks = Task.all
+    @all_the_people = Person.all
     render :home
   end
 
   def show
     # need to get id from the params hash
     @task = Task.find(params[:id])
+    @all_the_people = Person.all
+
   end
 
   def new
     @task = Task.new
+    @all_the_people = Person.all
     @url = "/tasks/new"
   end
 
   def create
-    @task = Task.create(create_params[:task])
+    @task = Task.create(create_params)
     redirect_to "/"
   end
 
@@ -31,27 +37,21 @@ class TaskController < ApplicationController
   end
 
   def edit
-    @id = params[:id]
-    @task = Task.find(@id)
+    @all_the_people = Person.all
     @url = "/tasks/:id/edit"
   end
 
   def update
-    @id = params[:task][:id]
-    @task = Task.find(@id)
-
-    @task.name = create_params[:task][:name]
-    @task.date = create_params[:task][:date]
-    @task.description = create_params[:task][:description]
-    @task.completed = create_params[:task][:completed]
+    @task.name = create_params[:name]
+    @task.date = create_params[:date]
+    @task.description = create_params[:description]
+    @task.completed = create_params[:completed]
     @task.save
 
     redirect_to "/"
   end
 
   def delete
-    @id = params[:id]
-    @task = Task.find(@id)
     @task.destroy
       redirect_to "/"
   end
@@ -59,8 +59,15 @@ class TaskController < ApplicationController
 private
   # permissable parameters should be in a private method,
   # ie not accessible outside the class TaskController
+  def find_task
+    # DRYing up code
+    id = params[:id]
+    @task = Task.find(id)
+  end
+
+
   def create_params
-    params.permit(task: [:name, :description, :date, :completed])
+    params.permit(task: [:name, :description, :date, :completed, :person_id])[:task]
     # params.require(task: [:name])
   end
 

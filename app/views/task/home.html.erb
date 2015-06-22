@@ -14,6 +14,7 @@
     <th>ID</th>
     <th>Name</th>
     <th>Completed</th>
+    <th> Person Assigned </th>
     <th> Mark as Complete </th>
     <th> Delete </th>
   </tr>
@@ -25,6 +26,10 @@
     <td> <%= link_to "#{task[:name]}", "/tasks/#{task.id}/show" %></td>
     <td> <!-- want a check in this column if task is complete  -->
       <%= task.completed == "Yes" ? "\u2713" : "" %> </td>
+    <td>
+      <!-- person here -->
+    </td>
+
     <!-- Completed -->
     <td> <%= button_to "Complete", "/tasks/#{task.id}/complete", method: "patch",
           data: {:confirm => "Do you want to mark #{task.name} as complete?"} %> </td>

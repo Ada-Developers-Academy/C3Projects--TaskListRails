@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   # PEOPLE Controller -------------------------
 
-  get "people#index"
+  get "people#index" => "people#index"
 
 
   # Example of regular route:

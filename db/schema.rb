@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150622183736) do
     t.string   "description"
     t.datetime "date"
     t.string   "completed"
+    t.integer  "person_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
