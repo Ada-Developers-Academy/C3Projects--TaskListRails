@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <title>Update <%= "#{@task.name}"%></title>
+<% end %>
+
 <h1>Update <%= "#{@task.name}" %>!</h1>
 
 <%= render "form" %>

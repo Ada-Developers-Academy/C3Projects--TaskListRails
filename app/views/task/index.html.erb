@@ -1,3 +1,6 @@
+<% content_for :head do %>
+  <title>To Do List</title>
+<% end %>
 
 <table>
 
@@ -5,21 +8,22 @@
     <th></th>
     <th>Task</th>
     <th></th>
-    <th></th>
   </tr>
 
   <% @tasks.each do |task| %>
     <tr>
       <td>
       <% if task.completion_status == false %>
-        <%= button_to "I did this!", "task/#{task.id}", method: :patch, data: { confirm: "Did you really complete #{task.name}?"} %>
+        <%= button_to "Complete!", "task/#{task.id}", method: :patch, class: "btn", data: { confirm: "Did you really complete #{task.name}?"} %>
+      <% else %>
+        <%= "\u2713" %>
       <% end %>
       </td>
-      <td><%= link_to "#{task.name}", "task/#{task.id}" %></td>
-      <td><%= button_to "delete", "delete/#{task.id}", method: :delete, data: { confirm: "Are you sure?" } %></td>
+      <td class="task_link"><%= link_to "#{task.name}", "task/#{task.id}" %></td>
+      <td><%= button_to "delete", "delete/#{task.id}", method: :delete, class: "btn", data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
 
 </table>
 
-<%= link_to "Add a Task!", "task/new" %>
+<h3 class="link"><%= link_to "Add a New Task!", "task/new" %></h3>
