@@ -12,6 +12,7 @@
         <li><%= link_to '✎', edit_task_path(task), class: 'modify_button' %></li>
         <li><%= button_to '✗', task, class: 'modify_button', method: :delete, data: { confirm: "Are you sure you want to delete \"#{task.name}\"?" } %></li>
       </ul>
+      <p class="owner">Assigned to: <%= task.owner %></p>
     </li>
   <% end %>
 </ol>

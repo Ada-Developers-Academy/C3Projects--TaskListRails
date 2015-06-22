@@ -26,6 +26,8 @@
     <p class='task_descr'> - <%= @task.description %></p>
   <% end %>
 
+  <p class='owner'>Assigned to: <%= @task.owner %></p>
+
   <%= link_to '✎', edit_task_path(@task), class: 'modify_button' %>
   <%= button_to '✗', @task, class: 'modify_button', method: :delete, data: { confirm: "Are you sure you want to delete \"#{ @task.name }\"?" } %>
 </main>
