@@ -2,11 +2,13 @@
   <title>Add New Task</title>
 <% end %>
 
+<h1 class='title'>Add New Task</h1>
+
 <main>
-  <h1>Add New Task</h1>
-
   <%= render 'form' %>
+</main>
 
+<% content_for :nav do %>
   <%= link_to 'All Tasks', tasks_path %> |
   <%= link_to 'Back', :back %>
-</main>
+<% end %>
