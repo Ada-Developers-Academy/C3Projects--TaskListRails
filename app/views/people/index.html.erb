@@ -8,11 +8,9 @@
   <tbody>
     <% @all_people.each do |person| %>
     <tr>
-      <td class="name_link"><%= link_to person.name, "people/#{person.id}" %></td>
+      <td class="link"><%= link_to person.name, "people/#{person.id}" %></td>
       <td><%= person.tasks.where(date_completed: nil).count %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'All tasks', "/", class: "button"  %>

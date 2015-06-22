@@ -9,14 +9,14 @@
   <tbody>
     <% @all_tasks.each do |task| %>
       <tr>
-      	<td class="name_link"><%= link_to task.name, "tasks/#{task.id}" %></td>
-        <td><%= task.person.name %></td>
+      	<td class="link"><%= link_to task.name, "tasks/#{task.id}" %></td>
+        <td class="link"><%= link_to task.person.name, "people/#{task.person_id}" %></td>
         <% if task.completed? %>
         	<td class="checkmark"><%= task.completed? %></td>
         <% else %>
-          <td class="action_link"><%= link_to "mark complete", "tasks/#{task.id}/completed", method: :patch, data: { confirm: "Mark this task complete?" } %></td>
+          <td class="link"><%= link_to "mark complete", "tasks/#{task.id}/completed", method: :patch, data: { confirm: "Mark this task complete?" } %></td>
         <% end %>
-        <td class="action_link"><%= link_to "delete", "tasks/#{task.id}/delete" %></td>
+        <td class="link"><%= link_to "delete", "tasks/#{task.id}/delete" %></td>
       </tr>
     <% end %>
   </tbody>

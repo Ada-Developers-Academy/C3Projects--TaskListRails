@@ -97,6 +97,10 @@ a.button, a.default_button {
   border: $standard-border;
 }
 
+footer {
+  margin: 0 auto;
+}
+
 .default_button {
   font-weight: bold;
 }
@@ -106,6 +110,6 @@ input[type="submit"]:hover, a.default_button:hover {
   color: white;
 }
 
-.action_link:hover, .name_link:hover {
+.link:hover {
   background-color: $contrast-color;
 }
