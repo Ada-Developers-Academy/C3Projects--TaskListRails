@@ -1,15 +1,12 @@
 <h1>TASK LIST</h1>
 
-<div id="add_new_task">
-  <%= button_to "Add new task", "/tasks/new", method: "get" %>
-</div>
+<%= button_to "Add new task", "/tasks/new", method: "get" %>
 
 <table>
   <tr>
     <th> Name </th>
     <th> Description </th>
     <th> Completed? </th>
-    <th> Date Completed </th>
   </tr>
 
   <% @tasks.each do |task| %>
@@ -17,12 +14,7 @@
       <tr>
         <td> <%= link_to "#{task.name}", "/tasks/#{task.id}" %> </td>
         <td> <%= task.description %> </td>
-        <td> <%= task.completed_at ? "Yes" : "No" %> </td>
-        <td> <%= task.completed_at %> </td>
-        <td>
-          <%= task.completed_at ? "" : (button_to "Task Completed", "/tasks/#{task.id}") %>
-
-        </td>
+        <td class="completed_task"> <%= task.completed_at ? "Yes" : (button_to "Task Completed", "/tasks/#{task.id}") %> </td>
         <td>
           <%= button_to "Edit", "/tasks/#{task.id}/edit", method: "get" %>
         </td>
