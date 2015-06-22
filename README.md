@@ -1,4 +1,4 @@
-<!--
+<\!--
 
 adjustments still needed:
 * handle missing name create form error.
@@ -7,6 +7,8 @@ adjustments still needed:
 * styles organized and better commented.
 * consider displaying tasks reverse chronologically DONE (not yet persistent, link in header/footer for now) or with completed tasks separately.
    * __NEXT: tabs in table? I'm now thinking another header row in table w/ 2-4 options: forward, reverse, complete last (forward vs reverse).__
+      * now must also sort by person
+      * but person provides a home for statistics! <3
       * if come back to this later, maybe historical options. like hide tasks completed over x days ago. set by user?
    * maybe view options?
       * restore old view as one option?

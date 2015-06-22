@@ -148,3 +148,10 @@ article p {
   font-family: "Copperplate", "Arial Bold", sans-serif;
   font-size: 28px;
 }
+
+.finished .person, .unfinished .person {
+  color: #000;
+  font-family: "Copperplate", "Arial Bold", sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+}

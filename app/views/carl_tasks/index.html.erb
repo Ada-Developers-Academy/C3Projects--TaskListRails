@@ -18,7 +18,14 @@
         <!--
         Hmm. Note to self (& any viewers?): investigate why in MacOSX Chrome it's not possible to hit space to dismiss the dialog. Yes, the dialog goes away. No, it doesn't provide confirmation. @_@
         -->
-        <td class="<%= task.date_complete ? 'finished' : 'unfinished' %>"><%= link_to "#{ task.name }", "/show/#{ task.id }", title: "#{ task.name }" %></td>
+        <td class="<%= task.date_complete ? 'finished' : 'unfinished' %>">
+          <% if task.person %>
+            <% person_name = task.person.name %>
+            <%= link_to "#{ person_name }", "/people/#{ task.person_id }/tasks", title: "Review #{ person_name }'s tasks.", class: "person" %>
+          <% end %>
+
+          <%= link_to "#{ task.name }", "/show/#{ task.id }", title: "#{ task.name }" %>
+        </td>
         <td class="edit"><%= link_to "✎", "/edit/#{ task.id }", title: "Edit this task!" %></td>
         <td class="kill"><%= link_to "KILL", "/delete/#{ task.id }", title: "BURNINATE THE COUNTRYSIDE! Delete this task." %></td>
       </tr>
