@@ -41,6 +41,7 @@ class TaskController < ApplicationController
     edited_task = params[:task]
 
     task.update(name: edited_task[:name],
+                person: Person.find(edited_task[:person].to_i),
                 description: edited_task[:description],
                 completed_at: edited_task[:completed_at]
     )

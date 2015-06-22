@@ -41,7 +41,10 @@
 
         <!-- ASSIGNMENT -->
         <div class="task-assignee">
-          <p><%= task.person %></p>
+          <p>
+            <% assignee = task.person_id == nil ? "" : Person.find(task.person_id.to_i).first_name %>
+            <%= assignee %>
+          </p>
         </div>
 
         <!-- DELETE BUTTON -->
