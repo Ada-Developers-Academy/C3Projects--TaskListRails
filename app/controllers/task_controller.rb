@@ -48,7 +48,7 @@ class TaskController < ApplicationController
   def mark_complete
     @task = Task.find(params[:id])
     @task.completed_at = Time.now
-    @task.completion_status = "done!"
+    @task.completion_status = true
     @task.save
 
     redirect_to "/"

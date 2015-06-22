@@ -10,16 +10,16 @@ def random_time
 end
 
 tasks = [
-  { name: "The First Task", description: "it is the first task", completed_at: random_time, completion_status: "done!" },
-  { name: "Go to Brunch", description: "mimosas and beignets", completion_status: "not done" },
-  { name: "Go to Lunch", description: "yummy", completed_at: random_time, completion_status: "done!" },
-  { name: "Go to Second Lunch", description: "because food", completion_status: "not done" },
-  { name: "Play Video Games", description: "all of them", completed_at: random_time, completion_status: "done!" },
-  { name: "High Five Somebody You Don't Know", description: "", completed_at: random_time, completion_status: "done!" },
-  { name: "Plant Flowers", description: "sunflowers and daffodils", completed_at: random_time, completion_status: "done!" },
-  { name: "Call Mom", description: "at your sister's", completion_status: "not done" },
-  { name: "She worries, you know.", description: "always", completion_status: "not done" },
-  { name: "Nap.", description: "sweet dreams!", completed_at: random_time, completion_status: "done!" }
+  { name: "The First Task", description: "it is the first task", completed_at: random_time, completion_status: true, complete_by: random_time },
+  { name: "Go to Brunch", description: "mimosas and beignets", completion_status: false },
+  { name: "Go to Lunch", description: "yummy", completed_at: random_time, completion_status: true },
+  { name: "Go to Second Lunch", description: "because food", completion_status: false },
+  { name: "Play Video Games", description: "all of them", completed_at: random_time, completion_status: true },
+  { name: "High Five Somebody You Don't Know", description: "", completed_at: random_time, completion_status: true },
+  { name: "Plant Flowers", description: "sunflowers and daffodils", completed_at: random_time, completion_status: true },
+  { name: "Call Mom", description: "at your sister's", completion_status: false },
+  { name: "She worries, you know.", description: "always", completion_status: false },
+  { name: "Nap.", description: "sweet dreams!", completed_at: random_time, completion_status: true }
 ]
 
 tasks.each do |task|
