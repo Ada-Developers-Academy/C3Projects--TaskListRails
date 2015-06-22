@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  belongs_to :person
+  
   def completed?
   	"\u2713" if date_completed && date_completed <= Time.now
   end
