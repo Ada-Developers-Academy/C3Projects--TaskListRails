@@ -1,1 +1,21 @@
 <h1>Tasks assigned to <%= @person.id  %></h1>
+<table>
+  <thead>
+    <tr>
+      <td>Task Name</td>
+      <td>Task Description</td>
+      <td>Date Completed</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @person.tasks.each do |task| %>
+    <tr>
+      <td><%= task.name %></td>
+      <td><%= task.description %></td>
+      <td><%= task.completed_at %></td>
+      <td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
