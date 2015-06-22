@@ -29,7 +29,7 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
-  def creates
+  def create
     @task = Task.new(create_params[:task]) #how to check for nil values?
     @task.save
 
@@ -67,7 +67,7 @@ class TasksController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:id, :name, :description, :completed_date])
+    params.permit(task: [:id, :name, :description, :completed_date, :person_id])
   end
 
 end
