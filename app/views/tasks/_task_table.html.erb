@@ -34,7 +34,11 @@
         <%= @task.description %>
       </td>
       <td class="<%= @task_css %>">
-        <%= @task.person_id %>
+        <% if @task.person_id.present? %>
+        <%= Person.find(@task.person_id).name%>
+        <% else %>
+        <%= "" %>
+        <% end %>
       </td>
       <% if @task.completed_date.present? %>
         <td class="<%= @task_css %>">Completed</td>

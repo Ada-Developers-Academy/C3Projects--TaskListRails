@@ -33,7 +33,11 @@
         <%= task.name %>
       </td>
       <td class="<%= @task_css %>">
-        <%= task.person_id %>
+        <% if task.person_id.present? %>
+        <%= Person.find(task.person_id).name%>
+        <% else %>
+        <%= "" %>
+        <% end %>
       </td>
       <td class="<%= @task_css %>">
         <%= task.completed_date ? "Completed" : "Incomplete" %>

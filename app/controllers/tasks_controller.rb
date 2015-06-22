@@ -34,6 +34,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @people = Person.all
   end
 
   def create
@@ -64,7 +65,7 @@ class TasksController < ApplicationController
 
 
   def form_params
-    params.permit(task: [:name, :description, :completed_date])
+    params.permit(task: [:name, :description, :person_id, :completed_date])
   end
 
 end
