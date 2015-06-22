@@ -12,7 +12,7 @@ long_description = "here are a lot of words " * 200
 tasks = [
   { name: "a wild TAKE OUT THE TRASH appeared", description: "TAKE OUT THE TRASH uses TONS OF FLIES. it's super effective." },
   { name: "buckle your pants", description: "buckle buckle your pants" },
-  { name: "test a task with a really long description", description: long_description }
+  { name: "test a task with a really long description", description: long_description },
   { name: "blahdeblahdeblahdeblade", description: "yabbadabbajoobiedoobie it's a secret", date_complete: random_time },
   { name: "build a freeze ray", description: "to help take over the world" },
   { name: "roast some yams", description: "for breakfast, lunch, dinner, snack, dessert, supper, midnight snack, fourth meal, etc", date_complete: Date.parse("April 12, 2086") },
@@ -38,4 +38,23 @@ tasks = [
 
 tasks.each do |task|
   Task.create(task)
+end
+
+
+people = [
+  { name: "Carl", summary: "Llama." },
+  { name: "WhatsHisName", summary: "Who is that guy, anyway? I know I've seen him somewhere before." },
+  { name: "Jeri", summary: "Human." }
+]
+
+people.each do |person|
+  Person.create(person)
+end
+
+everyone = Person.all
+all_tasks = Task.all
+
+all_tasks.each do |task|
+  task.person = everyone.sample
+  task.save # thank you Alice! n_n
 end
