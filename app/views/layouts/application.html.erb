@@ -12,5 +12,7 @@
 
     <%= yield %>
 
+    <%= render 'cancel_button' unless @nothing_to_cancel %>
+
   </body>
 </html>

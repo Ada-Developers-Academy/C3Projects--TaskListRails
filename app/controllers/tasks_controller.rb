@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
+
   def index
     @all_tasks     = Task.all
+    @nothing_to_cancel  = true
     
   	@title         = "Task List"
     @subhead       = "Get 'er done"
@@ -10,6 +12,8 @@ class TasksController < ApplicationController
     @task          = Task.find(params[:id])
     @date          = @task.date_completed ? @task.date_completed.strftime("%m-%d-%Y") : nil
     @creation_date = @task.created_at.strftime("%m-%d-%Y")
+    @nothing_to_cancel  = true
+
 
   	@title			   = @task.name
     @headline      = "Voilà, your task"
@@ -44,12 +48,13 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task          = Task.find(params[:id])
-    @date          = @task.date_completed ? @task.date_completed.strftime("%m-%d-%Y") : nil
-    @action        = "update"
-    @method        = "patch"
-    @placeholder   = nil
-    @submit_text   = "update"
+    @task           = Task.find(params[:id])
+    @date           = @task.date_completed ? @task.date_completed.strftime("%m-%d-%Y") : nil
+    @action         = "update"
+    @method         = "patch"
+    @placeholder    = nil
+    @submit_text    = "update"
+    @nothing_to_cancel = true
 
     @title         = "Edit this task:"
   end

@@ -3,15 +3,17 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  resources :tasks
+
   root                               'tasks#index'
   get     'tasks/new'             => 'tasks#new'
+  post    'tasks'                 => 'tasks#create'
+  get     'tasks/:id'             => 'tasks#show'
   get     'tasks/:id/edit'        => 'tasks#edit'
   get     'tasks/:id/delete'      => 'tasks#confirm_delete'
-  get     'tasks/:id'             => 'tasks#show'
-  post    'tasks'                 => 'tasks#create'
-  delete  'tasks/:id'             => 'tasks#destroy'
-  patch   'tasks/:id/completed'   => 'tasks#update_completion'
   patch   'tasks/:id'             => 'tasks#update'
+  patch   'tasks/:id/completed'   => 'tasks#update_completion'
+  delete  'tasks/:id'             => 'tasks#destroy'
 
 
   # Example of regular route:
