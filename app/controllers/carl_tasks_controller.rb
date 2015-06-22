@@ -65,6 +65,7 @@ class CarlTasksController < ApplicationController
   #----------------------------- EDITING A TASK --------------------------------
   def edit
     @task = Task.find(params[:id])
+    @people = Person.all.map { |person| [person.name, person.id] }
 
     render :create
   rescue

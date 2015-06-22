@@ -34,7 +34,11 @@ PAUL: Then you started making out with the ice sculptures!
   <%= f.text_area :description, size: "90x8", placeholder: placeholder_description, value: task_description ? task_description : "" %>
 
   <div class="inline">
-    <%= select_tag("task[person_id]", options_for_select(@people), { include_blank: "Select a person" })%>
+    <% unless @task.person_id %>
+      <%= select_tag("task[person_id]", options_for_select(@people), { include_blank: "Select a person" })%>
+    <% else %>
+      <%= select_tag("task[person_id]", options_for_select(@people, @task.person_id), { include_blank: "Select a person" })%>
+    <% end %>
   </div>
 
   <div class="inline">
