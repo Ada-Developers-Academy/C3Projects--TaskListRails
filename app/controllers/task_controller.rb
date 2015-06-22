@@ -1,4 +1,5 @@
 class TaskController < ApplicationController
+  # RENAME FOLDER TASKS & change folder/controller associations
 
   def index
     @tasks = Task.all

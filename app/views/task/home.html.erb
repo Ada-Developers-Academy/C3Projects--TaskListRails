@@ -3,8 +3,8 @@
 <h2> Directions for Usage</h2>
 
 <ul>
-  <li>Click on the person's name you wish to see more details for.</li>
-  <li>Press the delete button to delete a person's task.</li>
+  <li>Click on the task name you wish to see more details for.</li>
+  <li>Press the delete button to delete the task.</li>
   <li>Click the Create a Task link to make a new item on the list!</li>
 </ul>
 
@@ -27,10 +27,10 @@
       <%= task.completed == "Yes" ? "\u2713" : "" %> </td>
     <!-- Completed -->
     <td> <%= button_to "Complete", "/tasks/#{task.id}/complete", method: "patch",
-          data: {:confirm => "Do you want to mark #{task.description} by #{task.name} as complete?"} %> </td>
+          data: {:confirm => "Do you want to mark #{task.name} as complete?"} %> </td>
     <!-- Delete -->
     <td> <%= button_to "Delete", "/tasks/delete/#{task.id}", method: "delete",
-          data: {:confirm => "Are you sure you want to delete #{task.description} by #{task.name}?"} %>
+          data: {:confirm => "Are you sure you want to delete #{task.name}?"} %>
     </td>
   </tr>
   <% end %>
