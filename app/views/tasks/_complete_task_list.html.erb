@@ -1,7 +1,14 @@
 <ol>
   <% @all_tasks.each_with_index do |task, i| %>
     <li class='<%=task.completed_at ? "complete" : "incomplete"%>'>
-      <span class="task_name"><%= task.name %></span>
+      <%= form_for task do |f| %>
+        <span class="task_name">
+        <%= f.check_box :completed_at %>
+        <%= f.label :completed_at, task.name %>
+        </span>
+        <%= f.submit 'Complete/Uncomplete' %>
+      <% end %>
+
       <ul>
         <% if task.completed_at %>
           <li>
@@ -16,7 +23,8 @@
         <li><%= link_to 'Details', "/tasks/#{task.id}", class: "details_link" %></li>
         <li><%= link_to 'Edit', edit_task_path(task) %></li>
         <li><%= button_to 'Delete', "/tasks/#{task.id}", method: :delete, data: { confirm: "Are you sure you want to delete \"#{task.name}\"?" } %></li>
-        <li><%= button_to 'Done', "/tasks/complete/#{task.id}", method: :put %></li>
+        <li><%= button_to 'Mark Done', task, method: :put, params: { :complete => 1 } %></li>
+        <li><%= button_to 'Mark Not Done', task, method: :put, params: { :complete => 0 } %></li>
       </ul>
     </li>
   <% end %>
