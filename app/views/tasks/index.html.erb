@@ -6,6 +6,9 @@
       Name
     </th>
     <th>
+      Owner
+    </th>
+    <th>
       Status
     </th>
     <th class="center">
@@ -28,6 +31,9 @@
     <tr>
       <td class="<%= @task_css %>">
         <%= task.name %>
+      </td>
+      <td class="<%= @task_css %>">
+        <%= task.person_id %>
       </td>
       <td class="<%= @task_css %>">
         <%= task.completed_date ? "Completed" : "Incomplete" %>
