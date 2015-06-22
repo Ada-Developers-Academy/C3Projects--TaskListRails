@@ -18,3 +18,14 @@ tasks = [
 tasks.each do |task|
   Task.create task
 end
+
+
+people = [
+  { name: "Lila", occupation: "Student", favorite_color: "blue" },
+  { name: "Casey", occupation: "Project Manager", favorite_color: "green" },
+  { name: "Chad", occupation: "FX Artist", favorite_color: "orange" }
+]
+
+people.each do |person|
+  Person.create person
+end

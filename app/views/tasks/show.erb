@@ -11,7 +11,7 @@
 <% elsif @future_date %>
   <h3> You plan on finishing this task on <%= @completed_date %>. Nice planning! </h3>
 <% else %>
-  <h3>Not yet! Get on it, buddy.</h3>
+  <h3>Not yet! Get on it, <%= @task.person.name %>.</h3>
 
 <% end %>
 </section>
