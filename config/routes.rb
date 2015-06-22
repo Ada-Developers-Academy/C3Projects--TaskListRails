@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   # delete single task
   delete '/tasks/:task_id' => 'display_tasks#destroy'
 
+  get '/people' => 'people#index'
 
+  get '/people/:person_id' => 'people#show'
 
 
 
