@@ -5,4 +5,12 @@ class PeopleController < ApplicationController
 
     render :people
   end
+
+  def show
+    @person_id =params[:id]
+    @person = Person.find(@person_id)
+    @title = "Tasks for " + @person_id
+
+    render :assigned_to
+  end
 end

@@ -17,7 +17,7 @@
           <%= person.id %>
         </td>
         <td>
-          <%= person.name %>
+          <a href = <%="assigned_to_#{person.id}"%>><%= person.name %></a>
         </td>
       </tr>
     <%end%>

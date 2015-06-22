@@ -42,7 +42,7 @@ class TaskController < ApplicationController
   end
 
   def create_params
-    params.permit(task: [:name, :description])
+    params.permit(task: [:name, :description, :person_id])
   end
 
   def delete

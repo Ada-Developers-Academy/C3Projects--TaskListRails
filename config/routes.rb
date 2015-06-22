@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   get "/people"           => "people#index"
 
+  get "/assigned_to_:id" => "people#show"
+
 
 
   # Example of regular route:

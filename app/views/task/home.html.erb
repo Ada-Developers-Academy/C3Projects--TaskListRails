@@ -9,7 +9,7 @@
         Name <%= button_to "&#8595".html_safe, "/name_sort"%>
       </th>
       <th>
-        Assigned to
+        <a href="/people">Assigned to</a>
       </th>
       <th>
         Completed? <%= button_to "&#8595".html_safe, "/completed_sort"%>
@@ -27,7 +27,9 @@
         </a>
         </td>
         <td>
-          <%= task.person %>
+          <a href = <%="assigned_to_#{task.person_id}"%>>
+          <%= task.person_id %>
+        </a>
         </td>
         <% if task.completed == "yes" %>
         <td>
