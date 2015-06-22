@@ -18,10 +18,11 @@ seed_tasks = [
   { name: "Afternoon tea", description: "",  person_id: 1},
   { name: "Dinner", description: "before supper", completed_at: random_time, person_id: 1 },
   { name: "Supper", description: "",  person_id: 1},
-  { name: "Enjoy the sun", description: "It's CA, so it's always sunny!",  person_id: 2},
-  { name: "Meditate", description: "I want to be a zen master!",  person_id: 2},
-  { name: "Walk Bentley", description: "I miss that guy :(",  person_id: 2},
-  { name: "Call Ash", description: "She's the best!",  person_id: 2}
+  { name: "Enjoy the sun", description: "It's CA, so it's always sunny!",  person_id: 2 },
+  { name: "Meditate", description: "I want to be a zen master!",  person_id: 2 },
+  { name: "Walk Bentley", description: "I miss that guy :(",  person_id: 2 },
+  { name: "Call Ash", description: "She's the best!",  person_id: 2 },
+  { name: "Go for a walk with Dad", description: "He's the best!", person_id: 3 }
 ]
 
 seed_tasks.each do |task|
@@ -30,7 +31,8 @@ end
 
 seed_people = [
   { name: "Ashley" },
-  { name: "Mike" }
+  { name: "Mike" },
+  { name: "Bentley" }
 ]
 
 seed_people.each do |person|
