@@ -1,0 +1,10 @@
+<<%= top ? "header" : "footer" %>>
+  <nav id="<%= top ? "top" : "bottom" %>">
+    <% unless top %>
+      <a href="#top" title="Jump to the top of the page!">Top</a>
+    <% end %>
+    <a href="/" title="Carl's Taskmaster">Home</a>
+    <a href="/about" title="Learn more about Carl.">About</a>
+    <a href="/create" title="Create a new task!">Create</a>
+  </nav>
+</<%= top ? "header" : "footer" %>>

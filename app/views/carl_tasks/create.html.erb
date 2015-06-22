@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <title>Carl's Taskmaster: <%= @task.name ? "Update #{ @task.name }" : "Create a new task!"%></title>
+<% end %>
+
 <% if @task %>
   <% task_id = @task.id %>
   <% task_name = @task.name %>
@@ -5,10 +9,6 @@
   <% if @task.date_complete %>
     <% task_complete = @task.date_complete.strftime("%A, %B %d, %Y") %>
   <% end %>
-<% end %>
-
-<% if @maybe_error && @maybe_error.length > 0 %>
-  <h1 id="error"><%= @maybe_error %></h1>
 <% end %>
 
 <%= form_for @task, method: task_id ? :patch : :post, url: { action: task_id ? "edited" : "created" }, html: { id: "create_form" } do |f| %>
