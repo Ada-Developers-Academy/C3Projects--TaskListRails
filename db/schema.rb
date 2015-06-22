@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150622183325) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.integer  "person_id"
     t.string   "name"
     t.string   "description"
     t.datetime "completed_at"
