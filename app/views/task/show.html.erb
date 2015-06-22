@@ -3,11 +3,7 @@
   <tr>
     <td><%= @task_finder.name %></td>
     <td><%= @task_finder.description %></td>
-    <td class="task_options"><% if @task_finder.completed_at == nil %>
-       <p>In Process</p>
-      <% else %>
-       <p>&#10004</p>
-       <% end %>
+    <td class="task_options"><%= render partial: "task_status" %>
     <td><%= @task_finder.completed_at %></td>
   </tr>
   </table>
