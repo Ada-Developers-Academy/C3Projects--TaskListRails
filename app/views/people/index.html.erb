@@ -1,0 +1,9 @@
+<ul>
+  <% @all_people.each do |person| %>
+    <li>
+      <%= link_to "#{person[:name]}", "/people/#{person[:id]}" %>
+      <%= person.tasks.count %>
+      <%= link_to "All Tasks for #{person[:name]}", "/people/#{person[:id]}/tasks" %>
+    </li>
+  <% end %>
+</ul>

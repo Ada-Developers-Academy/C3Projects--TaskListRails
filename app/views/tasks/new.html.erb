@@ -8,8 +8,8 @@
     <%= f.label :description %>
     <%= f.text_area :description, {:placeholder => "optional"} %>
 
-    <%= f.label :person_name %>
-    <%= f.text_field :person_name %>
+    <%= f.label :person_id, "Recommended by" %>
+    <%= f.collection_select(:person_id, Person.all, :id, :name) %>
   </fieldset>
   <%= f.submit %>
 <% end %>

@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     # NOTE TO SELF: see 'tasks_controller.rb' for method 'index'
   get '/tasks' => 'tasks#index'
 
+  get '/people/:id/tasks' => 'people#all_tasks'
+  get '/people' => 'people#index'
+  get '/people/index' => 'people#index'
+  get '/people/:id' => 'people#show'
+
   get '/tasks/new' => 'tasks#new'
   post '/tasks' => 'tasks#create'
   patch '/:id' => 'tasks#completed_status'
@@ -20,6 +25,7 @@ Rails.application.routes.draw do
   delete '/tasks/:id' => 'tasks#destroy'
 
   get '/tasks/:id/edit' => 'tasks#edit'
+
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

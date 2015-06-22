@@ -36,12 +36,12 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @person = Person.new
 
     render :new
   end
 
   def create
-    raise
     @task = Task.new(create_params[:task])
     @task.save
 
