@@ -6,6 +6,7 @@
 
   <tr>
     <th>Task</th>
+    <th>Person</th>
     <th>Description</th>
     <th>Completion Status</th>
     <th>Complete By</th>
@@ -15,6 +16,7 @@
 
   <tr>
     <td><%= @task.name %></td>
+    <td><%= @task.person.name %>
     <td><%= @task.description %></td>
     <td>
       <% if @task.completion_status == false %>

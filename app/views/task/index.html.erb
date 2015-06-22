@@ -7,6 +7,7 @@
   <tr>
     <th></th>
     <th>Task</th>
+    <th>Person</th>
     <th></th>
   </tr>
 
@@ -20,6 +21,7 @@
       <% end %>
       </td>
       <td class="task_link"><%= link_to "#{task.name}", "task/#{task.id}" %></td>
+      <td><%= task.person.name %></td>
       <td><%= button_to "delete", "delete/#{task.id}", method: :delete, class: "btn", data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
