@@ -1,6 +1,9 @@
 <div class="each_task">
 <h3>Task:</h3> <p><%= @task.name %></p>
 </div>
+<div class="each_task">
+  <h3>Master of the Task: </h3><%= @person.name%>
+</div>
 <div class="each_task"> 
 <% if !@task.description.nil? && !@task.description.empty? %>
   <h3>Description:</h3> <p> <%= @task.description %></p>

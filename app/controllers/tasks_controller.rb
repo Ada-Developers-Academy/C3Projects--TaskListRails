@@ -7,6 +7,8 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    person_id = @task.person_id
+    @person = Person.find(person_id)
   end
 
   def new
@@ -39,7 +41,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    render :show
+    redirect_to '/task/:id'
   end
 
   def completed
@@ -52,7 +54,7 @@ class TasksController < ApplicationController
     # @task.update_attributes params[:date_completed]
 
   def task_params
-    params.require(:task).permit(:name, :description, :date_completed, :completed)
+    params.require(:task).permit(:name, :description, :date_completed, :completed, :person_id)
   end
 
 end
