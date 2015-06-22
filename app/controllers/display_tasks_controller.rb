@@ -16,7 +16,7 @@ class DisplayTasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(create_params[:task])
+    @task = Task.create(create_params[:task])
     @task.save
 
     redirect_to :tasks
@@ -62,6 +62,6 @@ class DisplayTasksController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:name, :description, :completed_at])
+    params.permit(task: [:name, :description, :person_id, :completed_at])
   end
 end
