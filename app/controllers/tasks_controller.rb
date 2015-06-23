@@ -15,12 +15,14 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @all_people = Person.all
     render :new_task
   end
 
-  # # GET /tasks/:id/edit  tasks#edit return an HTML form for editing a task
-  # def edit # while this is empty, don't need to define
-  # end
+  # GET /tasks/:id/edit  tasks#edit return an HTML form for editing a task
+  def edit
+    @all_people = Person.all
+  end
 
   # POST /tasks
   def create
@@ -58,6 +60,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.permit(task: [:name, :description])[:task]
+      params.permit(task: [:name, :description, :person_id])[:task]
     end
 end
