@@ -20,7 +20,7 @@ h1 {
 }
 
 body {
-  background-image: url(puppy.jpg);
+  background-image: image-url("puppy.jpg");
   background-size: 1600px;
   background-repeat: no-repeat;
   background-position: center;
