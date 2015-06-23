@@ -14,10 +14,10 @@ tasks = [
   {name: "Go to Second Lunch", description: ""},
   {name: "Play Video Games", description: "", completed: "Yes"},
 {name: "High Five Somebody You Don't Know", description: "", completed: "No"},
-  {name: "Plant Flowers", description: "", completed: random_time},
+  {name: "Plant Flowers", description: "", completed: "No"},
 {    name: "Call Mom", description: ""},
   {name: "She worries, you know.", description: ""},
-  {name: "Nap.", description: "", completed: random_time},
+  {name: "Nap.", description: "", completed: "Yes"},
   {name: "Basketball", description: "Play East-West College Bowl", completed: "Yes", date: "06/06/2013"},
   {name: "Play Guitar", description: "Be excellent", completed: "No"},
 ]
