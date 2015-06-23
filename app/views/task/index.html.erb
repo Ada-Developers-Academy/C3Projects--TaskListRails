@@ -34,9 +34,9 @@
 
         <td class= "button_wrapper"><%= link_to "&#10008;".html_safe, "/tasks/#{task.id}", method: :delete, data: { confirm: "Sure you want to delete this book from your reading list?" }, class: "button" %></td>
 
-        <td><%= "#{task.person.inspect}" %></td>
-
-
+        <% unless task.person == nil %>
+          <td><%= task.person.name %></td>
+        <% end %>
 
       </tr>
 

@@ -1,7 +1,7 @@
 class TaskController < ApplicationController
   def index
     @displaytasks = Task.all
-    
+
     render :index
     # This isn't necessary since it's implicit. However
     # we should prefer clarity.
@@ -81,7 +81,7 @@ class TaskController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:taskname, :description, :comp_status, :datecomp])
+    params.permit(task: [:taskname, :description, :comp_status, :datecomp, :person_id])
   end
 
 

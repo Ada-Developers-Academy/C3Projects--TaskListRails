@@ -5,6 +5,7 @@
   <td>Author</td>
   <td>Completion Status</td>
   <td>Completion Date</td>
+  <td>Recommended By</td>
   </tr>
 
   <tr>
@@ -15,6 +16,12 @@
     <!-- Only show the formatted date if one exists.  -->
     <% unless @task.datecomp == nil %>
       <td><%= @task.datecomp.strftime("%m/%d/%Y") %></td>
+    <% else %>
+      <td></td>
+    <% end %>
+
+    <% unless @task.person == nil %>
+      <td><%= @task.person.name %></td>
     <% end %>
   </tr>
 
