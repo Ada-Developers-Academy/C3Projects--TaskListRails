@@ -23,7 +23,10 @@ Rails.application.routes.draw do
   delete 'tasks/:id' => 'tasks#destroy'
 
 
+  # index route for displaying all people in the database
+  get 'people' => 'people#index'
 
+  # show all
 
 
 

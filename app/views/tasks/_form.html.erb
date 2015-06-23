@@ -11,7 +11,7 @@
   <%= f.date_field :completed_date %>
 
   <%= f.label :person_id %>
-  <%= f.select( :person_id, Person.all.map {|person| [ person.name, person.id] }, {include_blank: 'None'}) %>
+  <%= f.select( :person_id, Person.all.map {|person| [person.name, person.id] }, {include_blank: 'None'}) %>
 
   <%= f.submit %>
   </fieldset>

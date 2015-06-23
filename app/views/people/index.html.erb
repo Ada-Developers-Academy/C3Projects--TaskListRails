@@ -1,0 +1,6 @@
+<% @people.each do |person| %>
+  <h3> <%= person.name %> </h3>
+  <h4> <%= person.tasks.count %> tasks remaining. </h4>
+<% end %>
+
+<%= render "/tasks/footer" %>
