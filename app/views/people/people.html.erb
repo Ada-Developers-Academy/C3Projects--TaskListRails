@@ -23,7 +23,7 @@
           <a href = <%="assigned_to_#{person.id}"%>><%= person.name %></a>
         </td>
         <td>
-          <%= person.tasks.count(:completed_at) %>
+          <%= person.tasks.where(completed_at: nil).count %>
         </td>
       </tr>
     <%end%>
