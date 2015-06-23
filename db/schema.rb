@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150622183545) do
     t.string   "name",         null: false
     t.string   "description"
     t.datetime "completed_at"
-    t.string   "person_id"
+    t.integer  "person_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
