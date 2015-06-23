@@ -8,10 +8,10 @@
 
 
 checklist = [
-  {taskname: "Ready Player One", description: "By Ernest Cline, dystopian future with many 80s references", datecomp: nil, comp_status: "unread", person_id: 1},
-  {taskname: "All the Harry Potters	", description: "JK Rowling because reasons! go hogwarts!	", datecomp: nil, comp_status: "unread", person_id: 2 },
+  {taskname: "Ready Player One", description: "By Ernest Cline, dystopian future with many 80s references", datecomp: nil, comp_status: "unread" },
+  {taskname: "All the Harry Potters	", description: "JK Rowling because reasons! go hogwarts!	", datecomp: nil, comp_status: "unread" },
   {taskname: "The Martian	", description: "Mars is rad", datecomp: nil, comp_status: "unread"},
-  {taskname: "The Demolished Man", description: "Alfred Bester", datecomp: nil, comp_status: "unread", person_id: 3 },
+  {taskname: "The Demolished Man", description: "Alfred Bester", datecomp: nil, comp_status: "unread" },
   {taskname: "The fountainhead", description: "Ayn Rand", datecomp: nil, comp_status: "unread"},
   {taskname: "The blind watchman", description: "", datecomp: nil, comp_status: "unread"},
   {taskname: "Infinite Jest", description: "", datecomp: nil, comp_status: "unread"},
@@ -39,6 +39,7 @@ peeps = [
   {name: "Brenna"},
   {name: "Michelle"},
   {name: "Alice"},
+  {name: "Loraine"},
 ]
 peeps.each do |peep|
   Person.create(peep)
