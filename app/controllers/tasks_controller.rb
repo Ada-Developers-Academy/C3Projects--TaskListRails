@@ -4,19 +4,16 @@ class TasksController < ApplicationController
   # GET /tasks
   def index
     @all_tasks = Task.all
-    # render :index
   end
 
   # GET /tasks/:id
   def show
-    render :show_task
   end
 
   # GET /tasks/new
   def new
     @task = Task.new
     @all_people = Person.all
-    render :new_task
   end
 
   # GET /tasks/:id/edit
@@ -29,11 +26,7 @@ class TasksController < ApplicationController
     # TODO: require task name from the user
     @task = Task.new(task_params)
 
-    if @task.save
-      redirect_to tasks_path
-    else
-      render :new_task
-    end
+    redirect_to tasks_path if @task.save
   end
 
   # PATCH/PUT /tasks/:id
