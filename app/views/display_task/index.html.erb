@@ -10,7 +10,7 @@
       <td><%= link_to "#{task.name}", "/show/#{task.id}" %></td>
       <td>
         <% person = task.person_id ? @all_people.find(task.person_id) : nil %>
-        <%= person.name %>
+        <%= person ? person.name : "" %>
       </td>
       <td><% if task.completed_at %>
             Yes!
