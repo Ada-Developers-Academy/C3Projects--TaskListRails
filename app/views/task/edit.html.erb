@@ -2,6 +2,7 @@
   <fieldset>
     <legend>Edit Task</legend>
 
-    <%= render "task_form" %>
+    <%= render "task_form", locals: {task: @task
+    } %>
 
 </fieldset>
