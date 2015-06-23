@@ -55,17 +55,17 @@ In this wave we will extend the interactivity with users, allowing them to edit 
 ## Final Wave!
 In this wave, we explore creating ActiveRecord associations by creating `belongs_to` and `has_many` relationships.
 
-- Create a model & migration for a new Person object.
-  - at a minimum, a Person should have a name
-- Create seed data to add at least three Person records to the database.
-- Each Task in your database can be assigned to a Person, indicating that Person is responsible for completing the Task.
-  - Express the relationship between Person and Task using `belongs_to` and `has_many`
-  - Update your Task `index` and `show` actions to include displaying the Person's name to which the Task belongs.
-  - Update your Task's `new` and `edit` actions to allow for selecting an _existing_ Person to which the Task should be associated.
-- Add a new people (the plural of Person) controller with the following routes and actions
-  - `index` action: Show a list of all people in the database.
-    - Link each Person's name to their `show` action.
-    - The index should include a count of how many _uncompleted_ tasks are assigned to each Person.
+- (DONE) Create a model & migration for a new Person object.
+  - (DONE) at a minimum, a Person should have a name
+- (DONE) Create seed data to add at least three Person records to the database.
+- (DONE) Each Task in your database can be assigned to a Person, indicating that Person is responsible for completing the Task.
+  - (DONE) Express the relationship between Person and Task using `belongs_to` and `has_many`
+  - (DONE) Update your Task `index` and `show` actions to include displaying the Person's name to which the Task belongs.
+  - (DONE) Update your Task's `new` and `edit` actions to allow for selecting an _existing_ Person to which the Task should be associated.
+- (DONE) Add a new people (the plural of Person) controller with the following routes and actions
+  - (DONE) `index` action: Show a list of all people in the database.
+    - (DONE) Link each Person's name to their `show` action.
+    - (DONE) The index should include a count of how many _uncompleted_ tasks are assigned to each Person.
   - `show` action: show all of the Person's information
 - Create a custom route and action for showing a complete list of a Person's tasks, both complete and incomplete.
   - The url of this page should look something like `http://localhost:3000/people/1/tasks`.
