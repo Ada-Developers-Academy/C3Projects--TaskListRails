@@ -17,6 +17,6 @@
     <td> <%= @person.star_sign %> </td>
     <td>  <%= @person.created_at.month %>/<%= @person.created_at.month %>/<%= @person.created_at.year %> </td>
     <td>  <%= @person.updated_at %> </td>
-    <td>  <%= link_to "Edit", "/tasks/#{@person.id}/edit" %> </td>
+    <td>  <%= link_to "Tasks", "/people/#{@person.id}/tasks" %> </td>
   </tr>
 </table>

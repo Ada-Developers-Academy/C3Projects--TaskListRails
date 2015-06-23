@@ -40,6 +40,7 @@ class TaskController < ApplicationController
     @task.date = create_params[:date]
     @task.description = create_params[:description]
     @task.completed = create_params[:completed]
+    @task.person_id = create_params[:person_id]
     @task.save
 
     redirect_to "/"
@@ -56,7 +57,6 @@ private
   # ie not accessible outside the class TaskController
   def find_task
     id = params[:id]
-    puts id
     @task = Task.find(id)
   end
 

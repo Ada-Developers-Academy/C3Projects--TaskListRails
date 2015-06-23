@@ -1,0 +1,8 @@
+<h1> List of tasks from <%= @person.name %> </h1>
+
+<% @their_tasks.each do |task| %>
+<ul>
+  <li> <%= task.name  %>, <%= task.description %> </li>
+</ul>
+
+<% end %>

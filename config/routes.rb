@@ -30,6 +30,10 @@ Rails.application.routes.draw do
 
   get "people/:id/show" => "people#show"
 
+  # link to all tasks from specific person
+
+  get "/people/:id/tasks" => "people#tasks"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

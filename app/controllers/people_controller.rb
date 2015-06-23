@@ -10,6 +10,16 @@ class PeopleController < ApplicationController
     find_person
   end
 
+  def tasks
+    find_person
+    find_tasks
+  end
+
+  def find_tasks
+    tasks = Task.all
+    @their_tasks = tasks.where(person_id: @person.id)
+  end
+
 
   private
     # permissable parameters should be in a private method,
