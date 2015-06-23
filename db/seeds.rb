@@ -29,6 +29,10 @@ checklist = [
   {taskname: "Girl of Fire and Thorns", description: "Rae Carson", datecomp: nil, comp_status: "unread"},
   {taskname: "Freakonomics", description: "Correlation !!= Causation	", datecomp: nil, comp_status: "unread"},
   {taskname: "Gunnerkrigg Court", description: "totally not a book", datecomp: nil, comp_status: "unread"},
+  {taskname: "The Thief of Always", description: "Clive Barker", datecomp: nil, comp_status: "unread"},
+  {taskname: "Ancillary Justice", description: "Ann Leckie", datecomp: nil, comp_status: "unread"},
+  {taskname: "The Stars My Destination", description: "Alfred Bester", datecomp: nil, comp_status: "unread"},
+  {taskname: "Out of Orange", description: "Cleary Wolters", datecomp: nil, comp_status: "unread"},
 
 ]
 checklist.each do |task|
