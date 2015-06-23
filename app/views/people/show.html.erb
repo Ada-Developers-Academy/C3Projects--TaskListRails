@@ -4,13 +4,12 @@
 
 <h1 class='title'><%= @person.name %></h1>
 
-<%= link_to '+ Task', new_task_path, class: 'button' %>
-
 <main>
-  <%= render 'tasks/complete_task_list', { all_tasks: @person.tasks, display_assigned_to: false } %>
+  <%= link_to "#{ @person.name }'s Tasks", person_tasks_path(@person.id), class: 'button' %>
+  <%= link_to '✎', edit_person_path(@person), class: 'modify_button' %>
+  <%= button_to '✗', @person, class: 'modify_button', method: :delete, data: { confirm: "Are you sure you want to delete \"#{ @person.name }\" and all of his/her tasks?" } %>
+
 </main>
 
 <% content_for :nav do %>
-  <%= link_to 'All People', people_path %> |
-  <%= link_to 'Back', :back %>
 <% end %>

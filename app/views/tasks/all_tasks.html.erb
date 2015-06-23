@@ -1,0 +1,12 @@
+<% content_for :head do %>
+  <title>Todo List</title>
+<% end %>
+
+<h1 class='title'>Todo</h1>
+
+<main>
+  <%= render 'complete_task_list', { all_tasks: @all_tasks, display_assigned_to: true } %>
+</main>
+
+<% content_for :nav do %>
+<% end %>

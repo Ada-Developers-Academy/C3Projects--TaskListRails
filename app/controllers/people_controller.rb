@@ -36,6 +36,7 @@ class PeopleController < ApplicationController
   end
 
   def destroy
+    @person.delete_associated_tasks
     @person.destroy
     redirect_to people_path, notice: "\"#{ @person.name }\" was deleted."
   end

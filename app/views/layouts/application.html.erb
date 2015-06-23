@@ -14,6 +14,10 @@
 
   <footer>
     <nav>
+      <%= link_to 'All People', people_path %> |
+      <%= link_to 'All Tasks', tasks_path %> |
+      <%= link_to 'Back', :back %>
+
       <%= yield :nav %>
     </nav>
   </footer>

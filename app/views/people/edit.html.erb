@@ -9,7 +9,5 @@
 </main>
 
 <% content_for :nav do %>
-    <%= link_to 'All People', people_path %> |
-    <%= link_to 'Person Details', @person %> |
-    <%= link_to 'Back', :back %>
+    | <%= link_to 'Person Details', @person %>
 <% end %>

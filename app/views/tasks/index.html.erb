@@ -1,11 +1,14 @@
 <% content_for :head do %>
-  <title>Todo List</title>
+  <title>Todo: <%= @person.name %></title>
 <% end %>
 
-<h1 class='title'>Todo</h1>
+<h1 class='title'><%= @person.name %>'s Todo</h1>
 
-<%= link_to '+ Task', new_task_path, class: 'button' %>
+<%= link_to '+ Task', new_person_task_path(@person.id), class: 'button' %>
 
 <main>
-  <%= render 'complete_task_list', { all_tasks: @all_tasks, display_assigned_to: true } %>
+  <%= render 'tasks/complete_task_list', { all_tasks: @person.tasks, display_assigned_to: false } %>
 </main>
+
+<% content_for :nav do %>
+<% end %>

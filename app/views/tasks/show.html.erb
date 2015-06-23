@@ -6,11 +6,7 @@
 
 <main>
   <p>
-    <% if @task.completed_at %>
-      <%= button_to '✔', @task, method: :put, params: { :complete => 0 }, class: 'checkbox'%>
-    <% else %>
-      <%= button_to ' ', @task, method: :put, params: { :complete => 1 }, class: 'checkbox' %>
-    <% end %>
+    <%= render 'checkbox', { task: @task } %>
     <span class='task_name'><%= @task.name %></span>
 
     <span class='complete_date'>
@@ -26,13 +22,11 @@
     <p class='task_descr'> - <%= @task.description %></p>
   <% end %>
 
-  <p class='owner'>Assigned to: <%= @task.owner %></p>
+  <p class="owner">Assigned to: <%= link_to @task.owner, Person.find(@task.person_id) %></p>
 
   <%= link_to '✎', edit_task_path(@task), class: 'modify_button' %>
   <%= button_to '✗', @task, class: 'modify_button', method: :delete, data: { confirm: "Are you sure you want to delete \"#{ @task.name }\"?" } %>
 </main>
 
 <% content_for :nav do %>
-  <%= link_to 'All Tasks', tasks_path %> |
-  <%= link_to 'Back', :back %>
 <% end %>

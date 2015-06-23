@@ -9,7 +9,5 @@
 </main>
 
 <% content_for :nav do %>
-    <%= link_to 'All Tasks', tasks_path %> |
-    <%= link_to 'Task Details', @task %> |
-    <%= link_to 'Back', :back %>
+    | <%= link_to 'Task Details', @task %>
 <% end %>

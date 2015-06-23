@@ -2,6 +2,10 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :complete, :destroy]
 
   def index
+    @person = Person.find(params[:person_id])
+  end
+
+  def all_tasks
     @all_tasks = Task.all
   end
 
@@ -10,19 +14,23 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @person = Person.find(params[:person_id])
     @all_people = Person.all
   end
 
   def edit
     @all_people = Person.all
+    @person = Person.find(@task.person_id)
   end
 
   def create
     # TODO: require task name from the user
     @task = Task.new(task_params)
+    @task.person_id = task_params[:person_id]
+    person = Person.find(task_params[:person_id])
 
     if @task.save
-      redirect_to tasks_path
+      redirect_to person_tasks_path(person)
     else
       render :new, notice: 'Sorry, something went wrong =('
     end
@@ -31,7 +39,8 @@ class TasksController < ApplicationController
   def update
     if params[:complete]
       @task.change_complete_status(params[:complete])
-      redirect_to tasks_path
+    # TODO: fix -- this is a bit awkward if they delete a task from /tasks
+      redirect_to person_tasks_path(params[:person_id])
     elsif @task.update(task_params)
       redirect_to @task
     else
@@ -41,7 +50,9 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: "\"#{@task.name}\" was deleted."
+    person_id = @task.person.id
+    # TODO: fix -- this is a bit awkward if they delete a task from /tasks
+    redirect_to person_tasks_path(person_id), notice: "\"#{@task.name}\" was deleted."
   end
 
   private

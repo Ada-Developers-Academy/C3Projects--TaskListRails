@@ -5,7 +5,7 @@
 
       <ul>
         <li><%= link_to '✎', edit_person_path(person), class: 'modify_button' %></li>
-        <li><%= button_to '✗', person, class: 'modify_button', method: :delete, data: { confirm: "Are you sure you want to delete \"#{ person.name }\"?" } %></li>
+        <li><%= button_to '✗', person, class: 'modify_button', method: :delete, data: { confirm: "Are you sure you want to delete \"#{ person.name }\" and all of his/her tasks?" } %></li>
       </ul>
     </li>
   <% end %>
