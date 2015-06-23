@@ -1,6 +1,6 @@
 <%= render partial: "tasks/header", locals: { link_name: "< Home",
                                         link_path: "/",
-                                        title: "Peeps",
+                                        title: "People",
                                         kicker: false,
                                         edit_button: false } %>
 
@@ -9,7 +9,7 @@
     <% @people.each do |person| %>
     <li>
       <p>
-        <%= "#{person.first_name} #{person.last_name}" %>
+        <%= link_to "#{person.first_name} #{person.last_name}", "people/show/#{person.id}" %>
       </p>
     </li>
     <% end %>

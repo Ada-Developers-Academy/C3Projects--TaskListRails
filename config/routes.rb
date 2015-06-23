@@ -8,20 +8,22 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  get     'show/:id' => 'tasks#show'
+  get         'show/:id' => 'tasks#show'
 
-  get         '/new' => 'tasks#new'
-  post      '/tasks' => 'tasks#create'
+  get             '/new' => 'tasks#new'
+  post          '/tasks' => 'tasks#create'
 
-  get    '/edit/:id' => 'tasks#edit'
-  post   '/edit/:id' => 'tasks#edit'
-  patch '/tasks/:id' => 'tasks#update' # why do I need both a post & patch?
+  get        '/edit/:id' => 'tasks#edit'
+  post       '/edit/:id' => 'tasks#edit'
+  patch     '/tasks/:id' => 'tasks#update' # why do I need both a post & patch?
 
-  get      '/people' => 'people#index'
+  get          '/people' => 'people#index'
+
+  get '/people/show/:id' => 'people#show'
 
   # buttons
-  post '/delete/:id' => 'tasks#delete'
-  post '/update/:id' => 'tasks#update_complete'
+  post     '/delete/:id' => 'tasks#delete'
+  post     '/update/:id' => 'tasks#update_complete'
 
 
 

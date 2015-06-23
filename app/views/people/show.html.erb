@@ -1,0 +1,20 @@
+<% zero_padded_id = @person.id.to_s %>
+<% while zero_padded_id.length < 3 %>
+  <% zero_padded_id.insert(0, "0") %>
+<% end %>
+
+<%= render partial: "/tasks/header", locals: { link_name: "< Home",
+                                        link_path: "/",
+                                        title: "#{@person.first_name}",
+                                        kicker: false,
+                                        edit_button: false } %>
+
+<div class="container">
+  <p>
+    <span>Name</span>
+  </p>
+
+  <p class="task-details">
+    <%= "#{@person.first_name} #{@person.last_name}" %>
+  </p>
+</div>

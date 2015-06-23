@@ -2,7 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$primary-color: #D8D8D8; // med gray
+$secondary-color: #979797; // dk gray
+$accent-color: #D8D8D8; // white
+$body-text: #4A4A4A; // black
+
 .people {
-  @extend .tasks !optional;
-  text-align: center;
+  margin: 22px auto 0 auto;
+  width: 412px / 460px * 100%;
+
+  li {
+    height: 24px;
+    padding: 17px 0 21px 0;
+    border-bottom: 1px dashed $secondary-color;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+  &:hover {
+    border-bottom: 1px solid $secondary-color;
+  }
+
+    p {
+      margin: 0 auto;
+    }
+  }
 }
