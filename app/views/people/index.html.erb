@@ -4,9 +4,14 @@
 
 <ul>
   <li>
+    <%= person.id %>:
     <%= link_to "#{person.name}", "/people/#{person.id}/show"%>,
-    <%= @tasks.where(person_id: person.id).count %>
+    Assigned Tasks: <%= @tasks.where(person_id: person.id).count %>,
+
+    <% total_tasks = @tasks.where(person_id: person.id) %>
+    <% incomplete = total_tasks.where(completed: "Yes").count %>
+
+    Incomplete Tasks: <%= incomplete %>
   </li>
 </ul>
-
 <% end %>
