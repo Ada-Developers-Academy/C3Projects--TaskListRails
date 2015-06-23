@@ -17,7 +17,7 @@
         </p><p>
           <% end %>
           <div class="wrap">
-            <%= link_to "#{ person[:name] }", "/people/#{ person[:id] }", title: "Review #{ person[:name] }'s tasks." %> -- <span class="number"><%= person[:count] %></span>
+            <%= link_to "#{ person[:name] }", "/people/#{ person[:id] }/tasks", title: "Review #{ person[:name] }'s tasks." %> -- <span class="number"><%= person[:count] %></span>
           </div>
         <% end %>
       </td>
@@ -35,7 +35,7 @@
         <td class="<%= task.date_complete ? 'finished' : 'unfinished' %>">
           <% if task.person %>
             <% person_name = task.person.name %>
-            <%= link_to "#{ person_name }", "/people/#{ task.person_id }/tasks", title: "Review #{ person_name }'s tasks.", class: "person" %>
+            <%= link_to "#{ person_name }", "/people/#{ task.person_id }", title: "Review #{ person_name }'s tasks.", class: "person" %>
           <% end %>
 
           <%= link_to "#{ task.name }", "/show/#{ task.id }", title: "#{ task.name }" %>
