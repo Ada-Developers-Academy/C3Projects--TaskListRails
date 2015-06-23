@@ -9,5 +9,11 @@
     <%= f.text_field :description %>
   </div>
 
+  <div>
+  <%= collection_select( :task, :person_id, @all_people, :id, :name, { prompt: '< Assign Task >' } ) %>
+    <%# alternative option: #%>
+    <%# collection_select( :task, :person_id, @all_people, :id, :name, { :selected => 3 } ) %>
+  </div>
+
   <%= f.submit %>
 <% end %>
