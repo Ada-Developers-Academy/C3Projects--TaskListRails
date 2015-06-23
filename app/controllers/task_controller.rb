@@ -2,7 +2,6 @@ class TaskController < ApplicationController
 
   def index
     @tasks = Task.all_tasks
-    @person = Person.all
     render :index
   end
 
@@ -57,6 +56,6 @@ class TaskController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:name, :description, :completed_at])
+    params.permit(task: [:name, :description, :completed_at, :person_id])
   end
 end

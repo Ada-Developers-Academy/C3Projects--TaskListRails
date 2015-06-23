@@ -9,5 +9,8 @@
   <%= f.label :completed_at %>
   <%= f.date_field :completed_at %>
 
+  <%= f.label :assign_to %>
+  <%= f.collection_select :person_id, Person.all, :id, :name %>
+
   <%= f.submit 'Save' %>
 <% end %>

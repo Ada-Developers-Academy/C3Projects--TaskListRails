@@ -1,7 +1,7 @@
 class PersonController < ApplicationController
   def index
     @person = Person.all
-    @tasks = Task.group(:person_id)
+    @tasks = Task.all
     render :index
   end
 

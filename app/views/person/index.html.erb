@@ -1,3 +1,4 @@
+<h1>Task Masters</h1>
 <table>
   <tr>
     <th>Name</th>
@@ -6,12 +7,7 @@
   <% @person.to_a.each do |person| %>
   <tr>
     <td><%= link_to "#{person.name}", "/people/show/#{person.id}" %></td>
-    <td><%= @tasks.name %></td>
-    <!-- <% if @tasks.include?(person_id: 1) %> -->
-    <!-- <td> -->
-      <!-- <%= @tasks %> -->
-    <!-- </td> -->
-    <!-- <% end %> -->
+    <td><%= @tasks.where(person_id: person.id) %></td>
   </tr>
   <% end %>
   <tr>
