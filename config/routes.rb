@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   post '/tasks/edit/:id'  => 'update_task#edit'
   patch '/tasks/edit/:id' => 'update_task#update'
 
+  # to go to a person
+  get '/people/:id'       => 'people#show'
+  get '/people/:id/tasks' => 'people#show_tasks'
+
   # post '/:id' => 'display_task#links'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

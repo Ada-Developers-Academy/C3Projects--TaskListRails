@@ -23,6 +23,21 @@
   <% end %>
 </table>
 
+<table class="table_data">
+  <tr="table_headers">
+    <th>Person</th>
+    <th>Number of Uncompleted Tasks</th>
+  </tr>
+
+  <% @all_people.each_with_index do |person, index| %>
+    <tr>
+      <td>
+        <%= link_to "#{person.name}", "/people/#{person.id}", method: :get %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
 <div class="add_task_button">
   <%= button_to "Add a new task!", "/tasks/new" %>
 </div>
