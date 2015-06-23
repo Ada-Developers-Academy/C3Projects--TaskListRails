@@ -38,6 +38,17 @@ class TasksController < ApplicationController
     redirect_to '/'
   end
 
+  def toggle_completion
+    task = Task.find(params[:id])
+    if task.date_completed == nil
+      task.update(date_completed: Time.now)
+    else
+      task.update(date_completed: nil)
+    end
+
+    redirect_to '/'
+  end
+
   def update
     Task.find(params[:id]).update(create_params[:task])
 

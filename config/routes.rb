@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get     'tasks/:id/edit'        => 'tasks#edit'
   get     'tasks/:id/delete'      => 'tasks#confirm_delete'
   patch   'tasks/:id'             => 'tasks#update'
-  patch   'tasks/:id/completed'   => 'tasks#update_completion'
+  # patch   'tasks/:id/completed'   => 'tasks#update_completion'
+  patch   'tasks/:id/check'       => 'tasks#toggle_completion'
   delete  'tasks/:id'             => 'tasks#destroy'
 
   get 'people'                    => 'people#index'

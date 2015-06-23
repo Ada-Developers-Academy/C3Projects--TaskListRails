@@ -11,11 +11,7 @@
       <tr>
       	<td class="link"><%= link_to task.name, "tasks/#{task.id}" %></td>
         <td class="link"><%= link_to task.person.name, "people/#{task.person_id}" %></td>
-        <% if task.completed? %>
-        	<td class="checkmark"><%= task.completed? %></td>
-        <% else %>
-          <td class="checkmark"><%= link_to "\u2610", "tasks/#{task.id}/completed", method: :patch, data: { confirm: "Mark this task complete?" } %></td>
-        <% end %>
+        <td class="checkmark"><%= link_to task.checkbox, "tasks/#{task.id}/check", method: :patch%></td>
         <td class="link"><%= link_to "delete", "tasks/#{task.id}/delete" %></td>
       </tr>
     <% end %>
@@ -23,3 +19,5 @@
 </table>
 
 <%= link_to "add a new task", "tasks/new", class: "default_button" %>
+
+<%= link_to "All people", "/people", class: "button" %>
