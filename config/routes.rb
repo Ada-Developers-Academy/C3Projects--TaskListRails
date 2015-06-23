@@ -9,12 +9,9 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
   root 'task#index'
 
-  get '/' => 'task#index'
-
   get '/show/:id' => 'task#show'
 
   get '/tasks/new' => 'task#new'
-
   post '/tasks' => 'task#create'
 
   get '/tasks/:id' => 'task#edit'
