@@ -1,0 +1,7 @@
+<h2> <%= @person[:name] %>'s Tasks are: </h2>
+
+<% @person.tasks.each do |task| %>
+  <h3> <%= task[:name] %> </h3>
+<% end %>
+
+<%= render 'tasks/footer' %>

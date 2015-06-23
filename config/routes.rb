@@ -26,7 +26,11 @@ Rails.application.routes.draw do
   # index route for displaying all people in the database
   get 'people' => 'people#index'
 
-  # show all
+  # show all person's details
+  get 'people/:id' => 'people#show'
+
+  # show person's tasks
+  get 'people/:id/tasks' => 'people#tasks'
 
 
 
