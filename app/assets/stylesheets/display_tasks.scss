@@ -4,6 +4,17 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  width: 900px;
+  margin: auto;
+}
+
+.header {
+  padding-top: 25px;
+  display: inline-block;
+}
+
+.header a {
+  padding-right: 10px;
 }
 
 table {
