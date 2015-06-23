@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   get '/people/:person_id' => 'people#show'
 
-
+  get '/people/:person_id/tasks' => 'people#tasks_for_person'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

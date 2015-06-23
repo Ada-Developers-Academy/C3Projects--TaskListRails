@@ -5,14 +5,12 @@
     <th> Name </th>
     <th> Description </th>
     <th> Completed? </th>
-    <th> Date Completed </th>
   </tr>
   <% @tasks.each do |task| %>
     <tr>
       <td><%= task[:name] %></td>
       <td><%= task[:description] %></td>
       <td><%= task[:completed_at] ? "Yes" : "No" %></td>
-      <td><%= task[:completed_at] %></td>
     </tr>
   <% end %>
 </table>
