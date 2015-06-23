@@ -2,6 +2,7 @@ class DisplayTaskController < ApplicationController
   def index
     @all_tasks = Task.all
     @all_people = Person.all
+    
     render :index
   end
 

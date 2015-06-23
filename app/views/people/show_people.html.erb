@@ -2,9 +2,13 @@
   <tr="table_headers">
     <th>Person</th>
     <th>Tasks</th>
+    <th>Incomplete tasks</th>
+    <th>Complete tasks</th>
   </tr>
   <tr>
     <td> <%= @person.name %></td>
     <td> <%= link_to "Show #{@person.name}'s tasks", "/people/#{@person.id}/tasks", method: :get %> </td>
+    <td> <%= @total_tasks - @completed_tasks %></td>
+    <td> <%= @completed_tasks %></td>
   </tr>
 </table>
