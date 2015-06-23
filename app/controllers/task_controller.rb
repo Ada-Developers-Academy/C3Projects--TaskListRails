@@ -10,6 +10,7 @@ class TaskController < ApplicationController
 
   def new
     @task = Task.new
+
     @people = Person.all
   end
 

@@ -11,7 +11,9 @@
 
   <%= f.label :person %>
   <%=
-    @person.find(:all, :order => "name")
+    @people.find(:all, :order => "name")
+    collection_select(@people)
+    %>
 
   <% if @task.id != nil %>
     <%= f.submit "Update Task", method: "patch" %>
