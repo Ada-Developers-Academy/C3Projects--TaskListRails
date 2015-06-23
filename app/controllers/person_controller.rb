@@ -1,12 +1,10 @@
 class PersonController < ApplicationController
   def index
     @people = Person.all
-
     render :index
   end
 
   def show
-    # @person = :person_by_id
     @person = Person.find(params[:id])
   end
 

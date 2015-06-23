@@ -8,13 +8,14 @@
     </tr>
 
     <% @people.each do |person| %>
-      <% incomplete_count = person.tasks.where(completed: "false").count %>
+
       <tr>
         <td><%= person.name %></td>
-        <td class="incomplete_count"><%= incomplete_count %></th>
+        <td class="incomplete_count"><%= person.tasks.not_complete %></th>
         <td><%= button_to "View Details", "/people/#{person.id}", method: "get" %></td>
       </tr>
     <% end %>
 
   </table>
 </section>
+<%= render "task/footer" %>
