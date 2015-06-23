@@ -12,9 +12,11 @@
 
   <% @people.each do |person| %>
     <tr>
-      <td><%= link_to "#{person.name}", "/people/#{person.id}" %></td>
+      <td class="table_text"><%= link_to "#{person.name}", "/people/#{person.id}" %></td>
       <td><%= person.tasks.where(completion_status: "true").count %></td>
       <td><%= person.tasks.where(completion_status: "false").count %></td>
   <% end %>
 
 </table>
+
+<%= render "layouts/footer" %>

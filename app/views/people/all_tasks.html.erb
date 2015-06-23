@@ -12,7 +12,7 @@
 
   <% @person.tasks.each do |task| %>
   <tr>
-    <td><%= task.name %></td>
+    <td class="table_text"><%= task.name %></td>
     <td><%= task.description %></td>
     <td>
       <% if task.completion_status == "false" %>
@@ -24,3 +24,5 @@
   </tr>
   <% end %>
 </table>
+
+<%= render "layouts/footer" %>
