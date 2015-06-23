@@ -41,9 +41,9 @@ class TasksController < ApplicationController
     edited_task = params[:task]
 
     task.update(name: edited_task[:name],
-                person: Person.find(edited_task[:person].to_i),
                 description: edited_task[:description],
-                completed_at: edited_task[:completed_at]
+                completed_at: edited_task[:completed_at],
+                person_id: edited_task[:person_id]
     )
 
     redirect_to "/show/#{params[:id]}"
@@ -52,6 +52,6 @@ class TasksController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:name, :description, :completed_at])
+    params.permit(task: [:name, :description, :completed_at, :person_id])
   end
 end

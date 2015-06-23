@@ -11,6 +11,13 @@
       <p>
         <%= link_to "#{person.first_name} #{person.last_name}", "people/show/#{person.id}" %>
       </p>
+
+      <div>
+        <p>
+          <% a = @tasks.where(person_id: person.id) %>
+          <%= a.count %>
+        </p>
+      </div>
     </li>
     <% end %>
   </ul>

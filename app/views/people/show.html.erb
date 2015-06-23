@@ -5,16 +5,30 @@
 
 <%= render partial: "/tasks/header", locals: { link_name: "< Home",
                                         link_path: "/",
-                                        title: "#{@person.first_name}",
+                                        title: "Person ##{zero_padded_id}",
                                         kicker: false,
                                         edit_button: false } %>
 
 <div class="container">
   <p>
-    <span>Name</span>
+    <span>First Name</span>
   </p>
 
   <p class="task-details">
-    <%= "#{@person.first_name} #{@person.last_name}" %>
+    <%= @person.first_name %>
   </p>
+
+  <p>
+    <span>Last Name</span>
+  </p>
+
+  <% if !@person.last_name.nil? %>
+    <p class="task-details">
+      <%= @person.last_name %>
+    </p>
+  <% else %>
+    <p class="task-details tbd">
+      N/A
+    </p>
+  <% end %>
 </div>

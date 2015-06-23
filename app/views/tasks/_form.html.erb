@@ -7,7 +7,7 @@
   <p>
     <%= f.label :person %>
   </p>
-  <%= f.collection_select(:person, Person.all, :id, :first_name) %>
+  <%= collection_select :task, :person_id, Person.all, :id, :first_name, insert_blank: true %>
 
 
   <p>
