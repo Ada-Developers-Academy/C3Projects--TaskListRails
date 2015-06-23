@@ -9,7 +9,8 @@
   <tr>
   <% @tasks.to_a.each do |task| %>
   <tr>
-    <td><%= task.person.name %></td>
+    <td><%= link_to "#{task.person.name}", "/people/show/#{person.id}" %></td>
+    <!-- <td><%= task.person.name %></td> -->
     <td><%= link_to "#{task.name}", "/show/#{task.id}" %></td>
     <td class="task_options"><% if task.completed_at == nil %>
       <%= link_to "\u274F", "/tasks/comp_status/#{task.id}", method: :get %>
@@ -23,5 +24,8 @@
   <tr>
     <td colspan="3", class="new_task"><%= button_to "Add New Task", "/tasks/new", method: :get %></td>
   </tr>
+  <tr>
+    <td colspan="3"><%= link_to "People","/people", method: :get %></td>
+
 </table>
 </body>

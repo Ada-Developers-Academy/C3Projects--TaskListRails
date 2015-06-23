@@ -2,6 +2,7 @@ class TaskController < ApplicationController
 
   def index
     @tasks = Task.all_tasks
+    @person = Person.all
     render :index
   end
 
@@ -13,10 +14,10 @@ class TaskController < ApplicationController
 
   def new
     @task = Task.new
-    # @people = Person.all
   end
 
   def create
+    @person = Person.all
     @task = Task.new(create_params[:task])
     @task.save
     redirect_to root_url

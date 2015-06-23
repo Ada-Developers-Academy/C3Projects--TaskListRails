@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th># of Incomplete Tasks</th>
+  </tr>
+  <% @person.to_a.each do |person| %>
+  <tr>
+    <td><%= link_to "#{person.name}", "/people/show/#{person.id}" %></td>
+    <td><%= @tasks.name %></td>
+    <!-- <% if @tasks.include?(person_id: 1) %> -->
+    <!-- <td> -->
+      <!-- <%= @tasks %> -->
+    <!-- </td> -->
+    <!-- <% end %> -->
+  </tr>
+  <% end %>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="3"><%= link_to "Back to: To Do List", "/", method: :get %></td>
+  </tr>
+</table>

@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 
   delete '/tasks/:id' => 'task#destroy'
 
+  get '/people' => 'person#index'
+
+  get '/people/show/:id' => 'person#show'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

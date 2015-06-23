@@ -9,6 +9,14 @@
   <%= f.label :completed_at %>
   <%= f.date_field :completed_at %>
 
+  <%= f.label :assign_to %>
+  <%= f.collection_select :person_id, Person.all, :id, :name %>
+
+  <!-- <%= f.select :person_id, options_for_select(%w(Bob Spot Tyrone)) %> -->
+  <!-- <% @person.to_a.each do |person| %> -->
+    <!-- <%= f.select :person_id, options_for_select(%w(person.name)) %> -->
+  <!-- <% end %> -->
+
   <%= f.submit 'Add Task' %>
 <% end %>
 

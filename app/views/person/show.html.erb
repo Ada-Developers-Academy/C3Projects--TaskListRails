@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Birthday</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td><%= @person.name %></td>
+    <td><%= @person.birthday %></td>
+    <td><%= @person.age %></td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="3"><%= link_to "Back to: Task Masters", "/people", method: :get %></td>
+  </tr>
+  <tr>
+    <td colspan="3"><%= link_to "Back to: To Do List", "/", method: :get %></td>
+  </tr>
+</table>
