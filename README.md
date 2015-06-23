@@ -62,7 +62,7 @@ In this wave, we explore creating ActiveRecord associations by creating `belongs
 - (done) Create a model & migration for a new Person object.
   - (done) at a minimum, a Person should have a name
 - (done) Create seed data to add at least three Person records to the database.
-- Each Task in your database can be assigned to a Person, indicating that Person is responsible for completing the Task.
+- (done) Each Task in your database can be assigned to a Person, indicating that Person is responsible for completing the Task.
   - (done) Express the relationship between Person and Task using `belongs_to` and `has_many`
   - Update your Task `index` and `show` actions to include displaying the Person's name to which the Task belongs.
   - Update your Task's `new` and `edit` actions to allow for selecting an _existing_ Person to which the Task should be associated.
