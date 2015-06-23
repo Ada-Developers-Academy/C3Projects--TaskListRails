@@ -14,7 +14,7 @@ class PeopleController < ApplicationController
     @task = Task.find(params[:id])
 
     @person_id = @task.person_id
-    @name = Person.find(@person_id)
+    @person = Person.find(params[:id])
 
     render :show
   end

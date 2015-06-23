@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   get '/people/:id/show' => 'people#show'
 
+  get '/people/:id/tasks' => 'people#tasks'
+
 
 
 
