@@ -3,27 +3,27 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'task#index'
+  root 'tasks#index'
 
-  post "/task_:id/mark_complete"   => "task#mark_complete"
+  post "/task_:id/mark_complete"   => "tasks#mark_complete"
   post "/task_:id/mark_incomplete" =>      "task#mark_incomplete"
 
-  get "/task_:id/details"         => "task#show"
+  get "/task_:id/details" => "tasks#show"
 
-  get "/task/new"         => "task#new"
-  post "/task/new"        => "task#create"
+  get "/task/new"         => "tasks#new"
+  post "/task/new"        => "tasks#create"
 
-  delete "/task_:id"      => "task#delete"
+  delete "/task_:id"      => "tasks#delete"
 
-  post "/completed_sort"  => "task#sort_completed"
-  post "/name_sort"       => "task#sort_name"
+  post "/completed_sort"  => "tasks#sort_completed"
+  post "/name_sort"       => "tasks#sort_name"
 
-  get "/task_:id/edit"    => "task#edit"
-  patch "/task_:id/edit"  => "task#update"
+  get "/task_:id/edit"    => "tasks#edit"
+  patch "/task_:id/edit"  => "tasks#update"
 
   get "/people"           => "people#index"
 
-  get "/assigned_to_:id" => "people#show"
+  get "/assigned_to_:id"  => "people#show"
 
 
 

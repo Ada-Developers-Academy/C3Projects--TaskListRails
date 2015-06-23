@@ -14,12 +14,17 @@
   <tbody>
       <tr>
         <td><%= @task.name %></td>
-        <td><%= @task.description %>
-        <td><a href=<%="/assigned_to_#{@task.person_id}"%>> <%= @task.person_id %></a></td>
-        <td><%= @task.completed %></td>
-        <td>
-          <%= @task.completed_at%>
+        <td><%= @task.description %></td>
+       <td>
+        <% if @task.person %>
+          <a href = <%="/assigned_to_#{@task.person_id}"%>>
+          <%= @task.person.name %></a>
         </td>
+        <% else  %>
+          </td>
+        <% end %>
+        <td><%= @task.completed %></td>
+        <td><%= @task.completed_at%></td>
       <td><a href="<%="/task_#{@task.id}/edit"%>">edit</a></td>
       </tr>
   </tbody>

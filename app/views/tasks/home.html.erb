@@ -27,10 +27,14 @@
         </a>
         </td>
         <td>
-          <a href = <%="assigned_to_#{task.person_id}"%>>
-          <%= task.person_id %>
+        <% if task.person %>
+          <a href = <%="/people/#{task.person_id}"%>>
+          <%= task.person.name %>
         </a>
         </td>
+        <% else  %>
+        </td>
+        <% end %>
         <% if task.completed == "yes" %>
         <td>
           <%= button_to "incomplete",  "/task_#{task.id}/mark_incomplete" %>
@@ -44,7 +48,7 @@
       </tr>
     <% end %>
     <tr>
-      <td colspan="3">
+      <td colspan="4">
         <a href="task/new">+ Add new Task</a>
       </td>
     </tr>

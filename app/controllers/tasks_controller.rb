@@ -1,4 +1,4 @@
-class TaskController < ApplicationController
+class TasksController < ApplicationController
   def index
     @title = "Task List"
     @all_tasks = Task.all
@@ -41,10 +41,6 @@ class TaskController < ApplicationController
     redirect_to root_url
   end
 
-  def create_params
-    params.permit(task: [:name, :description, :person_id])
-  end
-
   def delete
     @task = Task.find(params[:id])
     @task.destroy
@@ -67,6 +63,11 @@ class TaskController < ApplicationController
     redirect_to root_url
   end
 
+  private
+  def create_params
+    params.permit(task: [:name, :description, :person_id])
+  end
+
   def sort_name
     @title = "Task List"
     @all_tasks = Task.all.order(:name)
@@ -81,10 +82,4 @@ class TaskController < ApplicationController
     render :home
   end
 
-  def sort_name
-    @title = "Task List"
-    @all_tasks = Task.all.order(:name)
-
-    render :home
-  end
 end

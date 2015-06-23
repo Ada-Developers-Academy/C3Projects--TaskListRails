@@ -11,10 +11,9 @@
   <tbody>
     <% @person.tasks.each do |task| %>
     <tr>
-      <td><%= task.name %></td>
+      <td><a href=<%="/task_#{task.id}/details"%>> <%= task.name %></a></td>
       <td><%= task.description %></td>
       <td><%= task.completed_at %></td>
-      <td>
     </tr>
     <% end %>
   </tbody>
