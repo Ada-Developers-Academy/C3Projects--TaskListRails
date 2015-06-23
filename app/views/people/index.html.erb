@@ -4,7 +4,7 @@
 
 <ul>
   <li>
-    <%= person.name %>, <%= @tasks.where(person_id: person.id).count %>
+    <%= link_to "#{person.name}", "/people/#{person.id}/show"%>, <%= @tasks.where(person_id: person.id).count %>
   </li>
 </ul>
 

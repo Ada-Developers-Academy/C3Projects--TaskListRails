@@ -68,7 +68,7 @@ In this wave, we explore creating ActiveRecord associations by creating `belongs
   - (done) Update your Task's `new` and `edit` actions to allow for selecting an _existing_ Person to which the Task should be associated.
 - Add a new people (the plural of Person) controller with the following routes and actions
   - (done) `index` action: Show a list of all people in the database.
-    - Link each Person's name to their `show` action.
+    - (done) Link each Person's name to their `show` action.
     - The index should include a count of how many _uncompleted_ tasks are assigned to each Person.
   - `show` action: show all of the Person's information
 - Create a custom route and action for showing a complete list of a Person's tasks, both complete and incomplete.

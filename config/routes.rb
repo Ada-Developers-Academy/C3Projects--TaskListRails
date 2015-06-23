@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   get "people/index" => "people#index"
 
-  get "people/show" => "people#show"
+  get "people/:id/show" => "people#show"
 
 
   # Example of regular route:
