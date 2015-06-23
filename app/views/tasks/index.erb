@@ -6,8 +6,8 @@
 <table>
   <tr>
     <th>Task Name</th>
-    <th>Delete?</th>
     <th>Mark Complete</th>
+    <th>Delete?</th>
     <th>Task Master</th>
 
   </tr>
@@ -19,23 +19,28 @@
 
    <% if task[:completed_date] < Time.new %>
       <td id='completed'><%= link_to "#{task[:name]}", "/tasks/#{task[:id]}"%></td>
+      <td>  &#x2713 </td>
     <% else %>
       <td><%= link_to "#{task[:name]}", "/tasks/#{task[:id]}"%></td>
+      <td><%= button_to "Complete", "tasks/#{task[:id]}/complete",class: "delete", method: :patch %></td>
     <% end %>
 
   <% else %>
     <td><%= link_to "#{task[:name]}", "/tasks/#{task[:id]}"%></td>
+     <td><%= button_to "Complete", "tasks/#{task[:id]}/complete",class: "delete", method: :patch %></td>
   <% end %>
 
     <td><%= button_to "Delete Task", "tasks/#{task[:id]}", class: "delete", method: :delete, data: { confirm: "Are you sure you want to delete this task?" } %></td>
-    <td><%= link_to "&#9744".html_safe, "tasks/#{task[:id]}/complete", method: :patch %></td>
+
     <% if task.person != nil %>
       <td> <%= task.person.name %></td>
     <% else %>
       <td>Task not yet assigned.</td>
     <% end %>
+
     </tr>
-  <% end %>
+<% end %>
+
 </table>
 </section>
 

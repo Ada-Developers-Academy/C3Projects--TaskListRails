@@ -7,7 +7,7 @@
     <% end %>
   <% end %>
   <% id = person[:favorite_color] %>
-  <h3 id="people"> <%= link_to "#{person[:name]}", "/people/#{person[:id]}", id: id %> has <%= tasks.length %> tasks remaining. </h3>
+  <h3 id="people"> <%= link_to "#{person[:name]}", "/people/#{person[:id]}", id: id %> has <%= tasks.length %> task(s) unaccounted for. </h3>
 <% end %>
 
 <%= render "/tasks/footer" %>
