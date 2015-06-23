@@ -49,3 +49,7 @@ group :development, :test do
   # make rails console pretty
   gem 'pry-rails' # Anita is a magician
 end
+
+group :production do
+  gem 'pg'
+end

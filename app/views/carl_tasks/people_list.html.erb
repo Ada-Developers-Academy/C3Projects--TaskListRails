@@ -1,0 +1,16 @@
+<table id="people">
+  <thead>
+    <td>Person</td>
+    <td>Total Assigned</td>
+    <td>In Progress</td>
+    <td>Complete</td>
+  </thead>
+  <% @people.each do |person| %>
+    <tr class="tasks">
+      <td><%= person[:person].name %></td>
+      <td><%= person[:tasks_count] %></td>
+      <td><%= person[:tasks_wip] %></td>
+      <td><%= person[:tasks_done] %></td>
+    </tr>
+  <% end %>
+</table>

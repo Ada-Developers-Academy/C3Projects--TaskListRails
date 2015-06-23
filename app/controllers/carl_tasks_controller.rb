@@ -58,6 +58,31 @@ class CarlTasksController < ApplicationController
   #   redirect_to "/person_not_found"
   end
 
+  def people_list
+    people = Person.all
+    @people = []
+    people.each do |person|
+      tasks_count = person.tasks.count
+      tasks_wip = person.tasks.where(date_complete: nil).count
+      tasks_done = tasks_count - tasks_wip
+
+      @people.push({
+        person: person,
+        tasks_count: tasks_count,
+        tasks_wip: tasks_wip,
+        tasks_done: tasks_done
+      })
+    end
+
+  end
+
+  def person
+    @person = Person.find(params[:id])
+    @tasks_count = @person.tasks.count
+    @tasks_wip = @person.tasks.where(date_complete: nil).count
+    @tasks_done = @tasks_count - @tasks_wip
+  end
+
 
   #-------------------------- CREATING A NEW TASK ------------------------------
   def create

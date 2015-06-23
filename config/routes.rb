@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   get "/delete/:id" => "carl_tasks#delete"# delete a specific task
 
   # GETs for SPECIFIC INDIVIDUAL people
-  get "/people/:id/tasks" => "carl_tasks#people" # review a specific task
-
+  get "/people/:id/tasks" => "carl_tasks#people" # review a specific person's tasks
+  get "/people/:id" => "carl_tasks#person" # review a specific person
+  get "/people" => "carl_tasks#people_list" # review all the people ALL OF THEM
 
   # GET a new task
   get "/create" => "carl_tasks#create"
