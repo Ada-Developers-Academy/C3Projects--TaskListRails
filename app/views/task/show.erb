@@ -9,6 +9,7 @@
     <th>Description</th>
     <th>Completed?</th>
     <th>When completed</th>
+    <th>Person responsible</th>
   </tr>
 
   <tr>
@@ -21,6 +22,7 @@
         <%= @task[:completed_on].to_date %>
         <% end %>
     </td>
+    <td><%= @task.person.name %></td>
   </tr>
 </table>
 

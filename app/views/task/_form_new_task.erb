@@ -10,7 +10,8 @@
     <%= t.label :completed_on %>
     <%= t.date_field :completed_on %>
 
-    <%= t.select :name, [["Victoria", "victoria"], ["Gena", "gena"], ["Natasha", "natasha"]] %>
+    <%= t.select(:person_id, Person.all.map {|person| [person.name, person.id]},
+    {include_blank: 'None'})%>
 
   <%= t.submit 'Add task' %>
 <% end %>
