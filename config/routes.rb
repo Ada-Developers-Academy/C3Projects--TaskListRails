@@ -7,8 +7,6 @@ Rails.application.routes.draw do
 
   root 'task#index'
 
-  get '/people' => 'people#index'
-
   get '/tasks/new' => 'task#new'
   post '/tasks' => 'task#create'
 
@@ -20,6 +18,9 @@ Rails.application.routes.draw do
   patch '/tasks/:id' => 'task#update_status'
   delete '/tasks/:id' => 'task#destroy'
 
+  get '/people' => 'people#index'
+  get 'people/:id' => 'people#show'
+  get 'people/:id/tasks' => 'people#tasks'
 
 
   # Example of regular route:

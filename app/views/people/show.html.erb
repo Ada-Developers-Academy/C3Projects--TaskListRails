@@ -1,0 +1,16 @@
+
+<table>
+  <tr class="theader">
+  <td>Name</td>
+  </tr>
+
+  <tr>
+    <td><%= @person.name %></td>
+  </tr>
+
+</table>
+
+<ul>
+  <li><%= link_to "Show all of #{@person.name}'s book recs", "/people/#{@id}/tasks" %></li>
+  <li><%= link_to "<< the bookworms", "/people" %></li>
+</ul>
