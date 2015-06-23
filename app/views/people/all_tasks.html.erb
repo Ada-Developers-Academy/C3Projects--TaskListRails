@@ -7,15 +7,20 @@
   <tr>
     <th>Task</th>
     <th>Task Description</th>
-    <th>Uncompleted Tasks</th>
-    <th>Completed Tasks</th>
+    <th>Completion Status</th>
   </tr>
 
+  <% @person.tasks.each do |task| %>
   <tr>
-    <td><%= @person.tasks.name %></td>
-    <td></td>
-    <td><%= @person.tasks.where(completion_status: false).count %>
-    <td><%= @person.tasks.where(completion_status: true).count %></td>
+    <td><%= task.name %></td>
+    <td><%= task.description %></td>
+    <td>
+      <% if task.completion_status == "false" %>
+        <%= "Done!" %>
+      <% else %>
+        <%= "Not done" %>
+      <% end %>
+    </td>
   </tr>
-
+  <% end %>
 </table>

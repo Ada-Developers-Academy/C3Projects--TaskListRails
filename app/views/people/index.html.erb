@@ -6,18 +6,15 @@
 
   <tr>
     <th>Person</th>
-    <th>Uncompleted Tasks</th>
+    <th>Completed Tasks</th>
+    <th>Incomplete Tasks</th>
   </tr>
 
   <% @people.each do |person| %>
     <tr>
-      <td>
-        <%= link_to "#{person.name}", "/people/#{person.id}" %>
-      </td>
-
-      <td>
-        <%= person.tasks.where(completion_status: false).count %>
-      </td>
+      <td><%= link_to "#{person.name}", "/people/#{person.id}" %></td>
+      <td><%= person.tasks.where(completion_status: "true").count %></td>
+      <td><%= person.tasks.where(completion_status: "false").count %></td>
   <% end %>
 
 </table>

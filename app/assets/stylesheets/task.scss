@@ -42,7 +42,7 @@ td {
 }
 
 footer {
-  margin-top: 200px;
+  margin-top: 50px;
   text-align: center;
   font-size: 20px;
 }
@@ -57,19 +57,26 @@ footer {
 
 .form {
   border: none;
-
 }
 
-.name, .description, .complete_by, .submit {
+.name, .description, .complete_by, .submit, .person_id{
   display: block;
   margin: 25px;
   text-align: center;
 }
 
-input, select, textarea {
-  font-family : inherit;
-  font-size   : 100%;
+select, option {
+  width: 200px;
+  padding: 2px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
 
 .btn {
   background: #566885;

@@ -19,7 +19,7 @@
     <td><%= @task.person.name %>
     <td><%= @task.description %></td>
     <td>
-      <% if @task.completion_status == false %>
+      <% if @task.completion_status == "false" %>
         <%= "Not done" %>
       <% else %>
         <%= "Done!" %>
@@ -46,4 +46,4 @@
 
 <h3 class="link"><%= link_to "Update this task", "/task/#{@task.id}/edit" %></h3>
 
-<%= render "footer" %>
+<%= render "layouts/footer" %>
