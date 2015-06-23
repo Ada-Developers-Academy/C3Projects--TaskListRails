@@ -1,14 +1,20 @@
 class PeopleController < ApplicationController
-  # def index
-    # @people = Person.all
+  def index
+    @people = Person.all
 
-    # render :index
-  # end
+    render :index
+  end
 
-  # def show
-    # @person = Task.find(params[:id])
+  def show
+    @person = Person.find(params[:id])
 
-    # render :show
-  # end
+    render :show
+  end
+
+  def show_tasks
+    @person = Person.find(params[:id])
+
+    render :tasks
+  end
 
 end

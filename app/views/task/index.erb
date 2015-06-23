@@ -1,7 +1,8 @@
 <h1>Welcome to task list manager</h1>
 
-<%= image_tag("welcome_manager.png", :alt => "welcome_manager", :class => "face") %>
-<p><%= link_to "Add new task", "/task/add_task" %></p>
+<p><%= image_tag("welcome_manager.png", :alt => "welcome_manager", :class => "face") %></p>
+<%= link_to image_tag("plus.png", :class => "plus"), "/task/add_task" %>
+<%= link_to image_tag("people.png", :class => "face"), "/people/show" %>
 
 <table>
   <tr>
@@ -12,7 +13,6 @@
     <th>Check completed task</th>
     <th>Uncheck task</th>
     <th>Person responsible</th>
-
   </tr>
 
   <tr>

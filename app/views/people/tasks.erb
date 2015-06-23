@@ -1,0 +1,7 @@
+<p class='link'><%= link_to "Back to people list", "/people/show" %></p>
+
+<h1><%= "#{@person[:name]}" %> has:</h1>
+<%= image_tag("task_manager.png", :alt => "task_manager", :class => "face") %>
+
+<p><%= @person.tasks.where(completed_on: nil).count %> incomplete  out of
+<%= @person.tasks.count %></p>

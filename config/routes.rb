@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   patch '/task/edit_update/:id'  => 'task#edit_update'
 
 
+  # root 'people#index'
+  get '/people/show'              => 'people#index'
+  get '/people/show/:id'          => 'people#show'
+  get '/people/show/:id/tasks'    => 'people#show_tasks'
 
   # get '/task/delete_confirmation/:id' => 'task#delete_confirm'
   # post '/tasks'           => 'task#create'
