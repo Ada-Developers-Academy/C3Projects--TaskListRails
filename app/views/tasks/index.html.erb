@@ -20,6 +20,9 @@
     <th>
       Delete Task
     </th>
+    <th>
+      Assigned to
+    </th>
   </tr>
 
     <% @tasks.each do |task| %>
@@ -42,10 +45,16 @@
       <td>
         <%= button_to "Delete Task", "/delete_confirmation/#{task.id}", method: :get %>
       </td>
-
+      <td>
+        <% unless task.person.nil? %>
+        <%= task.person.name %>
+        <% end %>
+      </td>
       </tr>
   <% end %>
 </table>
 <br>
+
+
 
 <%= link_to "Create New Task", "/new" %>

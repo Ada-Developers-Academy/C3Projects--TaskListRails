@@ -17,6 +17,9 @@ Rails.application.routes.draw do
    patch '/tasks/mark_complete/:id' =>  'tasks#mark_complete'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  get '/people'                => 'people#index'
+
+  get '/people/:id'            => 'people#show'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

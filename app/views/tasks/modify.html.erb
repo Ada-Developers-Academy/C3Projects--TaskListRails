@@ -15,6 +15,9 @@
   <%= f.label :completed_at %>
   <%= f.date_field :completed_at %>
 
+  <%= f.label :person_id %>
+  <%= f.select :person_id, options_for_select([['Michelle', 1], ['Lindsey', 2], ['Kari',3]]) %>
+
 
 </fieldset>
 <%=  f.submit "Looks Good! Update My Task!" %>

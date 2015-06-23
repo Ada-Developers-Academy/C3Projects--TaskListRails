@@ -8,6 +8,9 @@
   <%= f.label :description %>
   <%= f.text_area :description %>
 
+  <%= f.label :person_id %>
+  <%= f.select :person_id, options_for_select([['Michelle', 1], ['Lindsey', 2], ['Kari',3]]) %>
+
   <!-- <%= f.label :completed %>
   <%= f.select :completed, options_for_select([['True', "t"], ['False', "f"]]) %>
 

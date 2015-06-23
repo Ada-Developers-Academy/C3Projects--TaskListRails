@@ -2,8 +2,14 @@ def random_time
   Time.at(rand * Time.now.to_i)
 end
 
+people = [
+  { name: "Michelle"},
+  { name: "Lindsey"},
+  { name: "Kari"},
+  ]
+
 tasks = [
-  { name: "The First Task", description: "Something needed to fill out this field", completed_at: random_time, completed: "True" },
+  { name: "The First Task", description: "Something needed to fill out this field", completed_at: random_time, completed: "True",  person_id: "1"},
   { name: "Go to Brunch", description: "Gather round the table with some favorite people and drink Mimosas", completed: "False"},
   { name: "Go to Lunch", description: "Everyone loves lunch. Go to your favorite restaurant", completed_at: random_time, completed: "True" },
   { name: "Go to Second Lunch", description: "Pretend that you haven't had lunch and go to lunch with a friend" , completed: "False"},
@@ -17,4 +23,8 @@ tasks = [
 
 tasks.each do |task|
   Task.create task
+end
+
+people.each do |person|
+  Person.create person
 end

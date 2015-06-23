@@ -24,6 +24,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.name = create_params[:task][:name]
     @task.description = create_params[:task][:description]
+    @task.person_id = create_params[:task][:person_id]
     @task.completed = create_params[:task][:completed]
       if @task.completed
         @task.completed_at = create_params[:task][:completed_at]
@@ -61,7 +62,7 @@ class TasksController < ApplicationController
 
   private
   def create_params
-    params.permit(task: [:name, :description, :completed, :completed_at])
+    params.permit(task: [:name, :description, :completed, :completed_at, :person_id])
   end
 
 end
