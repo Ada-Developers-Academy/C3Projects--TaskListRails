@@ -5,24 +5,24 @@ Rails.application.routes.draw do
 # TASK controller -------------------------------------------
 
   # You can have the root of your site routed with "root"
-  root 'task#index'
+  root 'tasks#index'
 
   # create a task
-  get  "/tasks/new"           => "task#new"
-  post "/tasks/new"           => "task#create"
+  get  "/tasks/new"           => "tasks#new"
+  post "/tasks/new"           => "tasks#create"
 
   # read a task
-  get "/tasks/:id/show"       => "task#show"
+  get "/tasks/:id/show"       => "tasks#show"
 
   # update complete field in task
-  patch "/tasks/:id/complete" => "task#complete"
+  patch "/tasks/:id/complete" => "tasks#complete"
 
   # update task
-  get   "/tasks/:id/edit"     => "task#edit"
-  patch "/tasks/:id/edit"     => "task#update"
+  get   "/tasks/:id/edit"     => "tasks#edit"
+  patch "/tasks/:id/edit"     => "tasks#update"
 
   # delete/destroy task
-  delete "/tasks/delete/:id"  => "task#delete"
+  delete "/tasks/delete/:id"  => "tasks#delete"
 
   # PEOPLE Controller -------------------------
 

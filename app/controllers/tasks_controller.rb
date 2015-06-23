@@ -1,4 +1,4 @@
-class TaskController < ApplicationController
+class TasksController < ApplicationController
   # RENAME FOLDER TASKS & change folder/controller associations
   before_action :find_task, only: [:show, :edit, :update, :complete, :delete]
 
