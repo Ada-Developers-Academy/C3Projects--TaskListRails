@@ -12,7 +12,8 @@ tasks = [
   { name: "Rogue Legacy", description: "", completed_at: random_time, person_id: 1 },
   { name: "Trine 2", description: "Very pretty multiplayer platform game. Started, did not finish.", person_id: 1 },
   { name: "Transistor", description: "", person_id: 1 },
-  { name: "Dwarfs?!", description: "", completed_at: random_time, person_id: 1 }
+  { name: "Dwarfs?!", description: "", completed_at: random_time, person_id: 1 },
+  { name: "Battleblock Theater", description: "Blage blahg ergj sdfglkjsdfg IT'S A SECRET", person_id: 13 }
 ]
 
 tasks.each do |task|
@@ -21,32 +22,32 @@ end
 
 people = [
   { name: "Brandi" },
-  { name: "Brittney" },
-  { name: "Ashley" },
-  { name: "Katie" },
-  { name: "Corrine" },
-  { name: "Sally" },
-  { name: "Marleigh" },
-  { name: "Carly" },
-  { name: "Anita" },
-  { name: "Kari L." },
-  { name: "Lindsey" },
-  { name: "Michelle" },
-  { name: "Elsa" },
-  { name: "Anita" },
-  { name: "Wang" },
-  { name: "Shanna" },
-  { name: "Kyna" },
-  { name: "Victoria" },
-  { name: "Jeri" },
-  { name: "Loraine" },
-  { name: "Lila" },
   { name: "Alice" },
-  { name: "Elia" },
+  { name: "Amira" },
+  { name: "Anita" },
+  { name: "Ashley" },
   { name: "Brenna" },
-  { name: "Kari B." },
+  { name: "Brittney" },
+  { name: "Carly" },
+  { name: "Corrine" },
+  { name: "Elia" },
+  { name: "Elsa" },
   { name: "Jeremy" },
-  { name: "Non-Ada Brandi's Friend Person"}
+  { name: "Jeri" },
+  { name: "Kari B." },
+  { name: "Kari L." },
+  { name: "Katie" },
+  { name: "Kyna" },
+  { name: "Lila" },
+  { name: "Lindsey" },
+  { name: "Loraine" },
+  { name: "Marleigh" },
+  { name: "Michelle" },
+  { name: "Sally" },
+  { name: "Shanna" },
+  { name: "Victoria" },
+  { name: "Wang" },
+  { name: "Brandi's Non-Ada Friend Person"}
 ]
 
 people.each do |person|
