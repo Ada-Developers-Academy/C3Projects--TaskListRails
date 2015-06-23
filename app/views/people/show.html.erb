@@ -1,6 +1,8 @@
-<h2>Person Details</h2>
+<h1>Task Master Details</h1>
 
-<h3>Name: <%= @name %> </h3>
-<h3>Occupation: <%= @occupation %> </h3>
-<h3>Fave Color: <%= @color %> </h3>
-<h3> <%= button_to "Tasks", "/people/#{@person[:id]}/tasks", method: :get %> </h3>
+<h2>Name: <%= @name %> </h2>
+<h2>Occupation: <%= @occupation %> </h2>
+<h2>Fave Color: <%= @color %> </h2>
+<h3> <%= link_to "View #{@name}'s Tasks", "/people/#{@person[:id]}/tasks", id: "add", method: :get %> </h3>
+
+<%= render "footer" %>

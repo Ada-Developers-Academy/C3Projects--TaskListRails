@@ -21,7 +21,7 @@ body {
   padding: 15px;
   margin-top: 115px;
   border-radius: 5px;
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'Patrick Hand', cursive;
   text-align: center;
 }
 
@@ -40,8 +40,9 @@ table a:hover {
 }
 
 #add {
-  font-family: 'Shadows Into Light', cursive;
-  padding: 10px;
+  font-family: 'Patrick Hand', cursive;
+  padding-left: 10px;
+  padding-right: 10px;
   margin: 10px;
   font-size: 20px;
   background-color: #fff;
@@ -81,7 +82,7 @@ input[type=submit] {
 }
 
 .delete {
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'Patrick Hand', cursive;
   padding: 5px;
   margin: 10px;
   font-size: 15px;
@@ -89,9 +90,11 @@ input[type=submit] {
 }
 
 .complete_task {
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'Patrick Hand', cursive;
   padding: 5px;
   margin: 10px;
   font-size: 15px;
   background-color: #fff;
 }
+
+
