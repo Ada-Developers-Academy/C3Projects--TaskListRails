@@ -1,6 +1,7 @@
 <table>
   <%= render partial: "table_headers" %>
   <tr>
+    <td><%= @task_finder.person.name %></td>
     <td><%= @task_finder.name %></td>
     <td><%= @task_finder.description %></td>
     <td class="task_options"><%= render partial: "task_status" %>
