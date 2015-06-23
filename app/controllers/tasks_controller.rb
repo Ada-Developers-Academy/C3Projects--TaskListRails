@@ -2,7 +2,6 @@ class TasksController < ApplicationController
 
   def index
     @all_tasks = Task.all   # NOTE TO SELF: "@all_tasks" is actually a Task::ActiveRecord_Relation object, but responds to array methods
-    # @all_tasks = task_person
 
     render :index   # NOTE TO SELF: this is for clarity, you don't actually need this in this case
   end
@@ -110,21 +109,6 @@ class TasksController < ApplicationController
     @task_completion_date = @task[:completed_at].nil? ? "N/A" : date_format(@task[:completed_at])
     @task_created_at = date_format(@task[:created_at])
     @task_updated_at = date_format(@task[:updated_at])
-  end
-
-  def task_person
-    tasks = Task.all
-    all_tasks = tasks.map do |task|
-      {
-        id: task[:id],
-        name: task[:name],
-        description: task[:description],
-        completed_at: task[:completed_at],
-        person_id: task[:person_id],
-        person_name: Person.find(task[:person_id]).name
-      }
-    end
-    return all_tasks
   end
 
   def date_format(datetime)

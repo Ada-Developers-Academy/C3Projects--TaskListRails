@@ -1,0 +1,9 @@
+<h2> <%= title %> </h2>
+
+<ul>
+  <li>
+    Name: <%= @person[:name] %>
+  </li>
+</ul>
+
+<%= link_to "All Tasks for #{@person[:name]}", "/people/#{@person[:id]}/tasks" %>

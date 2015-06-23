@@ -7,4 +7,10 @@
     </li>
   </ul>
 
+  <%= link_to "All Tasks for #{@person[:name]}", "/people/#{@person[:id]}/tasks" %>
+
 </div>
+
+
+
+<%= render partial: "layouts/details", locals: { title: "Edit", button: false} %>
