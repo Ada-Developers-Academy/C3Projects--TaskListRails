@@ -13,6 +13,9 @@ class PeopleController < ApplicationController
   end
 
   def tasks
+    @id = params[:id]
+    @person = Person.find(@id)
+    @displaytasks = @person.tasks
     render :tasks
   end
 

@@ -1,1 +1,8 @@
-<h1>Hooray, last one</h1>
+<h1><%= @person.name%>'s Recommendation History</h1>
+
+
+  <ul>
+    <% @displaytasks.each do |task| %>
+    <li><%= task.taskname %></li>
+    <% end %>
+  </ul>
