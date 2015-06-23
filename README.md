@@ -64,10 +64,10 @@ In this wave, we explore creating ActiveRecord associations by creating `belongs
 - (done) Create seed data to add at least three Person records to the database.
 - (done) Each Task in your database can be assigned to a Person, indicating that Person is responsible for completing the Task.
   - (done) Express the relationship between Person and Task using `belongs_to` and `has_many`
-  - Update your Task `index` and `show` actions to include displaying the Person's name to which the Task belongs.
-  - Update your Task's `new` and `edit` actions to allow for selecting an _existing_ Person to which the Task should be associated.
+  - (done) Update your Task `index` and `show` actions to include displaying the Person's name to which the Task belongs.
+  - (done) Update your Task's `new` and `edit` actions to allow for selecting an _existing_ Person to which the Task should be associated.
 - Add a new people (the plural of Person) controller with the following routes and actions
-  - `index` action: Show a list of all people in the database.
+  - (done) `index` action: Show a list of all people in the database.
     - Link each Person's name to their `show` action.
     - The index should include a count of how many _uncompleted_ tasks are assigned to each Person.
   - `show` action: show all of the Person's information

@@ -27,7 +27,7 @@
         <%= "" %>
       <% end %>
     </td>
-    <td>  <% (@task.person == nil) ? "N/A": @task.person.name %> </td>
+    <td>  <%= @task.person_id == nil ? "" : "#{@task.person.name}" %> </td>
     <td>  <%= @task.created_at.month %>/<%= @task.created_at.month %>/<%= @task.created_at.year %> </td>
     <td>  <%= @task.updated_at %> </td>
     <td>  <%= @task.completed %> </td>

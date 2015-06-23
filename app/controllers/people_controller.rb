@@ -2,7 +2,8 @@ class PeopleController < ApplicationController
 
   def index
     # grabs all the people
-    @person = Person.all
+    @people = Person.all
+    @tasks = Task.all
   end
 
 end
