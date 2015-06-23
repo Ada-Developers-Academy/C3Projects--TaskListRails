@@ -24,8 +24,8 @@ Rails.application.routes.draw do
 
 
   get '/person' => 'person#index'
-
   get '/people/:id' => 'person#show'
+  get '/people/:id/tasks' => 'person#tasks'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   # post 'tasks/add_task' => 'tasks#index'

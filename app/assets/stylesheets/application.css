@@ -59,7 +59,7 @@ a, a:visited, a:hover{
   width: 250px;
 }
 
-i{
+i, .incomplete_count{
   text-align: center;
   width: 162px;
 }

@@ -2,4 +2,4 @@
 
 <h2>Name: <%= @person.name %></h2>
 
-<h2>View <%= @person.name %>'s assigned tasks BUTTON'</h2>
+<%= button_to "View assigned tasks", "/people/#{@person.id}/tasks", method: "get" %>

@@ -6,9 +6,14 @@ class PersonController < ApplicationController
   end
 
   def show
+    # @person = :person_by_id
+    @person = Person.find(params[:id])
+  end
+
+  def tasks
     @person = Person.find(params[:id])
     @tasks = @person.tasks.all
-    
+
   end
 
   private
