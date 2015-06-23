@@ -1,5 +1,5 @@
-<section class="home">
-  <table>
+<section>
+  <table class="tasks_table">
     <tr>
       <th colspan="4">Tasks</th>
     </tr>
@@ -21,7 +21,7 @@
       </td>
       <td class="owner">
         <% if task.person_id %>
-          <%= task.person.name %>
+          <span class="person_link"><%= link_to "#{task.person.name}", "people/#{task.person.id}" %></span>
         <% else %>
           <%= "" %>
         <% end %> 

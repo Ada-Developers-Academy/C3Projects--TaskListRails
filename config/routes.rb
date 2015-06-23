@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   # Display people
   get     '/people'             => 'people#index'
 
-  # Display person's tasks
+  # Display person and their tasks
   get     '/people/:id'         => 'people#show'
+  get     '/people/:id/tasks'   => 'people#person_tasks'
 
   # Create Tasks
   get     '/tasks/new'          => 'tasks#new'

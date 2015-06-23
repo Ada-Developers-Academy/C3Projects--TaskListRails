@@ -1,11 +1,13 @@
-<section class="all_people">
-  <table>
+<section>
+  <table class="person_tasks">
     <tr>
-      <th colspan="2">People</th>
+      <th>People</th>
+      <th>Incomplete Tasks</th>
     </tr>
       <% @people.each do |person| %>
-        <tr>
+        <tr class>
           <td><%= link_to "#{person.name}", "people/#{person.id}" %></td>
+          <td><%= link_to "#{person.tasks.where(comp_date: nil).count}", "people/#{person.id}/tasks" %></td>
         </tr>
       <% end %>
   </table>

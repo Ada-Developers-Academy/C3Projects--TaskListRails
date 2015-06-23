@@ -7,7 +7,6 @@ class TasksController < ApplicationController
   # Display a specific task
   def show
     @task   = Task.find(params[:id])
-    @person = Person.find(params[:id])
     render :tasks
   end
 
@@ -41,10 +40,12 @@ class TasksController < ApplicationController
     @name = task_params[:task][:name]
     @desc = task_params[:task][:desc]
     @comp_date = task_params[:task][:comp_date]
+    @person_id = task_params[:task][:person_id]
 
     @task.update(name: @name)
     @task.update(desc: @desc)
     @task.update(comp_date: @comp_date)
+    @task.update(person_id: @person_id)
     @task.save
 
     redirect_to '/'
@@ -68,7 +69,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.permit(task: [:name, :desc, :comp_date])
+    params.permit(task: [:name, :desc, :comp_date, :person_id])
   end
 
 end

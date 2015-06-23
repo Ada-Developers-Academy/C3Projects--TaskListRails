@@ -32,11 +32,11 @@ tasks.each do |task|
 end
 
 people = [
-  {name: "Anita"},
-  {name: "Sme"},
-  {name: "Peter"},
-  {name: "Hook"},
-  {name: "Wendy"}
+  {name: "Rufio", occupation: "lost boy", age: 14},
+  {name: "Smee", occupation: "manservant", age: 57},
+  {name: "Peter", occupation: "attorney", age: 40},
+  {name: "Hook", occupation: "ship captain", age: 678},
+  {name: "Tink", occupation: "fairy", age: 29}
 ]
 
 people.each do |person|
