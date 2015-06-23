@@ -1,0 +1,10 @@
+<table class="table_data">
+  <tr="table_headers">
+    <th>Person</th>
+    <th>Tasks</th>
+  </tr>
+  <tr>
+    <td> <%= @person.name %></td>
+    <td> <%= link_to "Show #{@person.name}'s tasks", "/people/#{@person.id}/tasks", method: :get %> </td>
+  </tr>
+</table>
