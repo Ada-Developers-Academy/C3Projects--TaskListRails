@@ -1,0 +1,12 @@
+<ol>
+  <% all_people.each_with_index do |person, i| %>
+    <li>
+      <%= link_to person.name, person, class: 'person_name' %>
+
+      <ul>
+        <li><%= link_to '✎', edit_person_path(person), class: 'modify_button' %></li>
+        <li><%= button_to '✗', person, class: 'modify_button', method: :delete, data: { confirm: "Are you sure you want to delete \"#{ person.name }\"?" } %></li>
+      </ul>
+    </li>
+  <% end %>
+</ol>

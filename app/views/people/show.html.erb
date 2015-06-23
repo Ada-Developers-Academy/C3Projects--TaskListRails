@@ -4,11 +4,13 @@
 
 <h1 class='title'><%= @person.name %></h1>
 
+<%= link_to '+ Task', new_task_path, class: 'button' %>
+
 <main>
   <%= render 'tasks/complete_task_list', { all_tasks: @person.tasks, display_assigned_to: false } %>
 </main>
 
 <% content_for :nav do %>
-  <%= link_to 'All Tasks', tasks_path %> |
+  <%= link_to 'All People', people_path %> |
   <%= link_to 'Back', :back %>
 <% end %>

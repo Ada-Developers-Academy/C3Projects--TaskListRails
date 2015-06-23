@@ -1,0 +1,15 @@
+<% content_for :head do %>
+  <title>Edit: <%= @person.name %></title>
+<% end %>
+
+<h1 class='title'>Edit</h1>
+
+<main>
+  <%= render 'form' %>
+</main>
+
+<% content_for :nav do %>
+    <%= link_to 'All People', people_path %> |
+    <%= link_to 'Person Details', @person %> |
+    <%= link_to 'Back', :back %>
+<% end %>

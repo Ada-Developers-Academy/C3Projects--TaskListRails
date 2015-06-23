@@ -1,0 +1,14 @@
+<% content_for :head do %>
+  <title>Add New Person</title>
+<% end %>
+
+<h1 class='title'>Add New Person</h1>
+
+<main>
+  <%= render 'form' %>
+</main>
+
+<% content_for :nav do %>
+  <%= link_to 'All People', people_path %> |
+  <%= link_to 'Back', :back %>
+<% end %>
