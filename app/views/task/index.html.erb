@@ -26,9 +26,7 @@
     <td> <%= link_to "#{task[:name]}", "/tasks/#{task.id}/show" %></td>
     <td> <!-- want a check in this column if task is complete  -->
       <%= task.completed == "Yes" ? "\u2713" : "" %> </td>
-    <td>
-      <%= task.person_id == nil ? "" : "#{task.person.name}" %>
-    </td>
+    <td> <%= task.person_id == nil ? "" : "#{task.person.name}" %> </td>
 
     <!-- Completed -->
     <td> <%= button_to "Complete", "/tasks/#{task.id}/complete", method: "patch",
