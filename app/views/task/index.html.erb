@@ -1,0 +1,42 @@
+<h1>The Queen of Task Lists</h1>
+
+<h2> Directions for Usage</h2>
+
+<ul>
+  <li>Click on the task name you wish to see more details for.</li>
+  <li>Press the delete button to delete the task.</li>
+  <li>Click the Create a Task link to make a new item on the list!</li>
+</ul>
+
+<table>
+  <thead>Honey-Do List</thead>
+  <tr>
+    <th> ID</th>
+    <th> Name</th>
+    <th> Completed?</th>
+    <th> Person Assigned </th>
+    <th> Mark as Complete </th>
+    <th> Delete </th>
+  </tr>
+
+  <tr>
+    <% @tasks.each do |task|  %>
+        <td> <%= task.id %> </td>
+         <!-- linking the task person name to the unique task id (read)-->
+    <td> <%= link_to "#{task[:name]}", "/tasks/#{task.id}/show" %></td>
+    <td> <!-- want a check in this column if task is complete  -->
+      <%= task.completed == "Yes" ? "\u2713" : "" %> </td>
+    <td>
+      <%= task.person_id == nil ? "" : "#{task.person.name}" %>
+    </td>
+
+    <!-- Completed -->
+    <td> <%= button_to "Complete", "/tasks/#{task.id}/complete", method: "patch",
+          data: {:confirm => "Do you want to mark #{task.name} as complete?"} %> </td>
+    <!-- Delete -->
+    <td> <%= button_to "Delete", "/tasks/delete/#{task.id}", method: "delete",
+          data: {:confirm => "Are you sure you want to delete #{task.name}?"} %>
+    </td>
+  </tr>
+  <% end %>
+</table>
