@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get '/people/:id' => 'people#index'
 
+  get '/people/:id/show' => 'people#show'
+
 
 
 

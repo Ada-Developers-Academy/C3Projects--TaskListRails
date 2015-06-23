@@ -8,7 +8,7 @@
   <tr>
   <% @people.each do |person| %>
 
-    <td><%= person[:name] %></td>
+    <td><%=link_to("#{person[:name]}", "/people/#{person.id}/show") %></td>
 
    <% person_tasks = Task.where(:person_id => person.id) %>
    <% todo_tasks = person_tasks.where(:completed_at => nil).count %>
