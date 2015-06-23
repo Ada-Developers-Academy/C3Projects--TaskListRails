@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root 'task#index'
 
+  get '/people' => 'people#index'
+
   get '/tasks/new' => 'task#new'
   post '/tasks' => 'task#create'
 

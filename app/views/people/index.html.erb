@@ -1,0 +1,7 @@
+<table>
+  <% @displaypeople.each do |person| %>
+    <tr>
+      <td><%= link_to "#{person.name}", "/tasks/#{person.id}" %></td>
+    </tr>
+  <% end %>
+</table>

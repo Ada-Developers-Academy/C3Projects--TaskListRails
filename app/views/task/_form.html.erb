@@ -14,7 +14,7 @@
   <%= f.label :comp_status, "Finished?" %>
   <%= f.select :comp_status, ([["read", "read"], ["unread", "unread"]]) %>
 
-  <%= f.label :person_id, "Recommended by..."%>
+  <%= f.label :person_id, "Recommended by..." %>
   <%= f.select(:person_id, Person.all.map {|person| [person.name, person.id] }, { include_blank: "None" }) %>
 </fieldset>
 
