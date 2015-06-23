@@ -8,7 +8,7 @@
   <tr>
     <td> <%= @person.name %></td>
     <td> <%= link_to "Show #{@person.name}'s tasks", "/people/#{@person.id}/tasks", method: :get %> </td>
-    <td> <%= @total_tasks - @completed_tasks %></td>
-    <td> <%= @completed_tasks %></td>
+    <td> <%= render "shared/uncompleted_tasks", person: @person %></td>
+    <td> <%= render "shared/completed_tasks", person: @person %> </td>
   </tr>
 </table>
