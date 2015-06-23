@@ -14,7 +14,7 @@
   <% @tasks.each do |task| %>
     <tr>
       <td>
-      <% if task.completion_status == false %>
+      <% if task.completion_status == "false" %>
         <%= button_to "Complete!", "task/#{task.id}", method: :patch, class: "btn", data: { confirm: "Did you really complete #{task.name}?"} %>
       <% else %>
         <%= "\u2713" %>
