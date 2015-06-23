@@ -72,7 +72,9 @@ label {
 
 }
 
-input, textarea {
+input,
+textarea, 
+select {
   display: block;
   margin: 0 auto;
   margin-bottom: 20px;
