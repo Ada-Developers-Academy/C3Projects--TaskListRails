@@ -13,8 +13,10 @@
     <td></td>
   </tr>
   <tr>
-    <td><%= link_to "All Tasks"%></td>
-    <td><%= link_to "Task Masters", "/people", method: :get %></td>
-    <td><%= link_to "To Do List", "/", method: :get %></td>
+    <td colspan="1.5"><%= link_to "All Tasks"%></td>
+    <td colspan="1.5"><%= link_to "To Do List", "/", method: :get %></td>
   </tr>
+  <tr>
+    <td><%= link_to "Task Masters", "/people", method: :get %></td>
+    <td><%= link_to "#{@person.name}'s Complete Task List", "/people/#{@person.id}/tasks", method: :get %></td>
 </table>
