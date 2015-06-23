@@ -1,5 +1,5 @@
 <ol>
-  <% @all_tasks.each_with_index do |task, i| %>
+  <% all_tasks.each_with_index do |task, i| %>
     <li class='<%=task.completed_at ? "complete" : "incomplete"%>'>
       <% if task.completed_at %>
         <%= button_to '✔', task, method: :put, params: { :complete => 0 }, class: 'checkbox'%>
@@ -12,7 +12,9 @@
         <li><%= link_to '✎', edit_task_path(task), class: 'modify_button' %></li>
         <li><%= button_to '✗', task, class: 'modify_button', method: :delete, data: { confirm: "Are you sure you want to delete \"#{task.name}\"?" } %></li>
       </ul>
-      <p class="owner">Assigned to: <%= task.owner %></p>
+      <% if display_assigned_to %>
+        <p class="owner">Assigned to: <%= task.owner %></p>
+      <% end %>
     </li>
   <% end %>
 </ol>
