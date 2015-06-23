@@ -1,35 +1,33 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :complete, :destroy]
 
-  # GET /tasks
   def index
     @all_tasks = Task.all
   end
 
-  # GET /tasks/:id
   def show
   end
 
-  # GET /tasks/new
   def new
     @task = Task.new
     @all_people = Person.all
   end
 
-  # GET /tasks/:id/edit
   def edit
     @all_people = Person.all
   end
 
-  # POST /tasks
   def create
     # TODO: require task name from the user
     @task = Task.new(task_params)
 
-    redirect_to tasks_path if @task.save
+    if @task.save
+      redirect_to tasks_path
+    else
+      render :new, notice: 'Sorry, something went wrong =('
+    end
   end
 
-  # PATCH/PUT /tasks/:id
   def update
     if params[:complete]
       @task.change_complete_status(params[:complete])
@@ -41,7 +39,6 @@ class TasksController < ApplicationController
     end
   end
 
-  # DELETE /tasks/:id
   def destroy
     @task.destroy
     redirect_to tasks_path, notice: "\"#{@task.name}\" was deleted."
