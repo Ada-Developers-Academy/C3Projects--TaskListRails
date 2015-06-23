@@ -28,7 +28,7 @@
         </td>
         <td>
         <% if task.person %>
-          <a href = <%="/people/#{task.person_id}"%>>
+          <a href = <%="/assigned_to_#{task.person_id}"%>>
           <%= task.person.name %>
         </a>
         </td>
