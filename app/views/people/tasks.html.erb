@@ -2,7 +2,7 @@
  <h1><%= @person.name.capitalize %>'s Task Details:</h1>
 
   <div class="profile_top">
-   <h4>Completion Rate:</h4>
+   <h4>To Be Completed:</h4>
     <p><%= @person.tasks.where(completed_at: nil).count %>/<%= @person.tasks.count %></p>
    </div>
 
