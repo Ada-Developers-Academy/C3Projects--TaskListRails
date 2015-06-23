@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   # paths to support displaying tasks in forward and backward chronological order
   # DEFAULT: oldest tasks first (!W make the duplicants into redirects)
   root 'carl_tasks#index'
-  get "/oldest" => "carl_tasks#oldest"
-  get "/forward" => "carl_tasks#forward"
-  # but some people want to go the other way
-  get "/backward" => "carl_tasks#backward"
-  get "/reverse" => "carl_tasks#reverse"
-  get "/newest" => "carl_tasks#newest"
+  # get "/oldest" => "carl_tasks#oldest"
+  # get "/forward" => "carl_tasks#forward"
+  # # but some people want to go the other way
+  # get "/backward" => "carl_tasks#backward"
+  # get "/reverse" => "carl_tasks#reverse"
+  # get "/newest" => "carl_tasks#newest"
 
   # GETs / regular links
   get "/about" => "carl_tasks#about" # about carl
@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   get "/delete/:id" => "carl_tasks#delete"# delete a specific task
 
   # GETs for SPECIFIC INDIVIDUAL people
-  get "/people/:id/tasks" => "carl_tasks#people" # review a specific person's tasks
-  get "/people/:id" => "carl_tasks#person" # review a specific person
-  get "/people" => "carl_tasks#people_list" # review all the people ALL OF THEM
+  get "/people" => "carl_people#people" # review all the people ALL OF THEM
+  get "/people/:id" => "carl_people#show" # review a specific person
+  get "/people/:id/tasks" => "carl_people#tasks" # review a specific person's tasks
 
   # GET a new task
   get "/create" => "carl_tasks#create"
