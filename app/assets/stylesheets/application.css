@@ -15,5 +15,7 @@
  */
 
 html {
-  background-image: url("dark_embroidery.png");
+  background-image: image-url("dark_embroidery.png");
 }
+
+
