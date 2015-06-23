@@ -66,8 +66,8 @@ In this wave, we explore creating ActiveRecord associations by creating `belongs
   - (DONE) `index` action: Show a list of all people in the database.
     - (DONE) Link each Person's name to their `show` action.
     - (DONE) The index should include a count of how many _uncompleted_ tasks are assigned to each Person.
-  - `show` action: show all of the Person's information
-- Create a custom route and action for showing a complete list of a Person's tasks, both complete and incomplete.
-  - The url of this page should look something like `http://localhost:3000/people/1/tasks`.
-  - Link to this action from a Person's `show` view.
+  - (DONE)`show` action: show all of the Person's information
+- (DONE) Create a custom route and action for showing a complete list of a Person's tasks, both complete and incomplete.
+  - (DONE) The url of this page should look something like `http://localhost:3000/people/1/tasks`.
+  - (DONE) Link to this action from a Person's `show` view.
 - Deploy your completed app to Heroku.
