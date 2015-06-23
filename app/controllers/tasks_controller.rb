@@ -26,11 +26,11 @@ class TasksController < ApplicationController
     @task.description = create_params[:task][:description]
     @task.person_id = create_params[:task][:person_id]
     @task.completed = create_params[:task][:completed]
-      if @task.completed
-        @task.completed_at = create_params[:task][:completed_at]
-      else
-        @task.completed_at = nil
-      end
+    if @task.completed
+      @task.completed_at = Time.now
+    else
+      @task.completed_at = nil
+    end
     @task.save
     redirect_to "/tasks/#{@task.id}"
   end
@@ -58,6 +58,17 @@ class TasksController < ApplicationController
     @task.completed_at = Time.now
     @task.save
     render :index
+  end
+
+  def people
+    @person = Person.find(params[:id])
+    @tasks = Task.all.where(person_id: params[:id])
+    @people = [{
+      id: @person.id,
+      name: @person.name,
+      count: @person.tasks.where(date_complete: nil).count
+      }]
+      render :index
   end
 
   private
