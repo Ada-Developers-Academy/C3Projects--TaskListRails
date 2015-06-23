@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get          '/people' => 'people#index'
 
+  get '/people/:id/tasks' => 'people#tasks'
+
   get '/people/show/:id' => 'people#show'
 
   # buttons

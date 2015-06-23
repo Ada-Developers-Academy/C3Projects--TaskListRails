@@ -31,4 +31,13 @@
       N/A
     </p>
   <% end %>
+
+  <p>
+    <span>Number of Tasks</span>
+  </p>
+
+  <p class="task-details num-of-tasks">
+    <% a = Task.all.where(person_id: @person.id) %>
+    <%= link_to a.count, "/people/#{@person.id}/tasks" %>
+  </p>
 </div>

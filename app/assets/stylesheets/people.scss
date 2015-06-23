@@ -30,3 +30,12 @@ $body-text: #4A4A4A; // black
     }
   }
 }
+
+.num-of-tasks a {
+  font-size: 35px;
+  color: #000;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
