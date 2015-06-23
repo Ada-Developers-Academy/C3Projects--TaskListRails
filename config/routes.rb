@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  get 'task/:id' => 'tasks#show'
+  get '/task/:id' => 'tasks#show'
+
+  get '/person' => 'people#index'
+
+  get "/people/:id/task" => 'people#show'
+
+  get '/person/:id' => 'people#show'
 
   patch '/completed/:id' => 'tasks#completed'
 
