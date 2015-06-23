@@ -11,9 +11,12 @@
   </tr>
   <% end %>
   <tr>
-    <td></td>
+    <td>
+    <pre></pre>
+    </td>
   </tr>
   <tr>
-    <td colspan="3"><%= link_to "Back to: To Do List", "/", method: :get %></td>
+    <td><%= button_to "To Do List", "/", method: :get %></td>
+    <td><%= button_to "Responsible People", "/people", method: :get %></td>
   </tr>
 </table>

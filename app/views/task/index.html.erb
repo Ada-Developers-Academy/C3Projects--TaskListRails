@@ -24,7 +24,7 @@
     <td colspan="3", class="new_task"><%= button_to "Add New Task", "/tasks/new", method: :get %></td>
   </tr>
   <tr>
-    <td colspan="3"><%= link_to "People","/people", method: :get %></td>
-
+    <%= render partial: "footer_links" %>
+  </tr>
 </table>
 </body>

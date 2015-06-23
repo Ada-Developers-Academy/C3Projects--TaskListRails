@@ -1,3 +1,4 @@
+<h1>About <%= @person.name %></h1>
 <table>
   <tr>
     <th>Name</th>
@@ -10,13 +11,12 @@
     <td><%= @person.age %></td>
   </tr>
   <tr>
-    <td></td>
+    <td>
+      <pre></pre>
+    </td>
   </tr>
   <tr>
-    <td colspan="1.5"><%= link_to "All Tasks"%></td>
-    <td colspan="1.5"><%= link_to "To Do List", "/", method: :get %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "Task Masters", "/people", method: :get %></td>
-    <td><%= link_to "#{@person.name}'s Complete Task List", "/people/#{@person.id}/tasks", method: :get %></td>
+    <td><%= button_to "To Do List", "/", method: :get %></td>
+    <td><%= button_to "Responsible People", "/people", method: :get %></td>
+    <td><%= button_to "#{@person.name}'s Complete Task List", "/people/#{@person.id}/tasks", method: :get %></td>
 </table>

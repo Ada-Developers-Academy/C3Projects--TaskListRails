@@ -1,5 +1,5 @@
-table, td, th {
-  padding: 2px;
+table, th {
+  padding: 10px;
   margin-left: auto;
   margin-right: auto;
   background-color: #FFFFCC;
@@ -8,6 +8,10 @@ table, td, th {
 
 th {
   text-decoration: underline;
+  text-align: center;
+}
+
+td {
   text-align: center;
 }
 
@@ -29,6 +33,10 @@ body {
 
 label {
   color: #686868;
+}
+
+.cross_out {
+  text-decoration: line-through;
 }
 
 .new_task {

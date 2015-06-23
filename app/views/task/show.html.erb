@@ -8,7 +8,7 @@
     <td><%= @task_finder.completed_at %></td>
   </tr>
   </table>
-<pre>
+
   <%= link_to "Edit", "/tasks/#{@task_finder.id}", method: :get %>
-  <%= link_to "Back to Home", "/" %>
-</pre>
+
+<%= render partial: "footer_links" %>

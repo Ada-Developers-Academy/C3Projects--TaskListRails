@@ -1,7 +1,6 @@
 class PersonController < ApplicationController
   def index
     @person = Person.all
-    # @tasks = Task.where(person_id: @person.id)
     render :index
   end
 
