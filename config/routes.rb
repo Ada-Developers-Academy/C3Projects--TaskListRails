@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   patch '/tasks/incomplete/:id' => 'task#incomplete'
 
 
+  get '/person' => 'person#index'
+
+  get '/people/:id' => 'person#show'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   # post 'tasks/add_task' => 'tasks#index'

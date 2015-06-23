@@ -1,0 +1,20 @@
+<h1>Task Masters:</h1>
+
+<section>
+  <table border ="0">
+    <tr>
+      <th>Name</th>
+      <th>Tasks Remaining</th>
+    </tr>
+
+    <% @people.each do |person| %>
+      <% incomplete_count = person.tasks.where(completed: "false").count %>
+      <tr>
+        <td><%= person.name %></td>
+        <td><%= incomplete_count %></th>
+        <td><%= button_to "View Details", "/people/#{person.id}", method: "get" %></td>
+      </tr>
+    <% end %>
+
+  </table>
+</section>
