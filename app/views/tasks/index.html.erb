@@ -13,8 +13,8 @@
       <% @id = t.id%>
         <td><%= task_num += 1  %></td>
         <td><%= link_to "#{t.name}", "/task/#{@id}", method: :get %></td>
-        <% unless t.person.name.nil? %>
-        <td><%= t.person.name %></td>
+        <% unless t.person_id.nil? %>
+          <td><%= t.person.name %></td>
         <% end %>
     <td><%= button_to "Mark task as completed", "/completed/#{@id}", method: :patch %></td>
     <td><%= button_to "update Task", "/update/#{@id}", method: :get %></td>
