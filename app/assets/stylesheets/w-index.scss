@@ -41,6 +41,12 @@ nav {
     font-size: 18px;
     color: $body-text;
   }
+
+  a:nth-child(2) {
+    position: relative;
+    float: right;
+    top: -19px;
+  }
 }
 
 main {

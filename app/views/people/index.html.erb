@@ -15,7 +15,9 @@
       <div>
         <p>
           <% a = @tasks.where(person_id: person.id) %>
-          <%= a.count %>
+          <% count = 0 %>
+          <% a.each { |task| task.completed_at.nil? ? count += 1 : count } %>
+          <%= count %>
         </p>
       </div>
     </li>

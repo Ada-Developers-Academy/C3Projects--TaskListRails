@@ -2,10 +2,15 @@
   <p>
     <%= link_to link_name, link_path %>
   </p>
-  <% if edit_button %>
+
+  <% if edit_button ||= false %>
     <%= button_to "/edit/#{@task.id}" do %>
        Edit
     <% end %>
+  <% end %>
+
+  <% if people_link ||= false %>
+    <%= link_to "People", "/people" %>
   <% end %>
 </nav>
 
