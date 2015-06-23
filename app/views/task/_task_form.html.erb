@@ -9,11 +9,8 @@
   <%= f.label :completed_at %>
   <%= f.date_field :completed_at %>
 
-  <%= f.label :person %>
-  <%=
-    @people.find(:all, :order => "name")
-    collection_select(@people)
-    %>
+  <%= f.label :person_id %>
+  <%= f.collection_select(:person_id, Person.all, :id, :name, prompt: "Select One") %>
 
   <% if @task.id != nil %>
     <%= f.submit "Update Task", method: "patch" %>
