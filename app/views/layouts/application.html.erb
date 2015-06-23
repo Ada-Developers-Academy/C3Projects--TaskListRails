@@ -11,7 +11,11 @@
 <%= yield %>
 
 <div class="button_block">
-  <%= link_to "Back to Task List", "/" unless current_page?(action: 'index')%>
+  <%= link_to "Back to Task List", "/" unless current_page?(controller: 'tasks', action: 'index')%>
+</div>
+
+<div class="button_block">
+  <%= link_to "Back to Task Owner List", "/people" unless current_page?(controller: 'tasks', action: 'index')%>
 </div>
 
 </body>
