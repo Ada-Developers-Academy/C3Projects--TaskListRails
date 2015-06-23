@@ -6,6 +6,7 @@
 
 <main>
   <%= link_to "#{ @person.name }'s Tasks", person_tasks_path(@person.id), class: 'button' %>
+  <%= link_to "Tasks Remaining: #{ @person.tasks_remaining }", person_tasks_path(@person.id), class: 'button' %>
   <%= link_to '✎', edit_person_path(@person), class: 'modify_button' %>
   <%= button_to '✗', @person, class: 'modify_button', method: :delete, data: { confirm: "Are you sure you want to delete \"#{ @person.name }\" and all of his/her tasks?" } %>
 

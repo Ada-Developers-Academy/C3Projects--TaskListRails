@@ -26,8 +26,8 @@ class TasksController < ApplicationController
   def create
     # TODO: require task name from the user
     @task = Task.new(task_params)
-    @task.person_id = task_params[:person_id]
     person = Person.find(task_params[:person_id])
+
 
     if @task.save
       redirect_to person_tasks_path(person)
