@@ -17,7 +17,7 @@
       </td>
       <td>
         <% if Task.where("person_id = #{person.id}").present? %>
-          <%= Task.where("person_id = #{person.id}").where.not("completed_date NOT NULL ").count %>
+          <%= Task.where("person_id = #{person.id}").where("completed_date IS NULL ").count %>
         <% else %>
           <%= "" %>
         <% end %>
