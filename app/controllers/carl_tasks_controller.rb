@@ -54,8 +54,8 @@ class CarlTasksController < ApplicationController
     @tasks = Task.all.where(person_id: params[:id])
 
     render :index
-  # rescue
-  #   redirect_to "/person_not_found"
+  rescue
+    redirect_to "/person_not_found"
   end
 
   def people_list
@@ -65,12 +65,14 @@ class CarlTasksController < ApplicationController
       tasks_count = person.tasks.count
       tasks_wip = person.tasks.where(date_complete: nil).count
       tasks_done = tasks_count - tasks_wip
+      percent_complete = ((tasks_done.to_f / tasks_count.to_f).round(2) * 100).to_i
 
       @people.push({
         person: person,
         tasks_count: tasks_count,
         tasks_wip: tasks_wip,
-        tasks_done: tasks_done
+        tasks_done: tasks_done,
+        percent_complete: percent_complete
       })
     end
 

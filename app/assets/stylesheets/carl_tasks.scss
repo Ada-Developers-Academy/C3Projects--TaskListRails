@@ -157,6 +157,17 @@ article p {
 }
 
 #people thead td {
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: bold;
   padding: 5px 20px;
+}
+
+.person-name {
+  font-family: "Copperplate", "Arial Bold", sans-serif;
+  font-size: 24px;
+  padding-left: 10px;
+}
+
+#people .number {
+  background: #dcdddc;
 }

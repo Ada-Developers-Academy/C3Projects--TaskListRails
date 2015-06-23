@@ -6,11 +6,11 @@
     <td>Complete</td>
   </thead>
   <% @people.each do |person| %>
-    <tr class="tasks">
-      <td><%= person[:person].name %></td>
+    <tr class="number">
+      <td class="person-name"><%= link_to "#{ person[:person].name }", "/people/#{ person[:person].id }", title: "View the other terrible things that #{ person[:person].name } is planning to do."  %></td>
       <td><%= person[:tasks_count] %></td>
       <td><%= person[:tasks_wip] %></td>
-      <td><%= person[:tasks_done] %></td>
+      <td><%= person[:tasks_done] %> (<%= person[:percent_complete] %> %)</td>
     </tr>
   <% end %>
 </table>
