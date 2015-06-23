@@ -19,13 +19,13 @@ new_tasks.each do |task|
   Task.create task
 end
 
-new_people = [
-  { name: "Jack" },
-  { name: "Samantha" },
-  { name: "Daniel" },
-  { name: "Teal'c" }
-]
+# new_people = [
+#   { name: "Jack" },
+#   { name: "Samantha" },
+#   { name: "Daniel" },
+#   { name: "Teal'c" }
+# ]
 
-new_people.each do |person|
-  Person.create person
-end
+# new_people.each do |person|
+#   Person.create person
+# end
