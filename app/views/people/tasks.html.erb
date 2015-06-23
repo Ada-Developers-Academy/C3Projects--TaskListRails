@@ -1,1 +1,24 @@
-<h1>IT WORKS!!</h1>
+<h1><%= "#{@person.name}'s Tasks" %></h1>
+
+<table>
+  <th>Task Name</th>
+  <th>Complete?</th>
+
+<% @tasks.each do |task| %>
+<tr>
+  <td><%= task.name %> </td>
+  <% if task.completed_at == nil %>
+    <td>
+      <i class="fa fa-thumbs-down"></i>
+    </td>
+
+    <% else %>
+      <td>
+        <i class="fa fa-thumbs-o-up"></i>
+      </td>
+    <% end %>
+    <% end %>
+
+  </tr>
+
+</table>
