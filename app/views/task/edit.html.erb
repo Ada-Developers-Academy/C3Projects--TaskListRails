@@ -1,4 +1,0 @@
-<h1> Edit Task <%= @task.id %></h1>
-<%= form_for @task, url:"/task_#{@task.id}/edit" do |f| %>
-<%= render("taskform", :f => f) %>
-<% end %>
