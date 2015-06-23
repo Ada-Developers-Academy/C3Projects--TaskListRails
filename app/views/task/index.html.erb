@@ -1,10 +1,10 @@
 <header class = "header">
   <div class="header_wrapper">
-    <h1>Reading List</h1>
+    <h1>Unigoat Book Recommendations</h1>
     <nav>
       <ul>
-        <li><%= link_to "Add a book", "/tasks/new" %></li>
-        <li><%= link_to "Peep at my Goodreads", "https://www.goodreads.com/review/list/4306102?shelf=read" %></li>
+        <li><%= link_to "Add a Book", "/tasks/new" %></li>
+        <li><%= link_to "My Goodreads", "https://www.goodreads.com/review/list/4306102?shelf=read" %></li>
       </ul>
     </nav>
   </div>
@@ -15,9 +15,9 @@
   <table>
     <tr class = "theader">
       <td>Title</td>
-      <td>Complete?</td>
-      <td>Delete</td>
-      <td>Recommended by</td>
+      <td>Read It?</td>
+      <td>Delete It</td>
+      <td>Recommended By</td>
     </tr>
 
     <% @displaytasks.each do |task| %>

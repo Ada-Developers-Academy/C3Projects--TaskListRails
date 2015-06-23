@@ -97,10 +97,17 @@ form {
   margin-right: auto;
 }
 
-form input {
+form label {
   display: block;
 }
 
 legend {
   font-size: 1.4em;
+}
+
+//______MINI_NAV_______
+
+.mininav {
+  text-align: center;
+  line-height: 170%;
 }

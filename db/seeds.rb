@@ -36,10 +36,34 @@ checklist.each do |task|
 end
 
 peeps = [
-  {name: "Brenna"},
-  {name: "Michelle"},
   {name: "Alice"},
+  {name: "Amira"},
+  {name: "Anita"},
+  {name: "Ashley"},
+  {name: "Brandi"},
+  {name: "Brenna"},
+  {name: "Brittany"},
+  {name: "Carly"},
+  {name: "Chef"},
+  {name: "Corinne"},
+  {name: "Crystal"},
+  {name: "Elia"},
+  {name: "Elsa"},
+  {name: "Jeremy"},
+  {name: "Jeri"},
+  {name: "Kari B."},
+  {name: "Kari L"},
+  {name: "Katie"},
+  {name: "Kyna"},
+  {name: "Lila"},
+  {name: "Lindsey"},
   {name: "Loraine"},
+  {name: "Loren"},
+  {name: "Marleigh"},
+  {name: "Michelle"},
+  {name: "Sally"},
+  {name: "Shanna"},
+  {name: "Victoria"},
 ]
 peeps.each do |peep|
   Person.create(peep)
