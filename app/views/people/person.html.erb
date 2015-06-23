@@ -1,16 +1,13 @@
-<div class="task_list">
-  <h2> Person Details </h2>
+<div>
 
-  <ul>
-    <li>
-      Name: <%= @person[:name] %>
-    </li>
-  </ul>
+  <%= render partial: "layouts/details", locals: {
+    title: "Person",
+    all_details: {
+      "Name" => @person_name,
+      "Favorite Genre" => @person_fav_genre
+    }
+  } %>
 
-  <%= link_to "All Tasks for #{@person[:name]}", "/people/#{@person[:id]}/tasks" %>
+    <%= button_to "All Games Recommended by #{@person_name}", "/people/#{@person_id}/tasks", method: "get" %>
 
 </div>
-
-
-
-<%= render partial: "layouts/details", locals: { title: "Edit", button: false} %>

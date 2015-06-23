@@ -12,6 +12,8 @@
     <%= f.date_field :completed_at %>
     <!-- <%= f.date_field :completed_at, {:value => @task_completed_at} %> -->
     <!-- DOESN'T SEEM TO BE WORKING -->
+    <%= f.label :person_id, "Recommended by" %>
+    <%= f.collection_select(:person_id, Person.all, :id, :name) %>
   </fieldset>
-  <%= f.submit %>
+  <%= f.submit(value: "UPDATE GAME", class: "form") %>
 <% end %>

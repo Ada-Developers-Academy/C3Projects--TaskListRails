@@ -1,9 +1,9 @@
-<h2> <%= title %> </h2>
+<h2><%= title %> Details</h2>
 
 <ul>
-  <li>
-    Name: <%= @person[:name] %>
-  </li>
+  <% all_details.each do |detail, value| %>
+    <li>
+      <%= "#{detail}: #{value}" %>
+    </li>
+  <% end %>
 </ul>
-
-<%= link_to "All Tasks for #{@person[:name]}", "/people/#{@person[:id]}/tasks" %>

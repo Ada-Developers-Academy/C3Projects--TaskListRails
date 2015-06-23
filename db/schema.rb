@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20150622183545) do
 
   create_table "people", force: :cascade do |t|
     t.string   "name"
+    t.string   "fav_genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

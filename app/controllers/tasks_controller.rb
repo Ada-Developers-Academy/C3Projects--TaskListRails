@@ -1,9 +1,11 @@
 class TasksController < ApplicationController
 
   def index
-    @all_tasks = Task.all   # NOTE TO SELF: "@all_tasks" is actually a Task::ActiveRecord_Relation object, but responds to array methods
+    @all_tasks = Task.all
+      # NOTE TO SELF: "@all_tasks" is actually a Task::ActiveRecord_Relation object, but responds to array methods
 
-    render :index   # NOTE TO SELF: this is for clarity, you don't actually need this in this case
+    render :index
+      # NOTE TO SELF: this is for clarity, you don't actually need this in this case
   end
 
   def completed_status
@@ -18,11 +20,23 @@ class TasksController < ApplicationController
   end
 
   def show
-    task_instance_vars
+    task = Task.find(params[:id])
+
+    @task_id =              task[:id]
+    @task_name =            task[:name]
+    @task_description =     task[:description]
+    @task_status =          task[:completed_at].nil? ? "NEED TO PLAY" : "FINISHED"
+    @task_completion_date = task[:completed_at].nil? ? "N/A" : date_format(task[:completed_at])
+    @task_created_at =      date_format(task[:created_at])
+    @task_updated_at =      date_format(task[:updated_at])
+    @task_recommended_id =  task.person.id
+    @task_recommended_by =  task.person.name
+
     @button_visibility = "visible"
     @delete_visibility = "invisible"
 
-    render :task   # NOTE TO SELF: "render 'task'" also would work
+    render :task
+      # NOTE TO SELF: "render 'task'" also would work
   end
 
   def show_before_delete
@@ -41,7 +55,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(create_params[:task])
+    @task = Task.new(permit_params[:task])
     @task.save
 
     redirect_to "/" # Why does this not work with :index?
@@ -90,13 +104,8 @@ class TasksController < ApplicationController
     redirect_to "/"
   end
 
-  private
 
-  def completed_instance_var
-    # QUESTION: Constant's don't really work, do they? (Didn't work for me.)
-    # @visibility = @task[:completed_at].nil? ? "invisible" : "visible"
-    # What is this?: "\u2713".force_encoding("UTF-8")
-  end
+  private
 
   def task_instance_vars
     # NOTE!!! Need to read up on params to show unique URLs!
@@ -104,7 +113,8 @@ class TasksController < ApplicationController
     @task_id = @task[:id]
     @task_name = @task[:name]
     @task_desc = @task[:description]
-    @task_completed_at = @task[:completed_at]
+
+    # @task_completed_at = @task[:completed_at]
     @task_status = @task[:completed_at].nil? ? "NEED TO PLAY" : "FINISHED"
     @task_completion_date = @task[:completed_at].nil? ? "N/A" : date_format(@task[:completed_at])
     @task_created_at = date_format(@task[:created_at])
@@ -112,16 +122,12 @@ class TasksController < ApplicationController
   end
 
   def date_format(datetime)
-    datetime.strftime("%m/%d/%Y %l:%M %p")
+    datetime.strftime("%m/%d/%Y")
   end
 
-  def create_params
-    # NOTE!!!: Definately look up info on this.
-    params.permit(task: [:name, :description])
+  def permit_params
+    params.permit(task: [:name, :description, :person_id])
+      # NOTE!!!: Definately look up info on this.
   end
-
-  # def edit_params
-  #   params.permit(task: [:name, :description, :completed_at])
-  # end
 
 end

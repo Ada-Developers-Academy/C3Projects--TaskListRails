@@ -6,10 +6,10 @@ Rails.application.routes.draw do
     # NOTE TO SELF: see 'tasks_controller.rb' for method 'index'
   get '/tasks' => 'tasks#index'
 
-  get '/people/:id/tasks' => 'people#all_tasks'
   get '/people' => 'people#index'
   get '/people/index' => 'people#index'
   get '/people/:id' => 'people#show'
+  get '/people/:id/tasks' => 'people#all_tasks'
 
   get '/tasks/new' => 'tasks#new'
   post '/tasks' => 'tasks#create'

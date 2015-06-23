@@ -1,5 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :person
+  # validates_presence_of :name
+  # validates_numericality_of :person_id
 
   def self.all_completed
     where.not(completed_at: nil)
@@ -25,6 +27,7 @@ class Task < ActiveRecord::Base
     game = find(id)
     game.name = task[:name]
     game.description = task[:description]
+    game.person_id = task[:person_id]
     game.completed_at = completed
     game.save
   end
