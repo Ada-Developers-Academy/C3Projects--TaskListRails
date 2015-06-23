@@ -1,0 +1,19 @@
+<h1>The people of the Tasks!</h1>
+
+<table>
+  <tr>
+  <% @people.each do |person| %>
+
+    <td><%= person[:name] %></td>
+
+   <% person_tasks = Task.where(:person_id => person.id) %>
+
+   <% todo_tasks = person_tasks.where(:completed_at => nil).count %>
+   <td> <%= todo_tasks %></td>
+
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "+ Create New Task", '/new', class: "new_link" %>
+

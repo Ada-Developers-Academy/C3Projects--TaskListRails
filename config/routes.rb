@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   get '/tasks/incomplete/:id' => 'task#incomplete'
   patch '/tasks/incomplete/:id' => 'task#incomplete'
 
+  get '/people/:id/tasks' => 'people#index'
+
+
 
 
   # Example of regular route:
