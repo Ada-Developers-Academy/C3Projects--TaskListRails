@@ -60,7 +60,8 @@ class TaskController < ApplicationController
     @name = create_params[:task][:name]
     @description = create_params[:task][:description]
     @completed_on = create_params[:task][:completed_on]
-    @task.update(name: "#{@name}", description: "#{@description}", completed_on: "#{@completed_on}")
+    @person_id = create_params[:task][:person_id]
+    @task.update(name: "#{@name}", description: "#{@description}", completed_on: "#{@completed_on}", person_id: "#{@person_id}")
     @task.save
 
     render :show

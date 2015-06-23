@@ -9,6 +9,10 @@
 
     <%= t.label :completed_on %>
     <%= t.date_field :completed_on %>
+
+    <%= t.label :person_id %>
+    <%= t.select(:person_id, Person.all.map {|person| [person.name, person.id]},
+    {include_blank: 'None'})%>
   </fieldset>
 
   <%= t.submit 'Confirm changes' %>

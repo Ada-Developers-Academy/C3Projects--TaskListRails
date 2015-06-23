@@ -12,6 +12,7 @@
 
     <%= t.select(:person_id, Person.all.map {|person| [person.name, person.id]},
     {include_blank: 'None'})%>
+  </fieldset>
 
   <%= t.submit 'Add task' %>
 <% end %>
