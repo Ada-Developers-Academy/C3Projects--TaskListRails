@@ -6,6 +6,7 @@
   <h2>Person</h2>
   <%= @person.name %>
 
+
   <% if @person.summary %>
     <h2>Additional Info</h2>
     <p><%= @person.summary %></p>
@@ -15,4 +16,5 @@
   <p><span class="number"><%= @tasks_count %></span> tasks assigned</p>
   <p><span class="number"><%= @tasks_wip %></span> in progress</p>
   <p><span class="number"><%= @tasks_done %></span> completed</p>
+  <p><%= link_to "view tasks", "/people/#{ @person.id }/tasks", title: "Review #{ @person.name }'s tasks.", class: "person" %></p>
 </section>

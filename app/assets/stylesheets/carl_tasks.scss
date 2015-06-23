@@ -149,9 +149,12 @@ article p {
   font-size: 28px;
 }
 
+.person .person {
+  font-family: "Copperplate", "Arial Bold", sans-serif;
+}
+
 .finished .person, .unfinished .person {
   color: #000;
-  font-family: "Copperplate", "Arial Bold", sans-serif;
   font-size: 16px;
   text-decoration: none;
 }
@@ -170,4 +173,15 @@ article p {
 
 #people .number {
   background: #dcdddc;
+}
+
+.wrap {
+  display: inline-block;
+  margin: 0;
+  padding: 0 15px;
+}
+
+.secret-head h2 {
+  padding: 0;
+  margin: 0;
 }

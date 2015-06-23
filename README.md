@@ -1,31 +1,3 @@
-<\!--
-
-adjustments still needed:
-* handle missing name create form error.
-   * is requiring the name field enough?  
-     (instinct says: no. only modern browsers recognize `require` & I think IE (even 10) not at all.)
-* styles organized and better commented.
-* consider displaying tasks reverse chronologically DONE (not yet persistent, link in header/footer for now) or with completed tasks separately.
-   * __NEXT: tabs in table? I'm now thinking another header row in table w/ 2-4 options: forward, reverse, complete last (forward vs reverse).__
-      * now must also sort by person
-      * but person provides a home for statistics! <3
-      * if come back to this later, maybe historical options. like hide tasks completed over x days ago. set by user?
-   * maybe view options?
-      * restore old view as one option?
-      * disable individual task views?
-* update portfolio site include this?
-   * blagoblag?
-      * __speaking of which__ you know what I mean.
-* due dates for tasks?
-* maybe a statistics page to show task completion history, # tasks created vs completed, # tasks completed on time, etc?
-   * would need an option to mark deletions as mistakes if really tracking created vs completed.
-   * or maybe use time? like if delete w/in five minutes or half an hour or x time before due date, don't count it in all time stats.
-* well since I'm talking about potential future updates anyway, how's about being able to tag tasks w/ categories & view just a given category at once?
-   * also just the stats for said category.
-   * and maybe stats by month, too.
-
--->
-
 Jeri
 # Task List Rails
 

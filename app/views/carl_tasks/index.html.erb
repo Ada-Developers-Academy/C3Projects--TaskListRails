@@ -9,6 +9,20 @@
       </tr>
     </thead>
 
+    <tr class="secret-head">
+      <td colspan="4"><h2>Works In Progress (By Person)</h2>
+        <p>
+        <% @people.each_with_index do |person, counter| %>
+          <% if counter == 4 %>
+        </p><p>
+          <% end %>
+          <div class="wrap">
+            <%= link_to "#{ person[:name] }", "/people/#{ person[:id] }", title: "Review #{ person[:name] }'s tasks." %> -- <span class="number"><%= person[:count] %></span>
+          </div>
+        <% end %>
+      </td>
+    </tr>
+
     <% @tasks.each do |task| %>
       <tr class="tasks">
         <td class="done"><%= link_to "#{ task.date_complete ? "☑" : "☐" }", "/complete/#{ task.id }", method: :patch, title: "#{ task.date_complete ? "undo" : "DONE!" }", data: { confirm: "#{ task.date_complete ? "Are you sure you want to undo this task's completion? (Task: #{ task.name })" : "Are you sure you want to mark this task complete? (Task: #{ task.name })" }"} %></td>
@@ -30,6 +44,5 @@
         <td class="kill"><%= link_to "KILL", "/delete/#{ task.id }", title: "BURNINATE THE COUNTRYSIDE! Delete this task." %></td>
       </tr>
     <% end %>
-
   </table>
 <% end %>

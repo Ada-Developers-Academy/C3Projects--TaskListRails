@@ -66,11 +66,11 @@ people = [
   { name: "Carl", summary: "The worst llama." },
   { name: "WhatsHisName", summary: "Who is that guy, anyway? I know I've seen him somewhere before." },
   { name: "Jeri", summary: "Generic human." },
-  { name: "Aneda", summary: "Aneda Wong, a fascinating specimen who " },
+  { name: "Aneda", summary: "Aneda Wong, a fascinating specimen who thinks children are useless." },
   { name: "Eelia", summary: "Electric Eelia, a most magical and lightning-infused eel." },
   { name: "Caaaaarrrrrllll", summary: "The best llama." },
   { name: "Brandeeeeeeeee", summary: "A lovely human who enjoys such things as video games." },
-  { name: "J Bradon Rothschild", summary: "He who has leaveth for a 'better' place, NYC. (╥﹏╥)"}
+  { name: "J Bradon Rothschild", summary: "(╥﹏╥)"}
 ]
 
 6.times do

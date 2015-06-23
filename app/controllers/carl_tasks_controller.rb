@@ -10,6 +10,17 @@ class CarlTasksController < ApplicationController
 
   def index
     @tasks = Task.all
+
+    people = Person.all
+    @people = []
+
+    people.each do |person|
+      @people.push({
+        id: person.id.to_i,
+        name: person.name,
+        count: person.tasks.where(date_complete: nil).count
+      })
+    end
   end
 
   def show
@@ -18,40 +29,46 @@ class CarlTasksController < ApplicationController
     redirect_to "/"
   end
 
-  #------------ DISPLAYING TASKS IN REVERSE CHRONOLOGICAL ORDER ----------------
-
-  def newest
-    tasks = Task.all
-    @tasks = []
-
-    tasks.each do |task|
-      @tasks.unshift(task)
-    end
-
-    render :index
-  end
-
-  def reverse
-    redirect_to "/newest"
-  end
-
-  def backward
-    redirect_to "/newest"
-  end
-
-  def oldest
-    redirect_to "/"
-  end
-
-  def forward
-    redirect_to "/"
-  end
-
+  # #------------ DISPLAYING TASKS IN REVERSE CHRONOLOGICAL ORDER ----------------
+  #
+  # def newest
+  #   tasks = Task.all
+  #   @tasks = []
+  #
+  #   tasks.each do |task|
+  #     @tasks.unshift(task)
+  #   end
+  #
+  #   render :index
+  # end
+  #
+  # def reverse
+  #   redirect_to "/newest"
+  # end
+  #
+  # def backward
+  #   redirect_to "/newest"
+  # end
+  #
+  # def oldest
+  #   redirect_to "/"
+  # end
+  #
+  # def forward
+  #   redirect_to "/"
+  # end
+  #
   #----------------- DISPLAYING TASKS FOR INDIVIDUAL PEOPLE --------------------
 
   def people
     @person = Person.find(params[:id])
     @tasks = Task.all.where(person_id: params[:id])
+
+    @people = [{
+        id: @person.id,
+        name: @person.name,
+        count: @person.tasks.where(date_complete: nil).count
+      }]
 
     render :index
   rescue
@@ -75,7 +92,6 @@ class CarlTasksController < ApplicationController
         percent_complete: percent_complete
       })
     end
-
   end
 
   def person
@@ -83,6 +99,8 @@ class CarlTasksController < ApplicationController
     @tasks_count = @person.tasks.count
     @tasks_wip = @person.tasks.where(date_complete: nil).count
     @tasks_done = @tasks_count - @tasks_wip
+  rescue
+    redirect_to "/person_not_found"
   end
 
 
