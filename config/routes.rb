@@ -20,7 +20,11 @@ Rails.application.routes.draw do
 
 
   get '/people'                 => 'people#index'
-  get '/person/:id'             => 'people#show'
+  get '/people/:id'             => 'people#show'
+  get '/people/:id/tasks'       => 'people#tasks'
+
+  get '/new_owner'              => 'people#new_owner'
+  post '/people'                => 'people#create_owner'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
