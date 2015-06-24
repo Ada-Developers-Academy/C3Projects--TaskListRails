@@ -34,12 +34,12 @@ class Person < ActiveRecord::Base
   end
 
   def percent_complete
-    demical = complete_tasks_count.to_f / tasks.count
-    percent = decimal.round(2) * 100
+    decimal = complete_tasks_count.to_f / tasks.count
+    percent = (decimal.round(2) * 100).to_i
   end
 
   def percent_incomplete
-    demical = incomplete_tasks_count.to_f / tasks.count
-    percent = decimal.round(2) * 100
+    decimal = incomplete_tasks_count.to_f / tasks.count
+    percent = (decimal.round(2) * 100).to_i
   end
 end

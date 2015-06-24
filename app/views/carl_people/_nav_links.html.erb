@@ -1,13 +1,4 @@
-<<%= top ? "header" : "footer" %>>
-  <nav id="<%= top ? "top" : "bottom" %>">
-    <% unless top %>
-      <a href="#top" title="Jump to the top of the page!">Top</a>
-    <% end %>
-    <a href="/" title="Carl's Taskmaster">Home</a>
-    <!-- <a href="/reverse" title="Carl's Taskmaster">(newest task first)</a> -->
-    <!-- this isn't working for individual person views. come back to it later after finishing requirements. -->
-    <a href="/about" title="Learn more about Carl.">About</a>
-    <a href="/people" title="Who exists in this world?">People</a>
-    <a href="/create" title="Create a new task!">Create New Task</a>
-  </nav>
-</<%= top ? "header" : "footer" %>>
+<a href="/" title="Carl's Taskmaster">Home</a>
+<a href="/about" title="Learn more about Carl.">About</a>
+<a href="/people" title="Who exists in this terrifying world?">People</a>
+<a href="/create" title="Create a new task!">Create New Task</a>

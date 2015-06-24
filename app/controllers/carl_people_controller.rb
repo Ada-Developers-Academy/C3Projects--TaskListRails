@@ -11,12 +11,11 @@ class CarlPeopleController < ApplicationController
 
   #----------------- SHOW A PERSON'S TASKS --------------------
   def tasks
-    # called people b/c that's what carl_tasks#index expects
-    @people = Person.find(params[:id])
-    @tasks = @people.tasks
+    # called people & in an array b/c that's what carl_tasks#index expects
+    @people = [Person.find(params[:id])]
+    @tasks = @people[0].tasks
 
     render "carl_tasks/index"
-
   rescue
     redirect_to "/person_not_found"
   end

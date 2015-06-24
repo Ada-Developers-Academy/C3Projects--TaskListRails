@@ -10,12 +10,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render partial: "header_footer", locals: { top: true } %>
+  <header id="top">
+    <nav>
+      <%= render partial: "nav_links" %>
+    </nav>
+  </header>
 
   <main>
     <%= yield %>
   </main>
 
-  <%= render partial: "header_footer", locals: { top: false } %>
+  <footer>
+    <nav>
+      <a href="#top" title="Jump to the top of the page!">Top</a>
+      <%= render partial: "nav_links" %>
+    </nav>
+  </footer>
 </body>
 </html>
