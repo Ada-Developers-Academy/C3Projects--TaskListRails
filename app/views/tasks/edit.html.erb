@@ -1,8 +1,8 @@
-<h1> Edit Your Task</h1>
+<h1> This Page is for Updating Your Task</h1>
 
 <%= form_for @task, url: "/tasks/#{@task.id}" do |n| %>
-  <fieldset>
-    <legend>Update Your Task</legend>
+<fieldset>
+  <legend>Edit Your Task</legend>
     <%= n.label :name %>
     <%= n.text_field :name %>
 
@@ -11,6 +11,7 @@
 
     <%= n.label :completed_at %>
     <%= n.text_field :completed_at %>
-  </fieldset>
-  <%= n.submit 'Edit Task' %>
+
+</fieldset>
+<%= n.submit 'Edit Task' %>
 <% end %>

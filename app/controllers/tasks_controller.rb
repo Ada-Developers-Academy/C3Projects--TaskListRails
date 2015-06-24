@@ -4,7 +4,6 @@ class TasksController < ApplicationController
     render :index
   end
 
-
   def new
     @new_task = Task.new
   end
@@ -15,12 +14,9 @@ class TasksController < ApplicationController
     redirect_to "/" #redirect to / which will call index method and render tasks. render triggers that erb and redirects go somewhere else and triggers erb there
   end
 
-  def create_params
-    params.permit(task: [:name, :description, :completed_at])
-  end
-
   def edit
     @task = Task.find_by(params[:id])
+    render :edit
   end
 
   def update
@@ -41,12 +37,20 @@ class TasksController < ApplicationController
     # should method be same name as view? destroy/delete, show/show, edit/@edit_task/update?
   end
 
-
   def show
     @task = Task.find(params[:id])
     render :show
   end
 
+  def completed_task
+    @task = Task.find(params[:id])
+    render :index
+  end
 
+  private
+
+  def create_params
+    params.permit(task: [:name, :description, :completed_at])
+  end
 
 end

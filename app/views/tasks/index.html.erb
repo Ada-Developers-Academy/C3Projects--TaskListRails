@@ -2,12 +2,14 @@
 
 
   <h1> Task List </h1>
-<p> Click on an individual task name to view its description </p>
+<p> Click on an individual task name to view its description or to update it. </p>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Date Completed</th>
+    <th>Delete?</th>
+    <th>Is this Done?</th>
   </tr>
 
   <% @tasks.each do |task| %>
@@ -21,7 +23,10 @@
       <%= task.completed_at %>
     </td>
     <td>
-      <%= link_to "Delete", "tasks/confirm/#{task.id}" %>
+      <%= button_to "Delete!", "tasks/confirm/#{task.id}" %>
+    </td>
+    <td>
+      <%= button_to "Done!", "tasks/completed_task/#{task.id}" %>
     </td>
   </tr>
 

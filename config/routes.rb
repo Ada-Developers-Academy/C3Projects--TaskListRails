@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/tasks/confirm/:id" => 'tasks#confirm'
   get '/tasks/destroy/:id' => 'tasks#destroy'
 
+  get '/tasks/completed_task/:id' => 'tasks#completed_task'
+
   get '/tasks/new' => 'tasks#new'
   post '/tasks' => 'tasks#create'
 
