@@ -1,0 +1,16 @@
+<h1> Add a New Task</h1>
+
+<%= form_for @new_task do |n| %>
+  <fieldset>
+    <legend>Add a Task</legend>
+    <%= n.label :name %>
+    <%= n.text_field :name %>
+
+    <%= n.label :description %>
+    <%= n.text_field :description %>
+
+    <%= n.label :completed_at %>
+    <%= n.text_field :completed_at %>
+  </fieldset>
+  <%= n.submit 'Submit Task' %>
+<% end %>

@@ -12,13 +12,13 @@
 
   <tr>
     <td>
-        <%= @show.name %>
+        <%= @task.name %>
     </td>
     <td>
-      <%= @show.description%>
+      <%= @task.description%>
     </td>
     <td>
-      <%= @show.completed_at %>
+      <%= @task.completed_at %>
     </td>
   </tr>
 
@@ -26,4 +26,6 @@
 <p>
 <%= link_to "Back to Your List", "/" %>
 </p>
+<p>
+  <%= link_to "Update Your Task", "#{@task.id}/edit" %>
 </div>
