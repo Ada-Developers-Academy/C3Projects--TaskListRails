@@ -10,17 +10,7 @@ class CarlTasksController < ApplicationController
 
   def index
     @tasks = Task.all
-
-    people = Person.all
-    @people = []
-
-    people.each do |person|
-      @people.push({
-        id: person.id.to_i,
-        name: person.name,
-        count: person.tasks.where(date_complete: nil).count
-      })
-    end
+    @people = Person.all
   end
 
   def show

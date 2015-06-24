@@ -13,8 +13,8 @@
   <% end %>
 
   <h2>Statistics</h2>
-  <p><span class="number"><%= @tasks_count %></span> tasks assigned</p>
-  <p><span class="number"><%= @tasks_wip %></span> in progress</p>
-  <p><span class="number"><%= @tasks_done %></span> completed</p>
+  <p><span class="number"><%= @person.tasks.count %></span> tasks assigned</p>
+  <p><span class="number"><%= @person.incomplete_tasks_count %></span> in progress</p>
+  <p><span class="number"><%= @person.complete_tasks_count %></span> completed</p>
   <p><%= link_to "view tasks", "/people/#{ @person.id }/tasks", title: "Review #{ @person.name }'s tasks.", class: "also-copper" %></p>
 </section>

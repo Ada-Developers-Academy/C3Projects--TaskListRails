@@ -7,10 +7,10 @@
   </thead>
   <% @people.each do |person| %>
     <tr class="number">
-      <td class="person-name"><%= link_to "#{ person[:person].name }", "/people/#{ person[:person].id }", title: "View the other terrible things that #{ person[:person].name } is planning to do."  %></td>
-      <td><%= person[:tasks_count] %></td>
-      <td><%= person[:tasks_wip] %></td>
-      <td><%= person[:tasks_done] %> (<%= person[:percent_complete] %> %)</td>
+      <td class="person-name"><%= link_to "#{ person.name }", "/people/#{ person.id }", title: "View the other terrible things that #{ person.name } is planning to do."  %></td>
+      <td><%= person.tasks.count %></td>
+      <td><%= person.incomplete_tasks_count %> (<%= person.percent_incomplete %> %)</td>
+      <td><%= person.complete_tasks_count %> (<%= person.percent_complete %> %)</td>
     </tr>
   <% end %>
 </table>
