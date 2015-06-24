@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'tasks#index'
 
-  get "/tasks/confirm/:id" => 'tasks#confirm'
+  get '/tasks/confirm/:id' => 'tasks#confirm'
   get '/tasks/destroy/:id' => 'tasks#destroy'
 
   get '/tasks/completed_task/:id' => 'tasks#completed_task'
