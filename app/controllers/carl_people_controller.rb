@@ -1,18 +1,26 @@
 class CarlPeopleController < ApplicationController
   #----------------- SHOW A PERSON --------------------
   def show
-    @person = Person.find(params[:id])
+    begin
+      @person = Person.find(params[:id])
+    rescue
+      redirect_to "/person_not_found"
+    end
+
     @tasks_count = @person.tasks.count
     @tasks_wip = @person.tasks.where(date_complete: nil).count
     @tasks_done = @tasks_count - @tasks_wip
-  rescue
-    redirect_to "/person_not_found"
   end
 
   #----------------- SHOW A PERSON'S TASKS --------------------
   def tasks
-    @person = Person.find(params[:id])
-    @tasks = Task.all.where(person_id: params[:id])
+    begin
+      @person = Person.find(params[:id])
+    rescue
+      redirect_to "/person_not_found"
+    end
+
+    @tasks = @person.tasks
 
     @people = [{
         id: @person.id,
@@ -21,8 +29,6 @@ class CarlPeopleController < ApplicationController
       }]
 
     render "carl_tasks/index"
-  rescue
-    redirect_to "/person_not_found"
   end
 
   #----------------- SHOW ALL THE PEOPLE --------------------
