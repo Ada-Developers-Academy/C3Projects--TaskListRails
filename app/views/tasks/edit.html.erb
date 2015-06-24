@@ -1,6 +1,6 @@
 <h1> This Page is for Updating Your Task</h1>
 
-<%= form_for @task, url: "/tasks/#{@task.id}" do |n| %>
+<%= form_for @task, url: "/tasks/#{@task.id}", method: :patch do |n| %>
 <fieldset>
   <legend>Edit Your Task</legend>
     <%= n.label :name %>

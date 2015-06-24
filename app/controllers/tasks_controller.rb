@@ -15,14 +15,14 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find_by(params[:id])
+    @task = Task.find(params[:id])
     render :edit
   end
 
   def update
-    @task = Task.find_by(params[:id])
+    @task = Task.find(params[:id])
     @task.update(create_params[:task])
-    redirect_to "tasks/#{params[:id]}"
+    redirect_to "/"
   end
 
   def destroy
