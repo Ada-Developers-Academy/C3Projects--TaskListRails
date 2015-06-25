@@ -1,0 +1,33 @@
+<h1>Team Members</h1>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Tasks Awaiting Action
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_people.each do |person|%>
+      <tr>
+        <td>
+          <%= person.id %>
+        </td>
+        <td>
+          <a href = <%="assigned_to_#{person.id}"%>><%= person.name %></a>
+        </td>
+        <td>
+          <%= person.tasks.where(completed_at: nil).count %>
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<p><a href="/"> Return Home</p></a>

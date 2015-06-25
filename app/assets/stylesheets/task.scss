@@ -7,9 +7,6 @@ body{
 	font-size: 1.5em;
 }
 
-.sort {
-	display: inline-table;
-}
 h1{
 	color: #fff;
 }
@@ -42,7 +39,7 @@ tr:nth-child(even){
 }
 
 tr:nth-child(odd){
-	background-image: url("greyzz.png");
+	background-color: #f0f0f0;
 }
 
 td, th {

@@ -1,0 +1,56 @@
+<h1>Task List</h1>
+<p>
+  <a href= "/task/new">+ Add a new task</a>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name <%= button_to "&#8595".html_safe, "/name_sort"%>
+      </th>
+      <th>
+        <a href="/people">Assigned to</a>
+      </th>
+      <th>
+        Completed? <%= button_to "&#8595".html_safe, "/completed_sort"%>
+      </th>
+      <th>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_tasks.each do |task|%>
+      <tr>
+        <td>
+          <a href=<%="/task_#{task.id}/details"%>>
+          <%= task.name %>
+        </a>
+        </td>
+        <td>
+        <% if task.person %>
+          <a href = <%="/assigned_to_#{task.person_id}"%>>
+          <%= task.person.name %>
+        </a>
+        </td>
+        <% else  %>
+        </td>
+        <% end %>
+        <% if task.completed == "yes" %>
+        <td>
+          <%= button_to "incomplete",  "/task_#{task.id}/mark_incomplete" %>
+        </td>
+      <% else %>
+        <td>
+          <%= button_to "Complete!",  "/task_#{task.id}/mark_complete" %>
+        </td>
+        <% end %>
+      <td> <%= button_to "Delete task", "task_#{task.id}", method: :delete, data: {confirm:"Are you sure?"} %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="4">
+        <a href="task/new">+ Add new Task</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

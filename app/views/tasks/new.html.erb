@@ -1,0 +1,9 @@
+<h1>Add a new task</h1>
+
+<%= form_for @task,url:"/task/new" do |f| %>
+<%= render("taskform", :f => f) %>
+<% end %>
+
+<p>
+  <a href="/">Never mind I have too much to do already!</a>
+</p>
