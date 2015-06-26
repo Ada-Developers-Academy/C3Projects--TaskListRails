@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/tasks/confirm/:id' => 'tasks#confirm'
   get '/tasks/destroy/:id' => 'tasks#destroy'
 
-  get '/tasks/completed_task/:id' => 'tasks#completed_task'
+  patch '/tasks/completed/:id' => 'tasks#completed'
 
   get '/tasks/new' => 'tasks#new'
   post '/tasks' => 'tasks#create'

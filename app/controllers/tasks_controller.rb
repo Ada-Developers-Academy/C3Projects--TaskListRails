@@ -42,9 +42,11 @@ class TasksController < ApplicationController
     render :show
   end
 
-  def completed_task
+  def completed
     @task = Task.find(params[:id])
-    render :index
+    @task.completed_at = "#{Time.now}"
+    @task.save
+    redirect_to '/'
   end
 
   private

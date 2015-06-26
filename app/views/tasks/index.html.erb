@@ -6,23 +6,23 @@
 
 <table>
   <tr>
+    <th>Is this Done?</th>
     <th>Name</th>
     <th>Date Completed</th>
-    <th>Is this Done?</th>
   </tr>
 
   <% @tasks.each do |task| %>
-
   <tr>
     <td>
-      <%= link_to "#{task.name}",
-      "tasks/#{task.id}" %>
+      <% if task.completed_at %>
+      <%= link_to "\u2610", "tasks/completed/#{task.id}", method: :patch %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to "#{task.name}", "tasks/#{task.id}" %>
     </td>
     <td>
       <%= task.completed_at %>
-    </td>
-    <td>
-      <%= button_to "Mark If Done", "tasks/completed_task/#{task.id}", method: :get %>
     </td>
     <td>
       <%= button_to "Delete", "tasks/confirm/#{task.id}", method: :get %>
