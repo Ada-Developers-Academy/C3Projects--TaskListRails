@@ -49,6 +49,13 @@ class TasksController < ApplicationController
     redirect_to '/'
   end
 
+  def not_completed
+    @task = Task.find(params[:id])
+    @task.completed_at = nil
+    @task.save
+    redirect_to '/'
+  end
+
   private
 
   def create_params
