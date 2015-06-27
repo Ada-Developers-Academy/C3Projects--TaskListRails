@@ -9,6 +9,7 @@
     <th>Is this Done?</th>
     <th>Name</th>
     <th>Date Completed</th>
+    <th>Person</th>
   </tr>
 
   <% @tasks.each do |task| %>
@@ -27,6 +28,9 @@
     </td>
     <td>
       <%= task.completed_at %>
+    </td>
+    <td>
+      <%= task.person.name %>
     </td>
     <td>
       <%= button_to "Delete", "tasks/confirm/#{task.id}", method: :get %>
