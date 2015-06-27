@@ -14,10 +14,12 @@
   <% @tasks.each do |task| %>
   <tr>
     <td>
-      <% if task.completed_at %> <!--if task.completed_at exists -->
-        <%= link_to "\u2611", "tasks/completed/#{task.id}", method: :patch %>
-      <% elsif task.completed_at = nil %>
-        <%= link_to "\u263A", "tasks/not_completed/#{task.id}", method: :patch %>
+      <!-- if a task isn't completed (:completed_at not having a value), then the task will be represented by an empty checkbox -->
+      <% if task.completed_at == "" %>
+        <%= link_to "\u2610", "tasks/completed/#{task.id}", method: :patch %>
+      <!--if a task is completed, then the task will be represented by a marked checkbox -->
+      <% elsif task.completed_at %>
+        <%= link_to "\u2611", "tasks/not_completed/#{task.id}", method: :patch %>
       <% end %>
     </td>
     <td>

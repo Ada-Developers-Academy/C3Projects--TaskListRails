@@ -1,0 +1,15 @@
+<main>
+  <%= form_for @task, url: "/tasks/#{@task.id}", method: :patch do |n| %>
+    <fieldset>
+      <%= n.label :name %>
+      <%= n.text_field :name %>
+
+      <%= n.label :description %>
+      <%= n.text_field :description %>
+
+      <%= n.label :completed_at %>
+      <%= n.text_field :completed_at %>
+    </fieldset>
+      <%= n.submit 'Edit Task' %>
+    <% end %>
+</main>

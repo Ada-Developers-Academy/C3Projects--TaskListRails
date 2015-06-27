@@ -32,9 +32,7 @@ class TasksController < ApplicationController
 
   def confirm
     @task = Task.find(params[:id])
-    # line 27 & line 28 same thing but shows it differently bc different views..so how does it update with the deleted task by going to destroy?
     #why dont I need render confirm? is it implicit that it will render the same name as the...?
-    # should method be same name as view? destroy/delete, show/show, edit/@edit_task/update?
   end
 
   def show
@@ -44,6 +42,7 @@ class TasksController < ApplicationController
 
   def completed
     @task = Task.find(params[:id])
+    # When the user marks a task complete, the list will list the date completed as the current datetime
     @task.completed_at = "#{Time.now}"
     @task.save
     redirect_to '/'
@@ -51,7 +50,7 @@ class TasksController < ApplicationController
 
   def not_completed
     @task = Task.find(params[:id])
-    @task.completed_at = nil
+    @task.completed_at = ""
     @task.save
     redirect_to '/'
   end

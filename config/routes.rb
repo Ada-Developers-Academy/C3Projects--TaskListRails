@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/tasks/destroy/:id' => 'tasks#destroy'
 
   patch '/tasks/completed/:id' => 'tasks#completed'
+  patch '/tasks/not_completed/:id' => 'tasks#not_completed'
 
   get '/tasks/new' => 'tasks#new'
   post '/tasks' => 'tasks#create'
