@@ -26,8 +26,8 @@ This wave is where we will introduce the view layer where we begin interacting w
   - All markup in all views should have semantic relevance.
   - Add some basic styles to your task list.
 
-  ## Wave 2
-  In this wave we will add the first set of user interactivity and persistence.
+## Wave 2
+In this wave we will add the first set of user interactivity and persistence.
 
 - Be able to create a new task:
     - The home page should contain a link to Add a new task. This will give the user a form to fill out with the appropriate task fields.
