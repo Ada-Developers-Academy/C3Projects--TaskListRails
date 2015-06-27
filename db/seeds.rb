@@ -28,9 +28,9 @@ tasks.each do |task|
 end
 
 people = [
-  { name: "Linnea" },
-  { name: "Wang" },
-  { name: "Oscar" }
+  { name: "Will" },
+  { name: "Carlton" },
+  { name: "Hilary" }
 ]
 
 people.each do |person|
@@ -39,13 +39,13 @@ end
 
 Task.all.each do | task |
   if task.id % 3 == 0
-    person = Person.where(name: "Wang")[0]
+    person = Person.where(name: "Will")[0]
     task.person_id = person.id
   elsif task.id % 2 == 0
-    person = Person.where(name: "Linnea")[0]
+    person = Person.where(name: "Carlton")[0]
     task.person_id = person.id
   else
-    person = Person.where(name: "Oscar")[0]
+    person = Person.where(name: "Hilary")[0]
     task.person_id = person.id
   end
   task.save
