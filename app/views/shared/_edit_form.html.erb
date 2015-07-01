@@ -9,7 +9,11 @@
 
       <%= n.label :completed_at %>
       <%= n.text_field :completed_at %>
+
+      <%= n.label :person_id %>
+      <%= n.select :person_id, options_for_select(@people), {:include_blank => "Please select"}  %>
+
     </fieldset>
       <%= n.submit 'Edit Task' %>
-    <% end %>
+  <% end %>
 </main>

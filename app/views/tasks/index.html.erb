@@ -30,7 +30,7 @@
       <%= task.completed_at %>
     </td>
     <td>
-      <%= task.person.name %>
+      <%= task.name %>
     </td>
     <td>
       <%= button_to "Delete", "tasks/confirm/#{task.id}", method: :get %>

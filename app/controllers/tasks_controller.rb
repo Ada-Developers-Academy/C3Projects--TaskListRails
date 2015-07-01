@@ -59,10 +59,10 @@ class TasksController < ApplicationController
   private
 
   def create_params
-    params[:task][:person_id] = Person.find_by(name: params[:task][:person_id]).id
+    params[:task][:person_id] = Person.find_by(name: params[:task][:person_id]).id unless params[:task].nil?
     params.permit(task: [:name, :description, :completed_at, :person_id])
   end
-# params [task] person_id holds the name bc that's what the form saves
+# params [task][person_id] holds the name bc that's what the form saves
 # reassigning the person_id to be person.id (for person with that name)
 # within task of params, find person_id
 end
