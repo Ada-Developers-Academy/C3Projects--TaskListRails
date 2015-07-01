@@ -11,6 +11,7 @@ class PeopleController < ApplicationController
 
   def all_tasks
     @person = Person.find(params[:id])
+    @tasks = Task.where(:person_id => @person.id)
     render :all_tasks
   end
 

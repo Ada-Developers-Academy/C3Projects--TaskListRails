@@ -1,0 +1,14 @@
+<h1> <%= "#{@person.name}'s Tasks" %> </h1>
+
+<main>
+  <table>
+    <tr>
+      <th>Task Name</th>
+    </tr>
+    <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.name %> </td>
+    </tr>
+    <% end %>
+  </table>
+<p> <%= link_to "Back to #{@person.name}'s Page", "/people" %> <p>
