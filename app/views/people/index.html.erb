@@ -1,0 +1,10 @@
+<h1>People List </h1>
+<table>
+<% @people.each do |people|  %>
+<tr>
+  <td class="people_list">
+    <%= link_to "#{people.name}", "people/#{people.name}" %>
+  </td>
+</tr>
+<% end %>
+</table>

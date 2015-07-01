@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get '/tasks/:id/edit' => 'tasks#edit'
   patch '/tasks/:id' => 'tasks#update'
 
+  get '/people' => 'people#index'
+  get 'people/:id' => 'people#show'
+
 
   # get '/' => 'task_lists#index'
   # Example of regular route:
