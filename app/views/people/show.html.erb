@@ -1,1 +1,17 @@
-<h1>ayyyye</h1>
+<h1>Personal Details</h1>
+
+<table>
+
+  <tr>
+    <td>
+        <%= @person.name %>
+    </td>
+    <td>
+        <%= link_to "See Their Tasks", "#{@person.id}/tasks" %>
+    </td>
+  </tr>
+
+</table>
+<p>
+<%= link_to "Back to Your List of People", "/people" %>
+</p>

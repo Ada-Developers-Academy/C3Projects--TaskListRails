@@ -1,10 +1,19 @@
 <h1>People List </h1>
 <table>
-<% @people.each do |people|  %>
-<tr>
-  <td class="people_list">
-    <%= link_to "#{people.name}", "people/#{people.name}" %>
-  </td>
-</tr>
+  <tr>
+    <th>Person Name</th>
+    <th>Completed Tasks</th>
+    <th>Uncompleted Tasks</th>
+  </tr>
+
+  <% @people.each do |person|  %>
+  <tr>
+    <td>
+      <%= link_to "#{person.name}", "/people/#{person.id}" %>
+    </td>
+
+    <td>
+
+    </tr>
 <% end %>
 </table>
