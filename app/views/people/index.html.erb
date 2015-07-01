@@ -2,8 +2,8 @@
 <table>
   <tr>
     <th>Person Name</th>
-    <th>Completed Tasks</th>
-    <th>Uncompleted Tasks</th>
+    <th># of Completed Tasks </th>
+    <th># of Uncompleted Tasks</th>
   </tr>
 
   <% @people.each do |person|  %>
@@ -17,3 +17,5 @@
     </tr>
 <% end %>
 </table>
+
+<p> <%= link_to "Back to List of All Tasks", "/" %> <p>
