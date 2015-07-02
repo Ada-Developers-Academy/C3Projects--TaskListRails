@@ -11,8 +11,8 @@
       <%= n.text_field :completed_at %>
 
       <%= n.label :person_id %>
-      <%= n.select :person_id, options_for_select(@people), {:include_blank => "Please select"}  %>
-
+      <%= n.collection_select :person_id, Person.all, :id, :name, :include_blank => "Please select" %>
+<!--  info stored as person_id..People.all, all the people for drop-down. will store person_id as person's id and will show the name -->
     </fieldset>
       <%= n.submit 'Edit Task' %>
   <% end %>

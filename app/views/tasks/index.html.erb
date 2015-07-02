@@ -1,7 +1,6 @@
 <div class ="index">
 
-
-  <h1> Task List </h1>
+<h1> Task List </h1>
 <p> Click on an individual task name to view its description or to update it. </p>
 
 <table>
@@ -30,7 +29,11 @@
       <%= task.completed_at %>
     </td>
     <td>
-      <%= task.name %>
+      <% if task.person_id %>
+        <%= puts task.person.name %>
+      <% else %>
+        <%= puts ""%>
+      <% end %>
     </td>
     <td>
       <%= button_to "Delete", "tasks/confirm/#{task.id}", method: :get %>
