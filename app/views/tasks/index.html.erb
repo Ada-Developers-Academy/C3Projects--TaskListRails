@@ -15,7 +15,7 @@
   <tr>
     <td>
       <!-- if a task isn't completed (:completed_at not having a value), then the task will be represented by an empty checkbox -->
-      <% if task.completed_at == "" %>
+      <% if task.completed_at == "" || task.completed_at == nil %>
         <%= link_to "\u2610", "tasks/completed/#{task.id}", method: :patch %>
       <!--if a task is completed, then the task will be represented by a marked checkbox -->
       <% elsif task.completed_at %>
@@ -30,9 +30,9 @@
     </td>
     <td>
       <% if task.person_id %>
-        <%= puts task.person.name %>
+        <%= task.person.name %>
       <% else %>
-        <%= puts ""%>
+        <%= ""%>
       <% end %>
     </td>
     <td>

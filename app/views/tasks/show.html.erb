@@ -22,7 +22,11 @@
       <%= @task.completed_at %>
     </td>
     <td>
-      <%= @task.person.name %>
+      <% if @task.person_id %>
+        <%= @task.person.name %>
+      <% else %>
+        <%= ""%>
+      <% end %>
     </td>
   </tr>
 
