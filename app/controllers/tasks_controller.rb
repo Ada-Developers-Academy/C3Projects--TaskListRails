@@ -1,13 +1,11 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
-    render :index
   end
 
   # Display a specific task
   def show
     @task   = Task.find(params[:id])
-    render :tasks
   end
 
   def new
@@ -17,8 +15,7 @@ class TasksController < ApplicationController
 
   # Add and save a new task to list
   def create
-    task = Task.new(task_params[:task])
-    task.save
+    task = Task.create(task_params)
     index
   end
 
@@ -37,17 +34,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @name = task_params[:task][:name]
-    @desc = task_params[:task][:desc]
-    @comp_date = task_params[:task][:comp_date]
-    @person_id = task_params[:task][:person_id]
-
-    @task.update(name: @name)
-    @task.update(desc: @desc)
-    @task.update(comp_date: @comp_date)
-    @task.update(person_id: @person_id)
-    @task.save
-
+    @task.update(task_params)
     redirect_to '/'
   end
 
@@ -69,7 +56,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.permit(task: [:name, :desc, :comp_date, :person_id])
+    params.require(:task).permit(:name, :desc, :comp_date, :person_id)
   end
 
 end
