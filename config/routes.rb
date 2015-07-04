@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   delete  '/tasks/:id'          => 'tasks#destroy'
 
   # Edit task
-  get     '/tasks/update/:id'   => 'tasks#edit'
-  patch   '/tasks/update/:id'   => 'tasks#update'
+  get     '/tasks/:id/update'   => 'tasks#edit'
+  patch   '/tasks/:id/update'   => 'tasks#update'
 
   # Check/uncheck complete task
   patch   '/tasks/complete/:id' => 'tasks#complete'

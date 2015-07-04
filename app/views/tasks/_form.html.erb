@@ -1,11 +1,11 @@
 <%= form_for @task, url: url do |f| %>
     <span class="name_form">
         <%= f.label :name, 'Task' %>
-        <%= f.text_field :name, required: true, autofocus: true, value: name_value %>
+        <%= f.text_field :name, required: true, autofocus: true %>
     </span>
     <span class="desc_form">
         <%= f.label :desc, 'Description' %>
-        <%= f.text_area :desc, placeholder: desc_placeholder, value: desc_value %>
+        <%= f.text_area :desc, placeholder: desc_placeholder %>
     </span>
     <span class="comp_date_form">
         <%= f.label :comp_date, 'Date Completed' %>
