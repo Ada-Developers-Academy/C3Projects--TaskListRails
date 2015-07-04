@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    @tasks = Task.all.order('created_at')
   end
 
   # Display a specific task
   def show
-    @task   = Task.find(params[:id])
+    @task  = Task.find(params[:id])
   end
 
   def new
@@ -16,7 +16,7 @@ class TasksController < ApplicationController
   # Add and save a new task to list
   def create
     task = Task.create(task_params)
-    index
+    redirect_to '/'
   end
 
   # Delete a task from list

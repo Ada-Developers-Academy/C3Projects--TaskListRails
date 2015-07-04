@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get     '/tasks/:id'          => 'tasks#show'
 
   # Delete task
-  delete  '/tasks/delete/:id'   => 'tasks#destroy'
+  delete  '/tasks/:id'          => 'tasks#destroy'
 
   # Edit task
   get     '/tasks/update/:id'   => 'tasks#edit'
