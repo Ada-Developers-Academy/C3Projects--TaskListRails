@@ -10,7 +10,6 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    render :new
   end
 
   # Add and save a new task to list
