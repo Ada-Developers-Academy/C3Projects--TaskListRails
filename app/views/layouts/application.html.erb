@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TASKMASTER -- master your tasks</title>
+  <%= yield :head %>
+  <title>Carl's Taskmaster: Master your tasks.ß</title>
+  <meta name="description" content="This simple To Do List / Task List tracker was a project from weeks 7 and 8 of Ada Developers Academy Cohort[2]. This was my first Rails app! --Jeri" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Indie+Flower" />
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,11 +12,7 @@
 <body>
   <header id="top">
     <nav>
-      <a href="/" title="Carl's Taskmaster">Taskmaster</a>
-      <a href="/about" title="Learn more about Carl.">About</a>
-      <a href="/create" title="Create a new task.">Create</a>
-      <!-- <a href="/complete" title="Mark a task complete. FINISH HIM!">Mark Complete</a>
-      <a href="/delete" title="Destroy some task that no longer brings joy to your life.">Delete</a> -->
+      <%= render partial: "nav_links" %>
     </nav>
   </header>
 
@@ -25,11 +23,7 @@
   <footer>
     <nav>
       <a href="#top" title="Jump to the top of the page!">Top</a>
-      <a href="/" title="Carl's Taskmaster">Taskmaster</a>
-      <a href="/about" title="Learn more about Carl.">About</a>
-      <a href="/create" title="Create a new task!">Create</a>
-      <!-- <a href="/complete" title="Mark a task complete!">Mark Complete</a>
-      <a href="/delete" title="Delete a task that no longer brings joy to your life!">Delete</a> -->
+      <%= render partial: "nav_links" %>
     </nav>
   </footer>
 </body>

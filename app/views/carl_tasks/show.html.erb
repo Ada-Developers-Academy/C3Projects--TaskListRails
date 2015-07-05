@@ -1,5 +1,9 @@
+<% content_for :head do %>
+  <title>Carl's Taskmaster: <%= @task.name %></title>
+<% end %>
+
 <section class="task">
-  <h2>Name of Task</h1>
+  <h2>Name of Task</h2>
   <%= @task.name %>
 
   <% if @task.description && @task.description.length > 0 %>
@@ -11,11 +15,19 @@
     <h2>Date Completed</h2>
     <p><%= @task.date_complete.strftime("%A, %B %d, %Y") %></p>
   <% end %>
+
+  <% if @task.person %>
+    <h2>Task Assigned To</h2>
+    <p>
+      <% person_name = @task.person.name %>
+      <%= link_to "#{ person_name }", "/people/#{ @task.person_id }/tasks", title: "Review #{ person_name }'s tasks.", class: "person" %>
+    </p>
+  <% end %>
 </section>
 
 <section class="task-options">
   <h2>Taskmaster Options</h2>
-  <p><%= link_to "I did this already!", "/complete/#{ @task.id }", class: "finished", title: "Mark this task complete." %></p>
+  <p><%= link_to "I did this already!", "/complete/#{ @task.id }", class: "finished", method: :patch, title: "Mark this task complete." %></p>
   <p><%= link_to "Uhhhh, I think we need to make some changes.", "/edit/#{ @task.id }", title: "Edit this task." %></p>
   <p><%= link_to "This task is stupid. DESTROY it.", "/delete/#{ @task.id }", title: "Initiate self destruct sequence in T-minus 3... 2..." %></p>
 </secion>

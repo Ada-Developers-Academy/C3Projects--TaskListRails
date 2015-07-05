@@ -1,0 +1,16 @@
+<table id="people">
+  <thead>
+    <td>Person</td>
+    <td>Total Assigned</td>
+    <td>In Progress</td>
+    <td>Complete</td>
+  </thead>
+  <% @people.each do |person| %>
+    <tr class="number">
+      <td class="person-name"><%= link_to "#{ person.name }", "/people/#{ person.id }", title: "View the other terrible things that #{ person.name } is planning to do."  %></td>
+      <td><%= person.tasks.count %></td>
+      <td><%= person.incomplete_tasks_count %> (<%= person.percent_incomplete %> %)</td>
+      <td><%= person.complete_tasks_count %> (<%= person.percent_complete %> %)</td>
+    </tr>
+  <% end %>
+</table>

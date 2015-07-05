@@ -1,12 +1,8 @@
-// Place all the styles related to the carlTasks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 /* layout & general styles */
 
 body {
   width: 960px;
-  background: #ccc;
+  background: #fefffe;
   font-family: "Indie Flower", cursive;
   font-size: 20px;
   margin: 2% auto;
@@ -35,12 +31,24 @@ a:link, a:visited {
   text-decoration: none;
 }
 
-a:hover.finished, a:active.finished {
-  text-decoration: line-through;
+.finished a:hover, .finished a:active {
+  text-decoration: none;
+}
+
+.kill a:hover, .kill a:active {
+  color: #c33;
+}
+
+.edit a:hover, .edit a:active {
+  color: #33c;
+}
+
+.done a:hover, .done a:active {
+  color: #000;
 }
 
 a:hover, a:active {
-  color: #33c;
+  color: #3c3; //#33c;
 }
 
 .number {
@@ -52,18 +60,42 @@ a:hover, a:active {
 table {
   border-collapse: collapse;
   margin: auto;
-  font-family: "Arial", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 
-table, th, td {
+table, tr {
   border: 1px solid black;
 }
 
-.finished {
+thead {
+  background: #090;
+  color: #fff;
+}
+
+tr.tasks {
+  background: #dcdddc;
+}
+
+.finished a {
+  color: #090;
   text-decoration: line-through;
 }
 
+.edit, .done {
+  font-size: 30px;
+}
+
+.edit {
+  -webkit-transform:rotateY(180deg);
+  -moz-transform:rotateY(180deg);
+  -o-transform:rotateY(180deg);
+  -ms-transform:rotateY(180deg);
+}
+
+.kill {
+  padding-left: 10px;
+  padding-right: 5px;
+}
 
 /* form styles */
 
@@ -91,13 +123,13 @@ form {
   visibility: hidden;
 }
 
-.center-this-stupid-button * {
+.finish-him * {
   display: inline;
   margin: auto;
   text-align: center;
 }
 
-.center-this-stupid-button input {
+.finish-him input {
   background-image:url('/asssets/images/carl.gif');
   background-repeat:no-repeat;
   background: #000;
@@ -107,16 +139,50 @@ form {
 }
 
 
-/* about page styles */
-
 article p {
   font-size: 22px;
   text-align: justify;
 }
 
-/* individual task page styles */
-
 .task h2, .task-options h2 {
   font-family: "Copperplate", "Arial Bold", sans-serif;
   font-size: 28px;
+}
+
+.also-copper {
+  font-family: "Copperplate", "Arial Bold", sans-serif;
+}
+
+.finished .person, .unfinished .person {
+  color: #000;
+  font-family: "Copperplate", "Arial Bold", sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+#people thead td {
+  font-size: 26px;
+  font-weight: bold;
+  padding: 5px 20px;
+}
+
+.person-name {
+  font-family: "Copperplate", "Arial Bold", sans-serif;
+  font-size: 24px;
+  padding-left: 10px;
+}
+
+#people .number {
+  background: #dcdddc;
+}
+
+.wrap {
+  display: inline-block;
+  margin: 0;
+  padding: 0 15px;
+}
+
+.secret-head h2 {
+  padding: 0;
+  margin: 0;
 }
