@@ -20,8 +20,10 @@
     </td>
     <td>
       <% if @task.person_id %>
+      <!-- If there is a person_id associated with the task, print out the person associated with the task  -->
         <%= @task.person.name %>
       <% else %>
+      <!-- Otherwise, leave the task unassigned -->
         <%= ""%>
       <% end %>
     </td>

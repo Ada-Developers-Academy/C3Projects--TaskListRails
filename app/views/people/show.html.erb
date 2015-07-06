@@ -1,10 +1,9 @@
 <%= render "shared/header" %>
 
 <div class="person_show">
-<p class="bold"> Name </p>
+  <p class="bold"> Name </p>
 
-<p> <%= @person.name %> </p>
-<p> <%= link_to "< See Their Tasks >", "#{@person.id}/tasks" %>
-</p>
+  <p> <%= @person.name %> </p>
+  <p> <%= link_to "< See Their Tasks >", "#{@person.id}/tasks" %> </p>
 </div>
 <%= render "shared/footer" %>

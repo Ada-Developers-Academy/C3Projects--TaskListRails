@@ -80,7 +80,7 @@ class TasksController < ApplicationController
     params.permit(task: [:name, :description, :completed_at, :person_id]) #allow to be able to change those attributes (name, desc, etc)
   end
 # params [task][person_id] holds the name bc that's what the form saves
-# reassigning the person_id to be person.id (for person with that name)
+# reassigns the person_id to be person.id (for person with that name)
 # within task of params, find person_id
 # unless params[:task].nil?
 end
