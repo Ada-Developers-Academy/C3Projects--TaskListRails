@@ -2,6 +2,10 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all #on Task class #AR makes this available on this model and all the records of the db
     @header = "Fresh Prince To-Do List"
+    @footer = "Create New Task"
+    @path = "tasks/new"
+    @footer2 = "See the Peeps"
+    @path2 = "/people"
     render :index
   end
 

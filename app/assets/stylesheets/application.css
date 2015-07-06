@@ -12,6 +12,7 @@ body {
   margin-right: 0;
   font-family: "Lato", sans-serif;
   background-color: rgb(51, 102, 255);
+  font-size: 18px;
 }
 
 .index {
@@ -128,6 +129,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.footer {
+
+
+}
 
 
 
