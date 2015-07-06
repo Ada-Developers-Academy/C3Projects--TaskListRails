@@ -1,0 +1,32 @@
+<h1><%= @person.name %>'s Tasks:</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Completed?</th>
+    <th>Completion Date</th>
+  </tr>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td class="name_column"><%= task.task_name %></td>
+      <td><%= task.description %></td>
+
+      <%= form_for( "/tasks/#{task.id}" ) do |f| %>
+        <% if task[:date_completed] != nil %>
+          <td><%= link_to("/tasks/incomplete/#{task.id}", class: "completed_column") do %>
+            <i class="fa fa-check-square">
+          <% end %></td>
+
+        <% else %>
+          <td><%= link_to("/tasks/complete/#{task.id}", class: "completed_column") do %>
+              <i class="fa fa-square">
+            <% end %></td>
+        <% end %>
+      <% end %>
+      <td><%= task.date_completed %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render "task/footer" %>

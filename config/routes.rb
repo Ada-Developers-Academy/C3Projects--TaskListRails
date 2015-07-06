@@ -8,11 +8,24 @@ Rails.application.routes.draw do
   get '/tasks/new' => 'task#new'
   post '/tasks' => 'task#create'
 
-  get '/tasks/:id' => 'task#show'
-  post '/tasks/:id' => 'task#show'
+  get '/tasks/update/:id' => 'task#edit'
 
+  get '/tasks/:id' => 'task#show', as: :task
+  post '/tasks/:id' => 'task#update'
+  put '/tasks/:id' => 'task#update'
+  patch '/tasks/:id' => 'task#update'
   delete '/tasks/:id' => 'task#delete'
 
+  get '/tasks/complete/:id' => 'task#complete'
+  patch '/tasks/complete/:id' => 'task#complete'
+
+  get '/tasks/incomplete/:id' => 'task#incomplete'
+  patch '/tasks/incomplete/:id' => 'task#incomplete'
+
+
+  get '/people/' => 'person#index'
+  get '/people/:id' => 'person#show'
+  get '/people/:id/tasks' => 'person#tasks'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   # post 'tasks/add_task' => 'tasks#index'

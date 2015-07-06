@@ -1,18 +1,6 @@
 <h1> Add a task here! </h1>
 
-<%= form_for @new_task do |f| %>
   <fieldset>
     <legend>New Task</legend>
-    <%= f.label :task_name %>
-    <%= f.text_field :task_name %>
-
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-
-    <%= f.label :date_completed %>
-    <%= f.text_field :date_completed %>
-
-    <%= f.submit 'Add Task' %>
+    <%= render "task_form", task: @task %>
   </fieldset>
-
-<% end %>
