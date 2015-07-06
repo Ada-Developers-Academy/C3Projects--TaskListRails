@@ -16,12 +16,12 @@ body {
 }
 
 .index {
-  background-color: rgba(255, 51, 204, .6);
+  background-color: rgba(51, 204, 51, .8);
   margin: 0 auto;
   width: 960px;
   border-style: solid;
   border-width: 5px;
-  border-color: rgb(51, 204, 51);
+  border-color: rgb(255, 51, 204);
   border-radius: 15px;
   padding-bottom: 10px;
   padding-left: 5px;
@@ -29,27 +29,26 @@ body {
 }
 
 .persons_tasks {
-  background-color: rgba(255, 51, 204, .6);
+  background-color: rgba(51, 204, 51, .8);
   margin: 0 auto;
   width: 500px;
   border-style: solid;
   border-width: 5px;
-  border-color: rgb(51, 204, 51);
+  border-color: rgb(255, 51, 204);
   border-radius: 15px;
   padding-bottom: 10px;
   text-align: center;
 }
 
 .person_show {
-  background-color: rgba(255, 51, 204, .6);
+  background-color: rgba(51, 204, 51, .8);
   margin: 0 auto;
   width: 300px;
   border-style: solid;
   border-width: 5px;
-  border-color: rgb(51, 204, 51);
+  border-color: rgb(255, 51, 204);
   border-radius: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
 }
 
 .form_pages {
@@ -58,34 +57,34 @@ body {
 }
 
 fieldset {
-  background-color: rgba(255, 51, 204, .6);
+  background-color: rgba(51, 204, 51, .8);
   margin: 0 auto;
   width: 820px;
   border-style: solid;
   border-width: 5px;
-  border-color: rgb(51, 204, 51);
+  border-color: rgb(255, 51, 204);
   border-radius: 15px;
 }
 
 .all_people, .show {
-  background-color: rgba(255, 51, 204, .6);
+  background-color: rgba(51, 204, 51, .8);
   margin: 0 auto;
   width: 500px;
   border-style: solid;
   border-width: 5px;
-  border-color: rgb(51, 204, 51);
+  border-color: rgb(255, 51, 204);
   padding-left: 30px;
   padding-bottom: 10px;
   border-radius: 15px;
 }
 
 .confirm {
-  background-color: rgba(255, 51, 204, .6);
+  background-color: rgba(51, 204, 51, .8);
   margin: 0 auto;
   width: 300px;
   border-style: solid;
   border-width: 5px;
-  border-color: rgb(51, 204, 51);
+  border-color: rgb(255, 51, 204);
   border-radius: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -115,17 +114,17 @@ p {
 }
 
 a:link {
-  color: rgb(0, 204, 153);
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
 a:visited {
-  color: rgb(0, 204, 153);
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
 a:hover {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   text-decoration: underline;
 }
 

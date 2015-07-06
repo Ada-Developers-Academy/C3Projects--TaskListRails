@@ -2,9 +2,9 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all #on Task class #AR makes this available on this model and all the records of the db
     @header = "Fresh Prince To-Do List"
-    @footer = "Create New Task"
+    @footer = "< Create New Task >"
     @path = "tasks/new"
-    @footer2 = "See the Homies"
+    @footer2 = "< See the Homies >"
     @path2 = "/people"
     render :index
   end
@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @new_task = Task.new
     @people = Person.all.map { |person| person.name }
     @header = "Add a Task"
-    @footer = "Back to All the Tasks"
+    @footer = "< Back to All the Tasks >"
     @path = "/"
   end
 
@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find(params[:id])
     @header = "Edit Your Task, Man"
-    @footer = "Back to All the Tasks"
+    @footer = "< Back to All the Tasks >"
     @path = "/"
     render :edit
   end
@@ -51,9 +51,9 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @header = "Task Details"
-    @footer = "Back to the List"
+    @footer = "< Back to the List >"
     @path = "/"
-    @footer2 = "Update Your Task"
+    @footer2 = "< Update Your Task >"
     @path2 = "#{@task.id}/edit"
     render :show
   end
