@@ -1,6 +1,6 @@
 <h1> <%= "#{@person.name}'s Tasks" %> </h1>
 
-<main>
+<div class="persons_tasks">
   <table>
     <tr>
       <th>Task Name</th>
@@ -11,4 +11,5 @@
     </tr>
     <% end %>
   </table>
+</div>
 <p> <%= link_to "Back to #{@person.name}'s Page", "/people" %> <p>

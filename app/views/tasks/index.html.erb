@@ -1,8 +1,8 @@
-<div class ="index">
 
-<h1> Task List </h1>
+
+<h1> Fresh Prince Task List </h1>
 <p> Click on an individual task name to view its description or to update it. </p>
-
+<div class ="index">
 <table>
   <tr>
     <th>Is this Done?</th>
@@ -30,7 +30,7 @@
     </td>
     <td>
       <% if task.person_id %>
-        <%= task.person.name %>
+        <%= task.name %>
       <% else %>
         <%= ""%>
       <% end %>

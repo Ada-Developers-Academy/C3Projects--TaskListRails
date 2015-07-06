@@ -3,15 +3,80 @@ body {
   margin-left: 0;
   margin-right: 0;
   font-family: Lato, sans-serif;
+  background-color: rgb(51, 102, 255);
 }
+
+.index {
+  background-color: rgba(255, 51, 204, .6);
+  margin: 0 auto;
+  width: 960px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(51, 204, 51);
+  padding-right: -50px;
+  border-radius: 15px;
+
+}
+
+.form_pages {
+  width: 960px;
+  margin: 0 auto;
+
+}
+
+.persons_tasks, .person_show {
+  background-color: rgba(255, 51, 204, .6);
+  margin: 0 auto;
+  width: 500px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(51, 204, 51);
+  border-radius: 15px;
+  padding-bottom: 10px;
+
+}
+
+.person_show {
+  background-color: rgba(255, 51, 204, .6);
+  margin: 0 auto;
+  width: 500px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(51, 204, 51);
+  border-radius: 15px;
+
+}
+
+.all_people {
+  background-color: rgba(255, 51, 204, .6);
+  margin: 0 auto;
+  width: 500px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(51, 204, 51);
+  padding-left: 30px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+
+}
+
 
 table {
   margin: 0 auto;
 }
 
-h1, p {
+h1 {
+  font-family: Modak, sans-serif;
+  text-align: center;
+  font-size: 50px;
+  font-weight: lighter;
+  margin: 20px;
+}
+
+p {
   text-align: center;
 }
+
 
 td, tr, th {
   padding-right: 60px;
@@ -21,22 +86,20 @@ td, tr, th {
   font-size: 20px;
   text-align: center;
 
-
 }
 
-
 a:link {
-  color: blue;
+  color: rgb(0, 204, 153);
   text-decoration: none;
 }
 
 a:visited {
-  color: blue;
+  color: rgb(0, 204, 153);
   text-decoration: none;
 }
 
 a:hover {
-  color: black;
+  color: rgb(255, 255, 255);
   text-decoration: underline;
 }
 
