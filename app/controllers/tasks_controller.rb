@@ -1,12 +1,14 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all #on Task class #AR makes this available on this model and all the records of the db
+    @header = "Fresh Prince To-Do List"
     render :index
   end
 
   def new
     @new_task = Task.new
     @people = Person.all.map { |person| person.name }
+    @header = "Add a Task"
   end
 
   def create
@@ -17,6 +19,7 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    @header = "Edit Your Task, Man"
     render :edit
   end
 
@@ -33,11 +36,13 @@ class TasksController < ApplicationController
 
   def confirm
     @task = Task.find(params[:id])
+    @header = "You Sure You Wanna Delete Your Task?"
     #why dont I need render confirm? is it implicit that it will render the same name as the...?
   end
 
   def show
     @task = Task.find(params[:id])
+    @header = "Task Details"
     render :show
   end
 

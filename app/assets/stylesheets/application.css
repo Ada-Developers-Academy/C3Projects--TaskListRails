@@ -25,7 +25,6 @@ body {
   padding-bottom: 10px;
   padding-left: 5px;
   padding-right: 10px;
-
 }
 
 .persons_tasks {
@@ -38,7 +37,6 @@ body {
   border-radius: 15px;
   padding-bottom: 10px;
   text-align: center;
-
 }
 
 .person_show {
@@ -51,7 +49,6 @@ body {
   border-radius: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
-
 }
 
 .form_pages {
@@ -79,6 +76,18 @@ fieldset {
   padding-left: 30px;
   padding-bottom: 10px;
   border-radius: 15px;
+}
+
+.confirm {
+  background-color: rgba(255, 51, 204, .6);
+  margin: 0 auto;
+  width: 300px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(51, 204, 51);
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
 }
 
@@ -92,7 +101,6 @@ p {
 
 .bold {
   font-weight: bold;
-
 }
 
 .extra_padding {
@@ -103,7 +111,6 @@ p {
 .people_list {
   font-size: 20px;
   text-align: center;
-
 }
 
 a:link {
