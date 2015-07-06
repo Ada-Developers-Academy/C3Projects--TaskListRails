@@ -1,8 +1,17 @@
+h1 {
+  font-family: "Modak", "Courier New", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  font-weight: lighter;
+  margin: 20px;
+}
+
+
 body {
   width: 960;
   margin-left: 0;
   margin-right: 0;
-  font-family: Lato, sans-serif;
+  font-family: "Lato", sans-serif;
   background-color: rgb(51, 102, 255);
 }
 
@@ -60,18 +69,10 @@ body {
 
 }
 
-
 table {
   margin: 0 auto;
 }
 
-h1 {
-  font-family: Modak, sans-serif;
-  text-align: center;
-  font-size: 50px;
-  font-weight: lighter;
-  margin: 20px;
-}
 
 p {
   text-align: center;
