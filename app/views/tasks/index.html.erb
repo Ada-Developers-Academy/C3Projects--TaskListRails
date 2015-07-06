@@ -13,7 +13,7 @@
 
   <% @tasks.each do |task| %>
   <tr>
-    <td>
+    <td class="extra_padding">
       <!-- if a task isn't completed (:completed_at not having a value), then the task will be represented by an empty checkbox -->
       <% if task.completed_at == "" || task.completed_at == nil %>
         <%= link_to "\u2610", "tasks/completed/#{task.id}", method: :patch %>
@@ -22,10 +22,10 @@
         <%= link_to "\u2611", "tasks/not_completed/#{task.id}", method: :patch %>
       <% end %>
     </td>
-    <td>
+    <td class="extra_padding">
       <%= link_to "#{task.name}", "tasks/#{task.id}" %>
     </td>
-    <td>
+    <td class="extra_padding">
       <%= task.completed_at %>
     </td>
     <td>
@@ -43,8 +43,7 @@
   <% end %>
 </table>
 
+</div>
 
 <p> <%= link_to "Create New Task", "tasks/new" %> </p>
 <p> <%= link_to "See the People", "/people" %> </p>
-
-</div>

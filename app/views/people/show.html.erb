@@ -1,21 +1,12 @@
 <h1>Personal Details</h1>
 
 <div class="person_show">
-<table>
-  <tr>
-    <th> Name </th>
-  </tr>
+<p class="bold"> Name </p>
 
-  <tr>
-    <td>
-        <%= @person.name %>
-    </td>
-    <td>
-        <%= link_to "See Their Tasks", "#{@person.id}/tasks" %>
-    </td>
-  </tr>
-
-</table>
+<p> <%= @person.name %> </p>
+<p> <%= link_to "See Their Tasks", "#{@person.id}/tasks" %>
+</p>
+</div>
 <p>
 <%= link_to "Back to Your List of People", "/people" %>
 </p>

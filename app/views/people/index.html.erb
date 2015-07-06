@@ -2,18 +2,18 @@
 <div class="all_people">
 <table>
   <tr>
-    <th>Person Name</th>
-    <th># of Completed Tasks </th>
+    <th class="extra_padding">Person Name</th>
+    <th class="extra_padding"># of Completed Tasks </th>
     <th># of Uncompleted Tasks</th>
   </tr>
 
   <% @people.each do |person|  %>
   <tr>
-    <td>
+    <td class="extra_padding">
       <%= link_to "#{person.name}", "/people/#{person.id}" %>
     </td>
 
-    <td>
+    <td class="extra_padding">
       <%= person.completed_task_count %>
     </td>
     <td>

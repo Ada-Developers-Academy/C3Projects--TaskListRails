@@ -1,15 +1,13 @@
-<div class ="show">
-<h1> Details About Your Task </h1>
 
+<h1> Details About Your Task </h1>
+<div class ="show">
 <table>
   <tr>
-    <th> Name </th>
-    <th> Description </th>
-    <th> Completed Date </th>
-    <th> Person </th>
+    <th class="extra_padding"> Name </th>
+    <th class="extra_padding"> Description </th>
+    <th class="extra_padding"> Completed Date </th>
+    <th class="extra_padding"> Person </th>
   </tr>
-
-
 
   <tr>
     <td>
@@ -31,9 +29,9 @@
   </tr>
 
 </table>
+</div>
 <p>
 <%= link_to "Back to Your List", "/" %>
 </p>
 <p>
   <%= link_to "Update Your Task", "#{@task.id}/edit" %>
-</div>
