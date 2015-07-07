@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
+  # attr_accessor :tasks
   has_many :tasks
 
   def completed_task_count
