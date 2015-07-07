@@ -6,7 +6,6 @@
 <table>
   <tr>
     <th class="extra_padding">Person Name</th>
-    <th class="extra_padding"># of Completed Tasks </th>
     <th># of Uncompleted Tasks</th>
   </tr>
 
@@ -16,11 +15,9 @@
       <%= link_to "#{person.name}", "/people/#{person.id}" %>
     </td>
 
-    <td class="extra_padding">
-      <%= person.completed_task_count %>
-    </td>
     <td>
-      <%= person.uncompleted_task_count %>
+      <%= person.tasks.where(completed_at: "").count %>
+
     </td>
     </tr>
 <% end %>

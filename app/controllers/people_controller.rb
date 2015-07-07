@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
   def all_tasks
     @person = Person.find(params[:id])
     @tasks =  @person.tasks
-    @header = "< #{@person.name}'s Tasks >"
+    @header = "#{@person.name}'s Tasks "
     @footer = "< Back to #{@person.name}'s Page> "
     @path = "/people"
     render :all_tasks

@@ -11,8 +11,8 @@
       <%= n.text_field :completed_at %>
 
       <%= n.label :person_id %>
-      <%= n.select :person_id, options_for_select(@people), {:include_blank => "Please select"}  %>
-
+      <%= n.collection_select :person_id, Person.all, :id, :name, include_blank: "Please Select" %>
+      
     </fieldset>
       <%= n.submit 'Submit Task' %>
   <% end %>

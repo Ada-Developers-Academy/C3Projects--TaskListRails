@@ -68,7 +68,7 @@ class TasksController < ApplicationController
 
   def not_completed
     @task = Task.find(params[:id])
-    @task.completed_at = ""
+    @task.completed_at = "" || @task.completed_at = nil
     @task.save
     redirect_to '/'
   end
