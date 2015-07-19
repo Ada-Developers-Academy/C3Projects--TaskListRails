@@ -10,8 +10,16 @@ body {
   font-size: 1.2em;
 }
 
+form {
+  padding: 10%;
+}
+fieldset label {
+  display: block;
+}
+
 h1 {
   color: #b24d1b;
+  border-bottom-style: solid;
 }
 
 h2 {
@@ -27,4 +35,12 @@ a:hover {
   color: #93cfd3;
   text-transform: uppercase;
   text-decoration: underline;
+}
+
+th , td {
+  text-align: center;
+}
+
+.name {
+  text-align: justify;
 }

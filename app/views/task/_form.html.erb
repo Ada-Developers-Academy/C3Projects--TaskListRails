@@ -1,0 +1,25 @@
+  <!-- "form_for @task" needs to be together  for this to work-->
+  <!-- @url specifies which page to map this form to -->
+<%= form_for @task, url: @url do |f| %>
+  <fieldset>
+    <legend> Task Details </legend>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+
+      <%= f.label "completed" %>
+      <%= f.check_box(:completed, {}, "Yes", "No") %>
+
+      <%= f.label "person" %>
+      <!-- drop-down (controller to store, column name to store, collection grabbing from, what's stored in params hash, what's displayed in drop down) -->
+      <%= collection_select(:task, :person_id, @all_the_people, :id, :name) %>
+
+  </fieldset>
+      <%= f.submit %>
+<% end %>

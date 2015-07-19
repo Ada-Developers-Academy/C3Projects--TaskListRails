@@ -1,0 +1,23 @@
+<h1> Showing person <%= @person.name %></h1>
+
+<table>
+  <thead>Person</thead>
+
+  <tr>
+    <th> ID </th>
+    <th> Name </th>
+    <th> Star Sign</th>
+    <th> Created on</th>
+    <th> Updated at </th>
+    <th> Task Link </th>
+  </tr>
+
+  <tr>
+    <td>  <%= @person.id %> </td>
+    <td>  <%= @person.name %> </td>
+    <td> <%= @person.star_sign %> </td>
+    <td>  <%= @person.created_at.month %>/<%= @person.created_at.month %>/<%= @person.created_at.year %> </td>
+    <td>  <%= @person.updated_at %> </td>
+    <td>  <%= link_to "Tasks", "/people/#{@person.id}/tasks" %> </td>
+  </tr>
+</table>
