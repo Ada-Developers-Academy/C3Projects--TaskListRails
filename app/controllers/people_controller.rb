@@ -1,14 +1,13 @@
 class PeopleController < ApplicationController
   def index
-    @displaypeople = Person.all
+    @people = Person.all
     render :index
     # This isn't necessary since it's implicit. However
     # we should prefer clarity.
   end
 
   def show
-    @id = params[:id]
-    @person = Person.find(@id)
+    @person = Person.find(params[:id])
     render :show
   end
 
