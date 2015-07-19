@@ -30,9 +30,7 @@ class TaskController < ApplicationController
   end
 
   def destroy
-    # local variables here cuz it's not being displayed / used elsewhere
-    id = params[:id]
-    destroytask = Task.find(id).destroy
+    @task = Task.destroy(params[:id])
 
     redirect_to root_url
   end
