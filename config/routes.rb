@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   delete '/tasks/:id' => 'tasks#destroy'
 
   get '/people' => 'people#index'
-  get 'people/:id' => 'people#show'
-  get 'people/:id/tasks' => 'people#tasks'
+  get '/people/:id' => 'people#show'
+  get '/people/:id/tasks' => 'people#tasks'
 
 
   # Example of regular route:
