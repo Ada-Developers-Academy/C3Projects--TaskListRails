@@ -3,7 +3,7 @@
   <h3> &mdash; Mary Shelley </h3>
 </header>
 
-<%= render partial: "form", locals: { url: "/tasks/#{:id}/edit" } %>
+<%= render partial: "form", locals: { url: "/tasks/#{params[:id]}/edit" } %>
 
 <ul class = "mininav">
   <li><%= link_to back_arrows("book list"), "/" %></li>
