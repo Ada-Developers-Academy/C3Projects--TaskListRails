@@ -1,14 +1,15 @@
 <table>
 
-  <% @displaypeople.each do |person| %>
+  <% @people.each do |person| %>
     <tr>
-      <% if person.tasks.where(comp_status: "unread") == 1 %>
-        <td><%= person.tasks.where(comp_status: "unread").count %> unread suggestion from</td>
-      <% else %>
-        <td><%= person.tasks.where(comp_status: "unread").count %> unread suggestions from</td>
-      <% end %>
+      <td>
+        <% count = person.tasks.where(comp_status: "unread").count %>
+        <%= pluralize(count, "unread suggestion") %> from
+      </td>
 
-      <td><%= link_to "#{person.name}", "/people/#{person.id}" %></td>
+      <td>
+        <%= link_to "#{person.name}", "/people/#{person.id}" %>
+      </td>
     </tr>
 
   <% end %>
