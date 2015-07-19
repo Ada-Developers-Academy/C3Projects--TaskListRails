@@ -1,39 +1,26 @@
-<header class = "header">
-  <div class="header_wrapper">
-    <h1>Unigoat Book Recs</h1>
-    <nav>
-      <ul>
-        <li><%= link_to "Add a Book", "/tasks/new" %></li>
-        <li><%= link_to "Unigoats", "/people" %></li>
-        <li><%= link_to "My Goodreads", "https://www.goodreads.com/review/list/4306102?shelf=read" %></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<div class = "content_wrapper">
 
   <table>
-    <tr class = "theader">
+    <tr class="theader">
       <td>Title</td>
       <td>Read It?</td>
       <td>Delete It</td>
       <td>Recommended By</td>
     </tr>
 
-    <% @displaytasks.each do |task| %>
+    <% @tasks.each do |task| %>
       <tr>
         <td><%= link_to "#{task.taskname}", "/tasks/#{task.id}" %></td>
 
         <!-- Display conditional based on the completion status -->
         <% if task.comp_status == "unread" %>
-          <td class= "button_wrapper"><%= link_to "&#9744;".html_safe, "/tasks/#{task.id}", method: :patch, class: "button" %></td>
+          <% ballot_box = "&#9744;" %>
         <% else %>
-          <td class= "button_wrapper"><%= link_to "&#9745;".html_safe, "/tasks/#{task.id}", method: :patch, class: "button" %></td>
-
+          <% ballot_box = "&#9745;" %>
         <% end %>
 
-        <td class= "button_wrapper"><%= link_to "&#10008;".html_safe, "/tasks/#{task.id}", method: :delete, data: { confirm: "Sure you want to delete this book from your reading list?" }, class: "button" %></td>
+        <td class= "button-wrapper"><%= link_to ballot_box.html_safe, "/tasks/#{task.id}", method: :patch, class: "button" %></td>
+
+        <td class= "button-wrapper"><%= link_to "&#10008;".html_safe, "/tasks/#{task.id}", method: :delete, data: { confirm: "Sure you want to delete this book from your reading list?" }, class: "button" %></td>
 
         <% unless task.person == nil %>
           <td><%= task.person.name %></td>
@@ -43,5 +30,3 @@
 
     <% end %>
   </table>
-
-</div>
