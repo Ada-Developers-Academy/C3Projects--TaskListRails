@@ -1,0 +1,114 @@
+// Place all the styles related to the tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//______GLOBAL_______
+
+body{
+  font-family: 'IM Fell English', sans-serif;
+  font-style: italic;
+  font-size: 1.5em;
+  color:rgb(4, 10, 21);
+  background:rgb(249, 234, 214);
+  background-image: image-url("papier.jpg");
+}
+
+a {
+  color:rgb(62, 64, 103);
+}
+
+header {
+  text-align: center
+}
+
+ul {
+  list-style: none;
+}
+//______FIXED HEADER_______ (I don't think this would work on mobile atm)
+
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  line-height: 60px;
+  background-image: image-url("papier2.jpg");
+  position: fixed;
+}
+
+.header h1 {
+  // position: absolute;
+  top: 10px;
+  margin: 0 0 0 15px;
+}
+
+nav {
+  // position: absolute;
+  right: 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 10px 10px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+
+.content-wrapper {
+  padding-top: 120px;
+  overflow: scroll;
+}
+
+
+//______TABLE_______
+
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  padding-top: 10px;
+  padding-right: 50px;
+  }
+
+.theader {
+  font-weight: bold;
+}
+
+.button {
+  text-decoration: none;
+}
+
+.button-wrapper {
+  text-align: center;
+}
+
+//______FORM_______
+
+form {
+  width:350px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form label {
+  display: block;
+}
+
+legend {
+  font-size: 1.4em;
+}
+
+//______MINI_NAV_______
+
+.mininav {
+  text-align: center;
+  line-height: 170%;
+}

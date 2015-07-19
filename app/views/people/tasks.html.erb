@@ -1,0 +1,12 @@
+<h1><%= @person.name%>'s Recommendation History</h1>
+
+
+  <ul>
+    <% @tasks.each do |task| %>
+    <li><%= task.taskname %></li>
+    <% end %>
+  </ul>
+
+  <ul class = "mininav">
+    <li><%= link_to back_arrows("the bookworms"), "/people" %></li>
+  </ul>

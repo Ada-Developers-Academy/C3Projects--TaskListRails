@@ -1,0 +1,20 @@
+<table>
+
+  <% @people.each do |person| %>
+    <tr>
+      <td>
+        <% count = person.tasks.where(comp_status: "unread").count %>
+        <%= pluralize(count, "unread suggestion") %> from
+      </td>
+
+      <td>
+        <%= link_to "#{person.name}", "/people/#{person.id}" %>
+      </td>
+    </tr>
+
+  <% end %>
+</table>
+
+<ul class = "mininav">
+  <li><%= link_to back_arrows("book list"), root_path %></li>
+</ul>

@@ -1,0 +1,18 @@
+<table>
+  <tr class="theader">
+  <td>Name</td>
+  </tr>
+
+  <tr>
+    <td><%= @person.name %></td>
+  </tr>
+
+
+
+</table>
+
+<ul class = "mininav">
+  <li><%= link_to "Show ALL of #{@person.name}'s book recs", "/people/#{@person.id}/tasks" %></li>
+  <li><%= link_to back_arrows("the bookworms"), "/people" %></li>
+  <li><%= link_to back_arrows("book list"), "/" %></li>
+</ul>

@@ -1,0 +1,33 @@
+
+<table>
+  <tr class="theader">
+  <td>Name</td>
+  <td>Author</td>
+  <td>Completion Status</td>
+  <td>Completion Date</td>
+  <td>Recommended By</td>
+  </tr>
+
+  <tr>
+    <td><%= @task.taskname %></td>
+    <td><%= @task.description %></td>
+    <td><%= @task.comp_status %></td>
+
+    <!-- Only show the formatted date if one exists.  -->
+    <% unless @task.datecomp == nil %>
+      <td><%= @task.datecomp.strftime("%m/%d/%Y") %></td>
+    <% else %>
+      <td></td>
+    <% end %>
+
+    <% unless @task.person == nil %>
+      <td><%= @task.person.name %></td>
+    <% end %>
+  </tr>
+
+</table>
+
+<ul class = "mininav">
+  <li><%= link_to "Edit details", "/tasks/#{@task[:id]}/edit" %></li>
+  <li><%= link_to back_arrows("book list"), "/" %></li>
+</ul>
