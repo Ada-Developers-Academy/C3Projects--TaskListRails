@@ -3,13 +3,7 @@
   <h3> &mdash; Mary Shelley </h3>
 </header>
 
-<!-- Since I couldn't get a restful route for patch to work,
-I ended up going with the custom detailed here. :(  -->
-<%= form_for @task,url:"/tasks/#{@task.id}/edit" do |f| %>
-
-  <%= render partial: 'form', locals: { f: f } %>
-
-<% end %>
+<%= render partial: "form", locals: { url: "/tasks/#{:id}/edit" } %>
 
 <ul class = "mininav">
   <li><%= link_to "<< book list", "/" %></li>

@@ -3,11 +3,7 @@
   <h3> &mdash; Oscar Wilde </h3>
 </header>
 
-<%= form_for @task do |f| %>
-
-  <%= render partial: 'form', locals: { f: f } %>
-
-<% end %>
+<%= render partial: "form", locals: { url: tasks_new_path } %>
 
 <ul class = "mininav">
   <li><%= link_to "<< book list", "/" %></li>

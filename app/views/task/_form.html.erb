@@ -1,21 +1,25 @@
-<fieldset>
-  <legend>Book details:</legend>
+<%= form_for @task, url: url do |f| %>
 
-  <!-- Includes a guard against blanks -->
-  <%= f.label :taskname, "Title", :placeholder => 'required'%>
-  <%= f.text_field :taskname, :required => true, :placeholder => 'required' %>
+  <fieldset>
+    <legend>Book details:</legend>
 
-  <%= f.label :description, "Author" %>
-  <%= f.text_field :description %>
+    <!-- Includes a guard against blanks -->
+    <%= f.label :taskname, "Title", :placeholder => 'required'%>
+    <%= f.text_field :taskname, :required => true, :placeholder => 'required' %>
 
-  <%= f.label :datecomp, "Completed Date" %>
-  <%= f.date_field :datecomp %>
+    <%= f.label :description, "Author" %>
+    <%= f.text_field :description %>
 
-  <%= f.label :comp_status, "Finished?" %>
-  <%= f.select :comp_status, ([["read", "read"], ["unread", "unread"]]) %>
+    <%= f.label :datecomp, "Completed Date" %>
+    <%= f.date_field :datecomp %>
 
-  <%= f.label :person_id, "Recommended by..." %>
-  <%= f.select(:person_id, Person.all.map {|person| [person.name, person.id] }, { include_blank: "None" }) %>
-</fieldset>
+    <%= f.label :comp_status, "Finished?" %>
+    <%= f.select :comp_status, ([["read", "read"], ["unread", "unread"]]) %>
 
-<%= f.submit 'Submit' %>
+    <%= f.label :person_id, "Recommended by..." %>
+    <%= f.select(:person_id, Person.all.map {|person| [person.name, person.id] }, { include_blank: "None" }) %>
+  </fieldset>
+
+  <%= f.submit 'Submit' %>
+
+<% end %>
