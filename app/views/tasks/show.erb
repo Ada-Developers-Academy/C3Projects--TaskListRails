@@ -1,20 +1,29 @@
 
 <section id="task_list">
-<h2>Task</h2>
+<h2>Task Details</h2>
 <h3> <%= @task_name %> </h3>
-<h2>Description:</h2>
+<h2>Description</h2>
 <h3> <%= @task_description %> </h3>
 
 <h2>Completed?</h2>
-<% if @completed == true %>
-  <h3> This task was completed on <%= @completed_date %>!! </h3>
+<% if @completed %>
+  <h3> This task was completed on <%= @completed_date %>! </h3>
+<% elsif @future_date %>
+  <h3> This task should be completed <%= @completed_date %>. Nice planning! </h3>
 <% else %>
-  <h3>Not yet! Get on it, buddy.</h3>
+  <h3>Not yet! </h3>
 <% end %>
+
+<h2>Task Master?</h2>
+<% unless @task.person == nil %>
+  <h3> <%= @task.person[:name] %></h3>
+<% else %>
+  <h3>This task has no task master.</h3>
+<% end %>
+
+
 </section>
 
+<%= link_to "Edit Task", "/tasks/#{@task[:id]}/edit", method: :get, id: "add"  %>
 
-
-<footer>
-  <%= button_to "Home", "/", method: :get %>
-</footer>
+<%= render "footer" %>

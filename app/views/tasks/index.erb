@@ -3,17 +3,47 @@
 </header>
 
 <section>
-<ul style="list-style-type:none">
+<table>
+  <tr>
+    <th>Task Name</th>
+    <th>Mark Complete</th>
+    <th>Delete?</th>
+    <th>Task Master</th>
+
+  </tr>
 <% @tasks.each do |task| %>
-  <% if task[:completed_date] != nil %>
-      <li id='completed'><%= link_to "#{task[:name]}", "/tasks/#{task[:id]}"%></li>
+  <tr>
+
+  <% if task[:completed_date] %>
+  <!-- checks if date completed has passed, and adds id for strickthrough formmating-->
+
+   <% if task[:completed_date] < Time.new %>
+      <td id='completed'><%= link_to "#{task[:name]}", "/tasks/#{task[:id]}"%></td>
+      <td>  &#x2713 </td>
     <% else %>
-      <li><%= link_to "#{task[:name]}", "/tasks/#{task[:id]}"%></li>
-      <% end %>
-     <%= button_to "Delete Task", "tasks/#{task[:id]}", method: :delete, data: { confirm: "Are you sure you want to delete this task?" } %>
+      <td><%= link_to "#{task[:name]}", "/tasks/#{task[:id]}"%></td>
+      <td><%= button_to "Complete", "tasks/#{task[:id]}/complete",class: "delete", method: :patch %></td>
+    <% end %>
+
+  <% else %>
+    <td><%= link_to "#{task[:name]}", "/tasks/#{task[:id]}"%></td>
+     <td><%= button_to "Complete", "tasks/#{task[:id]}/complete",class: "delete", method: :patch %></td>
   <% end %>
-</ul>
+
+    <td><%= button_to "Delete Task", "tasks/#{task[:id]}", class: "delete", method: :delete, data: { confirm: "Are you sure you want to delete this task?" } %></td>
+
+    <% if task.person != nil %>
+      <td> <%= task.person.name %></td>
+    <% else %>
+      <td>Task not yet assigned.</td>
+    <% end %>
+
+    </tr>
+<% end %>
+
+</table>
 </section>
 
 <%= link_to "Add a New Task", "/tasks/new", id: "add" %>
+<%= link_to "Meet Task Masters", "/people", id: "add" %>
 

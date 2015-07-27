@@ -1,0 +1,18 @@
+<%= form_for @task, url: @url  do |f| %>
+  <fieldset>
+    <legend> <%= @legend %> </legend>
+  <%= f.label :name %>
+  <%= f.text_field :name, :required => true %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :completed_date %>
+  <%= f.date_field :completed_date %>
+
+  <%= f.label :person_id %>
+  <%= f.select( :person_id, Person.all.map {|person| [person.name, person.id] }, {include_blank: 'None'}) %>
+
+  <%= f.submit %>
+  </fieldset>
+  <% end %>

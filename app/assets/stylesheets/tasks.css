@@ -16,12 +16,13 @@ h1{
 
 body {
   margin: 0 auto;
+  margin-bottom: 30px;
   width: 960px;
   background: #AEC7D1;
   padding: 15px;
   margin-top: 115px;
   border-radius: 5px;
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'Patrick Hand', cursive;
   text-align: center;
 }
 
@@ -31,18 +32,40 @@ a {
   color: #353543;
 }
 
+table a:hover {
+  color: #fff;
+}
+
 #task_list h2 {
   text-decoration: underline;
 }
 
 #add {
+  font-family: 'Patrick Hand', cursive;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+  font-size: 20px;
   background-color: #fff;
-  padding: 4px;
-  margin-top: 10px;
 }
 
-ul {
+table {
   padding: 0px;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+table, td {
+   border: 1px solid gray;
+}
+
+table, th {
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+td {
+  padding: 10px;
 }
 
 section {
@@ -58,3 +81,21 @@ input[type=submit] {
   margin: auto;
   margin-top: 20px;
 }
+
+.delete {
+  font-family: 'Patrick Hand', cursive;
+  padding: 5px;
+  margin: 10px;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+.complete_task {
+  font-family: 'Patrick Hand', cursive;
+  padding: 5px;
+  margin: 10px;
+  font-size: 15px;
+  background-color: #fff;
+}
+
+
