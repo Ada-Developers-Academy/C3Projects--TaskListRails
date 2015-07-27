@@ -6,14 +6,30 @@ Rails.application.routes.draw do
   # resources :task
   root 'task#index'
 
-  # Example of regular route:
-  get '/show/:id'         => 'task#show'
-  get '/task/add_task'    => 'task#new'
-  post '/tasks'           => 'task#create'
+  get '/show/:id'                => 'task#show'
+  get '/task/add_task'           => 'task#new'
+  post '/tasks'                  => 'task#create'
 
-  get '/delete/:id'       => 'task#delete'
-  delete '/delete/:id'    => 'task#confirm_delete'
+  get '/delete/:id'              => 'task#delete'
+  delete '/delete/:id'           => 'task#confirm_delete'
 
+  get '/check/:id'               => 'task#update'
+  post '/check/:id'              => 'task#update'
+  patch '/'                      => 'task#update'
+
+  get '/uncheck/:id'             => 'task#uncheck_update'
+  post '/uncheck/:id'            => 'task#uncheck_update'
+  patch '/'                      => 'task#uncheck_update'
+
+  get '/edit_task/:id'           => 'task#edit'
+  post '/edit_task/:id'          => 'task#edit'
+  patch '/task/edit_update/:id'  => 'task#edit_update'
+
+
+  # root 'people#index'
+  get '/people/show'              => 'people#index'
+  get '/people/show/:id'          => 'people#show'
+  get '/people/show/:id/tasks'    => 'people#show_tasks'
 
   # get '/task/delete_confirmation/:id' => 'task#delete_confirm'
   # post '/tasks'           => 'task#create'

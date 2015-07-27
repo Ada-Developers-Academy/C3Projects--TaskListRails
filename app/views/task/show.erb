@@ -1,4 +1,5 @@
 <p class='link'><%= link_to "Back to task list manager", "/" %></p>
+
 <h1>Here is your task</h1>
 <%= image_tag("task_manager.png", :alt => "task_manager", :class => "face") %>
 
@@ -8,7 +9,9 @@
     <th>Description</th>
     <th>Completed?</th>
     <th>When completed</th>
+    <th>Person responsible</th>
   </tr>
+
   <tr>
     <td><%= @task[:name] %></tb>
     <td><%= @task[:description] %></td>
@@ -19,5 +22,8 @@
         <%= @task[:completed_on].to_date %>
         <% end %>
     </td>
+    <td><%= @task.person.name %></td>
   </tr>
 </table>
+
+<p><%= button_to "Edit task", "/edit_task/#{@task[:id]}", :class => "button", :method => :edit %></p>

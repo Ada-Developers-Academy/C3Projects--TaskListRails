@@ -1,0 +1,18 @@
+<p class='link'><%= link_to "Back to TASK TEAM", "/people/show" %></p>
+
+<h1>More information about <%= "#{@person[:name]}" %></h1>
+<% number = rand(1..6) %>
+<%= image_tag("#{number}.png", :alt => "team member", :class => "face") %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Tasks</th>
+  </tr>
+  <tr>
+    <td><%= @person[:name] %></td>
+    <td><%= @person[:last_name] %></td>
+    <td><%= link_to "see tasks", "/people/show/#{@person[:id]}/tasks" %></td>
+  </tr>
+</table>

@@ -1,0 +1,20 @@
+<p class='link'><%= link_to "Go back to task list manager", "/" %></p>
+<h1>We are TASK TEAM</h1>
+
+<%= image_tag("people.png", :alt => "team", :class => "face") %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Incomplete tasks</th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <% @people.each do |person| %>
+    <td><%= person[:name] %></td>
+    <td><%= person.tasks.where(completed_on: nil).count %></td>
+    <td><%= link_to "more information", "/people/show/#{person[:id]}" %></td>
+  </tr>
+    <% end %>
+</table>
