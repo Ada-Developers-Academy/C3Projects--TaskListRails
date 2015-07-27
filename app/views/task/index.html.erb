@@ -1,19 +1,33 @@
-<%= link_to "Add a Task!", "task/new", class: "add_task" %>
+<% content_for :head do %>
+  <title>To Do List</title>
+<% end %>
 
 <table>
 
   <tr>
-    <th>Task Name</th>
-    <th>Completion Status</th>
+    <th></th>
+    <th>Task</th>
+    <th>Person Responsible</th>
     <th></th>
   </tr>
 
   <% @tasks.each do |task| %>
     <tr>
-      <td><%= link_to "#{task.name}", "task/#{task.id}", class: "task" %></td>
-      <td><%= task[:completion_status] %></td>
-      <td><%= link_to "delete", "task/#{task.id}", method: :delete, data: { confirm: "Are you sure?" } %></td>
+      <td>
+      <% if task.completion_status == "false" %>
+        <%= button_to "Complete!", "task/#{task.id}", method: :patch, class: "btn", data: { confirm: "Did you really complete #{task.name}?"} %>
+      <% else %>
+        <%= "\u2713" %>
+      <% end %>
+      </td>
+      <td class="task_link"><%= link_to "#{task.name}", "task/#{task.id}" %></td>
+      <td><%= task.person.name %></td>
+      <td><%= button_to "delete", "delete/#{task.id}", method: :delete, class: "btn", data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
 
 </table>
+
+<p class="link"><%= link_to "Add a New Task!", "task/new" %></p>
+
+<p class="people_link"><%= link_to "People", "/people" %></p>

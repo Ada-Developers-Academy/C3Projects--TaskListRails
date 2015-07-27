@@ -1,19 +1,49 @@
+<% content_for :head do %>
+  <title><%= "#{@task.name}" %></title>
+<% end %>
+
 <table>
 
   <tr>
-    <th>Task Name</th>
-    <th>Task Description</th>
+    <th>Task</th>
+    <th>Person</th>
+    <th>Description</th>
     <th>Completion Status</th>
-    <th>Completion Date</th>
+    <th>Complete By</th>
+    <th>Completed Date</th>
+    <th>Task Created</th>
   </tr>
 
   <tr>
-    <td><%= @detail.name %></td>
-    <td><%= @detail.description %></td>
-    <td><%= @detail.completion_status %></td>
-    <td><%= @detail.completed_at %></td>
+    <td><%= @task.name %></td>
+    <td><%= @task.person.name %>
+    <td><%= @task.description %></td>
+    <td>
+      <% if @task.completion_status == "false" %>
+        <%= "Not done" %>
+      <% else %>
+        <%= "Done!" %>
+      <% end %>
+    </td>
+    <td>
+      <% if @task.complete_by == nil %>
+        <%= "" %>
+      <% else %>
+        <%= @task.complete_by.strftime ("%m/%d/%Y")  %>
+      <% end %>
+    </td>
+    <td>
+      <% if @task.completed_at == nil %>
+        <%= "" %>
+      <% else %>
+        <%= @task.completed_at.strftime ("%m/%d/%Y")  %>
+      <% end %>
+    </td>
+    <td><%= @task.created_at.strftime ("%m/%d/%Y") %></td>
   </tr>
 
 </table>
 
-<%= render "footer" %>
+<h3 class="link"><%= link_to "Update this task", "/task/#{@task.id}/edit" %></h3>
+
+<%= render "layouts/footer" %>

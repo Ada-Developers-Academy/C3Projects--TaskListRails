@@ -1,0 +1,9 @@
+<div class="person_show">
+<%= @person.name %>
+
+<p>She has things to do . . .</p>
+
+<%= link_to "Tasks", "/people/#{@person.id}/tasks" %>
+</div>
+
+<%= render "layouts/footer" %>

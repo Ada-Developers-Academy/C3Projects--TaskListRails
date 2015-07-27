@@ -1,8 +1,8 @@
 <% content_for :head do %>
-  <title>Add a New Task</title>
+  <title>Update <%= "#{@task.name}"%></title>
 <% end %>
 
-<h2>Add a New Task!</h2>
+<h1>Update <%= "#{@task.name}" %>!</h1>
 
 <%= render "layouts/form" %>
 

@@ -6,26 +6,50 @@ class TaskController < ApplicationController
   end
 
   def show
-    @detail = Task.find(params[:id])
+    @task = Task.find(params[:id])
     render :show
   end
 
   def new
-    @add_task = Task.new
+    @task = Task.new
+    @url = "/tasks"
     render :new
   end
 
   def create
-    @add_task = Task.new(create_params[:task])
-    @add_task.save
+    @task = Task.new(create_params[:task])
+    @task.save
 
     redirect_to "/"
   end
 
-  def delete
-    @detail = Task.find(params[:id])
-    @detail.delete
-    @detail.save
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+
+    redirect_to "/"
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+    @url = "/task/#{@task.id}/edit"
+
+    render :edit
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    task_params = create_params[:task]
+    @task.update(task_params)
+
+    redirect_to "/"
+  end
+
+  def mark_complete
+    @task = Task.find(params[:id])
+    @task.completed_at = Time.now
+    @task.completion_status = "true"
+    @task.save
 
     redirect_to "/"
   end
@@ -33,7 +57,7 @@ class TaskController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:name, :description, :completed_at, :completion_status])
+    params.permit(task: [:name, :description, :completed_at, :completion_status, :complete_by, :person_id])
   end
 
 end

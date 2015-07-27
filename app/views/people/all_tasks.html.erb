@@ -1,0 +1,28 @@
+<% content_for :head do %>
+  <title><%= "#{@person.name}" %></title>
+<% end %>
+
+<table>
+
+  <tr>
+    <th>Task</th>
+    <th>Task Description</th>
+    <th>Completion Status</th>
+  </tr>
+
+  <% @person.tasks.each do |task| %>
+  <tr>
+    <td class="table_text"><%= task.name %></td>
+    <td><%= task.description %></td>
+    <td>
+      <% if task.completion_status == "false" %>
+        <%= "Done!" %>
+      <% else %>
+        <%= "Not done" %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<%= render "layouts/footer" %>

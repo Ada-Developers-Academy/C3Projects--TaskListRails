@@ -10,18 +10,28 @@ def random_time
 end
 
 tasks = [
-  { name: "The First Task", description: "it is the first task", completed_at: random_time, completion_status: "done!" },
-  { name: "Go to Brunch", description: "mimosas and beignets", completion_status: "not done" },
-  { name: "Go to Lunch", description: "yummy", completed_at: random_time, completion_status: "done!" },
-  { name: "Go to Second Lunch", description: "because food", completion_status: "not done" },
-  { name: "Play Video Games", description: "all of them", completed_at: random_time, completion_status: "done!" },
-  { name: "High Five Somebody You Don't Know", description: "", completed_at: random_time, completion_status: "done!" },
-  { name: "Plant Flowers", description: "sunflowers and daffodils", completed_at: random_time, completion_status: "done!" },
-  { name: "Call Mom", description: "at your sister's", completion_status: "not done" },
-  { name: "She worries, you know.", description: "always", completion_status: "not done" },
-  { name: "Nap.", description: "sweet dreams!", completed_at: random_time, completion_status: "done!" }
+  { name: "The First Task", description: "it is the first task", completed_at: random_time, completion_status: "true", complete_by: random_time, person_id: 1 },
+  { name: "Go to Brunch", description: "mimosas and beignets", completion_status: "false", person_id: 3 },
+  { name: "Go to Lunch", description: "yummy", completed_at: random_time, completion_status: "true", person_id: 2 },
+  { name: "Go to Second Lunch", description: "because food", completion_status: "false", person_id: 1 },
+  { name: "Play Video Games", description: "all of them", completed_at: random_time, completion_status: "true", person_id: 2 },
+  { name: "High Five Somebody You Don't Know", description: "", completed_at: random_time, completion_status: "true", person_id: 3 },
+  { name: "Plant Flowers", description: "sunflowers and daffodils", completed_at: random_time, completion_status: "true", person_id: 1 },
+  { name: "Call Mom", description: "at your sister's", completion_status: "false", person_id: 2 },
+  { name: "She worries, you know.", description: "always", completion_status: "false", person_id: 3 },
+  { name: "Nap.", description: "sweet dreams!", completed_at: random_time, completion_status: "true", person_id: 1 }
 ]
 
 tasks.each do |task|
   Task.create task
+end
+
+people = [
+  {name: "Lindsey"},
+  {name: "Michelle"},
+  {name: "Kari"}
+]
+
+people.each do |person|
+  Person.create person
 end
