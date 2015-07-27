@@ -1,21 +1,38 @@
 <h1>Welcome to your Tasks</h1>
 
-<%= link_to "Create New Task", '/add_task' %>
 <table>
   <tr>
   <% @tasks.each do |task| %>
+
+    <td><%= task.person[:name] %></td>
     <td><%= task[:name] %></td>
 
-    <% if task[:completed_at] != nil %>
-      <td><%= " (Completed)" %></td>
+    <% if task[:completed_at] == nil %>
+      <td><%= link_to("/tasks/complete/#{task.id}") do %>
+        <i class="fa fa-thumbs-down"></i>
+        <% end %>
+      </td>
 
     <% else %>
-      <td> <%= " " %></td>
-  <% end %>
+      <td><%= link_to("/tasks/incomplete/#{task.id}") do  %>
+        <i class="fa fa-thumbs-o-up"></i>
+        <% end %>
+      </td>
+    <% end %>
 
-    <td><%= button_to "Show Details", "/show/#{task.id}" %></td>
-    <td><%= button_to "Delete Task", "/delete/#{task.id}", method: "delete", data: { :confirm => "Are you sure?!" } %></td>
+    <td><%= button_to "Show Details", "/tasks/#{task.id}", method: "get" %></td>
+
+    <td><%= button_to "Edit Task", "/tasks/update/#{task.id}", method: "get" %></td>
+
+    <td><%= button_to "Delete Task", "/tasks/#{task.id}", method: "delete", data: { :confirm => "Are you sure?!" } %></td>
   </tr>
   <% end %>
 </table>
+
+<%= link_to "+ Create New Task", '/new', class: "new_link" %>
+
+<br>
+
+<%= link_to "+ See All People", '/people/:id', class: "new_link" %>
+
 

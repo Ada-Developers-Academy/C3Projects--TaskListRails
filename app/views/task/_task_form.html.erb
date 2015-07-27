@@ -1,0 +1,23 @@
+<%= form_for @task do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, required: :true %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :completed_at %>
+  <%= f.date_field :completed_at %>
+
+  <%= f.label :person_id %>
+  <%= f.collection_select(:person_id, Person.all, :id, :name, {:prompt => "Select One"}) %>
+
+  <% if @task.id != nil %>
+    <%= f.submit "Update Task", method: "patch" %>
+  <% else %>
+    <%= f.submit "Add Task" %>
+  <% end %>
+
+<% end %>
+
+

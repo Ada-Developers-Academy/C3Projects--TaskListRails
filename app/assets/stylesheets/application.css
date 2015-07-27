@@ -30,3 +30,9 @@ h2 {
 td {
   color: #848484;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
