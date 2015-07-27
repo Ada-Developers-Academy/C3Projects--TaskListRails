@@ -1,6 +1,6 @@
-<h1>Add new task</h1>
+<h1>Edit task</h1>
 
-<%= form_for @task do |f| %>
+<%= form_for @task, url: "/tasks/#{@task.id}" do |f| %>
 
   <%= render partial: "form", :locals => {:f => f} %>
 

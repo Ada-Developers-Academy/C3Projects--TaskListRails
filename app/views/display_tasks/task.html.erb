@@ -1,24 +1,18 @@
-<h1> TASK #<%= @task[:id] %></h1>
+<h1> TASK DETAILS </h1>
 
 <table>
   <tr>
     <th> Name </th>
     <th> Description </th>
     <th> Completed? </th>
+    <th> Assigned to </th>
     <th> Date Completed </th>
   </tr>
   <tr>
     <td><%= @task[:name] %></td>
     <td><%= @task[:description] %></td>
-    <% if @task[:completed_at] == nil %>
-      <td>No</td>
-    <% else %>
-      <td>Yes</td>
-    <% end %>
+    <td><% @task[:completed_at] ? "Yes" : "No" %></td>
+    <td><%= Task.find(@task.id).person.name %></td>
     <td><%= @task[:completed_at] %></td>
   </tr>
 </table>
-
-<div class="home">
-  <%= link_to "Back to Task List", "/tasks"%>
-</div>

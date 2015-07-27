@@ -1,37 +1,29 @@
 <h1>TASK LIST</h1>
 
+<%= button_to "Add new task", "/tasks/new", method: "get" %>
+
 <table>
   <tr>
-    <th> Task # </th>
     <th> Name </th>
     <th> Description </th>
+    <th> Assigned to </th>
     <th> Completed? </th>
-    <th> Date Completed </th>
   </tr>
 
-  <% @tasks.each_with_index do |task, index| %>
+  <% @tasks.each do |task| %>
     <div>
       <tr>
-        <td> <%= task[:id] %> </td>
-        <td> <%= link_to "#{task[:name]}", "/task/#{task[:id]}" %> </td>
-        <td> <%= task[:description] %> </td>
-
-        <% if task[:completed_at] == nil %>
-          <td>No</td>
-        <% else %>
-          <td>Yes</td>
-        <% end %>
-
-        <td> <%= task[:completed_at] %> </td>
+        <td> <%= link_to "#{task.name}", "/tasks/#{task.id}" %> </td>
+        <td> <%= task.description %> </td>
+        <td> <%= Task.find(task.id).person.name %> </td>
+        <td class="completed_task"> <%= task.completed_at ? "Yes" : (button_to "Task Completed", "/tasks/#{task.id}") %> </td>
         <td>
-          <%= button_to "Delete", "/task/#{task[:id]}", method: :delete, action: :destroy, data: { confirm: "Are you sure you want to delete?" } %>
-
+          <%= button_to "Edit", "/tasks/#{task.id}/edit", method: "get" %>
+        </td>
+        <td>
+          <%= button_to "Delete", "/tasks/#{task.id}", method: "delete", data: { confirm: "Are you sure you want to delete?" } %>
         </td>
       </tr>
     </div>
   <% end %>
 </table>
-
-<div class="add_task">
-  <%= button_to "Add new task", "/tasks/new", method: :get %>
-</div>

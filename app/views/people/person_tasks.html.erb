@@ -1,0 +1,16 @@
+<h1><%= "#{@person.name}'s Tasks" %></h1>
+
+<table>
+  <tr>
+    <th> Name </th>
+    <th> Description </th>
+    <th> Completed? </th>
+  </tr>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task[:name] %></td>
+      <td><%= task[:description] %></td>
+      <td><%= task[:completed_at] ? "Yes" : "No" %></td>
+    </tr>
+  <% end %>
+</table>
