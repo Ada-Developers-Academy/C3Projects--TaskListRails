@@ -1,0 +1,21 @@
+<%= render "shared/header" %>
+
+<main>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th># Incomplete Tasks</th>
+    </tr>
+
+    <% @all_people.each do |person| %>
+    <tr>
+      <td> <%= link_to "#{person.name}", "people/show/#{person.id}" %></td>
+      <% person_tasks = Task.where(:person_id => person.id) %>
+      <% todo_tasks = person_tasks.where(:completed_date => nil).count %>
+      <td> <%= todo_tasks %> </td>
+    </tr>
+    <% end %>
+  </table>
+</main>
+
+<%= render "shared/footer" %>

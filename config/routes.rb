@@ -4,23 +4,34 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'tasks#index'
-  post '/' => 'tasks#index'
-
   # Example of regular route:
-  get 'show/:id' => 'tasks#show'
+  get 'tasks/show/:id' => 'tasks#show'
 
   get 'confirm_delete/:id' => 'tasks#confirm_deletion'
   delete 'delete/:id' => 'tasks#destroy'
 
-  # Added a post method because I created an add a task button.
-  # Could I change the button action to "get" to prevent that? Investigate.
+  # routes for the check/uncheck boxes on the home page
+  get 'tasks/complete/:id' => 'tasks#complete'
+  patch 'tasks/complete/:id' => 'tasks#complete'
+
+  get 'tasks/uncomplete/:id' => 'tasks#uncomplete'
+  patch 'tasks/uncomplete/:id' => 'tasks#uncomplete'
+
+  # routes for the edit page off the show details page
+  get  'tasks/show/tasks/edit/:id' => 'tasks#edit'
+  patch '/tasks/update/:id' => 'tasks#update'
+
+  # Was able to change the button_to method to get and not need a post #new method :D
+  # not sure the post method is RESTful, but it's what made the partial shared form work
   get '/new_task' => 'tasks#new'
-  post '/new_task' => 'tasks#new'
-  post '/tasks' => 'tasks#create'
+  post '/tasks/add' => 'tasks#create'
   # get '/new' => 'tasks#new'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  get 'people' => 'people#index'
+  get 'people/show/:id' => 'people#show'
 
+  get 'people/:id/tasks' => 'people#tasks'
   # Example resource route (maps HTTP verbs to controller actions automatically):
     # resources :show
 

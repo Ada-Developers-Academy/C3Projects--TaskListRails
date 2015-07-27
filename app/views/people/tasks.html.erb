@@ -1,0 +1,23 @@
+<%= render "shared/header" %>
+
+<main>
+  <table>
+    <tr>
+      <th>Task Name</th>
+      <th>Complete?</th>
+    </tr>
+
+    <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.name %> </td>
+      <% if task.completed_date != nil %>
+        <td> <%= "\u2713"  %></td>
+      <% else %>
+        <td> <%= "\u2610" %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+</main>
+
+<%= render "shared/footer" %>

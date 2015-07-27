@@ -1,0 +1,21 @@
+<main>
+  <%= form_for @task, url: "/tasks/#{@adj}/#{@task.id}" do |f| %>
+    <fieldset>
+      <%= f.label :name  %>
+      <%= f.text_field :name, value: @task.name, :required => true %>
+
+      <%= f.label :description  %>
+      <%= f.text_area :description, value: @task.description  %>
+
+      <%= f.label :person_id, "Assign to:"  %>
+      <%= f.collection_select(:person_id, Person.all, :id, :name)  %>
+
+      <%= f.label :completed_date  %>
+      <%= f.date_field :completed_date, value: @task.completed_date %>
+    </fieldset>
+    <section class="add_button">
+      <% adjective = @adj.capitalize %>
+      <%= f.submit "#{adjective} Task" %>
+    </section>
+  <% end %>
+</main>

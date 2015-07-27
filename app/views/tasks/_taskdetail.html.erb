@@ -1,0 +1,33 @@
+<table class="details">
+  <tr>
+    <th>Id</th>
+    <td><%= @task.id %></td>
+  </tr>
+  <tr>
+    <th>Task Name</th>
+    <td><%= @task.name %></td>
+  </tr>
+  <tr>
+    <th>Task Description</th>
+    <td><%= @task.description %></td>
+  </tr>
+  <tr>
+    <th> Completed Date</th>
+      <% if @task.completed_date == nil %>
+        <td> <%= "Incomplete task" %> </td>
+      <% else %>
+        <% date = @task.completed_date %>
+        <% date = date.strftime("%m/%d/%Y") %>
+        <td> <%= date %> </td>
+      <% end %>
+  </tr>
+  <tr>
+    <th> Assigned To</th>
+      <% if @task.person_id == nil %>
+        <td> <%= "Unassigned" %> </td>
+      <% else %>
+      <% person_name = Person.find("#{@task.person_id}") %>
+      <td> <%= "#{person_name.name}"  %> </td>
+    <% end %>
+  </tr>
+</table>

@@ -1,28 +1,36 @@
-<header>
-  <h1>Welcome to your tasklist!</h1>
-</header>
+<%= render "shared/header" %>
+
 <main>
   <table>
     <tr>
       <th>Task Name</th>
       <th>Completed?</th>
       <th>Delete Task</th>
+      <th>Assigned to</th>
     </tr>
 
-  <% @all_tasks.each do |task| %>
-  <tr>
-  <td><%= link_to "#{task.name}", "show/#{task.id}" %> </td>
-    <% if task.completed_date != nil %>
-      <td> <%= "\u2713" %></td>
-    <% else %>
-      <td> <%= "\u2610" %> </td>
-    <% end %>
-  <td><%= link_to "Delete Me!", "confirm_delete/#{task.id}" %> </td>
-  </tr>
-  <% end %>
+    <tr>
+      <td>(click each for details/to edit)</td>
+    </tr>
 
+    <% @all_tasks.each do |task| %>
+    <tr>
+      <td><%= link_to "#{task.name}", "tasks/show/#{task.id}" %> </td>
+        <% if task.completed_date != nil %>
+          <td class="icon"> <%= link_to "\u2713", "tasks/uncomplete/#{task.id}"  %></td>
+        <% else %>
+          <td class="icon"> <%= link_to "\u2610", "tasks/complete/#{task.id}" %></td>
+        <% end %>
+      <td class="icon"><%= link_to "\u2717", "confirm_delete/#{task.id}" %></td>
+        <% if task.person_id != nil %>
+          <% person_name = Person.find("#{task.person_id}") %>
+          <td> <%= "#{person_name.name}"  %> </td>
+        <% end %>
+    </tr>
+    <% end %>
   </table>
   <section class="button_placement">
-    <%= button_to "Add a Task", "/new_task", class: "main_button" %>
+    <%= button_to "Add a Task", "/new_task", method: "get", class: "main_button" %>
+    <p><%= link_to "See Minion Details", "/people"  %> </p>
   </section>
 </main>

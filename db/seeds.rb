@@ -22,6 +22,17 @@ tasks = [
   {name: "Nap.", description: "But only if it won't make you drowsy", completed_date: random_time}
 ]
 
+people = [
+  {name: "Brenna"},
+  {name: "Jeremy"},
+  {name: "Elia"},
+  {name: "Kari"}
+]
+
+people.each do |person|
+  Person.create person
+end
+
 tasks.each do |task|
   Task.create task
 end

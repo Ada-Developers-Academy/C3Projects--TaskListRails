@@ -1,0 +1,19 @@
+<%= render "shared/header" %>
+
+  <main>
+ <table class="details">
+  <tr>
+    <th>Id</th>
+    <td><%= @person.id %></td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td><%= @person.name %></td>
+  </tr>
+</table>
+<section class="button_placement">
+  <%= link_to "Show #{@person.name}'s Tasks", "/people/#{@person.id}/tasks"  %>
+</section>
+  </main>
+
+<%= render "shared/footer" %>
