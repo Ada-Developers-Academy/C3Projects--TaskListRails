@@ -1,0 +1,19 @@
+<%= form_for @task, url: url do |f| %>
+    <span class="name_form">
+        <%= f.label :name, 'Task' %>
+        <%= f.text_field :name, required: true, autofocus: true %>
+    </span>
+    <span class="desc_form">
+        <%= f.label :desc, 'Description' %>
+        <%= f.text_area :desc, placeholder: desc_placeholder %>
+    </span>
+    <span class="comp_date_form">
+        <%= f.label :comp_date, 'Date Completed' %>
+        <%= f.date_field :comp_date, input_html: { :value => 'f.comp_date' } %>
+    </span>
+    <span class="person_form">
+        <%= f.label :person_id, 'Owner' %>
+        <%= f.collection_select :person_id, Person.all, :id, :name, include_blank: "None" %>
+    </span>
+    <%= f.submit submit_button %>
+<% end %>

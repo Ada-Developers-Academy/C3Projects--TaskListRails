@@ -5,15 +5,37 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'tasks#index'
-  # same as get '/' => "task_lists_rails#index"
+  # same as get '/' => "tasks#index"
 
   # Example of regular route:
   # get  'products/:id'   => 'catalog#view'
-  get    '/tasks/new'         => 'tasks#new'
-  post   '/tasks'             => 'tasks#create'
-  delete '/tasks/delete/:id'  => 'tasks#destroy'
-  patch  '/tasks/update/:id'  => 'tasks#update'
-  get    '/tasks/:id'         => 'tasks#show'
+
+  # Display people
+  get     '/people'             => 'people#index'
+
+  # Display person and their tasks
+  get     '/people/:id'         => 'people#show'
+  get     '/people/:id/tasks'   => 'people#person_tasks'
+
+  # Create Tasks
+  get     '/tasks/new'          => 'tasks#new'
+  post    '/tasks'              => 'tasks#create'
+
+  # Display task
+  get     '/tasks/:id'          => 'tasks#show'
+
+  # Delete task
+  delete  '/tasks/:id'          => 'tasks#destroy'
+
+  # Edit task
+  get     '/tasks/:id/update'   => 'tasks#edit'
+  patch   '/tasks/:id/update'   => 'tasks#update'
+
+  # Check/uncheck complete task
+  patch   '/tasks/complete/:id' => 'tasks#complete'
+  patch   '/tasks/uncheck/:id'  => 'tasks#undo'
+
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

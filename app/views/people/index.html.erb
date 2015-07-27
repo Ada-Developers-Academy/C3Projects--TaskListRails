@@ -1,0 +1,15 @@
+<section>
+  <table class="person_tasks">
+    <tr>
+      <th>People</th>
+      <th>Incomplete Tasks</th>
+    </tr>
+      <% @people.each do |person| %>
+        <tr class>
+          <td><%= link_to "#{person.name}", "people/#{person.id}" %></td>
+          <td><%= link_to "#{person.tasks.where(comp_date: nil).count}", "people/#{person.id}/tasks" %></td>
+        </tr>
+      <% end %>
+  </table>
+  <p class="return_home"><%= link_to "return to task list", "/" %></p>
+</section>

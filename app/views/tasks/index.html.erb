@@ -1,26 +1,38 @@
- <section class="home">
-  <table>
+<section>
+  <table class="tasks_table">
     <tr>
-      <th colspan="3">Tasks</th>
+      <th colspan="4">Tasks</th>
     </tr>
-   
     <% @tasks.each do |task| %>
-      <tr>
-        <td class="comp_status">
-          <%= task.comp_date ? "\u2713" : "" %>
-        </td>
-        <td class="name">
-          <% if task.comp_date %>
-            <span class="complete"><%= link_to "#{task.name}", "tasks/#{task.id}" %></span>
-          <% else %>
-            <span class="incomplete"><%= link_to "#{task.name}", "tasks/#{task.id}" %></span>
-          <% end %>
-        </td>
-        <td class="delete">
-          <%= link_to "X", "tasks/delete/#{task.id}",  method: :delete, data: { confirm: "Delete this task?" } %>
-        </td>
-      </tr>
+    <tr>
+      <td class="checkbox">
+        <% if task.comp_date %>
+          <%= link_to "\u2713", "tasks/uncheck/#{task.id}", method: :patch %>
+        <% else %>
+          <%= link_to "\u2610", "tasks/complete/#{task.id}", method: :patch %>
+        <% end %>
+      </td>
+      <td class="name">
+        <% if task.comp_date %>
+          <span class="complete"><%= link_to "#{task.name}", "tasks/#{task.id}" %></span>
+        <% else %>
+          <span class="incomplete"><%= link_to "#{task.name}", "tasks/#{task.id}" %></span>
+        <% end %>
+      </td>
+      <td class="owner">
+        <% if task.person_id %>
+          <span class="person_link"><%= link_to "#{task.person.name}", "people/#{task.person.id}" %></span>
+        <% else %>
+          <%= "" %>
+        <% end %> 
+      </td>
+      <td class="delete_update">
+        <span class="update_link"><%= link_to "\u270E", "tasks/#{task.id}/update" %></span>
+        <%= link_to "X", "tasks/#{task.id}",  method: :delete, data: { confirm: "Delete this task?" } %>
+      </td>
+    </tr>
     <% end %>
   </table>
   <p class="create_task_link"><%= link_to "add a new task", "tasks/new" %></p>
+  <p class="people_link"><%= link_to "see all people", "/people" %></p>
 </section>

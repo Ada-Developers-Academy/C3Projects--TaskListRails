@@ -1,0 +1,11 @@
+<section class="show_people">
+  <%= image_tag "#{@person.name}.jpg", class: "photo" %>
+  <div class="person_info">
+    <p class="person_name">Name: <%= link_to "#{@person.name}", "#{@person.id}/tasks" %></p>
+    <p class="person_age">Age: <%= @person.age %></p>
+    <p class="person_job">Job: <%= @person.occupation %></p>
+    <p class="person_todo">Tasks Remaining: <%= link_to "#{@person.tasks.where(comp_date: nil).count}", "#{@person.id}/tasks" %></p>
+  </div>
+</section>
+
+<p class="return_home"><%= link_to "return to task list", "/" %></p>

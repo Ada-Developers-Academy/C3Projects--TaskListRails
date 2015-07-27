@@ -3,32 +3,31 @@
 /*// You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 html {
-  background: #fff url(linedpaper.png) repeat fixed center;
+  background: #fff image-url("linedpaper.png") repeat fixed center;
   font-family: 'Helvetica', Arial, sans-serif;
   font-size: 14px;
 }
 
+h1, .comp_date, .desc, .task_owner, .create_task_link, .delete_task_link, .person_tasks {
+  text-align: center;
+}
+
+/* Tables */
 table {
   margin: 30px auto;
 }
 
-h1, .comp_date, .desc, .create_task_link, .delete_task_link {
-  text-align: center;
-}
-
-table, th, tr, .add_task {
+.task_desc, .tasks_table, .task td, .lotsa_tasks, .people_tasks td {
   border: 1px solid #000;
   border-collapse: collapse;
-  padding: 15px;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
 th {
-  background-color: #D3F649;
-  font-size: 1.3em;
-}
-
-.task td {
+  background-color: #D3F649; /* chartreuse */
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 2.1em;
+  padding: 15px;
   border: 1px solid #000;
   border-collapse: collapse;
 }
@@ -37,9 +36,39 @@ tr, td {
   padding: 10px;
 }
 
-.comp_status {
+/* Person Page */
+
+.show_people {
+  margin: 0 auto;
+  width: 270px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #000;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+.photo {
+  display: block;
+  width: 150px;
+  border: 3px solid #000;
+  margin: 25px auto;
+}
+
+.person_info {
+  display: block;
+  width: 130px;
+  margin: 10px auto;
+  padding-bottom: 10px;
+}
+
+.edit {
+  margin-left: 10px;
+}
+
+.checkbox a:link, .checkbox a:visited {
   text-align: center;
-  color: #DC0095;
+  color: #DC0095; /* hot pink */
+  font-size: 1.3em;
 }
 
 .incomplete a{
@@ -48,47 +77,64 @@ tr, td {
 
 .complete a {
   text-decoration: line-through;
-  color: #BABABA;
+  color: #BABABA; /* gray */
 }
 
-.name {
+.name, .person_tasks, .person_name a:link, .person_name a:visited {
   font-family: 'Reenie Beanie', cursive;
-  font-size: 1.6em;
+  font-size: 1.9em;
+}
+
+.owner {
+  text-align: right;
+  font-size: 0.9em;
+  text-transform: lowercase;
+  font-style: italic;
 }
 
 /* Form */
+
 .form {
   padding-top: 30px;
   width: 600px;
   margin: 0 auto;
 }
 
-.name_form, .desc_form, .comp_date_form {
+.name_form, .desc_form, .comp_date_form, .person_form {
   display: block;
-  margin: 30px;
+  margin-bottom: 20px;
 }
 
-/* Links */
-a {
+/* Delete & Update */
+
+.edit {
+  margin-right: 13px;
+}
+
+.delete_update {
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 18px;
+}
+
+.delete_update a:link, .edit a:link, .delete_update a:visited, .edit a:visited, .person_link a:link, .person_link a:visited, .owner {
+  color: #BABABA; /* gray */
+}
+
+.update_link {
+  font-style: italic;
+  margin-right: 12px;
+}
+
+a, .delete_update a:hover, .edit a:hover, .checkbox a:hover, .person_link a:hover {
   color: #000;
   text-decoration: none;
 }
 
 a:hover {
-  color: #56CAD0;
+  color: #56CAD0; /* teal */
 }
 
-.return_home {
+.return_home, .people_link {
   text-align: center;
-  margin: 30px;
-}
-
-/* Delete */
-
-.delete a:link {
-  color: #BABABA;
-}
-
-.delete a:hover {
-  color: #000;
 }

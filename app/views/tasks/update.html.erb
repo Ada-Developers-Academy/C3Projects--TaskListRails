@@ -1,0 +1,10 @@
+<section class="form">
+  <fieldset class="edit_task">
+    <legend>Edit a Task</legend>
+    <%= render partial: "form", locals: { url: "/tasks/update/#{@task.id}",
+                                          desc_placeholder: nil,
+                                          submit_button: "update task" } %>
+  </fieldset>
+</section>
+
+<p class="return_home"><%= link_to "return to task list", "/" %></p>

@@ -1,0 +1,21 @@
+<section class="show_people_tasks">
+  <table class="lotsa_tasks">
+    <tr>
+      <th>Person</th>
+      <th>Tasks</th>
+    </tr>
+    <tr class="people_tasks">
+      <td class="task_owner"><%= link_to "#{@person.name}", "../../people/#{@person.id}" %></td>
+      <td class="person_tasks">
+        <% @person.tasks.each do |task| %>
+          <% if task.comp_date %>
+            <p class="complete"><%= link_to "#{task.name}", "../../tasks/#{task.id}" %></p>
+          <% else %>
+            <p class="incomplete"><%= link_to "#{task.name}", "../../tasks/#{task.id}" %></p>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  <p class="return_home"><%= link_to "return to task list", "/" %></p>
+</section>
