@@ -1,0 +1,15 @@
+<% content_for :head do %>
+  <title>People List</title>
+<% end %>
+
+<h1 class='title'>People</h1>
+
+<%= link_to '+ Person', new_person_path, class: 'button' %>
+
+<main>
+  <%= render 'complete_people_list', { all_people: @all_people } %>
+</main>
+
+
+<% content_for :nav do %>
+<% end %>

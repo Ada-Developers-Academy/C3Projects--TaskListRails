@@ -1,11 +1,19 @@
-<%= form_for(@task) do |f| %>
-  <div class="actions">
-    <%= f.label "Task:" %>
+<%= form_for [ @person, @task ] do |f| %>
+  <div>
+    <%= f.label :name, "Task:" %>
     <%= f.text_field :name %>
-
-    <%= f.label "Description:" %>
-    <%= f.text_field :description %>
-
-    <%= f.submit %>
   </div>
+
+  <div>
+    <%= f.label :description, "Description:" %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div>
+  <%= collection_select( :task, :person_id, @all_people, :id, :name, { :selected => @person.id } ) %>
+    <%# alternative option: #%>
+  <%# collection_select( :task, :person_id, @all_people, :id, :name, { prompt: '< Assign Task >' } ) %>
+  </div>
+
+  <%= f.submit %>
 <% end %>

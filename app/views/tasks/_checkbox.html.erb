@@ -1,0 +1,5 @@
+<% if task.completed_at %>
+  <%= button_to '✔', [ task.person, task ], method: :put, params: { :complete => 0, person_id: task.person_id.to_i }, class: 'checkbox'%>
+<% else %>
+  <%= button_to ' ', [ task.person, task ], method: :put, params: { :complete => 1, person_id: task.person_id.to_i }, class: 'checkbox' %>
+<% end %>

@@ -11,17 +11,30 @@ def random_time
 end
 
 seed_tasks = [
-  { name: "Breakfast", completed_at: random_time },
-  { name: "Second breakfast"},
-  { name: "Elevenses", description: "Comes after 2nd breakfast but before lunch"},
-  { name: "Luncheon", completed_at: random_time},
-  { name: "Afternoon tea"},
-  { name: "Dinner", completed_at: random_time },
-  { name: "Supper"},
-  { name: "Call Mom", description: "wish her a happy birthday", completed_at: random_time },
-  { name: "Walk Bentley", description: "Loring Park" },
+  { name: "Breakfast", description: "", completed_at: random_time, person_id: 1 },
+  { name: "Second breakfast", description: "",  person_id: 1},
+  { name: "Elevenses", description: "Comes after 2nd breakfast but before lunch",  person_id: 1},
+  { name: "Luncheon", description: "", completed_at: random_time,  person_id: 1},
+  { name: "Afternoon tea", description: "",  person_id: 1},
+  { name: "Dinner", description: "before supper", completed_at: random_time, person_id: 1 },
+  { name: "Supper", description: "",  person_id: 1},
+  { name: "Enjoy the sun", description: "It's CA, so it's always sunny!",  person_id: 2 },
+  { name: "Meditate", description: "I want to be a zen master!",  person_id: 2 },
+  { name: "Walk Bentley", description: "I miss that guy :(",  person_id: 2 },
+  { name: "Call Ash", description: "She's the best!",  person_id: 2 },
+  { name: "Go for a walk with Dad", description: "He's the best!", person_id: 3 }
 ]
 
 seed_tasks.each do |task|
   Task.create task
+end
+
+seed_people = [
+  { name: "Ashley" },
+  { name: "Mike" },
+  { name: "Bentley" }
+]
+
+seed_people.each do |person|
+  Person.create(person)
 end
