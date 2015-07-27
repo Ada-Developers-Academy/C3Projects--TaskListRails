@@ -1,0 +1,17 @@
+<%= form_for task, url: path do |f|%>
+  <fieldset>
+    <legend>Add a new task</legend>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.label :completed_at %>
+    <%= f.date_field :completed_at %>
+
+    <%= f.label :person_id %>
+    <%= f.collection_select(:person_id, Person.all, :id, :name, prompt: "Select a person") %>
+  </fieldset>
+  <%= f.submit button_message %>
+<% end %>

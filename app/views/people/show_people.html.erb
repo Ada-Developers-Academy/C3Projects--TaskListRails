@@ -1,0 +1,14 @@
+<table class="table_data">
+  <tr="table_headers">
+    <th>Person</th>
+    <th>Tasks</th>
+    <th>Incomplete tasks</th>
+    <th>Complete tasks</th>
+  </tr>
+  <tr>
+    <td> <%= @person.name %></td>
+    <td> <%= link_to "Show #{@person.name}'s tasks", "/people/#{@person.id}/tasks", method: :get %> </td>
+    <td> <%= render "shared/uncompleted_tasks", person: @person %></td>
+    <td> <%= render "shared/completed_tasks", person: @person %> </td>
+  </tr>
+</table>

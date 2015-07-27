@@ -1,16 +1,21 @@
 <table class="table_data">
   <tr="table_headers">
     <th>Task Name</th>
+    <th>Person in Charge</th>
     <th>Completed?</th>
   </tr>
 
   <% @all_tasks.each_with_index do |task, index| %>
     <tr>
       <td><%= link_to "#{task.name}", "/show/#{task.id}" %></td>
-      <td><% if task.completed_at.nil? %>
-            Not yet.
-          <% else %>
+      <td>
+        <% person = task.person_id ? @all_people.find(task.person_id) : nil %>
+        <%= person ? person.name : "" %>
+      </td>
+      <td><% if task.completed_at %>
             Yes!
+          <% else %>
+            <%= button_to "mark as complete", "/tasks/complete/#{task.id}", method: :patch %>
           <% end %>
       </td>
       <td><%= button_to "Delete this task", "/tasks/delete/#{task.id}", method: :delete, data: { confirm: "Are you sure?"}%></td>
@@ -21,3 +26,18 @@
 <div class="add_task_button">
   <%= button_to "Add a new task!", "/tasks/new" %>
 </div>
+
+<h1 class="title">People</h1>
+<table class="table_data">
+  <tr="table_headers">
+    <th>Person</th>
+    <th>Number of Uncompleted Tasks</th>
+  </tr>
+
+  <% @all_people.each_with_index do |person, index| %>
+    <tr>
+      <td><%= link_to "#{person.name}", "/people/#{person.id}", method: :get %></td>
+      <td><%= render "shared/uncompleted_tasks", person: person %></td>
+    </tr>
+  <% end %>
+</table>

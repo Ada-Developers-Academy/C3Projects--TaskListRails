@@ -1,0 +1,2 @@
+<% tasks = Task.where(person_id: person.id) %>
+<%= uncompleted_tasks = tasks.where(completed_at: nil).count %>

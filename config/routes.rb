@@ -7,10 +7,21 @@ Rails.application.routes.draw do
 
   # to add a task
   post '/tasks/new' => 'add_task#new'
-  post '/tasks' => 'add_task#create'
+  post '/tasks'     => 'add_task#create'
 
   # to delete a task
   delete '/tasks/delete/:id' => 'delete_task#destroy'
+
+  # to mark a task as complete
+  patch '/tasks/complete/:id' => 'update_task#completed'
+
+  # to edit a task
+  post '/tasks/edit/:id'  => 'update_task#edit'
+  patch '/tasks/edit/:id' => 'update_task#update'
+
+  # to go to a person
+  get '/people/:id'       => 'people#show'
+  get '/people/:id/tasks' => 'people#show_tasks'
 
   # post '/:id' => 'display_task#links'
   # The priority is based upon order of creation: first created -> highest priority.
