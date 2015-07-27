@@ -6,13 +6,13 @@
   <%= f.text_field :name %>
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :person_id %>
+  <%= f.select :person_id, options_for_select([['Michelle', 1], ['Lindsey', 2], ['Kari',3]]) %>
 
   <%= f.label :completed %>
-  <%= f.text_field :completed %>
-
-  <%= f.label :completed_at %>
-  <%= f.text_field :completed_at %>
+  <%= f.select :completed, options_for_select([['True', "t"], ['False', "f"]]) %>
 
 </fieldset>
 <%=  f.submit "Looks Good! Add My Task!" %>

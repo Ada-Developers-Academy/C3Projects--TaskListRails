@@ -1,0 +1,22 @@
+    <h2>Tasks Assigned to <%= @person.name %></h2>
+<table border = "1">
+  <tr>
+    <td>Task Name</td>
+    <td>Task Description</td>
+    <td>Date Completed</td>
+  </tr>
+
+      <% @person.tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><%= task.completed_at %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<br>
+ <%= link_to "Back to People", "/people" %>
+ <p>
+ <a href="/">Go Back to Task List</a>
+ </p>

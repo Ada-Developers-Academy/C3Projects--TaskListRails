@@ -1,0 +1,11 @@
+
+  <% @people.each do |person| %>
+  <%=person.name %> has
+  <%= person.tasks.where(completed_at: nil).count %> Unfinished Tasks
+ <%= button_to "More Details", "/people/#{person.id}", method: :get %>
+  <% end %>
+
+
+  <p>
+  <a href="/">Go Back to Task List</a>
+  </p>
