@@ -3,24 +3,33 @@
 
   <table>
 		<tr>
-			<td></td>
-			<td>Name</td>
-			<td>Description</td>
-			<td>Completed Date</td>
+			<th></th>
+			<th>Task</th>
+			<th>Owner</th>
+			<th>Description</th>
+			<th>Completed Date</th>
 		</tr>
 
 		<tr>
-		  <td>
+		  <td class="check">
   		  <% if @selected_task.completed_at != nil %>
   		  	&#10003;
   		  <% end %>
 		  </td>
-			<td><%= @selected_task.name %></td>
-			<td><%= @selected_task.description %></td>
-			<td><%= @selected_task.completed_at%></td>
+			<td class="task_name"><%= @selected_task.name %></td>
+			<td class="task_owner"><%= @selected_task.person.name %></td>
+			<td class="task_description"><%= @selected_task.description %></td>
+			<td class="task_comp_at"><%= @selected_task.completed_at%></td>
 		</tr>
   </table>
 
-  <div class="button"><%= link_to "Return To Task List", "/" %></div>
 
-</div>
+  <div class="button"> 
+  	<%= link_to "Edit This Task", "/edit/#{@selected_task.id}" %>
+	</div>
+
+  <div class="button">
+  	<%= link_to "Return To Task List", "/" %>
+	</div>
+
+</div> <!-- end of .show -->

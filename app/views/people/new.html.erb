@@ -1,0 +1,17 @@
+<div class="new_owner">
+  <h1>Add a New Owner</h1>
+
+  <div class="form">
+    <%= form_for @person do |f| %>
+    	<fieldset>
+    		<%= f.label :name, "Owner's Name"%>
+    		<%= f.text_field :name %>
+        
+    	</fieldset>
+      <%= f.submit 'Create Owner' %>
+    <% end %>
+  </div>
+
+  <div class="button"><%= link_to "Return To Task List", "/" %></div>
+
+</div>

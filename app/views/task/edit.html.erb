@@ -1,9 +1,10 @@
-<div class="new">
-  <h1>Create a New Task</h1>
+<div class="edit">
+  <h1>Edit Your Task</h1>
 
   <div class="form">
-    <%= form_for @task do |f| %>
-    	<fieldset>
+    <%= form_for @edit_task, url: {action: "make_update"}, method: "patch" do |f| %>
+    
+      <fieldset>
     		<%= f.label :name, "Task"%>
     		<%= f.text_field :name %>
 
@@ -13,10 +14,12 @@
     		<%= f.label :description %>
     		<%= f.text_area :description %>
     	</fieldset>
-      <%= f.submit 'Add Task' %>
+      <%= f.submit 'Update Task' %>
     <% end %>
   </div>
 
-  <div class="button"><%= link_to "Return To Task List", "/" %></div>
+  <div class="button">
+    <%= link_to "Return To Task List", "/" %>
+  </div>
 
 </div>

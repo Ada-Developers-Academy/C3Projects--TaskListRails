@@ -30,12 +30,45 @@ class TaskController < ApplicationController
   	redirect_to action: "index"
   end
 
+  def edit
+  	@edit_id = params[:edit_id]
+  	@edit_task = Task.find_by(id: "#{@edit_id}") 
+  	render :edit
+  end
+
+  def make_update
+  	@edit_id = params[:edit_id]
+  	@edit_task = Task.find_by(id: "#{@edit_id}")
+  	@edit_task.update(create_params[:task])
+
+  	redirect_to action: "index"
+  end
+
+  def mark_complete
+  	@id = params[:id]
+  	@task = Task.find(@id)
+  	@task.completed_at = DateTime.now
+  	@task.save
+
+  	redirect_to action: "index"
+  end
+
+  def mark_incomplete
+  	@id = params[:id]
+  	@task = Task.find(@id)
+  	@task.completed_at = nil
+  	@task.save
+
+  	redirect_to action: "index"
+
+  end
+
 ################### PRIVATE METHODS ###################
 
 	private
 
   def create_params
-    params.permit(task: [:name, :description, :completed_at])
+    params.permit(task: [:name, :description, :completed_at, :person_id])
   end
 
 end
