@@ -14,10 +14,10 @@
  *= require_self
  */
 
-body {
-  background-color: #E9E0F5; /* purple-white */
+html, body {
+  background-color: #fff;
+  height: 97%;
 }
-
 
 h3 {
   font-size: 20px;
@@ -25,6 +25,7 @@ h3 {
 a {
   font-size: 20px;
   text-decoration: none;
+  color: #4A4A4A;
 }
 
 button {

@@ -1,0 +1,16 @@
+<%= render partial: "tasks/header", locals: { link_name: "< Back to #{@person.first_name}",
+                                              link_path: "/people/show/#{@person.id}",
+                                              title: "#{@person.first_name}'s Tasks",
+                                              kicker: false } %>
+
+<section>
+  <ul class="tasks">
+    <% @tasks.each do |task| %>
+    <li>
+      <p>
+        <%= task.name %>
+      </p>
+    </li>
+    <% end %>
+  </ul>
+</section>

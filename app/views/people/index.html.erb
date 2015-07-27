@@ -1,0 +1,26 @@
+<%= render partial: "tasks/header", locals: { link_name: "< Home",
+                                        link_path: "/",
+                                        title: "Uncompleted Tasks",
+                                        kicker: false,
+                                        edit_button: false } %>
+
+<section>
+  <ul class="people">
+    <% @people.each do |person| %>
+    <li>
+      <p>
+        <%= link_to "#{person.first_name} #{person.last_name}", "people/show/#{person.id}" %>
+      </p>
+
+      <div>
+        <p>
+          <% a = @tasks.where(person_id: person.id) %>
+          <% count = 0 %>
+          <% a.each { |task| task.completed_at.nil? ? count += 1 : count } %>
+          <%= count %>
+        </p>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</section>

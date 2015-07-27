@@ -3,17 +3,31 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'tasks#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  get     'show/:id' => 'task#show'
+  get         'show/:id' => 'tasks#show'
 
-  get         '/new' => 'task#new'
-  post      '/tasks' => 'task#create'
+  get             '/new' => 'tasks#new'
+  post          '/tasks' => 'tasks#create'
 
-  post  '/delete/:id' => 'task#delete'
+  get        '/edit/:id' => 'tasks#edit'
+  post       '/edit/:id' => 'tasks#edit'
+  patch     '/tasks/:id' => 'tasks#update' # why do I need both a post & patch?
+
+  get          '/people' => 'people#index'
+
+  get '/people/:id/tasks' => 'people#tasks'
+
+  get '/people/show/:id' => 'people#show'
+
+  # buttons
+  post     '/delete/:id' => 'tasks#delete'
+  post     '/update/:id' => 'tasks#update_complete'
+
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

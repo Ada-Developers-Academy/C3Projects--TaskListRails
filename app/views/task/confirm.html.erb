@@ -1,7 +1,0 @@
-<%= form_for @task do |f| %>
-  <legend>
-    <h3>Are you sure you want to delete "<%= @task.name %>?"</h3>
-  </legend>
-
-  <%= button_to "Delete", { action: "delete", method: :delete}, data: { confirm: "Are you sure?" }  %>
-<% end %>

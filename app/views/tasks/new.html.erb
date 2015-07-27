@@ -1,0 +1,11 @@
+<%= render partial: "header", locals: { link_name: "< Nevermind",
+                                        link_path: "/",
+                                        title: "Create A Task",
+                                        kicker: false,
+                                        edit_button: false } %>
+
+
+<%= render partial: "form", locals: { url: "/tasks/",
+                                      submit_name: "Submit",
+                                      required_place: "Required",
+                                      optional_place: "Optional" } %>
