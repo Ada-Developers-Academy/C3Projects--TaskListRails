@@ -1,26 +1,30 @@
 <body>
+<h1>To Do List</h1>
 <table>
   <tr>
-    <th>Task #</th>
+    <th>Assigned to</th>
     <th>Task Name</th>
-    <th>Date of Completion</th>
+    <th>Completed?</th>
     <th>Delete?</th>
   <tr>
   <% @tasks.to_a.each do |task| %>
   <tr>
-    <td><%= task.id %></td>
+    <td><%= link_to "#{task.person.name}", "/people/show/#{task.person.id}" %></td>
     <td><%= link_to "#{task.name}", "/show/#{task.id}" %></td>
-    <td><% if task.completed_at == nil %>
-       <p class="IP">In Process</p>
+    <td class="task_options"><% if task.completed_at == nil %>
+      <%= link_to "\u274F", "/tasks/comp_status/#{task.id}", method: :get %>
       <% else %>
-       <%= task.completed_at %>
-       <% end %>
-     </td>
-    <td><%= button_to "Yes", "/tasks/#{task.id}", method: :delete, data: {confirm: "Are you sure?"}, class:"button" %></td>
+      <%= link_to "\u2714", "/tasks/ip_status/#{task.id}", method: :get %>
+      <% end %>
+    </td>
+    <td class="task_options"><%= button_to "X", "/tasks/#{task.id}", method: :delete, data: {confirm: "Are you sure?"} %></td>
   </tr>
     <% end %>
+  <tr>
+    <td colspan="3", class="new_task"><%= button_to "Add New Task", "/tasks/new", method: :get %></td>
+  </tr>
+  <tr>
+    <%= render partial: "footer_links" %>
+  </tr>
 </table>
-
-<p><%= link_to "Add New Task", "/tasks/new" %></p>
-
 </body>

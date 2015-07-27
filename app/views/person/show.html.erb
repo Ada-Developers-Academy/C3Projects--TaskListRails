@@ -1,0 +1,22 @@
+<h1>About <%= @person.name %></h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Birthday</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td><%= @person.name %></td>
+    <td><%= @person.birthday %></td>
+    <td><%= @person.age %></td>
+  </tr>
+  <tr>
+    <td>
+      <pre></pre>
+    </td>
+  </tr>
+  <tr>
+    <td><%= button_to "To Do List", "/", method: :get %></td>
+    <td><%= button_to "Responsible People", "/people", method: :get %></td>
+    <td><%= button_to "#{@person.name}'s Complete Task List", "/people/#{@person.id}/tasks", method: :get %></td>
+</table>

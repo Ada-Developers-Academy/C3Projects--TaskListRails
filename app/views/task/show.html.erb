@@ -1,22 +1,14 @@
 <table>
+  <%= render partial: "table_headers" %>
   <tr>
-    <th>No.</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Date of Completion</th>
-  </tr>
-  <tr>
-    <td><%= @task_finder.id %></td>
+    <td><%= @task_finder.person.name %></td>
     <td><%= @task_finder.name %></td>
     <td><%= @task_finder.description %></td>
-    <td><% if @task_finder.completed_at == nil %>
-       <p class="IP">In Process</p>
-      <% else %>
-       <p class="done">Completed</p>
-       <% end %>
+    <td class="task_options"><%= render partial: "task_status" %>
     <td><%= @task_finder.completed_at %></td>
   </tr>
-</table>
+  </table>
 
-<%= link_to "Back to Home", "/" %>
+  <%= link_to "Edit", "/tasks/#{@task_finder.id}", method: :get %>
+
+<%= render partial: "footer_links" %>

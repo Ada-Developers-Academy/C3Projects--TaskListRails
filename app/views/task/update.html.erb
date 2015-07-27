@@ -1,5 +1,5 @@
-<h1> So much to do! So little time!</h1>
-<%= form_for @task do |f| %>
+<h1>Make Changes to: <%= @task.name %></h1>
+<%= form_for @task, url: "/tasks/#{@task.id}", method: :patch do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -12,12 +12,7 @@
   <%= f.label :assign_to %>
   <%= f.collection_select :person_id, Person.all, :id, :name %>
 
-  <!-- <%= f.select :person_id, options_for_select(%w(Bob Spot Tyrone)) %> -->
-  <!-- <% @person.to_a.each do |person| %> -->
-    <!-- <%= f.select :person_id, options_for_select(%w(person.name)) %> -->
-  <!-- <% end %> -->
-
-  <%= f.submit 'Add Task' %>
+  <%= f.submit 'Save' %>
 <% end %>
 
 <%= render partial: "footer_links" %>

@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th><%= @person.name %>'s Tasks</th>
+  </tr>
+  <% all_tasks = @person.tasks.to_a %>
+  <% all_tasks.each do |task| %>
+  <tr><% if task.completed_at == nil %>
+    <td><%= task.name %></td>
+    <% else %>
+    <td class="cross_out"><%= task.name %></td>
+    <% end %>
+  </tr>
+    <% end %>
+  </tr>
+  <tr>
+    <td><%= button_to "To Do List", "/", method: :get %></td>
+    <td><%= button_to "Responsible People", "/people", method: :get %></td>
+  </tr>
+</table>
