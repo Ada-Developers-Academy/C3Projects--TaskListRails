@@ -1,8 +1,6 @@
+<%= render "shared/header" %>
 <div class ="confirm">
 
-<h1>Are you sure about deleting this task?</h1>
-
-<!-- <%= @task %> -->
 
 <p> <%= link_to "YES, DELETE", "/tasks/destroy/#{@task.id}" %>
 </p>

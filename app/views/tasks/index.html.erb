@@ -1,0 +1,46 @@
+<%= render "shared/header" %>
+
+<p> Click a task name to view its description or to update it. </p>
+<div class ="index">
+<table>
+  <tr>
+    <th>Is this Done?</th>
+    <th>Name</th>
+    <th>Date Completed</th>
+    <th>Person</th>
+  </tr>
+
+  <% @tasks.each do |task| %>
+  <tr>
+    <td class="extra_padding">
+      <!-- if a task isn't completed (:completed_at not having a value), then the task will be represented by an empty checkbox -->
+      <% if task.completed_at == "" || task.completed_at == nil %>
+        <%= link_to "\u2610", "tasks/completed/#{task.id}", method: :patch %>
+      <!--if a task is completed, then the task will be represented by a marked checkbox -->
+      <% elsif task.completed_at %>
+        <%= link_to "\u2611", "tasks/not_completed/#{task.id}", method: :patch %>
+      <% end %>
+    </td>
+    <td class="extra_padding">
+      <%= link_to "#{task.name}", "tasks/#{task.id}" %>
+    </td>
+    <td class="extra_padding">
+      <%= task.completed_at %>
+    </td>
+    <td>
+      <% if task.person_id %>
+        <%= task.person.name %>
+      <% else %>
+        <%= ""%>
+      <% end %>
+    </td>
+    <td>
+      <%= button_to "Delete", "tasks/confirm/#{task.id}", method: :get %>
+    </td>
+  </tr>
+
+  <% end %>
+</table>
+
+</div>
+<%= render "shared/footer" %>

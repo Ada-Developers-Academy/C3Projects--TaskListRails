@@ -1,0 +1,27 @@
+<%= render "shared/header" %>
+
+<p> Click on someone's name to see their details </p>
+
+<div class="all_people">
+<table>
+  <tr>
+    <th class="extra_padding">Person Name</th>
+    <th># of Uncompleted Tasks</th>
+  </tr>
+
+  <% @people.each do |person|  %>
+  <tr>
+    <td class="extra_padding">
+      <%= link_to "#{person.name}", "/people/#{person.id}" %>
+    </td>
+
+    <td>
+      <%= person.tasks.where(completed_at: "").count %>
+
+    </td>
+    </tr>
+<% end %>
+</table>
+</div>
+
+<%= render "shared/footer" %>

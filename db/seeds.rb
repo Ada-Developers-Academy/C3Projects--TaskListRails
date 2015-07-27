@@ -27,4 +27,29 @@ tasks.each do |task|
   Task.create task
 end
 
+people = [
+  { name: "Will" },
+  { name: "Carlton" },
+  { name: "Hilary" }
+]
+
+people.each do |person|
+  Person.create person
+end
+
+Task.all.each do | task |
+  if task.id % 3 == 0
+    person = Person.where(name: "Will")[0]
+    task.person_id = person.id
+  elsif task.id % 2 == 0
+    person = Person.where(name: "Carlton")[0]
+    task.person_id = person.id
+  else
+    person = Person.where(name: "Hilary")[0]
+    task.person_id = person.id
+  end
+  task.save
+end
+
+
 #only here when run it, gone after creation

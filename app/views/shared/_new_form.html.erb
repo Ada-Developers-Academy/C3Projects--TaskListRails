@@ -1,0 +1,20 @@
+<div class="form_pages">
+  <%= form_for @new_task do |n| %>
+    <fieldset>
+      <%= n.label :name %>
+      <%= n.text_field :name %>
+
+      <%= n.label :description %>
+      <%= n.text_field :description %>
+
+      <%= n.label :completed_at %>
+      <%= n.text_field :completed_at %>
+
+      <%= n.label :person_id %>
+      <%= n.collection_select :person_id, Person.all, :id, :name, include_blank: "Please Select" %>
+      
+    </fieldset>
+      <%= n.submit 'Submit Task' %>
+  <% end %>
+
+</div>

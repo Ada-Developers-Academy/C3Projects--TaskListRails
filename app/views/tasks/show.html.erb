@@ -1,0 +1,34 @@
+<%= render "shared/header" %>
+<div class ="show">
+<table>
+  <tr>
+    <th class="extra_padding"> Name </th>
+    <th class="extra_padding"> Description </th>
+    <th class="extra_padding"> Completed Date </th>
+    <th class="extra_padding"> Person </th>
+  </tr>
+
+  <tr>
+    <td>
+        <%= @task.name %>
+    </td>
+    <td>
+      <%= @task.description%>
+    </td>
+    <td>
+      <%= @task.completed_at %>
+    </td>
+    <td>
+      <% if @task.person_id %>
+      <!-- If there is a person_id associated with the task, print out the person associated with the task  -->
+        <%= @task.person.name %>
+      <% else %>
+      <!-- Otherwise, leave the task unassigned -->
+        <%= ""%>
+      <% end %>
+    </td>
+  </tr>
+
+</table>
+</div>
+<%= render "shared/footer" %>

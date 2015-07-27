@@ -1,0 +1,6 @@
+<p class="footer_link"><%= link_to "#{@footer}", "#{@path}" %></p>
+
+<% if @footer2 && @path2  %>
+<!-- Print out the additional footer and path if an additional footer exists -->
+  <p class="footer_link"><%= link_to "#{@footer2}", "#{@path2}" %></p>
+<% end %>

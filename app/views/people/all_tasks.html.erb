@@ -1,0 +1,40 @@
+<%= render "shared/header" %>
+
+<div class="persons_tasks">
+
+  <p class="bold"> Finished Tasks </p>
+    <% @tasks.each do |task| %>
+      <% if task.completed_at? %>
+        <p> <%= task.name %> </p>
+      <% end %>
+    <% end %>
+<br>
+  <p class="bold"> Get It Done! </p>
+    <% @tasks.each do |task| %>
+      <% if task.completed_at == nil || task.completed_at == "" %>
+        <p> <%= task.name %> </p>
+      <% end %>
+    <% end %>
+  <!-- <table>
+    <tr>
+      <th>Finished Tasks</th>
+      <th>Get It Done!</th>
+    </tr> -->
+    <!-- <% @tasks.each do |task| %>
+    <tr>
+      <td>
+        <% if task.completed_at? %>
+          <%= task.name %>
+        <% end %>
+      </td>
+      <td>
+        <% if task.completed_at == nil || task.completed_at == "" %>
+          <%= task.name %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+
+  </table> -->
+</div>
+<%= render "shared/footer" %>

@@ -1,44 +1,140 @@
+h1 {
+  font-family: "Modak", "Courier New", sans-serif;
+  text-align: center;
+  font-size: 55px;
+  font-weight: lighter;
+  margin: 20px;
+}
+
 body {
   width: 960;
-  margin-left 0;
+  margin-left: 0;
   margin-right: 0;
-  font-family: Lato, sans-serif;
+  font-family: "Lato", sans-serif;
+  background-color: rgb(51, 102, 255);
+  font-size: 18px;
+}
+
+.index {
+  background-color: rgba(51, 204, 51, .8);
+  margin: 0 auto;
+  width: 960px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(255, 51, 204);
+  border-radius: 15px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+.persons_tasks {
+  background-color: rgba(51, 204, 51, .8);
+  margin: 0 auto;
+  width: 500px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(255, 51, 204);
+  border-radius: 15px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.person_show {
+  background-color: rgba(51, 204, 51, .8);
+  margin: 0 auto;
+  width: 300px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(255, 51, 204);
+  border-radius: 15px;
+
+}
+
+.form_pages {
+  width: 850px;
+  margin: 0 auto;
+}
+
+fieldset {
+  background-color: rgba(51, 204, 51, .8);
+  margin: 0 auto;
+  width: 830px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(255, 51, 204);
+  border-radius: 15px;
+}
+
+.all_people, .show {
+  background-color: rgba(51, 204, 51, .8);
+  margin: 0 auto;
+  width: 500px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(255, 51, 204);
+  padding-left: 30px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+
+}
+
+.confirm {
+  background-color: rgba(51, 204, 51, .8);
+  margin: 0 auto;
+  width: 300px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(255, 51, 204);
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
 }
 
 table {
   margin: 0 auto;
-
 }
 
-h1, p {
+p {
   text-align: center;
 }
 
-td, tr, th {
+.bold {
+  font-weight: bold;
+}
+
+.extra_padding {
   padding-right: 60px;
 }
 
 
+.people_list {
+  font-size: 20px;
+  text-align: center;
+}
+
 a:link {
-  color: blue;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
 a:visited {
-  color: blue;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
 a:hover {
-  color: black;
+  color: rgb(0, 0, 0);
   text-decoration: underline;
 }
 
-
-
-
+.footer_link {
+  font-size: 20px;
 }
+
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
