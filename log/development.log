@@ -1,0 +1,2055 @@
+
+
+Started GET "/" for ::1 at 2015-06-22 18:42:36 -0700
+
+ActiveRecord::PendingMigrationError - 
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+:
+  activerecord (4.2.2) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.2) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/4340c42ef32094d4/variables" for ::1 at 2015-06-22 18:42:37 -0700
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateTasks (20150617182531)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "description" varchar, "date_completed" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150617182531"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreatePeople (20150622182638)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150622182638"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to AddPersonIdToTasks (20150622183443)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "tasks" ADD "person_id" integer
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_tasks_on_person_id" ON "tasks" ("person_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150622183443"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tasks_on_person_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tasks_on_person_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tasks" ("name", "description", "date_completed", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "The First Task"], ["description", "do something cool"], ["date_completed", "1995-04-28 07:06:37.934157"], ["created_at", "2015-06-23 01:42:59.351477"], ["updated_at", "2015-06-23 01:42:59.351477"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Go to Brunch"], ["description", "eat Eggs Benedict"], ["created_at", "2015-06-23 01:42:59.357685"], ["updated_at", "2015-06-23 01:42:59.357685"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tasks" ("name", "description", "date_completed", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Go to Lunch"], ["description", "eat a sandwich"], ["date_completed", "2000-06-21 00:19:55.518945"], ["created_at", "2015-06-23 01:42:59.360706"], ["updated_at", "2015-06-23 01:42:59.360706"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Go to Second Lunch"], ["description", "eat some tacos"], ["created_at", "2015-06-23 01:42:59.363331"], ["updated_at", "2015-06-23 01:42:59.363331"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("name", "description", "date_completed", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Play Video Games"], ["description", "Zelda all the way"], ["date_completed", "1983-12-03 20:30:01.276063"], ["created_at", "2015-06-23 01:42:59.366156"], ["updated_at", "2015-06-23 01:42:59.366156"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("name", "description", "date_completed", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "High Five Somebody You Don't Know"], ["description", "like, a stranger"], ["date_completed", "1971-01-16 23:48:56.957754"], ["created_at", "2015-06-23 01:42:59.368626"], ["updated_at", "2015-06-23 01:42:59.368626"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tasks" ("name", "description", "date_completed", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Plant Flowers"], ["description", ""], ["date_completed", "2013-12-15 10:08:32.099139"], ["created_at", "2015-06-23 01:42:59.371058"], ["updated_at", "2015-06-23 01:42:59.371058"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Call Mom"], ["description", "on the telephone"], ["created_at", "2015-06-23 01:42:59.373969"], ["updated_at", "2015-06-23 01:42:59.373969"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tasks" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "She worries, you know."], ["description", "you know she does"], ["created_at", "2015-06-23 01:42:59.376691"], ["updated_at", "2015-06-23 01:42:59.376691"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("name", "description", "date_completed", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Nap."], ["description", "super hard"], ["date_completed", "1997-10-27 14:29:36.135115"], ["created_at", "2015-06-23 01:42:59.379317"], ["updated_at", "2015-06-23 01:42:59.379317"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jack"], ["created_at", "2015-06-23 01:42:59.390432"], ["updated_at", "2015-06-23 01:42:59.390432"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Samantha"], ["created_at", "2015-06-23 01:42:59.393383"], ["updated_at", "2015-06-23 01:42:59.393383"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Daniel"], ["created_at", "2015-06-23 01:42:59.396668"], ["updated_at", "2015-06-23 01:42:59.396668"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "people" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Teal'c"], ["created_at", "2015-06-23 01:42:59.399623"], ["updated_at", "2015-06-23 01:42:59.399623"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for ::1 at 2015-06-22 18:43:01 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  Rendered tasks/index.html.erb within layouts/application (25.6ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.6ms)
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/tasks/index.html.erb:13:in `block in _app_views_tasks_index_html_erb___4047853220657879262_70179139111240'
+  activerecord (4.2.2) lib/active_record/relation/delegation.rb:46:in `each'
+  app/views/tasks/index.html.erb:10:in `_app_views_tasks_index_html_erb___4047853220657879262_70179139111240'
+  actionview (4.2.2) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.2) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.2) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.2) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.2) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.2) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.2) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.2) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.2) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.2) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.2) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.2) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.2) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.2) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.2) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.2) lib/rack/etag.rb:24:in `call'
+  rack (1.6.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.2) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.2) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/35f9e8655c723a1c/variables" for ::1 at 2015-06-22 18:43:02 -0700
+  [1m[36mTask Load (3.6ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.5ms)[0m  SELECT "people".* FROM "people"
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:27:13.744795"], ["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:27:13.752195"], ["id", 2]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:27:13.758220"], ["id", 3]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:27:13.770857"], ["id", 4]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.3ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:27:13.779024"], ["id", 5]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:27:13.784482"], ["id", 6]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:27:13.788864"], ["id", 7]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:27:13.792880"], ["id", 8]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:27:13.796606"], ["id", 9]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:27:13.801282"], ["id", 10]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 5]]
+
+
+Started GET "/" for ::1 at 2015-06-22 22:27:26 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (53.6ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.8ms)
+Completed 200 OK in 1977ms (Views: 1959.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-22 22:27:28 -0700
+
+
+Started GET "/assets/people.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-22 22:27:28 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-22 22:27:28 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-22 22:27:28 -0700
+
+
+Started GET "/assets/task.self-f139a7e1d649f76826d61b8df3584a9c3d7172c7c13b82762138fd67eb1eb474.css?body=1" for ::1 at 2015-06-22 22:27:28 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-22 22:27:28 -0700
+
+
+Started GET "/assets/people.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:27:28 -0700
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:27:28 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-22 22:27:28 -0700
+
+
+Started GET "/tasks/2" for ::1 at 2015-06-22 22:27:32 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/_task_table.html.erb (1.5ms)
+  Rendered tasks/show.html.erb within layouts/application (4.5ms)
+  Rendered shared/_header.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 48ms (Views: 42.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks/2/edit" for ::1 at 2015-06-22 22:27:33 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people"
+  Rendered tasks/_form.html.erb (20.2ms)
+  Rendered tasks/edit.html.erb within layouts/application (23.6ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 56ms (Views: 54.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/2" for ::1 at 2015-06-22 22:27:35 -0700
+Processing by TasksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZ0Dh72sgDKqUT/+Q1dWkRG6JH4MalHnl0cY1J/Ugy4XPeavalQ3g+bMDe1S8Rin6Va/yMT4DFhSOs8ieFbuew==", "task"=>{"name"=>"Go to Brunch", "description"=>"eat Eggs Benedict", "person_id"=>"1", "date_completed"=>""}, "commit"=>"update", "id"=>"2"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 2]]
+Unpermitted parameters: utf8, _method, authenticity_token, commit, id
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["person_id", 1], ["updated_at", "2015-06-23 05:27:35.801391"], ["id", 2]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:27:35 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (8.3ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tasks/4" for ::1 at 2015-06-22 22:27:41 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/_task_table.html.erb (0.9ms)
+  Rendered tasks/show.html.erb within layouts/application (2.5ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tasks/4/edit" for ::1 at 2015-06-22 22:27:42 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  Rendered tasks/_form.html.erb (2.0ms)
+  Rendered tasks/edit.html.erb within layouts/application (3.6ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 39.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/4" for ::1 at 2015-06-22 22:27:45 -0700
+Processing by TasksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IvMcx1u97czkdwdxeCUDxAQTYVdaemSImDWkinnAaBtAU/nvjEVafajqNWJpg03y/P/64ZLoOTddSHN8nkIFTg==", "task"=>{"name"=>"Go to Second Lunch", "description"=>"eat some tacos", "person_id"=>"3", "date_completed"=>""}, "commit"=>"update", "id"=>"4"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 4]]
+Unpermitted parameters: utf8, _method, authenticity_token, commit, id
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 3], ["updated_at", "2015-06-23 05:27:45.770370"], ["id", 4]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:27:45 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (17.4ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 55ms (Views: 53.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tasks/8" for ::1 at 2015-06-22 22:27:47 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/_task_table.html.erb (0.7ms)
+  Rendered tasks/show.html.erb within layouts/application (2.4ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 47ms (Views: 45.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tasks/8/edit" for ::1 at 2015-06-22 22:27:49 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people"
+  Rendered tasks/_form.html.erb (2.3ms)
+  Rendered tasks/edit.html.erb within layouts/application (4.0ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/8" for ::1 at 2015-06-22 22:27:52 -0700
+Processing by TasksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"owKxg2lohQmZk9O6ns4DK896dt2urcj+1el2ECu2T9nBolSrvpAyuNUO4amPaE0dN5bta2Y/lUEQlKHmzDQijA==", "task"=>{"name"=>"Call Mom", "description"=>"on the telephone", "person_id"=>"4", "date_completed"=>""}, "commit"=>"update", "id"=>"8"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 8]]
+Unpermitted parameters: utf8, _method, authenticity_token, commit, id
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["person_id", 4], ["updated_at", "2015-06-23 05:27:52.616635"], ["id", 8]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:27:52 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (8.8ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 51ms (Views: 49.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/people/2" for ::1 at 2015-06-22 22:28:04 -0700
+Processing by PeopleController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered people/show.html.erb within layouts/application (1.5ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 42.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for ::1 at 2015-06-22 22:28:06 -0700
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 4]]
+  Rendered people/index.html.erb within layouts/application (20.0ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 56ms (Views: 54.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/people/1" for ::1 at 2015-06-22 22:36:07 -0700
+Processing by PeopleController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered people/show.html.erb within layouts/application (0.5ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 44ms (Views: 43.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/people/1" for ::1 at 2015-06-22 22:36:20 -0700
+Processing by PeopleController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered people/show.html.erb within layouts/application (1.0ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/people.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-22 22:36:20 -0700
+
+
+Started GET "/assets/task.self-f139a7e1d649f76826d61b8df3584a9c3d7172c7c13b82762138fd67eb1eb474.css?body=1" for ::1 at 2015-06-22 22:36:20 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-22 22:36:20 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-22 22:36:20 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-22 22:36:20 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-22 22:36:20 -0700
+
+
+Started GET "/assets/people.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:36:20 -0700
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:36:20 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-22 22:36:20 -0700
+
+
+Started GET "/people" for ::1 at 2015-06-22 22:36:23 -0700
+Processing by PeopleController#index as HTML
+  [1m[35mPerson Load (0.2ms)[0m  SELECT "people".* FROM "people"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 4]]
+  Rendered people/index.html.erb within layouts/application (6.6ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:36:27 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (10.2ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 49ms (Views: 47.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:36:35 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (9.7ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 52ms (Views: 50.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/task.self-f139a7e1d649f76826d61b8df3584a9c3d7172c7c13b82762138fd67eb1eb474.css?body=1" for ::1 at 2015-06-22 22:36:35 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-22 22:36:35 -0700
+
+
+Started GET "/assets/people.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-22 22:36:35 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-22 22:36:35 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-22 22:36:35 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-22 22:36:35 -0700
+
+
+Started GET "/assets/people.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:36:35 -0700
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:36:35 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-22 22:36:35 -0700
+
+
+Started GET "/" for ::1 at 2015-06-22 22:37:22 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (10.0ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 50ms (Views: 48.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/people.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-22 22:37:22 -0700
+
+
+Started GET "/assets/task.self-f139a7e1d649f76826d61b8df3584a9c3d7172c7c13b82762138fd67eb1eb474.css?body=1" for ::1 at 2015-06-22 22:37:22 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-22 22:37:22 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-22 22:37:22 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-22 22:37:22 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-22 22:37:22 -0700
+
+
+Started GET "/assets/people.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:37:22 -0700
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:37:22 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-22 22:37:22 -0700
+
+
+Started GET "/" for ::1 at 2015-06-22 22:41:19 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (18.3ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 53ms (Views: 49.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/people.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-22 22:41:19 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-22 22:41:19 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-22 22:41:19 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-22 22:41:19 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-22 22:41:19 -0700
+
+
+Started GET "/assets/task.self-f139a7e1d649f76826d61b8df3584a9c3d7172c7c13b82762138fd67eb1eb474.css?body=1" for ::1 at 2015-06-22 22:41:19 -0700
+
+
+Started GET "/assets/people.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:41:19 -0700
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:41:19 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-22 22:41:19 -0700
+
+
+Started POST "/tasks/1/completed" for ::1 at 2015-06-22 22:41:24 -0700
+
+ActionController::RoutingError (No route matches [POST] "/tasks/1/completed"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.0ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (92.6ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (54.7ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (126.8ms)
+
+
+Started POST "/tasks/1/completed" for ::1 at 2015-06-22 22:41:45 -0700
+
+ActionController::RoutingError (No route matches [POST] "/tasks/1/completed"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (80.1ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (42.4ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/arhx/.rvm/gems/ruby-2.2.2@task-list-rails/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (103.9ms)
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mTask Load (0.5ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 4]]
+
+
+Started GET "/" for ::1 at 2015-06-22 22:49:23 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (17.4ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 57ms (Views: 53.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/people.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-22 22:49:23 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-22 22:49:23 -0700
+
+
+Started GET "/assets/task.self-f139a7e1d649f76826d61b8df3584a9c3d7172c7c13b82762138fd67eb1eb474.css?body=1" for ::1 at 2015-06-22 22:49:23 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-22 22:49:23 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-22 22:49:23 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-22 22:49:23 -0700
+
+
+Started GET "/assets/people.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:49:23 -0700
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:49:23 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-22 22:49:23 -0700
+
+
+Started PATCH "/tasks/1/check" for ::1 at 2015-06-22 22:49:31 -0700
+Processing by TasksController#toggle_completion as HTML
+  Parameters: {"authenticity_token"=>"bvuQ37yMs3aSyps2CZamjZYxr5DYbR6U9Kn0o5X22cIMW3X3a3QEx95XqSUYMOi7bt00JhD/Qysx1CNVcnS0lw==", "id"=>"1"}
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "date_completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["date_completed", nil], ["updated_at", "2015-06-23 05:49:31.544342"], ["id", 1]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:49:31 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (15.5ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 55ms (Views: 52.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:49:59 -0700
+Processing by TasksController#index as HTML
+  Rendered tasks/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+SyntaxError - syntax error, unexpected tSTRING_DEND, expecting ')'
+...sk.id}/check", method: :patch } );@output_buffer.safe_append...
+...                               ^
+/Users/arhx/projects/Ada/project-forks/C3Projects--TaskListRails/app/views/tasks/index.html.erb:17: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;     end 
+                 ^
+/Users/arhx/projects/Ada/project-forks/C3Projects--TaskListRails/app/views/tasks/index.html.erb:25: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/arhx/projects/Ada/project-forks/C3Projects--TaskListRails/app/views/tasks/index.html.erb:27: syntax error, unexpected keyword_end, expecting ')':
+  app/views/tasks/index.html.erb:14:in `'
+  actionview (4.2.2) lib/action_view/template.rb:296:in `compile'
+  actionview (4.2.2) lib/action_view/template.rb:245:in `block (2 levels) in compile!'
+  activesupport (4.2.2) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:244:in `block in compile!'
+  actionview (4.2.2) lib/action_view/template.rb:232:in `compile!'
+  actionview (4.2.2) lib/action_view/template.rb:144:in `block in render'
+  activesupport (4.2.2) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.2) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.2) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.2) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.2) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.2) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.2) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.2) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.2) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.2) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.2) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.2) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.2) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.2) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.2) lib/rack/etag.rb:24:in `call'
+  rack (1.6.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.2) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.2) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/018a844cff83d880/variables" for ::1 at 2015-06-22 22:49:59 -0700
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+
+
+Started GET "/" for ::1 at 2015-06-22 22:50:15 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (11.7ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 50ms (Views: 48.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/people.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-22 22:50:15 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-22 22:50:15 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-22 22:50:15 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-22 22:50:15 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-22 22:50:15 -0700
+
+
+Started GET "/assets/task.self-f139a7e1d649f76826d61b8df3584a9c3d7172c7c13b82762138fd67eb1eb474.css?body=1" for ::1 at 2015-06-22 22:50:15 -0700
+
+
+Started GET "/assets/people.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:50:15 -0700
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:50:15 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-22 22:50:15 -0700
+
+
+Started PATCH "/tasks/1/check" for ::1 at 2015-06-22 22:50:17 -0700
+Processing by TasksController#toggle_completion as HTML
+  Parameters: {"authenticity_token"=>"Do0AiVsri1aNF+SDwFZvT0xwT+vQMbhCsgl9J+uFERlsLeWhjNM858GK1pDR8CF5tJzUXRij5f13dKrRDAd8TA==", "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "tasks" SET "date_completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["date_completed", "2015-06-23 05:50:17.323500"], ["updated_at", "2015-06-23 05:50:17.323991"], ["id", 1]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:50:17 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (7.9ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tasks/1" for ::1 at 2015-06-22 22:50:19 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/_task_table.html.erb (4.3ms)
+  Rendered tasks/show.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms)
+
+NoMethodError - undefined method `completed?' for #<Task:0x007fe1be5b1df8>:
+  activemodel (4.2.2) lib/active_model/attribute_methods.rb:433:in `method_missing'
+  app/views/tasks/_task_table.html.erb:17:in `_app_views_tasks__task_table_html_erb__1616555680376236105_70303728898160'
+  actionview (4.2.2) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.2) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.2) lib/action_view/renderer/partial_renderer.rb:339:in `render_partial'
+  actionview (4.2.2) lib/action_view/renderer/partial_renderer.rb:310:in `block in render'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/partial_renderer.rb:309:in `render'
+  actionview (4.2.2) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionview (4.2.2) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+  app/views/tasks/show.html.erb:1:in `_app_views_tasks_show_html_erb__1046687965812206789_70303785021260'
+  actionview (4.2.2) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.2) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.2) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.2) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.2) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.2) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.2) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.2) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.2) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.2) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.2) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.2) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.2) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.2) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.2) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.2) lib/rack/etag.rb:24:in `call'
+  rack (1.6.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.2) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.2) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started GET "/tasks/1" for ::1 at 2015-06-22 22:50:19 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.3ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/_task_table.html.erb (4.9ms)
+  Rendered tasks/show.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms)
+
+NoMethodError - undefined method `completed?' for #<Task:0x007fe1be3123b8>:
+  activemodel (4.2.2) lib/active_model/attribute_methods.rb:433:in `method_missing'
+  app/views/tasks/_task_table.html.erb:17:in `_app_views_tasks__task_table_html_erb__1616555680376236105_70303767564680'
+  actionview (4.2.2) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.2) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.2) lib/action_view/renderer/partial_renderer.rb:339:in `render_partial'
+  actionview (4.2.2) lib/action_view/renderer/partial_renderer.rb:310:in `block in render'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/partial_renderer.rb:309:in `render'
+  actionview (4.2.2) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionview (4.2.2) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+  app/views/tasks/show.html.erb:1:in `_app_views_tasks_show_html_erb__1046687965812206789_70303767611880'
+  actionview (4.2.2) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.2) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.2) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.2) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.2) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.2) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.2) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.2) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.2) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.2) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:776:in `_run_process_action_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.2) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.2) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.2) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.2) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.2) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.2) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.2) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.2) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.2) lib/action_dispatch/routing/route_set.rb:819:in `call'
+  rack (1.6.2) lib/rack/etag.rb:24:in `call'
+  rack (1.6.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.2) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:649:in `call'
+  activerecord (4.2.2) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.2) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.2) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.2) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.2) lib/rack/lock.rb:17:in `call'
+  rack (1.6.2) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.2) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/arhx/.rvm/rubies/ruby-2.2.2/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/43fe5724007ded1b/variables" for ::1 at 2015-06-22 22:50:19 -0700
+
+
+Started GET "/tasks/1" for ::1 at 2015-06-22 22:50:35 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/_task_table.html.erb (1.4ms)
+  Rendered tasks/show.html.erb within layouts/application (2.8ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 53ms (Views: 51.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/people.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-06-22 22:50:35 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-06-22 22:50:35 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-06-22 22:50:35 -0700
+
+
+Started GET "/assets/task.self-f139a7e1d649f76826d61b8df3584a9c3d7172c7c13b82762138fd67eb1eb474.css?body=1" for ::1 at 2015-06-22 22:50:35 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-06-22 22:50:35 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-06-22 22:50:35 -0700
+
+
+Started GET "/assets/people.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:50:35 -0700
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-06-22 22:50:35 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-06-22 22:50:35 -0700
+
+
+Started GET "/" for ::1 at 2015-06-22 22:50:45 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (7.8ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tasks/1" for ::1 at 2015-06-22 22:50:47 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/_task_table.html.erb (1.4ms)
+  Rendered tasks/show.html.erb within layouts/application (3.1ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tasks/1/edit" for ::1 at 2015-06-22 22:50:48 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people"
+  Rendered tasks/_form.html.erb (2.9ms)
+  Rendered tasks/edit.html.erb within layouts/application (4.7ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 44ms (Views: 42.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/1" for ::1 at 2015-06-22 22:50:54 -0700
+Processing by TasksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+v9bneQ6gpJ6s4ZNqx/1l2RYsMqK7sjzk2R1UiC4pj+YX761M8I1IzYutF66ubuhnLQrfEJ8lUxWGaKkxzrLag==", "task"=>{"name"=>"The First Task", "description"=>"do something cool", "person_id"=>"1", "date_completed"=>""}, "commit"=>"update", "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: utf8, _method, authenticity_token, commit, id
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "tasks" SET "person_id" = ?, "date_completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["person_id", 1], ["date_completed", nil], ["updated_at", "2015-06-23 05:50:54.950777"], ["id", 1]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:50:54 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (7.6ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/people/1" for ::1 at 2015-06-22 22:50:57 -0700
+Processing by PeopleController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered people/show.html.erb within layouts/application (0.6ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 48ms (Views: 45.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:52:09 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (17.1ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 52ms (Views: 47.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks/1" for ::1 at 2015-06-22 22:52:11 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.2ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered tasks/_task_table.html.erb (1.5ms)
+  Rendered tasks/show.html.erb within layouts/application (3.2ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 48ms (Views: 45.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks/1/edit" for ::1 at 2015-06-22 22:52:12 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  Rendered tasks/_form.html.erb (3.7ms)
+  Rendered tasks/edit.html.erb within layouts/application (5.4ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 44.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/1" for ::1 at 2015-06-22 22:52:16 -0700
+Processing by TasksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xr31nqYeB+TL1IQe4KpbiG4I/bnrc4IADuWhSyDj1SekHRC2ceawVYdJtg3xDBW+luRmDyPh37/LmHa9x2G4cg==", "task"=>{"name"=>"The First Task", "description"=>"do something cool", "person_id"=>"2", "date_completed"=>""}, "commit"=>"update", "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+Unpermitted parameters: utf8, _method, authenticity_token, commit, id
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "person_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 2], ["updated_at", "2015-06-23 05:52:16.031001"], ["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:52:16 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (9.4ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 44.5ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/tasks/1/check" for ::1 at 2015-06-22 22:52:19 -0700
+Processing by TasksController#toggle_completion as HTML
+  Parameters: {"authenticity_token"=>"NoaNb4rCI+VC8grJQcoMOq6T+sBKbvdJu1SbjLHVHyJUJmhHXTqUVA5vONpQbEIMVn9hdoL8qvZ+KUx6Vldydw==", "id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "tasks" SET "date_completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["date_completed", "2015-06-23 05:52:19.065209"], ["updated_at", "2015-06-23 05:52:19.065757"], ["id", 1]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:52:19 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (7.1ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 53ms (Views: 51.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tasks/1/delete" for ::1 at 2015-06-22 22:52:21 -0700
+Processing by TasksController#confirm_delete as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/_task_table.html.erb (0.8ms)
+  Rendered tasks/confirm_delete.html.erb within layouts/application (3.4ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/tasks/1" for ::1 at 2015-06-22 22:52:24 -0700
+Processing by TasksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9eM9NprkrF6ikcoDiMtgYZVUJEG+ZYyHwwYPgz65pYGXQ9geTRwb7+4M+BCZbS5Xbbi/93b30TgGe9h12TvI1A==", "id"=>"1"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "tasks" WHERE "tasks"."id" = ?  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:52:24 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.2ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (10.2ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 52ms (Views: 50.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/people" for ::1 at 2015-06-22 22:52:27 -0700
+Processing by PeopleController#index as HTML
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 4]]
+  Rendered people/index.html.erb within layouts/application (6.6ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:52:29 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (6.2ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/tasks/5/check" for ::1 at 2015-06-22 22:52:33 -0700
+Processing by TasksController#toggle_completion as HTML
+  Parameters: {"authenticity_token"=>"57sCobeHQVCmuXY/rjPeepFet4zkjVFyBJoA6bb/jmmFG+eJYH/24eokRCy/lZBMabIsOiwfDM3B59cfUX3jPA==", "id"=>"5"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "tasks" SET "date_completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["date_completed", nil], ["updated_at", "2015-06-23 05:52:33.319836"], ["id", 5]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:52:33 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (7.1ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 53ms (Views: 51.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/people" for ::1 at 2015-06-22 22:52:34 -0700
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 4]]
+  Rendered people/index.html.erb within layouts/application (4.1ms)
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:52:36 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/index.html.erb within layouts/application (6.8ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tasks/10" for ::1 at 2015-06-22 22:52:44 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered tasks/_task_table.html.erb (0.9ms)
+  Rendered tasks/show.html.erb within layouts/application (2.7ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tasks/10/edit" for ::1 at 2015-06-22 22:52:45 -0700
+Processing by TasksController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  Rendered tasks/_form.html.erb (2.2ms)
+  Rendered tasks/edit.html.erb within layouts/application (4.0ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 40.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/tasks/10" for ::1 at 2015-06-22 22:52:47 -0700
+Processing by TasksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/c/5SYaQd4obaG/xQFS3InqjYCX9MQrAKb4vOM72aqSfbxxhUWjAO1f1XeJR8vkUgk/7kzWjV3/sw/jOKXQH8Q==", "task"=>{"name"=>"Nap.", "description"=>"super hard", "person_id"=>"3", "date_completed"=>"1997-10-27"}, "commit"=>"update", "id"=>"10"}
+  [1m[35mTask Load (0.1ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1  [["id", 10]]
+Unpermitted parameters: utf8, _method, authenticity_token, commit, id
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "person_id" = ?, "date_completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?  [["person_id", 3], ["date_completed", "1997-10-27 00:00:00.000000"], ["updated_at", "2015-06-23 05:52:47.927578"], ["id", 10]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:52:47 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered tasks/index.html.erb within layouts/application (6.7ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 52ms (Views: 50.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people" for ::1 at 2015-06-22 22:52:49 -0700
+Processing by PeopleController#index as HTML
+  [1m[35mPerson Load (0.3ms)[0m  SELECT "people".* FROM "people"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 4]]
+  Rendered people/index.html.erb within layouts/application (6.2ms)
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:52:52 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered tasks/index.html.erb within layouts/application (9.1ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 44.6ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/tasks/10/check" for ::1 at 2015-06-22 22:52:56 -0700
+Processing by TasksController#toggle_completion as HTML
+  Parameters: {"authenticity_token"=>"Bf3CbNzj+cVTITGgmMyQONT24gzdXxhJ9bWYkOeV3OlnXSdECxtOdB+8A7OJat4OLBp5uhXNRfYwyE9mABexvA==", "id"=>"10"}
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "tasks" SET "date_completed" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["date_completed", nil], ["updated_at", "2015-06-23 05:52:56.457418"], ["id", 10]]
+  [1m[35m (1.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:52:56 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered tasks/index.html.erb within layouts/application (7.4ms)
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/people" for ::1 at 2015-06-22 22:52:57 -0700
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 4]]
+  Rendered people/index.html.erb within layouts/application (4.4ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 43.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people/3" for ::1 at 2015-06-22 22:52:59 -0700
+Processing by PeopleController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered people/show.html.erb within layouts/application (0.6ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 52ms (Views: 50.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/people/3/tasks" for ::1 at 2015-06-22 22:53:01 -0700
+Processing by PeopleController#show_tasks as HTML
+  Parameters: {"authenticity_token"=>"c+CA0iLyyvTnDV1eesPWNjEMuoV7lu5LylD5QpJpz+cRQGX69Qp9RauQb01rZZgAyeAhM7MEs/QPLS60deuisg==", "id"=>"3"}
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 3]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."person_id" = ? AND ("tasks"."date_completed" IS NOT NULL)[0m  [["person_id", 3]]
+  Rendered people/show_tasks.html.erb within layouts/application (4.5ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 40.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:53:11 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered tasks/index.html.erb within layouts/application (6.4ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 53ms (Views: 51.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tasks/new" for ::1 at 2015-06-22 22:53:36 -0700
+Processing by TasksController#new as HTML
+  [1m[35mPerson Load (0.1ms)[0m  SELECT "people".* FROM "people"
+  Rendered tasks/_form.html.erb (2.1ms)
+  Rendered tasks/new.html.erb within layouts/application (4.2ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/tasks" for ::1 at 2015-06-22 22:53:43 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pGRLOC5HI9sEZceE/enhDfSHOg7fKLDk7BHAMyhFpdjGxK4Q+b+Uakj49ZfsT687DGuhuBe67VspbBfFz8fIjQ==", "task"=>{"name"=>"go to bed", "description"=>"right now", "person_id"=>"4", "date_completed"=>""}, "commit"=>"add task"}
+Unpermitted parameters: utf8, authenticity_token, commit
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("name", "description", "person_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "go to bed"], ["description", "right now"], ["person_id", 4], ["created_at", "2015-06-23 05:53:43.793259"], ["updated_at", "2015-06-23 05:53:43.793259"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:53:43 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered tasks/index.html.erb within layouts/application (8.7ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/people" for ::1 at 2015-06-22 22:53:46 -0700
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 4]]
+  Rendered people/index.html.erb within layouts/application (4.3ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people/4" for ::1 at 2015-06-22 22:53:48 -0700
+Processing by PeopleController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered people/show.html.erb within layouts/application (0.7ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 39.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/people/4/tasks" for ::1 at 2015-06-22 22:53:50 -0700
+Processing by PeopleController#show_tasks as HTML
+  Parameters: {"authenticity_token"=>"kL6gktm+8dQDZraHHDAjAC3nzibG7e9UfYQo+CEjwcXyHkW6DkZGZU/7hJQNlm021QtVkA5/suu4+f8OxqGskA==", "id"=>"4"}
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL  [["person_id", 4]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."person_id" = ? AND ("tasks"."date_completed" IS NOT NULL)[0m  [["person_id", 4]]
+  Rendered people/show_tasks.html.erb within layouts/application (3.8ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 47ms (Views: 45.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:53:53 -0700
+Processing by TasksController#index as HTML
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered tasks/index.html.erb within layouts/application (8.1ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 56ms (Views: 54.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/people/4" for ::1 at 2015-06-22 22:53:55 -0700
+Processing by PeopleController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered people/show.html.erb within layouts/application (0.6ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/people/4/tasks" for ::1 at 2015-06-22 22:53:56 -0700
+Processing by PeopleController#show_tasks as HTML
+  Parameters: {"authenticity_token"=>"DalhOvsxMpUk1H8xM/bA8EIzHwN19XaVpUQQsuT53V9vCYQSLMmFJGhJTSIiUI7Gut+Etb1nKypgOcdEA3uwCg==", "id"=>"4"}
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."person_id" = ? AND "tasks"."date_completed" IS NULL[0m  [["person_id", 4]]
+  [1m[35mTask Load (0.1ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."person_id" = ? AND ("tasks"."date_completed" IS NOT NULL)  [["person_id", 4]]
+  Rendered people/show_tasks.html.erb within layouts/application (2.1ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 22:54:03 -0700
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPerson Load (0.1ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPerson Load (0.1ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered tasks/index.html.erb within layouts/application (7.1ms)
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.6ms)

@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th># of uncompleted tasks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_people.each do |person| %>
+    <tr>
+      <td class="link"><%= link_to person.name, "people/#{person.id}" %></td>
+      <td><%= person.tasks.where(date_completed: nil).count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

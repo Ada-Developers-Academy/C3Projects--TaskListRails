@@ -1,5 +1,7 @@
 class Task < ActiveRecord::Base
-  def completed?
-  	"\u2713" if date_completed
+  belongs_to :person
+
+  def checkbox
+    date_completed && date_completed < Time.now ? "\u2611" : "\u2610"
   end
 end

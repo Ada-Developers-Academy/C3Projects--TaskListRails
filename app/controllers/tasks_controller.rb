@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+
   def index
     @all_tasks     = Task.all
     
@@ -17,14 +18,53 @@ class TasksController < ApplicationController
 
   def new
     @task         = Task.new
+    @placeholder  = "optional"
+    @action       = "create"
+    @method       = "post"
+    @submit_text  = "add task"
+
     @title        = "Add a new task"
   end
 
   def create
-    @task = Task.new(create_params[:task])
-    @task.save
+    Task.create(create_params[:task])
 
     redirect_to '/'
+  end
+
+  def update_completion
+    Task.find(params[:id]).update(date_completed: Time.now)
+
+    redirect_to '/'
+  end
+
+  def toggle_completion
+    task = Task.find(params[:id])
+    if task.date_completed == nil
+      task.update(date_completed: Time.now)
+    else
+      task.update(date_completed: nil)
+    end
+
+    redirect_to '/'
+  end
+
+  def update
+    Task.find(params[:id]).update(create_params[:task])
+
+    redirect_to '/'
+  end
+
+  def edit
+    @task           = Task.find(params[:id])
+    @date           = @task.date_completed ? @task.date_completed.strftime("%m-%d-%Y") : nil
+    @action         = "update"
+    @method         = "patch"
+    @placeholder    = nil
+    @submit_text    = "update"
+    @nothing_to_cancel = true
+
+    @title         = "Edit this task:"
   end
 
   def confirm_delete
@@ -45,6 +85,6 @@ class TasksController < ApplicationController
   private
 
   def create_params
-    params.permit(task: [:name, :description, :date_completed])
+    params.permit(task: [:name, :description, :person_id, :date_completed])
   end
 end
