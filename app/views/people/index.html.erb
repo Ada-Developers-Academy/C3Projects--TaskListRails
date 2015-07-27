@@ -1,0 +1,11 @@
+<ul>
+  <% @all_people.each do |person| %>
+    <li>
+      <%= link_to "#{person[:name]}", "/people/#{person[:id]}" %>
+      --
+      <%= link_to "#{person.tasks.count} Games", "/people/#{person[:id]}/tasks" %>
+      Recommended
+      <!-- -- <%= Task.where(person[:id]).where(completed_at: nil).count %> Incomplete -->
+    </li>
+  <% end %>
+</ul>

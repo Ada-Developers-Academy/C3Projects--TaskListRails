@@ -1,32 +1,31 @@
-<div class="task_list">
-  <h1> Task Details </h1>
+<div>
 
+  <%= render partial: "layouts/details", locals: {
+    title: "Game",
+    all_details: {
+      "Title" => @task_name,
+      "Description" => @task_description,
+      "Status" =>  @task_status,
+      "Completion Date" => @task_completion_date,
+      "Created at" => @task_created_at,
+      "Updated at" => @task_updated_at,
+    },
+  } %>
   <ul>
     <li>
-      ID: <%= @task[:id] %>
+      Recommended by <%= link_to "#{@task_recommended_by}", "/people/#{@task_recommended_id}" %>.
     </li>
-    <li>
-      Name: <%= @task[:name] %>
-    </li>
-    <li>
-      Description: <%= @task[:description] %>
-    </li>
-    <li>
-      Completion Status: <%= @status %>
-    </li>
-    <li>
-      Completion Date: <%= @task[:completed_at] %>
-    </li>
-    <!-- <li>
-      Created at: <%= @task[:created_at] %>
-    </li>
-    <li>
-      Updated at: <%= @task[:updated_at] %>
-    </li> -->
   </ul>
 
-  <div class="<%= @visibility %>">
-    <p> Are you sure you want to delete this task forever? </p>
-    <%= button_to "DELETE FOREVER", "/tasks/#{@task[:id]}", {method: :delete, :class => "confirm"} %>
+  <div class="<%= @button_visibility %>">
+    <%= button_to "EDIT", "/tasks/#{@task_id}/edit", method: "get" %>
+    <%= button_to "DELETE", "/tasks/#{@task_id}", method: "delete", data: {:confirm => "ARE YOUS SUREEEE?"} %>
   </div>
+
+  <div class="<%= @delete_visibility %>">
+    <p class="bold">Are you sure you want to delete this task forever?</p>
+    <%= button_to "DELETE FOREVER", "/tasks/#{@task_id}", {method: :delete, :class => "confirm"} %>
+    <%= button_to "NO, WHY WOULD I WANT TO DO THAT?", "/", {method: :get, :class => "confirm"} %>
+  </div>
+
 </div>

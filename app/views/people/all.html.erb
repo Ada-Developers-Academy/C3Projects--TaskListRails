@@ -1,0 +1,13 @@
+<div>
+
+  <h2>All Games Recommended by <%= @person_name %></h2>
+
+  <ul>
+    <% @all_tasks.each do |task| %>
+    <li>
+      <%= link_to "#{task.name}", "/tasks/#{task.id}" %>
+    </li>
+    <% end %>
+  </ul>
+
+</div>

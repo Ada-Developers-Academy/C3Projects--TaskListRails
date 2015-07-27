@@ -13,3 +13,153 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  width: 960px;
+  margin: auto;
+  background-image: url("/assets/images/super_mario_bros_1_1_wallpaper_hd_flat_by_wougie89-d6toae7.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+}
+
+.middle {
+  width: 960px;
+  padding: 10px 30px;
+  background-color: rgba(255, 255, 255, 0.85);
+  margin: 0px auto;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2.25em;
+}
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  font-size: 1.75em;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
+li {
+  padding-bottom: 20px;
+}
+
+p {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
+form {
+  padding-left: 10px;
+  display: inline-block;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.invisible {
+  visibility: hidden;
+  display: none;
+}
+
+.visible {
+  visibility: visible;
+}
+
+a:link.completed {
+  color: transparent;
+  text-decoration: none;
+}
+
+a:hover.completed {
+  color: #33CC33;
+  text-decoration: none;
+}
+
+a:link.not_completed {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:visited.not_completed {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover.not_completed {
+  color: #FF0000;
+  text-decoration: none;
+}
+
+a:link.delete {
+  color: #5C5C5C;
+  text-decoration: none;
+}
+
+a:visited.delete {
+  color: #5C5C5C;
+  text-decoration: none;
+}
+
+a:hover.delete {
+  color: #FF0000;
+  text-decoration: none;
+}
+
+input[type="submit"] {
+  background: #ffa83d;
+  background: #ffa83d;
+  background-image: -webkit-linear-gradient(top, #ffa83d, #ff0000);
+  background-image: -moz-linear-gradient(top, #ffa83d, #ff0000);
+  background-image: -ms-linear-gradient(top, #ffa83d, #ff0000);
+  background-image: -o-linear-gradient(top, #ffa83d, #ff0000);
+  background-image: linear-gradient(to bottom, #ffa83d, #ff0000);
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  text-shadow: 1px 1px 3px #000000;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 7px 15px;
+  border: solid #593030 2px;
+}
+
+input[type="submit"]:hover {
+  background: #ff0000;
+  background-image: -webkit-linear-gradient(top, #ff0000, #ffa83d);
+  background-image: -moz-linear-gradient(top, #ff0000, #ffa83d);
+  background-image: -ms-linear-gradient(top, #ff0000, #ffa83d);
+  background-image: -o-linear-gradient(top, #ff0000, #ffa83d);
+  background-image: linear-gradient(to bottom, #ff0000, #ffa83d);
+  text-shadow: none;
+  -webkit-box-shadow: inset 0px 5px 5px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0px 5px 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+.form {
+  margin: 15px;
+}
+
+.bold {
+  font-weight: bold;
+}

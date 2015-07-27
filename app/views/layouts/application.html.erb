@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>C3ProjectsTasklistrails</title>
+  <title>Game-to-Play List</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Orbitron:500,700,400' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'> -->
 </head>
 <body>
+  <div class="middle">
+    <%= render "/layouts/header" %>
+  </div>
 
-<%= yield %>
+  <div class="middle">
+    <%= yield %>
+  </div>
 
+  <div class="middle">
+    <%= render "/layouts/footer" %>
+  </div>
 </body>
 </html>

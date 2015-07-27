@@ -1,5 +1,5 @@
 <div class="task_list">
-  <h1> Delete All Completed Tasks </h1>
+  <h2> Delete All Completed Tasks? </h2>
   <ul>
     <% @all_completed_tasks.each do |task| %>
     <li>
@@ -7,5 +7,5 @@
     </li>
     <% end %>
   </ul>
-  <%= button_to "DELETE ALL FOREVER", "/tasks/delete_all", {method: :delete, :class => "confirm"} %>
+  <%= button_to "DELETE ALL FOREVER", "/tasks/delete/delete_all", {method: :delete, :class => "confirm"} %>
 </div>

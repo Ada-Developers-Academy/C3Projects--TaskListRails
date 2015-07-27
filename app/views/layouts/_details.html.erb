@@ -1,0 +1,9 @@
+<h2><%= title %> Details</h2>
+
+<ul>
+  <% all_details.each do |detail, value| %>
+    <li>
+      <%= "#{detail}: #{value}" %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,13 @@
+<div>
+
+  <%= render partial: "layouts/details", locals: {
+    title: "Person",
+    all_details: {
+      "Name" => @person_name,
+      "Favorite Genre" => @person_fav_genre
+    }
+  } %>
+
+    <%= button_to "All Games Recommended by #{@person_name}", "/people/#{@person_id}/tasks", method: "get" %>
+
+</div>
