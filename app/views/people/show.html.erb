@@ -1,0 +1,13 @@
+
+<h2><%= link_to "#{@person.name}", "/people/#{@person.id}/task" %></h2>
+<table>
+  <tr>
+    <th>Task Name </th>
+    <th>Completed</th>
+  </tr>
+    <% @tasks.each do |task| %>
+  <tr>
+      <td><%= link_to "#{task.name}", "/task/#{task.id}" %></td>
+      <td><%= task.completed ? "Yes" : "No" %></td>
+  </tr>
+    <% end %>

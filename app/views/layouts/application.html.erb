@@ -8,6 +8,11 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Indie+Flower" />
 </head>
 <body>
+  <header>
+    <%= link_to "Create a new task", '/new'%>
+    <%= link_to "Home", '/'%>
+    <%= link_to "Go to the people page", "/person" %>
+  </header>
 
 <%= yield %>
 

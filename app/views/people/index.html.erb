@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Tasks completed</th>
+  </tr>
+ 
+  <% @people_hash.each do |name, count| %>
+  <tr> 
+    <td><%= name %></td>
+    <td><%= count %></td>
+  </tr>
+  <% end %>
+</table>
+

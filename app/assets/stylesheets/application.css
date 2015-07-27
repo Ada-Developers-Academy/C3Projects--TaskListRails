@@ -23,6 +23,15 @@
   text-align: center;
  }
 
+a {
+  padding: 20px;
+  text-decoration: none;
+ }
+
+a:hover {
+  font-style: italic; 
+ }
+
 table {
   padding: 20px;
   margin: 2% auto 2% auto;
@@ -31,6 +40,10 @@ table {
 table th {
   font-weight: bold;
   font-size: 35px;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .completed {
