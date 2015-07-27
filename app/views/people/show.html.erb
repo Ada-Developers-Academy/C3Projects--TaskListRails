@@ -1,0 +1,22 @@
+<h1><%= @person.name %> Details</h1>
+
+<table>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th class="center">
+      Show Tasks
+    </th>
+  </tr>
+  <tbody>
+    <tr>
+      <td>
+        <%= @person.name %>
+      </td>
+      <td class="center">
+        <%= link_to "Tasks", "/people/#{@person.id}/tasks" %>
+      </td>
+    </tr>
+  </tbody>
+</table>

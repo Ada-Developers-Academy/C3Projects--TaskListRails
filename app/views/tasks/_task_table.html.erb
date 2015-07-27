@@ -1,0 +1,60 @@
+<table>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+      Owner
+    </th>
+    <th>
+      Status
+    </th>
+    <% if @task.completed_date.present? %>
+      <th>Completion Date</th>
+    <% end %>
+    <% if current_page?(action: 'show') %>
+      <th class="center">
+        Edit
+      </th>
+    <% elsif current_page?(action: 'confirm_remove') %>
+      <th class="center">
+        Confirm Delete
+      </th>
+    <% end %>
+  </tr>
+  <tbody>
+    <tr>
+      <td class="<%= @task_css %>">
+        <%= @task.name %>
+      </td>
+      <td class="<%= @task_css %>">
+        <%= @task.description %>
+      </td>
+      <td class="<%= @task_css %>">
+        <% if @task.person_id.present? %>
+          <%= Person.find(@task.person_id).name%>
+        <% else %>
+          <%= "" %>
+        <% end %>
+      </td>
+      <% if @task.completed_date.present? %>
+        <td class="<%= @task_css %>">Completed</td>
+        <td class="<%= @task_css %>"><%= @task.completed_date %></td>
+      <% else %>
+        <td class="<%= @task_css %>">Incomplete</td>
+      <% end %>
+      <% if current_page?(action: 'show') %>
+      <td class="center">
+        <%= link_to "Edit", "/tasks/#{@task.id}/edit" %>
+      </td>
+      <% elsif current_page?(action: 'confirm_remove') %>
+      <td>
+        <%= button_to "Confirm Delete", { action: "delete", id: @task.id }, method: :delete %>
+      </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,43 @@
+<h1><%= @person.name %>'s Tasks</h1>
+
+<table>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+      Status
+    </th>
+    <th>
+      Completion Date
+    </th>
+  </tr>
+  <tbody>
+    <% @all_tasks.each do |task| %>
+      <% if task.completed_date.present? %>
+        <% @task_css = "completed" %>
+      <% else %>
+        <% @task_css = "incomplete" %>
+      <% end %>
+    <tr>
+      <td class="<%= @task_css %>">
+        <%= task.name %>
+      </td>
+      <td class="<%= @task_css %>">
+        <%= task.description %>
+      </td>
+      <td class="<%= @task_css %>">
+        <%= task.completed_date ? "Completed" : "Incomplete" %>
+      </td>
+      <td class="<%= @task_css %>">
+        <% if task.completed_date.present? %>
+          <%= task.completed_date %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -19,7 +19,7 @@ body {
   font-family: 'Arial', sans-serif;
   font-size: 16px;
   width: 66%;
-  min-width: 300px;
+  min-width: 600px;
   margin: auto;
 
 }
@@ -54,6 +54,10 @@ th {
   text-align: center;
 }
 
+.completed {
+  color: #888;
+}
+
 .button_block {
   padding-top: 30px;
   text-align: center;
@@ -68,7 +72,9 @@ label {
 
 }
 
-input, textarea {
+input,
+textarea, 
+select {
   display: block;
   margin: 0 auto;
   margin-bottom: 20px;
